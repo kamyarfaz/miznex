@@ -5,7 +5,11 @@ export const categorySchema = z.object({
     .string()
     .min(1, "عنوان ضروری است")
     .max(100, "عنوان نباید بیش از 100 کاراکتر باشد"),
-  image: z.instanceof(File).optional(),
+  image:
+    typeof File !== "undefined"
+      ? z.instanceof(File).optional()
+      : z.any().optional(),
+
   show: z.boolean().optional(),
 });
 
