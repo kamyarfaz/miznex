@@ -1,9 +1,15 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "types": ["@serwist/next/typings"],
-    "lib": ["dom", "dom.iterable", "esnext", "webworker"],
-    "allowJs": true,
+    "target": "ESNext",
+    "types": [
+      "@serwist/next/typings"
+    ],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext",
+      "webworker"
+    ],
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
@@ -19,19 +25,22 @@
         "name": "next"
       }
     ],
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@/validation/*": ["src/validation/*"]
-    }
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "ignoreDeprecations": "6.0",
+    "allowJs": true
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    
     "**/*.tsx",
-    ".next/types/**/*.ts",
-    "src/utils/formatters.tsx"
+    ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }
