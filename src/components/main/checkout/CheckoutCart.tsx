@@ -12,8 +12,79 @@ import {
   SelectedAddressDisplay,
 } from "./index";
 import { MotionAnimatePresence } from "@/utils/MotionWrapper";
+export const cart = {
+  totalAmount: 320,
+  totalDiscount: 45,
+  paymentAmount: 275,
+  generalDiscount: {
+    code: "SUMMER25",
+    description: "25% off summer sale",
+  },
+  statusCode: 200,
+  cartItems: [
+    {
+      itemId: "item-001",
+      title: "Wireless Headphones",
+      description: "Noise-cancelling over-ear Bluetooth headphones with mic",
+      count: 1,
+      images: [
+        "https://example.com/images/headphones1.jpg",
+        "https://example.com/images/headphones2.jpg",
+      ],
+      price: "150",
+      discount: "20",
+      finalPrice: 130,
+      category: {
+        title: "Electronics",
+      },
+      quantity: 1,
+      isFav: true,
+      isAvailable: true,
+    },
+    {
+      itemId: "item-002",
+      title: "Smart Fitness Watch",
+      description:
+        "Tracks heart rate, steps, calories, and supports notifications",
+      count: 1,
+      images: [
+        "https://example.com/images/watch1.jpg",
+        "https://example.com/images/watch2.jpg",
+      ],
+      price: "120",
+      discount: "15",
+      finalPrice: 105,
+      category: {
+        title: "Wearables",
+      },
+      quantity: 1,
+      isFav: false,
+      isAvailable: true,
+    },
+    {
+      itemId: "item-003",
+      title: "Ergonomic Office Chair",
+      description:
+        "Adjustable lumbar support, breathable mesh, and 360° swivel base",
+      count: 1,
+      images: [
+        "https://example.com/images/chair1.jpg",
+        "https://example.com/images/chair2.jpg",
+      ],
+      price: "200",
+      discount: "10",
+      finalPrice: 180,
+      category: {
+        title: "Furniture",
+      },
+      quantity: 1,
+      isFav: false,
+      isAvailable: false,
+    },
+  ],
+};
 
-export default function CheckoutCart({ cart }: CheckoutCartProps) {
+export default function CheckoutCart({ cart: mock }: CheckoutCartProps) {
   const {
     register,
     handleSubmit,
