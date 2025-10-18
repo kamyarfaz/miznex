@@ -25,10 +25,34 @@ import { Address, City, Province } from "@/types/Profile";
 import { AddressFormData } from "@/schemas/profile";
 import { AddressSkeleton } from "@/components/skeleton";
 
+const addressesData = [
+  {
+    id: "addr-001",
+    province: "California",
+    city: "Los Angeles",
+    address: "1234 Sunset Blvd, Apt 56",
+    created_at: "2025-10-10T15:30:00Z",
+  },
+  {
+    id: "addr-002",
+    province: "New York",
+    city: "Brooklyn",
+    address: "78 Greenpoint Ave, Unit 3B",
+    created_at: "2025-09-22T10:15:00Z",
+  },
+  {
+    id: "addr-003",
+    province: "Texas",
+    city: "Austin",
+    address: "8901 Ranch Road 2222, Suite 120",
+    created_at: "2025-08-05T08:45:00Z",
+  },
+];
+
 export default function AddressesPage() {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
-  const { data: addressesData, isLoading } = useGetAddresses();
+  const { data: addressesDataMocked, isLoading } = useGetAddresses();
 
   const {
     mutate: deleteAddress,
@@ -102,9 +126,9 @@ export default function AddressesPage() {
     setOpen(true);
   };
 
-  if (isLoading) {
-    return <AddressSkeleton />;
-  }
+  // if (isLoading) {
+  //   return <AddressSkeleton />;
+  // }
 
   return (
     <div className="space-y-6">
