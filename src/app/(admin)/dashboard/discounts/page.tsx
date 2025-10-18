@@ -22,6 +22,59 @@ const CreateDiscountModal = dynamic(() => import("./create-discount"), {
   ssr: false,
 });
 
+const discounts = [
+  {
+    id: "disc-001",
+    code: "SUMMER25",
+    percent: 25,
+    amount: null,
+    expires_in: "2025-12-31T23:59:59Z",
+    limit: 100,
+    usage: 45,
+    active: true,
+  },
+  {
+    id: "disc-002",
+    code: "WELCOME10",
+    percent: 10,
+    amount: null,
+    expires_in: "2026-01-15T23:59:59Z",
+    limit: 500,
+    usage: 320,
+    active: true,
+  },
+  {
+    id: "disc-003",
+    code: "FIXED5USD",
+    percent: null,
+    amount: 5,
+    expires_in: "2025-11-30T23:59:59Z",
+    limit: 50,
+    usage: 47,
+    active: true,
+  },
+  {
+    id: "disc-004",
+    code: "BLACKFRIDAY50",
+    percent: 50,
+    amount: null,
+    expires_in: "2025-11-29T23:59:59Z",
+    limit: 1000,
+    usage: 999,
+    active: false,
+  },
+  {
+    id: "disc-005",
+    code: "LOYAL20",
+    percent: 20,
+    amount: null,
+    expires_in: "2026-03-01T23:59:59Z",
+    limit: 200,
+    usage: 0,
+    active: true,
+  },
+];
+
 export default function Discounts() {
   const [currentPage, setCurrentPage] = useState(1);
   const [currentLimit, setCurrentLimit] = useState(10);
@@ -29,7 +82,11 @@ export default function Discounts() {
   const [isActiveFilter, setIsActiveFilter] = useState<string>("");
   const [sortBy, setSortBy] = useState<string>("newest");
 
-  const { discounts, isLoading, total } = useGetDiscounts({
+  const {
+    discounts: mocked,
+    isLoading,
+    total,
+  } = useGetDiscounts({
     page: currentPage,
     limit: currentLimit,
     isActive: isActiveFilter === "" ? undefined : isActiveFilter === "true",
@@ -110,7 +167,7 @@ export default function Discounts() {
         isPendingStatusUpdate,
         updatingVars,
       })}
-      isLoading={isLoading}
+      isLoading={false}
       headerProps={headerProps}
       emptyStateMessage="هیچ کد تخفیفی یافت نشد"
       emptyStateDescription="برای افزودن کد تخفیف، روی دکمه افزودن کلیک کنید"

@@ -21,6 +21,89 @@ const AdminTicketChatModal = dynamic(
   { ssr: false }
 );
 
+const tickets = [
+  {
+    id: "ticket-001",
+    subject: "Payment not going through",
+    status: "open",
+    created_at: "2025-10-17T14:20:00Z",
+    user: {
+      id: "user-001",
+      username: "john_doe",
+      first_name: "John",
+      last_name: "Doe",
+      image: "/images/users/john.png",
+      role: "user",
+      imageUrl: "/images/users/john.png",
+    },
+    length: 4, // number of messages in the ticket thread
+  },
+  {
+    id: "ticket-002",
+    subject: "Issue with product delivery",
+    status: "answered",
+    created_at: "2025-10-15T09:45:00Z",
+    user: {
+      id: "user-002",
+      username: "emily_carter",
+      first_name: "Emily",
+      last_name: "Carter",
+      image: "/images/users/emily.png",
+      role: "user",
+      imageUrl: "/images/users/emily.png",
+    },
+    length: 6,
+  },
+  {
+    id: "ticket-003",
+    subject: "Need refund for incorrect order",
+    status: "closed",
+    created_at: "2025-10-10T11:00:00Z",
+    user: {
+      id: "user-003",
+      username: "mike_rogers",
+      first_name: "Mike",
+      last_name: "Rogers",
+      image: "/images/users/mike.png",
+      role: "user",
+      imageUrl: "/images/users/mike.png",
+    },
+    length: 5,
+  },
+  {
+    id: "ticket-004",
+    subject: "App crashes when adding to cart",
+    status: "open",
+    created_at: "2025-10-18T08:15:00Z",
+    user: {
+      id: "user-004",
+      username: "sarah_lee",
+      first_name: "Sarah",
+      last_name: "Lee",
+      image: "/images/users/sarah.png",
+      role: "user",
+      imageUrl: "/images/users/sarah.png",
+    },
+    length: 3,
+  },
+  {
+    id: "ticket-005",
+    subject: "Discount code not working",
+    status: "answered",
+    created_at: "2025-10-12T16:40:00Z",
+    user: {
+      id: "user-005",
+      username: "daniel_kim",
+      first_name: "Daniel",
+      last_name: "Kim",
+      image: "/images/users/daniel.png",
+      role: "user",
+      imageUrl: "/images/users/daniel.png",
+    },
+    length: 2,
+  },
+];
+
 export default function Tickets() {
   const [searchValue, setSearchValue] = useState("");
   const [filters, setFilters] = useState<TicketFilters>({ page: 1, limit: 10 });
@@ -38,7 +121,11 @@ export default function Tickets() {
     }));
   };
 
-  const { tickets, isLoading, total } = useGetTickets({
+  const {
+    tickets: mock,
+    isLoading,
+    total,
+  } = useGetTickets({
     ...filters,
   });
 
@@ -129,7 +216,7 @@ export default function Tickets() {
           // chat modal
           onOpenChat: handleOpenChat,
         })}
-        isLoading={isLoading}
+        isLoading={false}
         totalCount={total}
         headerProps={headerProps}
         emptyStateMessage="هیچ تیکتی یافت نشد"

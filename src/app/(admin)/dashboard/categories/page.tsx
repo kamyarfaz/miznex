@@ -7,12 +7,51 @@ import { Button } from "@/components/ui/button";
 import { columns } from "./columns";
 import { CategoryModal } from "./add-with-edit-modal";
 
+export const categories = [
+  {
+    id: "cat-001",
+    title: "Pizza",
+    image: "https://example.com/images/categories/pizza.jpg",
+    imageUrl: "https://example.com/images/categories/pizza.jpg",
+    show: true,
+  },
+  {
+    id: "cat-002",
+    title: "Burgers",
+    image: "https://example.com/images/categories/burger.jpg",
+    imageUrl: "https://example.com/images/categories/burger.jpg",
+    show: true,
+  },
+  {
+    id: "cat-003",
+    title: "Drinks",
+    image: "https://example.com/images/categories/drinks.jpg",
+    imageUrl: "https://example.com/images/categories/drinks.jpg",
+    show: true,
+  },
+  {
+    id: "cat-004",
+    title: "Desserts",
+    image: "https://example.com/images/categories/dessert.jpg",
+    imageUrl: "https://example.com/images/categories/dessert.jpg",
+    show: false,
+  },
+  {
+    id: "cat-005",
+    title: "Salads",
+    image: "https://example.com/images/categories/salad.jpg",
+    imageUrl: "https://example.com/images/categories/salad.jpg",
+    show: true,
+  },
+];
+
+
 export default function Categories() {
   const [currentPage, setCurrentPage] = useState(1);
   const [currentLimit, setCurrentLimit] = useState(10);
   const [searchValue, setSearchValue] = useState("");
 
-  const { categories, isLoading, total } = useGetCategoriesAdmin({
+  const { categories: mocked, isLoading, total } = useGetCategoriesAdmin({
     page: currentPage,
     limit: currentLimit,
   });
@@ -51,7 +90,7 @@ export default function Categories() {
         isDeleting,
         deletingVars,
       })}
-      isLoading={isLoading}
+      isLoading={false}
       headerProps={headerProps}
       emptyStateMessage="هیچ دسته‌بندی یافت نشد"
       emptyStateDescription="برای افزودن دسته‌بندی، روی دکمه افزودن کلیک کنید"

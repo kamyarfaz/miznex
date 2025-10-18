@@ -25,6 +25,90 @@ import { columns } from "./columns";
 import { StatisticsSkeleton } from "@/components/skeleton";
 import { StatisticsCard } from "../../components/common/StatisticsCard";
 
+const comments = [
+  {
+    id: "comment-001",
+    text: "The pizza was amazing! Crispy crust and fresh toppings.",
+    accept: true,
+    star: 5,
+    created_at: "2025-10-12T14:25:00Z",
+    user: {
+      id: "user-001",
+      username: "john_doe",
+      first_name: "John",
+      last_name: "Doe",
+      phone: "+1-202-555-0199",
+    },
+    parent: null,
+    item: {
+      id: "item-101",
+      title: "Margherita Pizza",
+    },
+    is_reply: false,
+  },
+  {
+    id: "comment-002",
+    text: "The burger was undercooked. Not satisfied with the quality.",
+    accept: false,
+    star: 2,
+    created_at: "2025-10-13T09:10:00Z",
+    user: {
+      id: "user-002",
+      username: "amy_92",
+      first_name: "Amy",
+      last_name: "Watson",
+      phone: "+1-202-555-0123",
+    },
+    parent: null,
+    item: {
+      id: "item-102",
+      title: "Beef Burger Deluxe",
+    },
+    is_reply: false,
+  },
+  {
+    id: "comment-003",
+    text: "Thanks for your feedback! We’ll make sure it’s fixed next time.",
+    accept: true,
+    star: 0,
+    created_at: "2025-10-13T10:05:00Z",
+    user: {
+      id: "admin-001",
+      username: "support_agent",
+      first_name: "Sarah",
+      last_name: "Lee",
+      phone: "+1-202-555-0456",
+    },
+    parent: "comment-002",
+    item: {
+      id: "item-102",
+      title: "Beef Burger Deluxe",
+    },
+    is_reply: true,
+  },
+  {
+    id: "comment-004",
+    text: "Loved the smoothie bowl! So fresh and tasty.",
+    accept: true,
+    star: 5,
+    created_at: "2025-10-10T08:45:00Z",
+    user: {
+      id: "user-003",
+      username: "fitlife",
+      first_name: "Lucas",
+      last_name: "Green",
+      phone: "+1-202-555-0177",
+    },
+    parent: null,
+    item: {
+      id: "item-103",
+      title: "Vegan Smoothie Bowl",
+    },
+    is_reply: false,
+  },
+];
+
+
 export default function Comments() {
   const [currentPage, setCurrentPage] = useState(1);
   const [currentLimit, setCurrentLimit] = useState(10);
@@ -33,7 +117,7 @@ export default function Comments() {
   const [sortBy, setSortBy] = useState<string>("newest");
 
   const { data, isLoading: isLoadingOverview } = useCommentOverview();
-  const { comments, isLoading, total } = useGetCommentsAdmin({
+  const { comments: mock, isLoading, total } = useGetCommentsAdmin({
     page: currentPage,
     limit: currentLimit,
     accept:
@@ -145,7 +229,7 @@ export default function Comments() {
           isRejectingComment,
           rejectingVars,
         })}
-        isLoading={isLoading}
+        isLoading={false}
         headerProps={headerProps}
         emptyStateMessage="هیچ کامنتی یافت نشد"
         emptyStateDescription="کامنت‌های جدید در اینجا نمایش داده خواهند شد"

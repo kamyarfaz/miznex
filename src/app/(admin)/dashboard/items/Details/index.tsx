@@ -334,12 +334,12 @@ export function ItemDetailsModal({
                 <Calendar className="w-4 h-4" />
                 تاریخ ثبت:
               </span>
-              <span className="text-gray-900 dark:text-white font-medium">
+              {/* <span className="text-gray-900 dark:text-white font-medium">
                 {formatJalaliDate(
                   new Date(created_at),
                   "jYYYY/jMM/jDD - HH:MM"
                 )}
-              </span>
+              </span> */}
             </div>
 
             <div className="flex items-center justify-between">

@@ -23,6 +23,92 @@ const ViewMessageModal = dynamic(
   { ssr: false }
 );
 
+export const contacts = [
+  {
+    id: "contact-001",
+    name: "John Doe",
+    email: "john@example.com",
+    phone: "+1-202-555-0123",
+    message: "Hello, I have an issue with my recent order payment.",
+    created_at: "2025-10-15T09:20:00Z",
+    replies: [
+      {
+        id: "reply-001",
+        subject: "Re: Issue with order payment",
+        message:
+          "Hi John, thanks for reaching out! Could you please share your invoice number so we can check the payment status?",
+        created_at: "2025-10-15T10:05:00Z",
+      },
+      {
+        id: "reply-002",
+        subject: "Payment confirmation",
+        message:
+          "Your payment has been verified successfully. The order is now being processed.",
+        created_at: "2025-10-15T12:40:00Z",
+      },
+    ],
+  },
+  {
+    id: "contact-002",
+    name: "Emily Carter",
+    email: "emily.carter@example.com",
+    phone: "+44-7700-900987",
+    message: "Do you offer bulk discounts for corporate orders?",
+    created_at: "2025-10-12T14:30:00Z",
+    replies: [
+      {
+        id: "reply-003",
+        subject: "Re: Bulk order inquiry",
+        message:
+          "Hi Emily, yes we do! Orders above 100 units qualify for special discounts. Please share your order details.",
+        created_at: "2025-10-12T15:00:00Z",
+      },
+    ],
+  },
+  {
+    id: "contact-003",
+    name: "Michael Brown",
+    email: "michael.brown@example.com",
+    phone: "+1-202-555-0176",
+    message: "The app keeps crashing when I try to check out.",
+    created_at: "2025-10-10T08:45:00Z",
+    replies: [
+      {
+        id: "reply-004",
+        subject: "Re: App crash issue",
+        message:
+          "Hi Michael, we’re sorry about the inconvenience. Could you tell us your device and OS version? We’re investigating this issue.",
+        created_at: "2025-10-10T09:15:00Z",
+      },
+      {
+        id: "reply-005",
+        subject: "Update released",
+        message:
+          "We’ve just released an update that fixes the crash issue. Please update the app and let us know if the problem persists.",
+        created_at: "2025-10-11T11:00:00Z",
+      },
+    ],
+  },
+  {
+    id: "contact-004",
+    name: "Sarah Lee",
+    email: "sarah.lee@example.com",
+    phone: "+33-612-555-090",
+    message: "Can I change my delivery address after placing an order?",
+    created_at: "2025-10-14T16:00:00Z",
+    replies: [
+      {
+        id: "reply-006",
+        subject: "Re: Changing delivery address",
+        message:
+          "Hi Sarah, yes, you can update your address before the order is shipped. Please go to your account settings → Orders → Edit Address.",
+        created_at: "2025-10-14T16:30:00Z",
+      },
+    ],
+  },
+];
+
+
 export default function Messages() {
   // Pagination and search states
   const [currentPage, setCurrentPage] = useState(1);
@@ -38,7 +124,7 @@ export default function Messages() {
   const [isViewModalOpen, setIsViewModalOpen] = useState(false);
   const [isReplyModalOpen, setIsReplyModalOpen] = useState(false);
 
-  const { contacts, isLoading } = useGetContacts({
+  const { contacts: mocked, isLoading } = useGetContacts({
     page: currentPage,
     limit: currentLimit,
     name: searchValue || undefined,
@@ -148,7 +234,7 @@ export default function Messages() {
           isDeleting,
           deletingVars,
         })}
-        isLoading={isLoading}
+        isLoading={false}
         headerProps={headerProps}
         emptyStateMessage="هیچ پیامی یافت نشد"
         emptyStateDescription="پیام‌های ارسالی از طریق فرم تماس با ما در اینجا نمایش داده می‌شوند"
