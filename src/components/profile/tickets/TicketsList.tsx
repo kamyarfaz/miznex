@@ -48,9 +48,9 @@ export default function TicketsList({
   onTicketSelect,
   totalPages,
 }: TicketsListProps) {
-  if (isLoading) {
-    return <TicketListSkeleton />;
-  }
+  // if (isLoading) {
+  //   return <TicketListSkeleton />;
+  // }
 
   if (tickets?.length === 0) {
     const hasActiveFilters = filters.status || filters.sortBy;
