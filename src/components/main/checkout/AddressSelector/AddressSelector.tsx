@@ -9,8 +9,32 @@ import { MotionDiv } from "@/utils/MotionWrapper";
 import AddAddressModal from "./AddAddressModal";
 import { AddressSelectorProps } from "@/types/main";
 
+const addresses = [
+  {
+    id: "addr-001",
+    province: "California",
+    city: "Los Angeles",
+    address: "1234 Sunset Blvd, Apt 56",
+    created_at: "2025-10-10T15:30:00Z",
+  },
+  {
+    id: "addr-002",
+    province: "New York",
+    city: "Brooklyn",
+    address: "78 Greenpoint Ave, Unit 3B",
+    created_at: "2025-09-22T10:15:00Z",
+  },
+  {
+    id: "addr-003",
+    province: "Texas",
+    city: "Austin",
+    address: "8901 Ranch Road 2222, Suite 120",
+    created_at: "2025-08-05T08:45:00Z",
+  },
+];
+
 export default function AddressSelector({
-  addresses,
+  addresses: mock,
   selectedAddressId,
   onAddressSelect,
   isLoading,
@@ -25,24 +49,24 @@ export default function AddressSelector({
     }
   };
 
-  if (isLoading) {
-    return (
-      <Card className="rounded-2xl shadow-lg border border-amber-200 dark:border-gray-800 bg-white/70 dark:bg-gray-900/80 backdrop-blur-lg">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-gray-800 dark:text-white">
-            <MapPin className="text-amber-600 dark:text-amber-400" size={20} />
-            انتخاب آدرس تحویل
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="animate-pulse space-y-3">
-            <div className="h-20 bg-gray-200 dark:bg-gray-700 rounded-lg"></div>
-            <div className="h-20 bg-gray-200 dark:bg-gray-700 rounded-lg"></div>
-          </div>
-        </CardContent>
-      </Card>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <Card className="rounded-2xl shadow-lg border border-amber-200 dark:border-gray-800 bg-white/70 dark:bg-gray-900/80 backdrop-blur-lg">
+  //       <CardHeader>
+  //         <CardTitle className="flex items-center gap-2 text-gray-800 dark:text-white">
+  //           <MapPin className="text-amber-600 dark:text-amber-400" size={20} />
+  //           انتخاب آدرس تحویل
+  //         </CardTitle>
+  //       </CardHeader>
+  //       <CardContent>
+  //         <div className="animate-pulse space-y-3">
+  //           <div className="h-20 bg-gray-200 dark:bg-gray-700 rounded-lg"></div>
+  //           <div className="h-20 bg-gray-200 dark:bg-gray-700 rounded-lg"></div>
+  //         </div>
+  //       </CardContent>
+  //     </Card>
+  //   );
+  // }
 
   return (
     <>

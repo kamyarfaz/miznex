@@ -25,6 +25,78 @@ import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import { SkeletonItemSection } from "@/components/skeleton";
 import { useGetItemsLanding } from "@/services/items/useGetItems";
+import { MenuItem, MenuItemResponse } from "@/types";
+
+const mockMenuItems: MenuItem[] = [
+  {
+    id: "1",
+    title: "Margherita Pizza",
+    ingredients: ["Tomato", "Mozzarella", "Basil"],
+    description: "Classic Italian pizza with fresh mozzarella and basil.",
+    price: 12.99,
+    discount: 0,
+    quantity: 50,
+    rate: 4.5,
+    rate_count: 120,
+    createdAt: new Date("2025-01-15T10:00:00Z"),
+    category: {
+      title: "Pizza",
+    },
+    images: [
+      { image: "margherita1.jpg", imageUrl: "https://example.com/margherita1.jpg" },
+      { image: "margherita2.jpg", imageUrl: "https://example.com/margherita2.jpg" },
+    ],
+    isFav: true,
+  },
+  {
+    id: "2",
+    title: "Caesar Salad",
+    ingredients: ["Romaine Lettuce", "Parmesan", "Croutons", "Caesar Dressing"],
+    description: "Crisp romaine lettuce with creamy Caesar dressing and croutons.",
+    price: 8.5,
+    discount: 1,
+    quantity: 30,
+    rate: 4.2,
+    rate_count: 80,
+    createdAt: new Date("2025-02-10T12:30:00Z"),
+    category: {
+      title: "Salad",
+    },
+    images: [
+      { image: "caesar1.jpg", imageUrl: "https://example.com/caesar1.jpg" },
+    ],
+    isFav: false,
+  },
+  {
+    id: "3",
+    title: "Chocolate Brownie",
+    ingredients: ["Cocoa", "Sugar", "Butter", "Eggs", "Flour"],
+    description: "Rich and fudgy chocolate brownie topped with nuts.",
+    price: 4.99,
+    discount: 0.5,
+    quantity: 100,
+    rate: 4.8,
+    rate_count: 200,
+    createdAt: new Date("2025-03-05T15:45:00Z"),
+    category: {
+      title: "Dessert",
+    },
+    images: [
+      { image: "brownie1.jpg", imageUrl: "https://example.com/brownie1.jpg" },
+      { image: "brownie2.jpg", imageUrl: "https://example.com/brownie2.jpg" },
+    ],
+    isFav: true,
+  },
+];
+
+const mockMenuItemResponse: MenuItemResponse = {
+  data: {
+    items: mockMenuItems,
+    total: mockMenuItems.length,
+    page: 1,
+    limit: 10,
+  },
+};
 
 const ItemSectionClient: React.FC<ItemSectionClientProps> = ({ items }) => {
   const { data: itemsResponse, isLoading } = useGetItemsLanding(
@@ -34,7 +106,7 @@ const ItemSectionClient: React.FC<ItemSectionClientProps> = ({ items }) => {
     items
   );
 
-  if (isLoading || !itemsResponse?.data?.items?.length) {
+  if (isLoading || !mockMenuItemResponse?.data?.items?.length) {
     return (
       <section className="container mx-auto px-2 py-12 pb-16">
         <div className="max-w-4xl mx-auto text-center mb-8">
@@ -108,7 +180,7 @@ const ItemSectionClient: React.FC<ItemSectionClientProps> = ({ items }) => {
           className="items-slider "
           style={{ direction: "rtl" }}
         >
-          {itemsResponse?.data?.items?.map((item: Item, index: number) => {
+          {mockMenuItemResponse?.data?.items?.map((item: Item, index: number) => {
             const discount = Number(item?.discount || 0);
             const originalPrice = Number(item?.price);
             const finalPrice = discount

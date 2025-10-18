@@ -7,8 +7,16 @@ import { Badge } from "@/components/ui/badge";
 import { MotionDiv } from "@/utils/MotionWrapper";
 import { SelectedAddressDisplayProps } from "@/types/main";
 
+const selectedAddress = {
+  id: "addr-001",
+  province: "California",
+  city: "Los Angeles",
+  address: "1234 Sunset Blvd, Apt 56",
+  created_at: "2025-10-10T15:30:00Z",
+};
+
 export default function SelectedAddressDisplay({
-  selectedAddress,
+  selectedAddress: mock,
   onEditAddress,
 }: SelectedAddressDisplayProps) {
   if (!selectedAddress) {
