@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { Home, FileText, Phone, Info } from "lucide-react";
+import { Home, FileText, Phone, Info, Download } from "lucide-react";
 import { MotionSpan } from "@/utils/MotionWrapper";
 import { ThemeSwitcher } from "../ThemeToggle";
 import dynamic from "next/dynamic";
 import { LoginForm } from "@/components/main/auth";
 import UserDropdown from "./UserDropdown";
 import { DesktopNavbarProps } from "@/types/main";
+import { useState } from "react";
 
 const CartSidebar = dynamic(
   () => import("@/components/main/CartSidebar").then((mod) => mod.default),
@@ -19,51 +20,59 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({
   openLoginDialog,
   setOpenLoginDialog,
 }) => {
+  const [activeId, setActiveId] = useState<string>("home");
   const links = [
-    { href: "/", label: "صفحه اصلی", icon: Home },
-    { href: "/menu", label: "منو", icon: FileText },
-    { href: "/about-us", label: "درباره ما", icon: Info },
-    { href: "/contact-us", label: "ارتباط با ما", icon: Phone },
+    { href: "home", label: "خانه" },
+    { href: "about-us", label: "درباره ما" },
+    { href: "HowItWorks", label: "نحوه کار" },
+    { href: "contact-us", label: "امکانات" },
+    { href: "faq", label: "سوالات متداول" },
   ];
+
+  const handleScroll = (href: string) => {
+    const el = document.getElementById(href);
+    if (!el) return;
+
+    const offset = href === "home" ? 0 : -100; // مثلاً 100px بالاتر بیاره برای بقیه سکشن‌ها
+    const top = el.getBoundingClientRect().top + window.scrollY + offset;
+
+    window.scrollTo({ top, behavior: "smooth" });
+    setActiveId(href);
+  };
 
   return (
     <>
       <div data-testid="main-nav" className="hidden lg:flex items-center gap-4">
-        {links?.map(({ href, label, icon: Icon }) => {
-          const isActive = pathname === href;
+        {links?.map(({ href, label }) => {
+          const isActive = activeId === href;
 
           return (
-            <Link
+            <span
               key={href}
-              href={href}
+              onClick={() => handleScroll(href)}
               className={`
-                relative flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300
-                ${
-                  isActive
-                    ? "text-amber-600 dark:text-amber-400 font-bold"
-                    : "text-gray-700 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400"
-                }
+                relative flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 text-white cursor-pointer text-sm
+                ${isActive ? "font-semibold" : "font-normal"}
               `}
             >
-              <Icon className="w-4 h-4" />
               <span>{label}</span>
 
               {isActive && (
                 <MotionSpan
                   layoutId="underline"
-                  className="absolute -bottom-1 left-0 w-full h-[3px] bg-gradient-to-r from-amber-500 to-orange-500 rounded-full shadow-md"
+                  className="absolute bottom-0.5 left-[40%] w-1/5 h-0.5 bg-white rounded-full shadow-md"
                 />
               )}
-            </Link>
+            </span>
           );
         })}
       </div>
 
-      <div className="flex items-center gap-3">
-        <div className="hidden md:block">
+      <div className="flex items-center gap-3 h-full">
+        {/* <div className="hidden md:block">
           <ThemeSwitcher />
-        </div>
-        <CartSidebar />
+        </div> */}
+        {/* <CartSidebar />
         <UserDropdown
           user={user}
           isAuthenticated={isAuthenticated}
@@ -73,7 +82,10 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({
           open={openLoginDialog}
           onOpenChange={setOpenLoginDialog}
           onSuccess={() => setOpenLoginDialog(false)}
-        />
+        /> */}
+        <div className="bg-white text-bodyDark h-full px-4 rounded-full font-medium flex items-center gap-2 text-[15px] cursor-pointer">
+          <Download width={18} /> دانلود اپ
+        </div>
       </div>
     </>
   );

@@ -32,7 +32,6 @@
   --color-secondary-foreground: var(--secondary-foreground);
   --color-secondary: var(--secondary);
   --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
@@ -41,6 +40,12 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  --color-bodyDark: var(--bodyDark);
+  --color-bodyNormal: var(--bodyNormal);
+  --color-headings: var(--headings);
+  --color-primary: var(--primary);
+  --color-success: var(--success);
 }
 
 :root {
@@ -51,7 +56,6 @@
   --card-foreground: oklch(0.147 0.004 49.25);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.147 0.004 49.25);
-  --primary: oklch(0.216 0.006 56.043);
   --primary-foreground: oklch(0.985 0.001 106.423);
   --secondary: oklch(0.97 0.001 106.424);
   --secondary-foreground: oklch(0.216 0.006 56.043);
@@ -91,6 +95,9 @@
   --color-amber-800: oklch(0.473 0.137 46.201);
   --color-amber-900: oklch(0.414 0.112 45.904);
   --color-amber-950: oklch(0.279 0.077 45.635);
+
+  --font-iranyekanx: var(--font-family-iranyekanx);
+  --font-peyda: var(--font-family-peyda);
 }
 
 .dark {
@@ -134,28 +141,15 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
 }
 
 body {
-  @apply min-h-screen bg-gradient-to-br;
-  background-image: linear-gradient(
-    to bottom right,
-    var(--color-light-start),
-    var(--color-light-via),
-    var(--color-light-end)
-  );
+  background-color: white;
+  font-family: var(--font-iranyekanx), sans-serif;
 }
 
-.dark body {
-  background-image: linear-gradient(
-    to bottom right,
-    var(--color-dark-start),
-    var(--color-dark-via),
-    var(--color-dark-end)
-  );
+.peyda {
+  font-family: var(--font-peyda), sans-serif;
 }
 
 [data-input-otp-container] {
@@ -379,6 +373,13 @@ body {
   --z-index-9999: 9999;
   --z-index-99999: 99999;
   --z-index-999999: 999999;
+  
+  
+  --bodyDark : #444955 ;
+  --bodyNormal : #737780 ;
+  --headings : #333740 ;
+  --primary : #444955 ;
+  --success : #27B365 ;
 }
 
 @layer base {

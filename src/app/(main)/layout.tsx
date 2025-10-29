@@ -9,7 +9,7 @@ export default function MainLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div>
+    <div className="overflow-hidden max-w-[1920px] mx-auto">
       <Toaster position="top-right" richColors />
       <Navbar />
       <ConfirmModal />

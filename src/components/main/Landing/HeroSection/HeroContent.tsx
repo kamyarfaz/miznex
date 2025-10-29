@@ -69,133 +69,70 @@ const HeroContent = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
+        <div className="relative rounded-full w-max">
+          <div className="absolute -inset-[1px] rounded-full bg-gradient-to-r from-[#E2E2E2] to-white p-[1px]"></div>
+          <div className="relative bg-[#F2F2F2] rounded-full pl-2.5 flex items-center gap-2">
+            <span className="py-1 px-2.5 bg-gradient-to-l from-[#FF5B35] to-[#FF7B5C] text-white rounded-full">
+              میزنکس
+            </span>
+            <span className="text-[16px]">اولین منو ساز رایگان 🔥</span>
+          </div>
+        </div>
         <MotionH1
-          className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight"
+          className="text-2xl lg:text-3xl xl:text-[40px] font-semibold text-[#3B3B3B]"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <MotionSpan
             data-testid="hero-title"
-            className="text-amber-600 dark:text-amber-400 font-bold relative z-10"
+            className="relative z-10"
             animate={{
               backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
             }}
             transition={{ duration: 8, repeat: Infinity }}
           >
-            کـــافـینو
+            ساخت منوی آنلاین و رایگان
           </MotionSpan>
-          <br />
+          <br className="my-5" />
           <MotionSpan
-            className="text-gray-800 dark:text-gray-200"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-            تجربه‌ای متفاوت
+            رستوران/کافه شما در کمترین زمان!
           </MotionSpan>
         </MotionH1>
 
         <MotionP
           data-testid="hero-description"
-          className="text-lg sm:text-xl font-bold text-gray-600 dark:text-gray-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
+          className="text-xs lg:text-sm xl:text-[16px] font-normal text-bodyNormal max-w-2xl mx-auto lg:mx-0 leading-relaxed flex flex-col"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.7 }}
         >
-          با بهترین قهوه‌ها و غذاهای خانگی، لحظات شیرین را با ما تجربه کنید
+          <span> جایگزین هوشمند و رایگان برای وبسایت‌های گران قیمت!</span>
+
+          <span>
+            منوی دیجیتال حرفه‌ای با سیستم آمارگیری و مدیریت موجودی یکپارچه.
+          </span>
         </MotionP>
       </MotionDiv>
 
       <MotionDiv
-        className="grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.9 }}
-      >
-        {features.map((item, index) => (
-          <MotionDiv
-            key={index}
-            data-testid="feature-item"
-            className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300 p-2 rounded-lg bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm"
-            whileHover={{ scale: 1.05, y: -2 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <item.icon className={`w-4 h-4 ${item.color}`} />
-            <span className="font-bold">{item.text}</span>
-          </MotionDiv>
-        ))}
-      </MotionDiv>
-
-      <MotionDiv
-        className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1.1 }}
-      >
-        <MotionDiv whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-          <Button
-            data-testid="order-online-button"
-            onClick={() => router.push("/menu")}
-            size="lg"
-            className="relative overflow-hidden bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
-          >
-            <MotionDiv
-              className="absolute inset-0 bg-gradient-to-r from-amber-400 to-transparent opacity-0 group-hover:opacity-100"
-              animate={{ x: [-100, 200] }}
-              transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 }}
-            />
-            <Coffee className="w-5 h-5 ml-2" />
-            سفارش آنلاین
-            <ArrowRight className="w-5 h-5 mr-2" />
-          </Button>
-        </MotionDiv>
-
-        <Dialog open={open} onOpenChange={setOpen}>
-          <DialogTrigger asChild>
-            <VideoButton onClick={() => setOpen(true)} />
-          </DialogTrigger>
-
-          <DialogContent
-            className="w-full max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-4xl 
-    p-0 overflow-hidden bg-black rounded-xl border-2 border-amber-500/30"
-          >
-            <VisuallyHidden>
-              <DialogTitle>ویدیو معرفی</DialogTitle>
-              <DialogDescription>ویدیو معرفی</DialogDescription>
-            </VisuallyHidden>
-
-            {open && (
-              <video
-                controls
-                autoPlay
-                className="w-full aspect-video rounded-xl"
-              >
-                <source src="/videos/Teaser.mp4" type="video/mp4" />
-                مرورگر شما از ویدیو پشتیبانی نمی‌کند.
-              </video>
-            )}
-          </DialogContent>
-        </Dialog>
-      </MotionDiv>
-
-      <MotionDiv
-        className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start text-sm text-gray-600 dark:text-gray-300"
+        className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.3 }}
       >
-        {contactInfo?.map((item, index) => (
-          <MotionDiv
-            key={index}
-            data-testid="contact-info"
-            className="flex items-center gap-2 p-2 rounded-lg bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm"
-            whileHover={{ x: 5 }}
-          >
-            <item.icon className={`w-4 h-4 ${item?.color}`} />
-            <span className="dark:text-gray-200 font-bold">{item?.text}</span>
-          </MotionDiv>
-        ))}
+        <MotionDiv
+          className="flex items-center gap-4 text-[15px] [&>div]:rounded-full [&>div]:cursor-pointer [&>div]:py-2 [&>div]:px-[29px]"
+        >
+          <div className="text-white bg-[#404040] font-medium">دانلود اپ</div>
+          <div className="text-bodyDark font-normal border border-bodyNormal">
+            پشتیبانی
+          </div>
+        </MotionDiv>
       </MotionDiv>
     </div>
   );

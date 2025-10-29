@@ -6,10 +6,6 @@ export interface Categorys {
   show: boolean;
 }
 
-export interface CategorySectionClientProps {
-  categories: Categorys[];
-}
-
 export interface CategoryResponse {
   categories: Categorys[];
 }

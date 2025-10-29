@@ -1,21 +1,26 @@
 import {
   CategorySection,
-  Gallery,
   HeroSection,
-  ItemSection,
   StatsSection,
+  HowItWorks,
+  Grow,
+  WhyMiznex
 } from "@/components/main/Landing";
-export const revalidate = 3600;
-export const dynamic = "force-static";
+import HeroBackground from "@/components/main/Landing/HeroSection/HeroBackground";
+
 export default function Home() {
   return (
     <>
+      <div className="relative" id="home">
+        <HeroBackground />
+      </div>
       <HeroSection />
-      <div className="container px-4 sm:px-12 mx-auto">
+      <div className="container px-4 mx-auto">
         <CategorySection />
         <StatsSection />
-        <ItemSection />
-        <Gallery />
+        <HowItWorks />
+        <Grow />
+        <WhyMiznex />
       </div>
     </>
   );
