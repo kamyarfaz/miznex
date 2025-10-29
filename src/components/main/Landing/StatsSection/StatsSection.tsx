@@ -28,7 +28,7 @@ const StatsSection = () => {
     >
       <section
         data-testid="stats-section"
-        className="flex flex-col xl:flex-row justify-center gap-6 pb-12 px-4 [&>div>div>div]:shadow-[0_0_35px_rgba(0,0,0,0.07)] [&>div>div>div]:flex [&>div>div>div]:flex-col [&>div>div>div]:bg-white [&>div>div>div]:p-5 [&>div>div>div]:rounded-3xl [&_h3]:text-lg [&_h3]:text-bodyDark [&_h3]:font-bold [&_img]:mb-3 [&_p]:text-[14px] [&_p]:mt-2 [&_p]:leading-[22px] [&_p]:text-bodyNormal"
+        className="flex flex-col xl:flex-row justify-center gap-6 pb-12 px-4 [&>div>div>div]:shadow-[0_0_35px_rgba(0,0,0,0.07)] [&>div>div>div]:flex [&>div>div>div]:flex-col [&>div>div>div]:bg-white [&>div>div>div]:p-5 [&>div>div>div]:rounded-3xl [&_h3]:text-lg [&_h3]:text-bodyDark [&_h3]:font-bold [&_h3]:peyda [&_img]:mb-3 [&_p]:text-[14px] [&_p]:mt-2 [&_p]:leading-[22px] [&_p]:text-bodyNormal"
       >
         <div className="flex gap-6 max-xl:[&>div]:w-full">
           <div className="flex flex-col justify-center">
