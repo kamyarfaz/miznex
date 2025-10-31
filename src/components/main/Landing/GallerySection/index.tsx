@@ -67,16 +67,16 @@ const Grow = () => {
           visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
         }}
       >
-        <div className="w-full flex items-center justify-between [&>div]:w-1/4 gap-6 relative z-10">
+        <div className="w-full flex items-start justify-between [&>div]:w-1/4 gap-6 relative z-10">
           {cards.map((item, index) => (
             <div
-              className="flex flex-col items-center text-center justify-center p-6 gap-3 w-[290px] h-[174px] bg-white shadow-[0_0_35px_rgba(0,0,0,0.07)] rounded-[24px]"
+              className="flex flex-col items-center text-center justify-center p-6 gap-3 w-[290px] h-[174px] max-2xl:!h-max bg-white shadow-[0_0_35px_rgba(0,0,0,0.07)] rounded-3xl"
               key={index}
             >
               <span className="text-success text-[32px] font-medium peyda">
                 {item.percentage}
               </span>
-              <h4 className="text-xl font-bold peyda">{item.title}</h4>
+              <h4 className="text-xl font-bold peyda text-bodyDark">{item.title}</h4>
               <p className="text-sm text-bodyNormal">{item.content}</p>
             </div>
           ))}

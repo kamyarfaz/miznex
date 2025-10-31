@@ -33,7 +33,7 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({
     const el = document.getElementById(href);
     if (!el) return;
 
-    const offset = href === "home" ? 0 : -100; // مثلاً 100px بالاتر بیاره برای بقیه سکشن‌ها
+    const offset = href === "home" ? 0 : -100;
     const top = el.getBoundingClientRect().top + window.scrollY + offset;
 
     window.scrollTo({ top, behavior: "smooth" });

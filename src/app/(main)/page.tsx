@@ -4,7 +4,9 @@ import {
   StatsSection,
   HowItWorks,
   Grow,
-  WhyMiznex
+  WhyMiznex,
+  Statistics,
+  FAQ
 } from "@/components/main/Landing";
 import HeroBackground from "@/components/main/Landing/HeroSection/HeroBackground";
 
@@ -21,6 +23,8 @@ export default function Home() {
         <HowItWorks />
         <Grow />
         <WhyMiznex />
+        <Statistics />
+        <FAQ />
       </div>
     </>
   );
