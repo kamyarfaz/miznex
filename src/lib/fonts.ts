@@ -3,6 +3,11 @@ import localFont from 'next/font/local';
 export const IRANYekanX = localFont({
   src: [
     {
+      path: '../assets/fonts/IRANYekanX/IRANYekanX-Light.woff2', 
+      weight: '300',
+      style: 'light',
+    },
+    {
       path: '../assets/fonts/IRANYekanX/IRANYekanX-Regular.woff2', 
       weight: '400',
       style: 'normal',

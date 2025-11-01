@@ -44,10 +44,12 @@
   --color-bodyNormal: var(--bodyNormal);
   --color-headings: var(--headings);
   --color-primary: var(--primary);
-  --color-b-primary: var(--b-primary);
+  --color-bo-primary: var(--bo-primary);
   --color-i-primary: var(--i-primary);
   --color-secondary: var(--secondary);
   --color-surface-dark: var(--surface-dark);
+  --color-t-dark: var(--t-dark);
+  --color-action: var(--action);
   --color-success: var(--success);
 }
 
@@ -381,10 +383,12 @@ body {
   --bodyNormal : #737780 ;
   --headings : #333740 ;
   --primary : #444955 ;
-  --b-primary : #D0D1D4 ;
+  --bo-primary : #D0D1D4 ;
   --i-primary : #444955 ;
   --secondary : #FFE6E0 ;
   --surface-dark : #333740 ;
+  --t-dark : #222 ;
+  --action : #FF5B35 ;
   --success : #27B365 ;
 }
 

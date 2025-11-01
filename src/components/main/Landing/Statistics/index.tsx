@@ -118,7 +118,7 @@ const Statistics = () => {
               key={index}
             >
               <h4 className="text-lg font-medium peyda text-bodyDark">{item.title}</h4>
-              <span className="w-full h-[1px] bg-b-primary"></span>
+              <span className="w-full h-[1px] bg-bo-primary"></span>
               <p className="text-sm text-bodyNormal">{item.content}</p>
             </div>
           ))}

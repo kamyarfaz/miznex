@@ -1,7 +1,7 @@
+import { ResourcesProps } from "@/types/main";
 import { MotionDiv } from "@/utils/MotionWrapper";
-import { QuickLinksProps } from "@/types/main";
 
-const QuickLinks = ({ quickLinks }: QuickLinksProps) => {
+const Resources = ({ resources }: ResourcesProps) => {
   return (
     <div className="space-y-3 items-start h-full">
       <MotionDiv
@@ -11,22 +11,21 @@ const QuickLinks = ({ quickLinks }: QuickLinksProps) => {
         transition={{ duration: 0.6 }}
       >
         <h3 className="text-t-dark font-medium flex items-center gap-2">
-          <div className="w-1 h-[9px] bg-action rounded-full"></div> لینک های
-          سریع
+          <div className="w-1 h-[9px] bg-action rounded-full"></div> منابع
         </h3>
       </MotionDiv>
 
-      <div className="space-y-3">
-        {quickLinks.map((link, index) => (
+      <div className="text-right space-y-3">
+        {resources.map((item, index) => (
           <MotionDiv
             key={index}
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
             <span className="text-bodyDark text-sm font-regular">
-              {link.text}
+              {item.text}
             </span>
           </MotionDiv>
         ))}
@@ -35,4 +34,4 @@ const QuickLinks = ({ quickLinks }: QuickLinksProps) => {
   );
 };
 
-export default QuickLinks;
+export default Resources;

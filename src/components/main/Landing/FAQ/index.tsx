@@ -71,7 +71,7 @@ const FAQ = () => {
                       setOpenIndex(openIndex === index ? null : index)
                     }
                   >
-                    <span className="font-medium text-headings">{faq.question}</span>
+                    <span className="font-medium text-headings text-lg">{faq.question}</span>
 
                     <ChevronDown
                       className={`text-xl transition-transform text-i-primary ${
@@ -82,7 +82,7 @@ const FAQ = () => {
                   </button>
 
                   {openIndex === index && (
-                    <div className="text-bodyNormal text-lg ml-20 mt-3 text-right font-regular">
+                    <div className="text-bodyNormal ml-20 mt-3 text-right font-regular">
                       {faq.answer}
                     </div>
                   )}
