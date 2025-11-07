@@ -4,27 +4,28 @@ import { useState } from "react";
 import FAQSVG from "@/assets/svg/FAQSVG";
 import { MotionDiv } from "@/utils/MotionWrapper";
 import { ArrowBigDown, ChevronDown } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const t = useTranslations("faq");
 
   const faqs = [
     {
-      question: "آیا منوی Mizenex روی همه گوشی‌ها کار می‌کند؟",
-      answer:
-        "بله، منوهای ما کاملاً ریسپانسیو هستند و به طور کامل روی انواع گوشی‌های اندروید و iOS و همچنین دسکتاپ نمایش داده می‌شوند.",
+      question: t("doesMiznexMenuWork"),
+      answer: t("yesOurMenusAreFullyResponsive"),
     },
     {
-      question: "آیا برای استفاده از Mizenex به کدنویسی نیاز است؟",
-      answer: "خیر، استفاده از Mizenex نیازی به دانش برنامه‌نویسی ندارد.",
+      question: t("isCodingRequiredToUse"),
+      answer: t("noProgrammingKnowledgeRequired"),
     },
     {
-      question: "اگر منو را بروزرسانی کنیم، آیا QR کد تغییر می‌کند؟",
-      answer: "خیر، QR کد ثابت می‌ماند و فقط محتوای منو به‌روزرسانی می‌شود.",
+      question: t("ifWeUpdateMenu"),
+      answer: t("qrRemainsSameOnMenuUpdate"),
     },
     {
-      question: "اگر منو را حذف کنیم، آیا QR کد تغییر می‌کند؟",
-      answer: "در صورت حذف کامل منو، QR کد دیگر فعال نخواهد بود.",
+      question: t("qrChangeOnMenuDelete"),
+      answer: t("qrInactiveOnMenuDeletion"),
     },
   ];
 
@@ -41,9 +42,9 @@ const FAQ = () => {
           visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
         }}
       >
-        <h2 className="text-2xl font-bold text-bodyDark mb-3">سوالات متداول</h2>
+        <h2 className="text-2xl font-bold text-bodyDark mb-3">{t("question")}</h2>
         <p className="text-bodyNormal text-lg">
-          هر آنچه باید درباره میزنکس بدانید
+          {t("aboutMizenex")}
         </p>
       </MotionDiv>
 
@@ -93,9 +94,9 @@ const FAQ = () => {
           <div className="flex flex-col min-w-[253px]">
             <FAQSVG className="w-full" />
             <div className="text-center mt-6">
-              <p className="text-[#494848] font-medium">هنوز سوالی دارید؟</p>
+              <p className="text-[#494848] font-medium">{t("stillHaveQuestions")}</p>
               <button className="mt-3 bg-surface-dark text-white px-4 py-2 rounded-full text-[15px] font-regular">
-                تماس با پشتیبانی
+                {t("contactSupport")}
               </button>
             </div>
           </div>

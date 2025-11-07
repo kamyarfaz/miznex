@@ -1,7 +1,10 @@
 "use client";
 import { MotionDiv } from "@/utils/MotionWrapper";
+import { useTranslations } from "next-intl";
 
 const CategorySectionClient = () => {
+  const t = useTranslations("categorySection");
+
   return (
     <>
       <div className="relative" id="about-us">
@@ -21,12 +24,11 @@ const CategorySectionClient = () => {
         >
           <h2 className="mb-3 relative">
             <span className="text-bodyDark text-2xl relative z-10 font-bold">
-              با میزنکس همه چیز دست خودته!
+              {t("miznexEverythingInHands")}
             </span>
           </h2>
           <p className="text-lg text-bodyNormal font-normal">
-            منو بسازید، سفارش بگیرید و پرداخت را در همان لحظه پردازش کنید! همه
-            در یک پلتفرم موبایل‌محور!
+            {t("createMeTakeOrders")}
           </p>
         </MotionDiv>
       </div>

@@ -1,26 +1,29 @@
 "use client";
 
 import { MotionDiv } from "@/utils/MotionWrapper";
+import { useTranslations } from "next-intl";
 
 const Statistics = () => {
+  const t = useTranslations("statistics");
+
   const cards = [
     {
-      title: "مدیریت خودکار موجودی",
+      title: t("autoInventoryManagment"),
       content:
-        "با هر سفارش مشتری، موجودی آیتم‌های منو به صورت خودکار کاهش می‌یابد",
+        t("withEachCustomerOrder"),
     },
     {
-      title: "کنترل مواد اولیه",
+      title: t("controlRawMaterials"),
       content:
-        "با هر سفارش مشتری، موجودی آیتم‌های منو به صورت خودکار کاهش می‌یابد",
+        t("inventoryUpdateOnOrder"),
     },
     {
-      title: "صرفه‌جویی در زمان",
-      content: "دیگر نیازی به حسابداری دستی و شمارش موجودی نیست",
+      title: t("saveTime"),
+      content: t("noMoreNeedForManualAccounting"),
     },
     {
-      title: "گزارش‌های آماری دقیق",
-      content: "دسترسی لحظه‌ای به گزارش فروش، محبوب‌ترین آیتم‌ها و روند فروش",
+      title: t("accurateStatisticalReports"),
+      content: t("instantAccessToSalesReports"),
     },
   ];
 
@@ -38,12 +41,11 @@ const Statistics = () => {
       >
         <h2 className="mb-3 relative">
           <span className="text-bodyDark text-2xl relative z-10 font-bold">
-            سیستم آمارگیری حرفه‌ای
+            {t("professionalStatisticsSystem")}
           </span>
         </h2>
         <p className="text-lg text-bodyNormal font-normal">
-          دیگر نیازی به سیستم حسابداری جداگانه ندارید! میزانکس به صورت هوشمند
-          موجودی و مواد اولیه شما را مدیریت می‌کند
+          {t("noNeedForSeparateAccountingSystem")}
         </p>
       </MotionDiv>
 
@@ -64,10 +66,10 @@ const Statistics = () => {
             </h2>
             <div>
               <h3 className="font-medium text-xl mb-1 peyda text-bodyDark">
-                مشتری سفارش می‌دهد
+                {t("customerPlacesOrder")}
               </h3>
               <p className="text-sm font-regular !leading-[22px] text-bodyNormal">
-                مشتری سفارش را به شما میدهد
+                {t("customerGivesYouOrder")}
               </p>
             </div>
           </div>
@@ -77,10 +79,10 @@ const Statistics = () => {
             </h2>
             <div>
               <h3 className="font-medium text-xl mb-1 peyda text-bodyDark">
-                کاهش خودکار موجودی
+                {t("automaticInventoryReduction")}
               </h3>
               <p className="text-sm font-regular !leading-[22px] text-bodyNormal">
-                سیستم موجودی پیتزا را ۱ عدد کم می‌کند
+                {t("thePizzaInventorySystem")}
               </p>
             </div>
           </div>
@@ -91,10 +93,10 @@ const Statistics = () => {
             </h2>
             <div>
               <h3 className="font-medium text-xl mb-1 peyda text-bodyDark">
-                کاهش مواد اولیه
+                {t("reduceRawMaterials")}
               </h3>
               <p className="text-sm font-regular !leading-[22px] text-bodyNormal">
-                خمیر، پنیر، گوشت و سایر مواد اولیه نیز کاهش می‌یابند
+                {t("rawMaterialsWillAlsoDecrease")}
               </p>
             </div>
           </div>

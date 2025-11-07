@@ -5,8 +5,11 @@ import { MotionDiv } from "@/utils/MotionWrapper";
 import Photo from "./../../../../assets/HeroSection/HeroSection.png";
 import Photo2 from "./../../../../assets/HeroSection/HeroImgBack.png";
 import GlassButton from "@/components/ui/GlassButton";
+import { useTranslations } from "next-intl";
 
 const HeroImage = () => {
+  const t = useTranslations("heroSection");
+
   return (
     <MotionDiv
       className="relative mb-4 max-w-[696px]"
@@ -26,9 +29,9 @@ const HeroImage = () => {
         alt="pic"
         className="absolute -top-8 left-0 scale-110"
       />
-      <GlassButton text="داشبورد هوشمند" customClass="left-10 -top-3 max-2xl:-left-5" />
-      <GlassButton text="منوی هوشمند" customClass="left-[70px] -bottom-2 !border-none max-2xl:left-1" />
-      <GlassButton text="رایگان" customClass="right-32 top-[72px] !border-2 max-2xl:top-12" />
+      <GlassButton text={t("heroImage.smartDashboard")} customClass="left-10 -top-3 max-2xl:-left-5" />
+      <GlassButton text={t("heroImage.smartMenu")} customClass="left-[70px] -bottom-2 !border-none max-2xl:left-1" />
+      <GlassButton text={t("heroImage.free")} customClass="right-32 top-[72px] !border-2 max-2xl:top-12" />
     </MotionDiv>
   );
 };

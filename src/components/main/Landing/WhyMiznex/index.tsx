@@ -4,15 +4,18 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import { MotionDiv } from "@/utils/MotionWrapper";
 import TickCircleSVG from "@/assets/svg/TickCircleSVG";
+import { useTranslations } from "next-intl";
 
 const WhyMiznex = () => {
+  const t = useTranslations("WhyMiznex");
+
   const benefits = [
-    "مدیریت بهتر کسب‌وکار با داده‌های دقیق",
-    "افزایش درآمد با جذب مشتریان بیشتر",
-    "بهبود کیفیت سرویس‌دهی",
-    "تصویر مدرن و حرفه‌ای برند شما",
-    "کاهش هزینه‌های عملیاتی و چاپ",
-    "رقابتی‌تر شدن در بازار",
+    t("betterBusinessManagement"),
+    t("increaseRevenueByAttractingMoreCustomers"),
+    t("improveServiceQuality"),
+    t("modernAndProfessionaImage"),
+    t("reduceOperationalAndPrintingCosts"),
+    t("becomeMoreCompetitiveInMarket"),
   ];
 
   return (
@@ -29,7 +32,7 @@ const WhyMiznex = () => {
       >
         <h2 className="mb-3 relative z-10">
           <span className="text-bodyDark text-2xl font-bold flex items-center justify-center peyda">
-            چرا کسب‌وکار شما به میزنکس نیاز دارد؟
+            {t("whyBusinessNeedMiznex")}
           </span>
         </h2>
       </MotionDiv>

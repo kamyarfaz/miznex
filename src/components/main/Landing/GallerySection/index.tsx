@@ -3,28 +3,31 @@
 import DiagramUpSVG from "@/assets/svg/DiagramUpSVG";
 import Union3SVG from "@/assets/svg/Union3SVG";
 import { MotionDiv } from "@/utils/MotionWrapper";
+import { useTranslations } from "next-intl";
 
 const Grow = () => {
+  const t = useTranslations("grow");
+
   const cards = [
     {
-      percentage: "+۴۵٪",
-      title: "افزایش مشتریان راضی",
-      content: "با ارائه تجربه دیجیتال مدرن و حرفه‌ای به مشتریان",
+      percentage: t("+45%"),
+      title: t("increaseSatisfiedCustomers"),
+      content: t("byProvidingModern"),
     },
     {
-      percentage: "+۳۵٪",
-      title: "افزایش سفارشات",
-      content: "دسترسی آسان به منو باعث افزایش تعداد سفارشات می‌شود",
+      percentage: t("+35%"),
+      title: t("increaseOrders"),
+      content: t("easyAccessToMenu"),
     },
     {
-      percentage: "+۶۰٪",
-      title: "کاهش خطا در سفارشات",
-      content: "با منوی دیجیتال واضح، اشتباهات سفارش‌گیری کاهش می‌یابد",
+      percentage: t("+60%"),
+      title: t("reduceErrorsInOrders"),
+      content: t("withClearDigitalMenu"),
     },
     {
-      percentage: "+۷۰٪",
-      title: "کاهش زمان سفارش‌گیری",
-      content: "مشتریان سریع‌تر تصمیم می‌گیرند و سفارش می‌دهند",
+      percentage: t("+70%"),
+      title: t("reduceOrderTakingTime"),
+      content: t("customersDecideAndOrderFaster"),
     },
   ];
   return (
@@ -44,16 +47,15 @@ const Grow = () => {
         </div>
         <h2 className="mb-3 relative z-10">
           <span className="text-bodyDark text-2xl font-bold flex items-center justify-center">
-            با میزنکس
+            {t("withMiznex")}
             <span className="text-success flex items-center mx-2 gap-2">
-              رشد <DiagramUpSVG />
+              {t("growWithMiznex")} <DiagramUpSVG />
             </span>
-            کنید!
+            {t("Do")}
           </span>
         </h2>
         <p className="text-lg text-bodyNormal font-normal relative z-10">
-          منو بسازید، سفارش بگیرید و پرداخت را در همان لحظه پردازش کنید! همه در
-          یک پلتفرم موبایل‌محور!
+          {t("createMeTakeOrders")}
         </p>
       </MotionDiv>
 

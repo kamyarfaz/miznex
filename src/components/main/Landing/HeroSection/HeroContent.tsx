@@ -26,10 +26,14 @@ import {
   MotionSpan,
 } from "@/utils/MotionWrapper";
 import VideoButton from "./VideoButton";
+import { useTranslations } from "next-intl";
 
 const HeroContent = () => {
   const router = useRouter();
   const [open, setOpen] = useState(false);
+
+  const t = useTranslations("heroSection");
+
   const features = [
     {
       icon: Coffee,
@@ -73,9 +77,9 @@ const HeroContent = () => {
           <div className="absolute -inset-[1px] rounded-full bg-gradient-to-r from-[#E2E2E2] to-white p-[1px]"></div>
           <div className="relative bg-[#F2F2F2] rounded-full pl-2.5 flex items-center gap-2">
             <span className="py-1 px-2.5 bg-gradient-to-l from-[#FF5B35] to-[#FF7B5C] text-white rounded-full">
-              میزنکس
+              {t("heroContent.miznex")}
             </span>
-            <span className="text-[16px]">اولین منو ساز رایگان 🔥</span>
+            <span className="text-[16px]">{t("heroContent.theFirstFreeMenuMaker")}</span>
           </div>
         </div>
         <MotionH1
@@ -92,7 +96,7 @@ const HeroContent = () => {
             }}
             transition={{ duration: 8, repeat: Infinity }}
           >
-            ساخت منوی آنلاین و رایگان
+            {t("heroContent.createAnOnlineAndFreeMenu")}
           </MotionSpan>
           <br className="my-5" />
           <MotionSpan
@@ -100,7 +104,7 @@ const HeroContent = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-            رستوران/کافه شما در کمترین زمان!
+            {t("heroContent.yourRestaurantCafeInNoTime")}
           </MotionSpan>
         </MotionH1>
 
@@ -111,10 +115,10 @@ const HeroContent = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.7 }}
         >
-          <span> جایگزین هوشمند و رایگان برای وبسایت‌های گران قیمت!</span>
+          <span>{t("heroContent.aSmartAndFreeAlternative")}</span>
 
           <span>
-            منوی دیجیتال حرفه‌ای با سیستم آمارگیری و مدیریت موجودی یکپارچه.
+            {t("heroContent.digitalMenuWithIntegrated")}
           </span>
         </MotionP>
       </MotionDiv>
@@ -125,12 +129,10 @@ const HeroContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.3 }}
       >
-        <MotionDiv
-          className="flex items-center gap-4 text-[15px] [&>div]:rounded-full [&>div]:cursor-pointer [&>div]:py-2 [&>div]:px-[29px]"
-        >
-          <div className="text-white bg-[#404040] font-medium">دانلود اپ</div>
+        <MotionDiv className="flex items-center gap-4 text-[15px] [&>div]:rounded-full [&>div]:cursor-pointer [&>div]:py-2 [&>div]:px-[29px]">
+          <div className="text-white bg-[#404040] font-medium">{t("heroContent.downloadApp")}</div>
           <div className="text-bodyDark font-normal border border-bodyNormal">
-            پشتیبانی
+            {t("heroContent.support")}
           </div>
         </MotionDiv>
       </MotionDiv>

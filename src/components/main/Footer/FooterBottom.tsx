@@ -7,8 +7,11 @@ import TelegramSVG from "@/assets/svg/TelegramSVG";
 import InstagramSVG from "@/assets/svg/InstagramSVG";
 import LinkedinSVG from "@/assets/svg/LinkedinSVG";
 import XSVG from "@/assets/svg/XSVG";
+import { useTranslations } from "next-intl";
 
 const FooterBottom = () => {
+  const t = useTranslations("footer");
+
   const socialMedia = [
     <TelegramSVG />,
     <InstagramSVG />,
@@ -26,7 +29,7 @@ const FooterBottom = () => {
       >
         <div className="flex flex-col gap-4">
           <h3 className="text-t-dark font-medium">
-            میزنکس در شبکه های اجتماعی
+            {t("miznexOnSocialMedia")}
           </h3>
           <div className="flex items-center gap-4">
             {socialMedia.map((item, index) => (
@@ -72,7 +75,7 @@ const FooterBottom = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             © {new Date().toLocaleDateString("fa-IR", { year: "numeric" })}{" "}
-            میزنکس. تمامی حقوق محفوظ است.
+            {t("copyRight")}
           </MotionP>
         </div>
 
@@ -83,9 +86,9 @@ const FooterBottom = () => {
           viewport={{ once: false }}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
-          <span>حریم خصوصی</span>
-          <span>شرایط استفاده</span>
-          <span>قوانین و مقررات</span>
+          <span>{t("privacyPolicy")}</span>
+          <span>{t("termsOfUse")}</span>
+          <span>{t("rulesAndRegulations")}</span>
         </MotionDiv>
       </MotionDiv>
     </>

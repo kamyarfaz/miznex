@@ -7,29 +7,32 @@ import ContactInfo from "../../main/Footer/ContactInfo";
 import FooterBottom from "../../main/Footer/FooterBottom";
 import { footerStructuredData } from "@/lib/metadata/footer";
 import Description from "@/components/main/Footer/Description";
-
-const footerData = {
-  resources: [
-    { text: "بلاگ" },
-    { text: "پشتیبانی" },
-    { text: "مستندات" },
-    { text: "سوالات متداول" },
-  ],
-
-  quickLinks: [
-    { href: "/", text: "درباره ما" },
-    { href: "/", text: "نحوه کار" },
-    { href: "/", text: "امکانات" },
-    { href: "/", text: "نمونه کارها" },
-  ],
-
-  contactInfo: [
-    { icon: <PhoneSVG />, text: "۳۳۸۸۶۵۰۱ - ۰۲۱" },
-    { icon: <MailSVG />, text: "info@miznex.com" },
-  ],
-};
+import { useTranslations } from "next-intl";
 
 const Footer = () => {
+  const t = useTranslations("footer");
+
+  const footerData = {
+    quickLinks: [
+      { href: "/", text: t("aboutUs") },
+      { href: "/", text: t("howItWorks") },
+      { href: "/", text: t("features") },
+      { href: "/", text: t("portfolio") },
+    ],
+
+    resources: [
+      { text: t("blog") },
+      { text: t("supportResources") },
+      { text: t("documentation") },
+      { text: t("faq") },
+    ],
+
+    contactInfo: [
+      { icon: <PhoneSVG />, text: t("phone") },
+      { icon: <MailSVG />, text: "info@miznex.com" },
+    ],
+  };
+
   return (
     <footer
       data-testid="footer"

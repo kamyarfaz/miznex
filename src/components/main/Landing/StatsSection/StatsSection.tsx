@@ -9,8 +9,11 @@ import aboutUs5 from "./../../../../assets/AboutUs/aboutUs5.png";
 import aboutUs6 from "./../../../../assets/AboutUs/aboutUs6.png";
 import TickCircleSVG from "@/assets/svg/TickCircleSVG";
 import { MotionDiv } from "@/utils/MotionWrapper";
+import { useTranslations } from "next-intl";
 
 const StatsSection = () => {
+  const t = useTranslations("statsSection");
+
   return (
     <MotionDiv
       className="mb-4 md:mb-9"
@@ -33,23 +36,23 @@ const StatsSection = () => {
         <div className="flex gap-6 max-xl:[&>div]:w-full">
           <div className="flex flex-col justify-center">
             <div>
-              <Image src={aboutUs1} alt="ساخت منوی کاملاً رایگان" />
-              <h3>ساخت منوی کاملاً رایگان</h3>
+              <Image src={aboutUs1} alt={t("completelyFreeMenuCreation")} />
+              <h3>{t("completelyFreeMenuCreation")}</h3>
               <p className="max-xl:!mb-0 max-2xl:mb-5">
-                بساز، ویرایش کن، منتشر کن بدون هیچ هزینه‌ای!
+                {t("createEditPublishAtNoCost")}
               </p>
               <ul className="text-bodyDark text-sm space-y-7 mt-4 [&>li]:flex [&>li]:items-center [&>li]:gap-2">
                 <li>
-                  <TickCircleSVG /> کاملاً رایگان یعنی هزینه صفر
+                  <TickCircleSVG /> {t("completelyFreeMeansZeroCost")}
                 </li>
                 <li>
-                  <TickCircleSVG /> راه‌اندازی رایگان
+                  <TickCircleSVG /> {t("freeSetup")}
                 </li>
                 <li>
-                  <TickCircleSVG /> سریع، مطمئن و امن
+                  <TickCircleSVG /> {t("fastReliableAndSecure")}
                 </li>
                 <li>
-                  <TickCircleSVG /> پشتیبانی رایگان و سریع
+                  <TickCircleSVG /> {t("freeAndQuickSupport")}
                 </li>
               </ul>
             </div>
@@ -57,38 +60,38 @@ const StatsSection = () => {
 
           <div className="flex flex-col justify-center gap-4">
             <div>
-              <Image src={aboutUs2} alt="منوی چندگانه" />
-              <h3>منوی چندگانه</h3>
-              <p>برای صبحانه، ناهار، شام و ... منوی اختصاصی بساز!</p>
+              <Image src={aboutUs2} alt={t("multipleMenus")} />
+              <h3>{t("multipleMenus")}</h3>
+              <p>{t("createDedicatedMenu")}</p>
             </div>
 
             <div>
-              <Image src={aboutUs3} alt="اپ موبایل" />
-              <h3>اپ موبایل</h3>
-              <p>برای صبحانه، ناهار، شام و ... منوی اختصاصی بساز!</p>
+              <Image src={aboutUs3} alt={t("mobileApp")} />
+              <h3>{t("mobileApp")}</h3>
+              <p>{t("createDedicatedMenu")}</p>
             </div>
           </div>
         </div>
         <div className="flex gap-6 max-xl:[&>div]:w-full">
           <div className="flex flex-col justify-center">
             <div>
-              <Image src={aboutUs4} alt="داشبورد تحلیلی اختصاصی" />
-              <h3>داشبورد تحلیلی اختصاصی</h3>
+              <Image src={aboutUs4} alt={t("dedicatedAnalyticalDashboard")} />
+              <h3>{t("dedicatedAnalyticalDashboard")}</h3>
               <p className="max-xl:!mb-0 max-2xl:mb-5">
-                بیزینس خودت رو تحلیل کن و سطح درآمد ماهانه رو افزایش بده!
+                {t("analyzeYourBusiness")}
               </p>
               <ul className="text-bodyDark text-sm space-y-7 mt-4 [&>li]:flex [&>li]:items-center [&>li]:gap-2">
                 <li>
-                  <TickCircleSVG /> تحلیل فروش کل
+                  <TickCircleSVG /> {t("totalSalesAnalysis")}
                 </li>
                 <li>
-                  <TickCircleSVG /> آیتم‌های پرفروش
+                  <TickCircleSVG /> {t("bestSellingItems")}
                 </li>
                 <li>
-                  <TickCircleSVG /> پرطرفدارترین آیتم‌ها
+                  <TickCircleSVG /> {t("mostPopularItems")}
                 </li>
                 <li>
-                  <TickCircleSVG /> تحلیل‌های نموداری
+                  <TickCircleSVG /> {t("graphicalAnalyses")}
                 </li>
               </ul>
             </div>
@@ -96,15 +99,15 @@ const StatsSection = () => {
 
           <div className="flex flex-col justify-center gap-4">
             <div>
-              <Image src={aboutUs5} alt="ظاهر جذاب" />
-              <h3>ظاهر جذاب</h3>
-              <p>منوی رستوران/کافه‌ات باید مثل غذاهایت جذاب باشد.</p>
+              <Image src={aboutUs5} alt={t("attractiveAppearance")} />
+              <h3>{t("attractiveAppearance")}</h3>
+              <p>{t("yourRestaurantCafeMenuShould")}</p>
             </div>
 
             <div>
-              <Image src={aboutUs6} alt="پرداخت آنلاین" />
-              <h3>پرداخت آنلاین</h3>
-              <p>با پرداخت آنلاین از شلوغی دم صندوق جلوگیری کن!</p>
+              <Image src={aboutUs6} alt={t("onlinePayment")} />
+              <h3>{t("onlinePayment")}</h3>
+              <p>{t("avoidTheRush")}</p>
             </div>
           </div>
         </div>

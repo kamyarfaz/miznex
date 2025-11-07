@@ -7,6 +7,7 @@ import { LoginForm } from "@/components/main/auth";
 import UserDropdown from "./UserDropdown";
 import { DesktopNavbarProps } from "@/types/main";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 const CartSidebar = dynamic(
   () => import("@/components/main/CartSidebar").then((mod) => mod.default),
@@ -21,12 +22,14 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({
   setOpenLoginDialog,
 }) => {
   const [activeId, setActiveId] = useState<string>("home");
+  const t = useTranslations("navbar");
+
   const links = [
-    { href: "home", label: "خانه" },
-    { href: "about-us", label: "درباره ما" },
-    { href: "HowItWorks", label: "نحوه کار" },
-    { href: "contact-us", label: "امکانات" },
-    { href: "faq", label: "سوالات متداول" },
+    { href: "home", label: t("desktopNavbar.home") },
+    { href: "about-us", label: t("desktopNavbar.aboutUs") },
+    { href: "HowItWorks", label: t("desktopNavbar.howItWorks") },
+    { href: "contact-us", label: t("desktopNavbar.features") },
+    { href: "faq", label: t("desktopNavbar.frequentlyAskedQuestions") },
   ];
 
   const handleScroll = (href: string) => {
@@ -84,7 +87,7 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({
           onSuccess={() => setOpenLoginDialog(false)}
         /> */}
         <div className="bg-white text-bodyDark h-full px-4 rounded-full font-medium flex items-center gap-2 text-[15px] cursor-pointer">
-          <Download width={18} /> دانلود اپ
+          <Download width={18} /> {t("desktopNavbar.downloadApp")}
         </div>
       </div>
     </>

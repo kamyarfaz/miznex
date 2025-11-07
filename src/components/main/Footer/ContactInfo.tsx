@@ -1,7 +1,10 @@
 import { ContactInfoProps } from "@/types";
 import { MotionDiv } from "@/utils/MotionWrapper";
+import { useTranslations } from "next-intl";
 
 const ContactInfo = ({ contactInfo }: ContactInfoProps) => {
+  const t = useTranslations("footer");
+
   return (
     <div className="space-y-4 items-start h-full">
       <MotionDiv
@@ -11,7 +14,7 @@ const ContactInfo = ({ contactInfo }: ContactInfoProps) => {
         transition={{ duration: 0.6 }}
       >
         <h3 className="text-t-dark font-medium flex items-center gap-2">
-          <div className="w-1 h-[9px] bg-action rounded-full"></div> پشتیبانی
+          <div className="w-1 h-[9px] bg-action rounded-full"></div> {t("support")}
         </h3>
       </MotionDiv>
 

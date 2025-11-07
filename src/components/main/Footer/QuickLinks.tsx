@@ -1,7 +1,10 @@
 import { MotionDiv } from "@/utils/MotionWrapper";
 import { QuickLinksProps } from "@/types/main";
+import { useTranslations } from "next-intl";
 
 const QuickLinks = ({ quickLinks }: QuickLinksProps) => {
+  const t = useTranslations("footer");
+
   return (
     <div className="space-y-3 items-start h-full">
       <MotionDiv
@@ -11,8 +14,7 @@ const QuickLinks = ({ quickLinks }: QuickLinksProps) => {
         transition={{ duration: 0.6 }}
       >
         <h3 className="text-t-dark font-medium flex items-center gap-2">
-          <div className="w-1 h-[9px] bg-action rounded-full"></div> لینک های
-          سریع
+          <div className="w-1 h-[9px] bg-action rounded-full"></div> {t("quickLinks")}
         </h3>
       </MotionDiv>
 

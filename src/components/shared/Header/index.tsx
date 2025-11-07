@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 import DesktopNavbar from "./DesktopNavbar";
 import MobileNavbar from "./MobileNavbar";
+import { useTranslations } from "next-intl";
 
 const Navbar = () => {
   // Auth and user data
@@ -27,11 +28,13 @@ const Navbar = () => {
     pathname,
   };
 
+  const t = useTranslations("navbar");
+
   return (
     <div >
       <nav className="fixed top-6 inset-x-4 h-12 max-w-[720px] bg-[#404040] backdrop-blur-sm mx-auto rounded-full shadow-[0px_4px_30px_rgba(0,0,0,0.2)] z-50">
         <div className="h-full flex items-center justify-between mx-auto p-[3px] pr-2">
-          <h3 className="text-theme-xl font-bold text-white">میزنکس</h3>
+          <h3 className="text-theme-xl font-bold text-white">{t("miznex")}</h3>
 
           <DesktopNavbar
             {...sharedProps}

@@ -24,7 +24,7 @@ import { DrawerContent } from "@/components/ui/drawer";
 import { useRouter } from "next/navigation";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import Image from "next/image";
-import { ImageDialog } from "@/app/(admin)/components/common/ImageDialog";
+import { ImageDialog } from "@/app/[locale]/(admin)/components/common/ImageDialog";
 
 export const OrderDetailsModal = ({
   order,

@@ -4,8 +4,11 @@ import MenuSVG from "@/assets/svg/MenuSVG";
 import QRCodeSVG from "@/assets/svg/QRCodeSVG";
 import UserSVG from "@/assets/svg/UserSVG";
 import { MotionDiv } from "@/utils/MotionWrapper";
+import { useTranslations } from "next-intl";
 
 const HowItWorks = () => {
+  const t = useTranslations("howItWorks");
+  
   return (
     <div className="relative" id="HowItWorks">
       <MotionDiv
@@ -20,11 +23,11 @@ const HowItWorks = () => {
       >
         <h2 className="mb-3 relative">
           <span className="text-bodyDark text-2xl relative z-10 font-bold">
-            نحوه کار میزنکس
+            {t("howMiznexWorks")}
           </span>
         </h2>
         <p className="text-lg text-bodyNormal font-normal">
-          منوی دیجیتال خود را در سه مرحله ساده راه‌اندازی کنید
+          {t("setUpYourDigitalMenu")}
         </p>
       </MotionDiv>
 
@@ -43,11 +46,10 @@ const HowItWorks = () => {
             <UserSVG />
             <div>
               <h3 className="font-extrabold text-xl mb-3 peyda">
-                در میزنس ثبت‌نام کنید
+                {t("signUpForMiznex")}
               </h3>
               <p className="text-sm font-medium !leading-[22px]">
-                حساب کاربری رایگان خود را در چند ثانیه بسازید. نیازی به هیچ
-                هزینه‌ای برای شروع نیست.
+                {t("createYourFreeAccount")}
               </p>
             </div>
           </div>
@@ -55,11 +57,10 @@ const HowItWorks = () => {
             <MenuSVG />
             <div>
               <h3 className="font-extrabold text-xl mb-3 peyda">
-                منوی دیجیتال خود را بسازید
+                {t("createYourDigitalMenu")}
               </h3>
               <p className="text-sm font-medium !leading-[22px]">
-                از ویرایشگر ساده ما برای افزودن آیتم‌ها، عکس‌ها، قیمت‌ها و
-                سفارشی‌سازی ظاهر مناسب با برند خود استفاده کنید.
+                {t("useOurSimpleEditor")}
               </p>
             </div>
           </div>
@@ -68,11 +69,10 @@ const HowItWorks = () => {
             <QRCodeSVG />
             <div>
               <h3 className="font-extrabold text-xl mb-3 peyda">
-                کد QR خود را با مشتریان به اشتراک بگذارید
+                {t("shareYourQRCode")}
               </h3>
               <p className="text-sm font-medium !leading-[22px]">
-                یک کد QR منحصر به فرد ایجاد کنید و به مشتریان اجازه دهید تا منوی
-                شما را فوراً روی دستگاه‌هایشان مشاهده کنند.
+                {t("createUniqueQRCode")}
               </p>
             </div>
           </div>

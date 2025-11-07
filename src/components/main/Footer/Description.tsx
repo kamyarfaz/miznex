@@ -1,7 +1,10 @@
 import MiznexSVG from "@/assets/svg/MiznexSVG";
 import { MotionDiv } from "@/utils/MotionWrapper";
+import { useTranslations } from "next-intl";
 
 const Description = () => {
+  const t = useTranslations("footer");
+
   return (
     <div className="space-y-3">
       <MotionDiv
@@ -12,9 +15,9 @@ const Description = () => {
       >
         <div className="flex items-center gap-2">
           <MiznexSVG />
-          <h3 className="text-theme-xl font-bold text-action">میزنکس</h3>
+          <h3 className="text-theme-xl font-bold text-action">{t("miznex")}</h3>
         </div>
-        <p className="text-bodyDark leading-[26px] font-light mt-4">پلتفرم هوشمند ساخت منوی دیجیتال برای رستوران‌ها و کافه‌ها با امکانات مدیریت موجودی و آمارگیری پیشرفته.</p>
+        <p className="text-bodyDark leading-[26px] font-light mt-4">{t("intelligentPlatform")}</p>
       </MotionDiv>
     </div>
   );
