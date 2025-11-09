@@ -17,15 +17,15 @@ const FAQ = () => {
     },
     {
       question: t("isCodingRequiredToUse"),
-      answer: t("noProgrammingKnowledgeRequired"),
+      answer: t("noPanelIsDesignedToBeCompletelyVisual"),
     },
     {
       question: t("ifWeUpdateMenu"),
-      answer: t("qrRemainsSameOnMenuUpdate"),
+      answer: t("dedicatedQRCodeIsPermanentAndNeverChanges"),
     },
     {
-      question: t("qrChangeOnMenuDelete"),
-      answer: t("qrInactiveOnMenuDeletion"),
+      question: t("ifPricesChangeDaily"),
+      answer: t("ourSystemIsDesignedToBeDynamic"),
     },
   ];
 
@@ -42,9 +42,11 @@ const FAQ = () => {
           visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
         }}
       >
-        <h2 className="text-2xl font-bold text-bodyDark mb-3">{t("question")}</h2>
+        <h2 className="text-2xl font-bold text-bodyDark mb-3">
+          {t("frequentlyAskedQuestions")}
+        </h2>
         <p className="text-bodyNormal text-lg">
-          {t("aboutMizenex")}
+          {t("everythingYouNeedToKnow")}
         </p>
       </MotionDiv>
 
@@ -67,12 +69,14 @@ const FAQ = () => {
               >
                 <div>
                   <button
-                    className="w-full flex justify-between items-center text-right cursor-pointer text-bodyDark "
+                    className="w-full flex justify-between items-center rtl:text-right ltr:text-left cursor-pointer text-bodyDark "
                     onClick={() =>
                       setOpenIndex(openIndex === index ? null : index)
                     }
                   >
-                    <span className="font-medium text-headings text-lg">{faq.question}</span>
+                    <span className="font-medium text-headings text-lg">
+                      {faq.question}
+                    </span>
 
                     <ChevronDown
                       className={`text-xl transition-transform text-i-primary ${
@@ -83,7 +87,7 @@ const FAQ = () => {
                   </button>
 
                   {openIndex === index && (
-                    <div className="text-bodyNormal ml-20 mt-3 text-right font-regular">
+                    <div className="text-bodyNormal rtl:ml-20 ltr:mr-20 mt-3 rtl:text-right ltr:text-left font-regular">
                       {faq.answer}
                     </div>
                   )}
@@ -94,7 +98,9 @@ const FAQ = () => {
           <div className="flex flex-col min-w-[253px]">
             <FAQSVG className="w-full" />
             <div className="text-center mt-6">
-              <p className="text-[#494848] font-medium">{t("stillHaveQuestions")}</p>
+              <p className="text-[#494848] font-medium">
+                {t("stillHaveQuestions")}
+              </p>
               <button className="mt-3 bg-surface-dark text-white px-4 py-2 rounded-full text-[15px] font-regular">
                 {t("contactSupport")}
               </button>

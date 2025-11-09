@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import logo from "./../../../assets/Logo/7.png";
+// import logo from "./../../../assets/Logo/7.png";
 import { useSidebar } from "../context/SidebarContext";
 import {
   Tooltip,
@@ -330,7 +330,7 @@ const AppSidebar: React.FC = () => {
         <Link href="/" className="flex items-center gap-1">
           {isExpanded || isHovered || isMobileOpen ? (
             <>
-              <Image
+              {/* <Image
                 className="dark:hidden h-auto w-auto  max-h-[70px] "
                 src={logo}
                 alt="Logo"
@@ -343,7 +343,7 @@ const AppSidebar: React.FC = () => {
                 src={logo}
                 alt="Logo"
                 width={70}
-              />
+              /> */}
               <p className="text-4xl font-extrabold mt-1 leading-none">
                 <span className="text-amber-600 dark:text-amber-400 drop-shadow-sm">
                   Caf
@@ -353,8 +353,10 @@ const AppSidebar: React.FC = () => {
                 </span>
               </p>
             </>
-          ) : (
-            <Image src={logo} alt="Logo" className="h-auto w-auto" width={32} />
+          ) :
+           (
+            <div></div>
+            // <Image src={logo} alt="Logo" className="h-auto w-auto" width={32} />
           )}
         </Link>
       </div>

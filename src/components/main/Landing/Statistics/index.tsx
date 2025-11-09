@@ -2,10 +2,12 @@
 
 import { MotionDiv } from "@/utils/MotionWrapper";
 import { useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
 
 const Statistics = () => {
   const t = useTranslations("statistics");
-
+  const params = useParams()
+  
   const cards = [
     {
       title: t("autoInventoryManagment"),
@@ -15,7 +17,7 @@ const Statistics = () => {
     {
       title: t("controlRawMaterials"),
       content:
-        t("inventoryUpdateOnOrder"),
+        t("withEachCustomerOrder"),
     },
     {
       title: t("saveTime"),
@@ -62,7 +64,7 @@ const Statistics = () => {
         <div className="flex items-center w-full h-[175px] justify-between p-8 mt-5 rounded-3xl text-center bg-white shadow-[0_0_35px_rgba(0,0,0,0.07)] [&>div]:w-1/3 [&>div]:flex [&>div]:flex-col [&>div]:items-center [&>div]:justify-center [&>div>div]:mt-3">
           <div>
             <h2 className="text-[#FF5B35] bg-secondary size-12 flex items-center justify-center rounded-full font-bold text-[28px]">
-              ۱
+              {["fa", "ar"].includes(String(params.locale)) ? "۱" : "1"}
             </h2>
             <div>
               <h3 className="font-medium text-xl mb-1 peyda text-bodyDark">
@@ -75,7 +77,7 @@ const Statistics = () => {
           </div>
           <div>
             <h2 className="text-[#FF5B35] bg-secondary size-12 flex items-center justify-center rounded-full font-bold text-[28px]">
-              ۲
+              {["fa", "ar"].includes(String(params.locale)) ? "۲" : "2"}
             </h2>
             <div>
               <h3 className="font-medium text-xl mb-1 peyda text-bodyDark">
@@ -89,7 +91,7 @@ const Statistics = () => {
 
           <div>
             <h2 className="text-[#FF5B35] bg-secondary size-12 flex items-center justify-center rounded-full font-bold text-[28px]">
-              ۳
+              {["fa", "ar"].includes(String(params.locale)) ? "۳" : "3"}
             </h2>
             <div>
               <h3 className="font-medium text-xl mb-1 peyda text-bodyDark">
@@ -113,7 +115,7 @@ const Statistics = () => {
           visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
         }}
       >
-        <div className="w-full flex items-start justify-between [&>div]:w-1/4 gap-6 relative z-10">
+        <div className="w-full flex items-start justify-between ltr:flex-row-reverse [&>div]:w-1/4 gap-6 relative z-10">
           {cards.map((item, index) => (
             <div
               className="flex flex-col p-6 gap-3 w-[290px] xl:pb-14 bg-white shadow-[0_0_35px_rgba(0,0,0,0.07)] rounded-3xl"

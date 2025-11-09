@@ -18,7 +18,7 @@ const Resources = ({ resources }: ResourcesProps) => {
         </h3>
       </MotionDiv>
 
-      <div className="text-right space-y-3">
+      <div className="rtl:text-right ltr:text-left space-y-3">
         {resources.map((item, index) => (
           <MotionDiv
             key={index}

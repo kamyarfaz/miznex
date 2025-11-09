@@ -22,9 +22,9 @@ const Footer = () => {
 
     resources: [
       { text: t("blog") },
-      { text: t("supportResources") },
+      { text: t("support") },
       { text: t("documentation") },
-      { text: t("faq") },
+      { text: t("frequentlyAskedQuestions") },
     ],
 
     contactInfo: [

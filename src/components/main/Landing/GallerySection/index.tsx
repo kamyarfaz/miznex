@@ -48,14 +48,14 @@ const Grow = () => {
         <h2 className="mb-3 relative z-10">
           <span className="text-bodyDark text-2xl font-bold flex items-center justify-center">
             {t("withMiznex")}
-            <span className="text-success flex items-center mx-2 gap-2">
+            <span className="text-success flex items-center mx-2 gap-2 ltr:flex-row-reverse">
               {t("growWithMiznex")} <DiagramUpSVG />
             </span>
             {t("Do")}
           </span>
         </h2>
         <p className="text-lg text-bodyNormal font-normal relative z-10">
-          {t("createMeTakeOrders")}
+          {t("createAMenuTakeOrders")}
         </p>
       </MotionDiv>
 

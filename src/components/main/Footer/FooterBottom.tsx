@@ -1,5 +1,7 @@
 "use client";
 import { MotionDiv, MotionP } from "@/utils/MotionWrapper";
+import { useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
 import eNamad from "./../../../assets/footer/eNamad.png";
 import zarinpal from "./../../../assets/footer/zarinpal.png";
 import Image from "next/image";
@@ -7,10 +9,10 @@ import TelegramSVG from "@/assets/svg/TelegramSVG";
 import InstagramSVG from "@/assets/svg/InstagramSVG";
 import LinkedinSVG from "@/assets/svg/LinkedinSVG";
 import XSVG from "@/assets/svg/XSVG";
-import { useTranslations } from "next-intl";
 
 const FooterBottom = () => {
   const t = useTranslations("footer");
+  const params = useParams();
 
   const socialMedia = [
     <TelegramSVG />,
@@ -74,7 +76,12 @@ const FooterBottom = () => {
             viewport={{ once: false }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            © {new Date().toLocaleDateString("fa-IR", { year: "numeric" })}{" "}
+            ©{" "}
+            {["fa"].includes(String(params.locale))
+              ? new Date().toLocaleDateString("fa-IR", { year: "numeric" })
+              : new Date().toLocaleDateString("en-US", {
+                  year: "numeric",
+                })}{" "}
             {t("copyRight")}
           </MotionP>
         </div>
@@ -88,7 +95,7 @@ const FooterBottom = () => {
         >
           <span>{t("privacyPolicy")}</span>
           <span>{t("termsOfUse")}</span>
-          <span>{t("rulesAndRegulations")}</span>
+          <span>{t("termsAndConditions")}</span>
         </MotionDiv>
       </MotionDiv>
     </>

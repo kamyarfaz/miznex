@@ -46,15 +46,15 @@ const WhyMiznex = () => {
           visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
         }}
       >
-        <div className="relative rounded-2xl mb-5 z-10 -left-1/6">
+        <div className="relative rounded-2xl mb-5 z-10 rtl:-left-1/6 ltr:-right-1/6">
           <Swiper
             modules={[Autoplay]}
             spaceBetween={20}
             breakpoints={{
               0: { slidesPerView: 1.2 },
               640: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-              1280: { slidesPerView: 4 },
+              1024: { slidesPerView: 2 },
+              1280: { slidesPerView: 3 },
             }}
             centeredSlides={false}
             loop={true}

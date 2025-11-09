@@ -41,7 +41,7 @@ const HowItWorks = () => {
           visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
         }}
       >
-        <div className="flex items-center h-[186px] justify-between p-8 rounded-3xl bg-gradient-to-tr from-[#FF7B5C] to-[#FF5B35] [&>div>div]:text-white [&>div>div]:pl-8 [&>div>div]:mt-2">
+        <div className="flex md:items-center max-md:flex-col min-h-[186px] justify-between p-8 gap-4 rounded-3xl bg-gradient-to-tr from-[#FF7B5C] to-[#FF5B35] md:[&>div]:w-1/3 [&>div>div]:text-white rtl:[&>div>div]:pl-8 rtl:[&>div>div]:pr-8 [&>div>div]:mt-2">
           <div>
             <UserSVG />
             <div>
