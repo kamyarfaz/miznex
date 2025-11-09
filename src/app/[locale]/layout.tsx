@@ -9,6 +9,7 @@ import { IRANYekanX, Peyda } from "@/lib/fonts";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
+import { countryLocaleDirection } from "@/i18n/localeMap";
 
 export const metadata: Metadata = rootMetadata;
 
@@ -28,8 +29,14 @@ export default async function RootLayout({
     notFound();
   }
 
+  const countryEntry = Object.values(countryLocaleDirection).find(
+    (item) => item.locale === locale
+  );
+
+  const dir = countryEntry?.dir || "ltr";
+
   return (
-    <html lang={locale} dir="rtl" suppressHydrationWarning>
+    <html lang={locale} dir={dir} suppressHydrationWarning>
       <head>
         <StructuredDataScripts />
       </head>
