@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://cafinoo.vercel.app";
-const siteName = "کافینو";
-const siteDescription =
+  const siteDescription =
   "کافه و رستوران کافینو - بهترین تجربه طعم و مزه با منوی متنوع نوشیدنی‌ها، غذاها و دسرهای خوشمزه";
-
-export const rootMetadata: Metadata = {
+  
+  const siteName = "میزنکس";
+  export const rootMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
   title: {
-    default: `${siteName} | کافه و رستوران`,
+    default: `${siteName}`,
     template: `%s`,
   },
   description: siteDescription,
@@ -27,14 +27,14 @@ export const rootMetadata: Metadata = {
     locale: "fa_IR",
     url: siteUrl,
     siteName: siteName,
-    title: `${siteName} | کافه و رستوران`,
+    title: `${siteName}`,
     description: siteDescription,
     images: [
       {
         url: "/favicon.ico",
         width: 1200,
         height: 630,
-        alt: `${siteName} - کافه و رستوران`,
+        alt: `${siteName}`,
         type: "image/webp",
       },
     ],
@@ -42,7 +42,7 @@ export const rootMetadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: `${siteName} | کافه و رستوران`,
+    title: `${siteName}`,
     description: siteDescription,
     images: ["/favicon.ico"],
   },

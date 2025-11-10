@@ -102,6 +102,7 @@
 
   --font-iranyekanx: var(--font-family-iranyekanx);
   --font-peyda: var(--font-family-peyda);
+  --font-poppins: var(--font-family-poppins);
 }
 
 .dark {
@@ -149,7 +150,15 @@
 
 body {
   background-color: white;
-  font-family: var(--font-iranyekanx), sans-serif;
+  /* font-family: var(--font-iranyekanx), sans-serif; */
+}
+
+html[dir="ltr"] body {
+  font-family: var(--font-poppins), sans-serif !important;
+}
+
+html[dir="rtl"] body {
+  font-family: var(--font-iranyekanx), sans-serif !important;
 }
 
 .peyda {

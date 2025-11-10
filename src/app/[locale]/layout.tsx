@@ -5,7 +5,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { QueryProvider } from "@/components/providers/QueryProviders";
 import { rootMetadata } from "@/lib/metadata/rootMetadata";
 import { StructuredDataScripts } from "@/lib/metadata/structuredData";
-import { IRANYekanX, Peyda } from "@/lib/fonts";
+import { IRANYekanX, Peyda , Poppins } from "@/lib/fonts";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
@@ -40,7 +40,7 @@ export default async function RootLayout({
       <head>
         <StructuredDataScripts />
       </head>
-      <body className={`${IRANYekanX.variable} ${Peyda.variable} font-sans`}>
+      <body className={`${IRANYekanX.variable} ${Peyda.variable} ${dir === "ltr" ? Poppins.variable : ""} font-sans`}>
         <NextIntlClientProvider>
           <QueryProvider>
             <ThemeProvider
