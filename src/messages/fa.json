@@ -142,6 +142,9 @@
         "termsAndConditions": "قوانین و مقررات"
     },
     "adminPanel": {
+        "title": "پنل مدیریت کافینو | Cafino",
+        "description": "مدیریت حساب  مدیریت در سامانه Cafino.پنل مدیریت",
+        "authorsName": "Cafino",
         "layout": {
             "appSidebar": {
                 "dashboard": "داشبورد",
