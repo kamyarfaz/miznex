@@ -24,6 +24,7 @@ import {
   ShieldBan,
   TicketsPlane,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 type NavItem = {
   name: string;
   icon: React.ReactNode;
@@ -31,67 +32,68 @@ type NavItem = {
   subItems?: { name: string; path: string; pro?: boolean; new?: boolean }[];
 };
 
-const navItems: NavItem[] = [
-  {
-    icon: <House />,
-    name: "داشبورد",
-    path: "/dashboard/overview",
-  },
-  {
-    name: "مدیریت کاربران",
-    icon: <CircleUserRound />,
-    path: "/dashboard/users",
-  },
-  {
-    name: "مدیریت دسته‌بندی",
-    icon: <ChartBarStacked />,
-    path: "/dashboard/categories",
-  },
-  {
-    name: "مدیریت آیتم‌ها",
-    icon: <Hamburger />,
-    path: "/dashboard/items",
-  },
-  {
-    name: "مدیریت سفارشات",
-    icon: <BadgeDollarSign />,
-    path: "/dashboard/orders",
-  },
-  {
-    name: "مدیریت تخفیف‌ها",
-    icon: <ClipboardPlus />,
-    path: "/dashboard/discounts",
-  },
-  {
-    name: "مدیریت تیکت ها",
-    icon: <TicketsPlane />,
-    path: "/dashboard/tickets",
-  },
-  {
-    name: "مدیریت کامنت ها",
-    icon: <MessageCircleCode />,
-    path: "/dashboard/comments",
-  },
-  {
-    name: "مدیریت پیام کاربران",
-    icon: <Send />,
-    path: "/dashboard/messages",
-  },
-  {
-    name: "لیست سیاه",
-    icon: <OctagonMinus />,
-    path: "/dashboard/blacklist",
-  },
-  {
-    name: "مدیریت محدودیت ها",
-    icon: <ShieldBan />,
-    path: "/dashboard/rate-limit",
-  },
-];
 
 const AppSidebar: React.FC = () => {
   const { isExpanded, isMobileOpen, isHovered, setIsHovered } = useSidebar();
   const pathname = usePathname();
+  const t = useTranslations("adminPanel.layout.appSidebar");
+  const navItems: NavItem[] = [
+    {
+      icon: <House />,
+      name: t("dashboard"),
+      path: "/dashboard/overview",
+    },
+    {
+      name: t("userManagement"),
+      icon: <CircleUserRound />,
+      path: "/dashboard/users",
+    },
+    {
+      name: t("categoryManagement"),
+      icon: <ChartBarStacked />,
+      path: "/dashboard/categories",
+    },
+    {
+      name: t("itemManagement"),
+      icon: <Hamburger />,
+      path: "/dashboard/items",
+    },
+    {
+      name: t("orderManagement"),
+      icon: <BadgeDollarSign />,
+      path: "/dashboard/orders",
+    },
+    {
+      name: t("discountManagement"),
+      icon: <ClipboardPlus />,
+      path: "/dashboard/discounts",
+    },
+    {
+      name: t("ticketManagement"),
+      icon: <TicketsPlane />,
+      path: "/dashboard/tickets",
+    },
+    {
+      name: t("commentManagement"),
+      icon: <MessageCircleCode />,
+      path: "/dashboard/comments",
+    },
+    {
+      name: t("userMessageManagement"),
+      icon: <Send />,
+      path: "/dashboard/messages",
+    },
+    {
+      name: t("blacklist"),
+      icon: <OctagonMinus />,
+      path: "/dashboard/blacklist",
+    },
+    {
+      name: t("restrictionManagement"),
+      icon: <ShieldBan />,
+      path: "/dashboard/rate-limit",
+    },
+  ];
 
   const [openSubmenu, setOpenSubmenu] = useState<{
     type: "main";
@@ -308,7 +310,7 @@ const AppSidebar: React.FC = () => {
 
   return (
     <aside
-      className={`fixed flex flex-col lg:mt-0 top-0 px-2 right-0 bg-white dark:bg-gray-900 dark:border-gray-800 text-gray-900 h-screen transition-all duration-300 ease-in-out z-50 border-l border-gray-200 
+      className={`fixed flex flex-col lg:mt-0 top-0 px-2 rtl:right-0 ltr:left-0 bg-white dark:bg-gray-900 dark:border-gray-800 text-gray-900 h-screen transition-all duration-300 ease-in-out z-50 border-l border-gray-200 
         ${
           isExpanded || isMobileOpen
             ? "w-[240px]"
@@ -317,7 +319,7 @@ const AppSidebar: React.FC = () => {
             : "w-[110px]"
         }
         ${
-          isMobileOpen ? "translate-x-0" : "translate-x-full lg:translate-x-0"
+          isMobileOpen ? "translate-x-0" : "rtl:max-lg:translate-x-full ltr:max-lg:-translate-x-full lg:translate-x-0"
         }`}
       onMouseEnter={() => !isExpanded && setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -345,16 +347,12 @@ const AppSidebar: React.FC = () => {
                 width={70}
               /> */}
               <p className="text-4xl font-extrabold mt-1 leading-none">
-                <span className="text-amber-600 dark:text-amber-400 drop-shadow-sm">
-                  Caf
-                </span>
-                <span className="text-amber-600 dark:text-amber-400 drop-shadow-sm">
-                  ino
+                <span className="text-headings drop-shadow-sm">
+                  {t("miznex")}
                 </span>
               </p>
             </>
-          ) :
-           (
+          ) : (
             <div></div>
             // <Image src={logo} alt="Logo" className="h-auto w-auto" width={32} />
           )}

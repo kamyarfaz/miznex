@@ -144,6 +144,7 @@
     "adminPanel": {
         "layout": {
             "appSidebar": {
+                "miznex": "میزنکس",
                 "dashboard": "داشبورد",
                 "userManagement": "مدیریت کاربران",
                 "categoryManagement": "مدیریت دسته‌بندی",

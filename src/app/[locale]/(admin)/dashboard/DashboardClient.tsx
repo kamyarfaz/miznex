@@ -18,16 +18,16 @@ export default function DashboardClient({
 }) {
   const { isExpanded, isHovered, isMobileOpen } = useSidebar();
 
-  const mainContentMargin = isMobileOpen
-    ? "mr-0"
-    : isExpanded || isHovered
-    ? "lg:mr-[240px]"
-    : "lg:mr-[110px]";
-
   return (
     <div className="min-h-screen xl:flex">
       <div
-        className={`flex-1 transition-all duration-300 ease-in-out ${mainContentMargin}`}
+        className={`flex-1 transition-all duration-300 ease-in-out ${
+          isMobileOpen
+            ? "mr-0"
+            : isExpanded || isHovered
+            ? "rtl:lg:mr-[240px] ltr:lg:ml-[240px]"
+            : "rtl:lg:mr-[110px] ltr:lg:ml-[110px]"
+        }`}
       >
         <AppHeader />
         <div className="p-4 mx-auto max-w-8xl md:p-6">

@@ -140,5 +140,23 @@
     "privacyPolicy": "Privacy Policy",
     "termsOfUse": "Terms of Use",
     "termsAndConditions": "Terms and Conditions"
-  }
+  },
+  "adminPanel": {
+    "layout": {
+        "appSidebar": {
+            "miznex": "Miznex",
+            "dashboard": "Dashboard",
+            "userManagement": "User Management",
+            "categoryManagement": "Category Management",
+            "itemManagement": "Item Management",
+            "orderManagement": "Order Management",
+            "discountManagement": "Discount Management",
+            "ticketManagement": "Ticket Management",
+            "commentManagement": "Comment Management",
+            "userMessageManagement": "User Message Management",
+            "blacklist": "Blacklist",
+            "restrictionManagement": "Restriction Management"
+        }
+    }
+}
 }
