@@ -97,8 +97,6 @@ export default function CheckoutCart({ cart: mock }: CheckoutCartProps) {
     handleBackClick,
     handleClearCartClick,
     clearLoading,
-
-    // Address related
     addresses,
     addressesLoading,
     selectedAddressId,

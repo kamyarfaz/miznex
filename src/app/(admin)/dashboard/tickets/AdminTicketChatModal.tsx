@@ -31,6 +31,84 @@ import { useIsMobile } from "@/hooks/ui/useMediaQuery";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import Image from "next/image";
 
+const messagesData = {
+  data: {
+    statusCode: 200,
+    message: "Ticket messages fetched successfully",
+    tickets: {
+      id: "TCK-1023",
+      subject: "Unable to access my account",
+      status: "open",
+      created_at: "2025-10-30T14:22:00Z",
+      updated_at: "2025-10-31T09:45:00Z",
+      priority: "high",
+      category: "Account Issues",
+    } as any,
+    messages: [
+      {
+        id: "MSG-0001",
+        message:
+          "Hi, I can’t log into my account. It says my password is incorrect.",
+        created_at: "2025-10-30T14:23:00Z",
+        sender: {
+          id: "USR-1001",
+          username: "john_doe",
+          first_name: "John",
+          last_name: "Doe",
+          image: "/avatars/john.png",
+          imageUrl: "/avatars/john.png",
+          role: "user",
+        },
+      },
+      {
+        id: "MSG-0002",
+        message:
+          "Hello John! Could you please confirm if you’ve tried resetting your password?",
+        created_at: "2025-10-30T14:30:00Z",
+        sender: {
+          id: "ADM-2001",
+          username: "support_agent",
+          first_name: "Alice",
+          last_name: "Smith",
+          image: "/avatars/alice.png",
+          imageUrl: "/avatars/alice.png",
+          role: "admin",
+        },
+      },
+      {
+        id: "MSG-0003",
+        message: "Yes, I did, but I never got the reset email.",
+        created_at: "2025-10-30T14:35:00Z",
+        sender: {
+          id: "USR-1001",
+          username: "john_doe",
+          first_name: "John",
+          last_name: "Doe",
+          image: "/avatars/john.png",
+          imageUrl: "/avatars/john.png",
+          role: "user",
+        },
+      },
+      {
+        id: "MSG-0004",
+        message:
+          "Thanks for confirming. I’ve just re-sent the password reset link — please check your inbox.",
+        created_at: "2025-10-30T14:40:00Z",
+        sender: {
+          id: "ADM-2001",
+          username: "support_agent",
+          first_name: "Alice",
+          last_name: "Smith",
+          image: "/avatars/alice.png",
+          imageUrl: "/avatars/alice.png",
+          role: "admin",
+        },
+      },
+    ],
+    total: 4,
+  },
+};
+
 interface AdminTicketChatModalProps {
   ticketId: string | null;
   isOpen: boolean;
@@ -68,9 +146,10 @@ export default function AdminTicketChatModal({
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
 
-  const { data: messagesData, isLoading } = useGetTicketMessages(
-    ticketId || ""
-  );
+  // const { data: messagesData, isLoading } = useGetTicketMessages(
+  //   ticketId || ""
+  // );
+  const isLoading = false;
   const { mutate: addMessageMutation } = useAddTicketMessage(ticketId || "");
 
   const messages = messagesData?.data?.messages || [];
@@ -151,7 +230,7 @@ export default function AdminTicketChatModal({
 
           <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
             <User size={16} />
-              <span>{messagesData?.data?.tickets?.user?.username}</span>
+            <span>{messagesData?.data?.tickets?.user?.username}</span>
           </div>
         </div>
       </div>
