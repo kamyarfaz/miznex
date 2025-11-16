@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://cafinoo.vercel.app";
   const siteDescription =
-  "کافه و رستوران کافینو - بهترین تجربه طعم و مزه با منوی متنوع نوشیدنی‌ها، غذاها و دسرهای خوشمزه";
+  "Miznex";
   
-  const siteName = "میزنکس";
+  const siteName = "Miznex";
   export const rootMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
@@ -85,9 +85,9 @@ const siteUrl =
     },
   },
 
-  authors: [{ name: "کافینو تیم" }],
-  creator: "کافینو",
-  publisher: "کافینو",
+  authors: [{ name: "Miznex تیم" }],
+  creator: "Miznex",
+  publisher: "Miznex",
   formatDetection: {
     email: false,
     address: false,
