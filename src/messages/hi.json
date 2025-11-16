@@ -1,0 +1,144 @@
+{
+  "navbar": {
+    "miznex": "मिज़नेक्स",
+    "desktopNavbar": {
+      "home": "होम",
+      "aboutUs": "हमारे बारे में",
+      "howItWorks": "यह कैसे काम करता है",
+      "features": "फीचर्स",
+      "frequentlyAskedQuestions": "अक्सर पूछे जाने वाले प्रश्न",
+      "downloadApp": "ऐप डाउनलोड करें"
+    }
+  },
+  "heroSection": {
+    "heroContent": {
+      "miznex": "मिज़नेक्स",
+      "theFirstFreeMenuMaker": "पहला मुफ्त मेनू मेकर",
+      "createAnOnlineAndFreeMenu": "एक ऑनलाइन और मुफ्त मेनू बनाएं",
+      "yourRestaurantCafeInNoTime": "आपका रेस्तरां/कैफे तुरंत तैयार!",
+      "aSmartAndFreeAlternative": "महंगे वेबसाइट्स के लिए स्मार्ट और मुफ्त विकल्प! एक पेशेवर",
+      "digitalMenuWithIntegrated": "डिजिटल मेनू जिसमें एनालिटिक्स और इन्वेंटरी मैनेजमेंट एकीकृत है।",
+      "downloadApp": "ऐप डाउनलोड करें",
+      "support": "सपोर्ट"
+    },
+    "heroImage": {
+      "smartDashboard": "स्मार्ट डैशबोर्ड",
+      "smartMenu": "स्मार्ट मेनू",
+      "free": "मुफ्त!"
+    }
+  },
+  "categorySection": {
+    "miznexEverythingInHands": "मिज़नेक्स के साथ, सब कुछ आपके हाथों में!",
+    "createMeTakeOrders": "मेनू बनाएं, ऑर्डर लें, और तुरंत पेमेंट प्रोसेस करें! सब मोबाइल-केंद्रित प्लेटफॉर्म पर!"
+  },
+  "statsSection": {
+    "completelyFreeMenuCreation": "पूरी तरह मुफ्त मेनू क्रिएशन",
+    "createEditPublishAtNoCost": "बनाएं, एडिट करें, पब्लिश करें बिना किसी लागत के!",
+    "completelyFreeMeansZeroCost": "पूरी तरह मुफ्त का मतलब शून्य लागत",
+    "freeSetup": "मुफ्त सेटअप",
+    "fastReliableAndSecure": "तेज, विश्वसनीय और सुरक्षित",
+    "freeAndQuickSupport": "मुफ्त और तेज सपोर्ट",
+    "multipleMenus": "मल्टीपल मेनू",
+    "createDedicatedMenu": "नाश्ता, लंच, डिनर आदि के लिए डेडिकेटेड मेनू बनाएं!",
+    "mobileApp": "मोबाइल ऐप",
+    "dedicatedAnalyticalDashboard": "डेडिकेटेड एनालिटिकल डैशबोर्ड",
+    "analyzeYourBusiness": "अपने बिजनेस का विश्लेषण करें और मासिक रेवेन्यू बढ़ाएं!",
+    "totalSalesAnalysis": "कुल सेल्स एनालिसिस",
+    "bestSellingItems": "बेस्ट-सेलिंग आइटम्स",
+    "mostPopularItems": "सबसे लोकप्रिय आइटम्स",
+    "graphicalAnalyses": "ग्राफिकल एनालिसिस",
+    "attractiveAppearance": "आकर्षक लुक",
+    "yourRestaurantCafeMenuShould": "आपके रेस्तरां/कैफे का मेनू आपके व्यंजनों जितना ही आकर्षक होना चाहिए",
+    "onlinePayment": "ऑनलाइन पेमेंट",
+    "avoidTheRush": "ऑनलाइन पेमेंट से काउंटर पर भीड़ से बचें!"
+  },
+  "howItWorks": {
+    "howMiznexWorks": "मिज़नेक्स कैसे काम करता है",
+    "setUpYourDigitalMenu": "तीन सरल स्टेप्स में अपना डिजिटल मेनू सेटअप करें",
+    "signUpForMiznex": "मिज़नेक्स के लिए साइन अप करें",
+    "createYourFreeAccount": "कुछ सेकंड्स में अपना मुफ्त अकाउंट बनाएं। शुरू करने के लिए कोई लागत नहीं।",
+    "createYourDigitalMenu": "अपना डिजिटल मेनू बनाएं",
+    "useOurSimpleEditor": "हमारे सरल एडिटर का उपयोग आइटम्स, फोटोज, प्राइसेस जोड़ने और अपनी ब्रांड के अनुसार लुक कस्टमाइज करने के लिए करें।",
+    "shareYourQRCode": "अपना QR कोड ग्राहकों के साथ शेयर करें",
+    "createUniqueQRCode": "एक यूनिक QR कोड बनाएं और ग्राहकों को उनके डिवाइस पर तुरंत मेनू देखने दें।"
+  },
+  "grow": {
+    "+45%": "+45%",
+    "increaseSatisfiedCustomers": "संतुष्ट ग्राहकों की संख्या बढ़ाएं",
+    "byProvidingModern": "ग्राहकों को आधुनिक और प्रोफेशनल डिजिटल एक्सपीरियंस प्रदान करके",
+    "+35%": "+35%",
+    "increaseOrders": "ऑर्डर बढ़ाएं",
+    "easyAccessToMenu": "मेनू तक आसान पहुंच से ज्यादा ऑर्डर आते हैं",
+    "+60%": "+60%",
+    "reduceErrorsInOrders": "ऑर्डर में एरर्स कम करें",
+    "withClearDigitalMenu": "स्पष्ट डिजिटल मेनू से ऑर्डर लेने की गलतियां कम हो जाती हैं",
+    "+70%": "+70%",
+    "reduceOrderTakingTime": "ऑर्डर लेने का समय कम करें",
+    "customersDecideAndOrderFaster": "ग्राहक तेजी से फैसला लेते हैं और ऑर्डर देते हैं",
+    "withMiznex": "करें!",
+    "growWithMiznex": "वृद्धि",
+    "Do": "मिज़नेक्स के साथ",
+    "createAMenuTakeOrders": "मिज़नेक्स के साथ, ऑर्डर आसानी से मैनेज करें और अपने रेस्तरां की सेल्स बढ़ाएं।"
+  },
+  "WhyMiznex": {
+    "betterBusinessManagement": "सटीक डेटा से बेहतर बिजनेस मैनेजमेंट",
+    "increaseRevenueByAttractingMoreCustomers": "ज्यादा ग्राहकों को आकर्षित करके रेवेन्यू बढ़ाएं",
+    "improveServiceQuality": "सर्विस क्वालिटी सुधारें",
+    "modernAndProfessionaImage": "अपने ब्रांड के लिए आधुनिक और प्रोफेशनल इमेज",
+    "reduceOperationalAndPrintingCosts": "ऑपरेशनल और प्रिंटिंग कॉस्ट कम करें",
+    "becomeMoreCompetitiveInMarket": "मार्केट में ज्यादा कॉम्पिटिटिव बनें",
+    "whyBusinessNeedMiznex": "आपके बिजनेस को मिज़नेक्स क्यों चाहिए?"
+  },
+  "statistics": {
+    "autoInventoryManagment": "ऑटो इन्वेंटरी मैनेजमेंट",
+    "withEachCustomerOrder": "हर ग्राहक ऑर्डर के साथ, मेनू आइटम्स का इन्वेंटरी ऑटोमैटिक कम हो जाता है",
+    "controlRawMaterials": "रॉ मटेरियल्स कंट्रोल करें",
+    "uponOrderPlacement": "ऑर्डर प्लेसमेंट पर, उस प्रोडक्ट के लिए खपत होने वाले रॉ मटेरियल्स की मात्रा ऑटोमैटिक घट जाती है।",
+    "saveTime": "समय बचाएं",
+    "noMoreNeedForManualAccounting": "मैनुअल अकाउंटिंग और इन्वेंटरी काउंटिंग की जरूरत नहीं",
+    "accurateStatisticalReports": "सटीक स्टैटिस्टिकल रिपोर्ट्स",
+    "instantAccessToSalesReports": "सेल्स रिपोर्ट्स, सबसे पॉपुलर आइटम्स, और ट्रेंड्स तक तुरंत एक्सेस",
+    "professionalStatisticsSystem": "प्रोफेशनल स्टैटिस्टिक्स सिस्टम",
+    "noNeedForSeparateAccountingSystem": "अलग अकाउंटिंग सिस्टम की जरूरत नहीं! मिज़नेक्स आपके इन्वेंटरी और रॉ मटेरियल्स को इंटेलिजेंटली मैनेज करता है।",
+    "customerPlacesOrder": "ग्राहक ऑर्डर प्लेस करता है",
+    "customerGivesYouOrder": "ग्राहक आपको ऑर्डर देता है",
+    "automaticInventoryReduction": "ऑटोमैटिक इन्वेंटरी रिडक्शन",
+    "thePizzaInventorySystem": "पिज्जा इन्वेंटरी सिस्टम 1 यूनिट कम हो जाता है",
+    "reduceRawMaterials": "रॉ मटेरियल्स कम करें",
+    "rawMaterialsWillAlsoDecrease": "आटा, चीज, मीट और अन्य रॉ मटेरियल्स भी कम हो जाएंगे"
+  },
+  "faq": {
+    "doesMiznexMenuWork": "क्या मिज़नेक्स मेनू सभी फोन्स पर काम करता है?",
+    "yesOurMenusAreFullyResponsive": "हां। हमारे मेनू पूरी तरह रेस्पॉन्सिव हैं और सभी एंड्रॉइड और iOS डिवाइसेस के साथ-साथ डेस्कटॉप पर परफेक्टली डिस्प्ले होते हैं।",
+    "isCodingRequiredToUse": "मिज़नेक्स इस्तेमाल करने के लिए कोडिंग जरूरी है?",
+    "noPanelIsDesignedToBeCompletelyVisual": "नहीं, बिल्कुल नहीं! हमारा यूजर पैनल पूरी तरह विजुअल (ड्रैग एंड ड्रॉप) डिजाइन किया गया है ताकि कोई भी कुछ मिनटों में अपना मेनू बना सके",
+    "ifWeUpdateMenu": "अगर हम मेनू अपडेट करें, तो QR कोड चेंज हो जाएगा?",
+    "dedicatedQRCodeIsPermanentAndNeverChanges": "नहीं। आपका डेडिकेटेड QR कोड परमानेंट है और कभी चेंज नहीं होता। सभी मेनू चेंजेस उसी QR कोड के अंदर ऑटोमैटिक अप्लाई हो जाते हैं।",
+    "frequentlyAskedQuestions": "अक्सर पूछे जाने वाले प्रश्न",
+    "everythingYouNeedToKnow": "मिज़नेक्स के बारे में सब कुछ जो आपको जानना चाहिए",
+    "ifPricesChangeDaily": "अगर प्राइसेस रोज चेंज होते हैं, तो मैनेजमेंट पैनल तेजी से रिस्पॉन्ड कर सकता है?",
+    "ourSystemIsDesignedToBeDynamic": "हमारा सिस्टम डायनामिक डिजाइन किया गया है। आप प्राइसेस को एक सेकंड के अंश में अपडेट कर सकते हैं। यह रीयल-टाइम प्राइसिंग वाले रेस्तरां के लिए सबसे महत्वपूर्ण टूल है।",
+    "stillHaveQuestions": "अभी भी सवाल हैं?",
+    "contactSupport": "सपोर्ट से संपर्क करें"
+  },
+  "footer": {
+    "quickLinks": "त्वरित लिंक्स",
+    "aboutUs": "हमारे बारे में",
+    "howItWorks": "यह कैसे काम करता है",
+    "features": "फीचर्स",
+    "portfolio": "पोर्टफोलियो",
+    "resources": "रिसोर्सेस",
+    "blog": "ब्लॉग",
+    "support": "सपोर्ट",
+    "documentation": "डॉक्यूमेंटेशन",
+    "frequentlyAskedQuestions": "अक्सर पूछे जाने वाले प्रश्न",
+    "phone": "33886501 21 +98",
+    "miznex": "मिज़नेक्स",
+    "intelligentPlatform": "रेस्तरां और कैफे के लिए डिजिटल मेनू क्रिएट करने के लिए इंटेलिजेंट प्लेटफॉर्म, इन्वेंटरी मैनेजमेंट और एडवांस्ड एनालिटिक्स फीचर्स के साथ।",
+    "miznexOnSocialMedia": "मिज़नेक्स सोशल मीडिया पर",
+    "copyRight": "मिज़नेक्स। सभी अधिकार सुरक्षित।",
+    "privacyPolicy": "प्राइवेसी पॉलिसी",
+    "termsOfUse": "उपयोग की शर्तें",
+    "termsAndConditions": "शर्तें और नियम"
+  }
+}

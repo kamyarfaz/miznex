@@ -1,31 +1,21 @@
-export interface WorkingHour {
-  day: string;
-  time: string;
+export interface Resource {
+  text: string;
 }
 
 export interface QuickLink {
   href: string;
   text: string;
-  icon: string;
 }
 
 export interface ContactInfo {
-  icon: string;
+  icon: any;
   text: string;
 }
 
-export interface SocialMedia {
-  icon: string;
-  color: string;
-  hover: string;
-  href: string;
-}
-
 export interface FooterData {
-  workingHours: WorkingHour[];
+  resources: Resource[];
   quickLinks: QuickLink[];
   contactInfo: ContactInfo[];
-  socialMedia: SocialMedia[];
 }
 
 export interface FooterMetadata {
@@ -47,8 +37,8 @@ export interface FooterProps {
 
 // Props
 
-export interface WorkingHoursProps {
-  workingHours: WorkingHour[];
+export interface ResourcesProps {
+  resources: Resource[];
 }
 
 export interface QuickLinksProps {
@@ -57,5 +47,4 @@ export interface QuickLinksProps {
 
 export interface ContactInfoProps {
   contactInfo: ContactInfo[];
-  socialMedia: SocialMedia[];
 }

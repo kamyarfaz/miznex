@@ -1,0 +1,144 @@
+{
+  "navbar": {
+    "miznex": "Miznex",
+    "desktopNavbar": {
+      "home": "Anasayfa",
+      "aboutUs": "Hakkımızda",
+      "howItWorks": "Nasıl Çalışır",
+      "features": "Özellikler",
+      "frequentlyAskedQuestions": "Sıkça Sorulan Sorular",
+      "downloadApp": "Uygulamayı İndir"
+    }
+  },
+  "heroSection": {
+    "heroContent": {
+      "miznex": "Miznex",
+      "theFirstFreeMenuMaker": "İlk ücretsiz menü oluşturucu",
+      "createAnOnlineAndFreeMenu": "Çevrimiçi ve ücretsiz bir menü oluşturun",
+      "yourRestaurantCafeInNoTime": "Restoran/kafeniz anında hazır!",
+      "aSmartAndFreeAlternative": "Pahalı web sitelerine akıllı ve ücretsiz alternatif! Profesyonel bir",
+      "digitalMenuWithIntegrated": "dijital menü, entegre analiz ve envanter yönetimi ile.",
+      "downloadApp": "Uygulamayı İndir",
+      "support": "Destek"
+    },
+    "heroImage": {
+      "smartDashboard": "Akıllı Paneller",
+      "smartMenu": "Akıllı Menü",
+      "free": "Ücretsiz!"
+    }
+  },
+  "categorySection": {
+    "miznexEverythingInHands": "Miznex ile her şey elinizin altında!",
+    "createMeTakeOrders": "Menüyü oluşturun, sipariş alın ve ödemeleri anında işleyin! Hepsi mobil odaklı bir platformda!"
+  },
+  "statsSection": {
+    "completelyFreeMenuCreation": "Tamamen ücretsiz menü oluşturma",
+    "createEditPublishAtNoCost": "Oluştur, düzenle, yayınla bedava!",
+    "completelyFreeMeansZeroCost": "Tamamen ücretsiz sıfır maliyet demek",
+    "freeSetup": "Ücretsiz kurulum",
+    "fastReliableAndSecure": "Hızlı, güvenilir ve güvenli",
+    "freeAndQuickSupport": "Ücretsiz ve hızlı destek",
+    "multipleMenus": "Çoklu menüler",
+    "createDedicatedMenu": "Kahvaltı, öğle, akşam yemeği ve daha fazlası için özel menü oluşturun!",
+    "mobileApp": "Mobil uygulama",
+    "dedicatedAnalyticalDashboard": "Özel analitik panel",
+    "analyzeYourBusiness": "İşletmenizi analiz edin ve aylık gelirinizi artırın!",
+    "totalSalesAnalysis": "Toplam satış analizi",
+    "bestSellingItems": "En çok satan ürünler",
+    "mostPopularItems": "En popüler ürünler",
+    "graphicalAnalyses": "Grafiksel analizler",
+    "attractiveAppearance": "Çekici görünüm",
+    "yourRestaurantCafeMenuShould": "Restoran/kafe menünüz yemekleriniz kadar çekici olmalı",
+    "onlinePayment": "Çevrimiçi ödeme",
+    "avoidTheRush": "Çevrimiçi ödeme ile kasadaki kalabalıktan kaçının!"
+  },
+  "howItWorks": {
+    "howMiznexWorks": "Miznex nasıl çalışır",
+    "setUpYourDigitalMenu": "Dijital menünüzü üç basit adımda kurun",
+    "signUpForMiznex": "Miznex'e kaydolun",
+    "createYourFreeAccount": "Ücretsiz hesabınızı saniyeler içinde oluşturun. Başlamak için maliyet yok.",
+    "createYourDigitalMenu": "Dijital menünüzü oluşturun",
+    "useOurSimpleEditor": "Öğeler, fotoğraflar, fiyatlar eklemek ve markanıza uygun görünümü özelleştirmek için basit editörümüzü kullanın.",
+    "shareYourQRCode": "QR kodunuzu müşterilerle paylaşın",
+    "createUniqueQRCode": "Benzersiz bir QR kodu oluşturun ve müşterilerin menünüzü cihazlarında anında görüntülemesine izin verin."
+  },
+  "grow": {
+    "+45%": "+45%",
+    "increaseSatisfiedCustomers": "Memnun müşterileri artırın",
+    "byProvidingModern": "Müşterilere modern ve profesyonel dijital deneyim sağlayarak",
+    "+35%": "+35%",
+    "increaseOrders": "Siparişleri artırın",
+    "easyAccessToMenu": "Menüye kolay erişim daha fazla siparişe yol açar",
+    "+60%": "+60%",
+    "reduceErrorsInOrders": "Sipariş hatalarını azaltın",
+    "withClearDigitalMenu": "Net dijital menü ile sipariş alma hataları en aza indirilir",
+    "+70%": "+70%",
+    "reduceOrderTakingTime": "Sipariş alma süresini kısaltın",
+    "customersDecideAndOrderFaster": "Müşteriler daha hızlı karar verir ve sipariş verir",
+    "withMiznex": "Yapın!",
+    "growWithMiznex": "Büyüyün",
+    "Do": "miznex ile",
+    "createAMenuTakeOrders": "Miznex ile siparişleri daha kolay yönetin ve restoran satışlarınızı artırın."
+  },
+  "WhyMiznex": {
+    "betterBusinessManagement": "Doğru verilerle daha iyi iş yönetimi",
+    "increaseRevenueByAttractingMoreCustomers": "Daha fazla müşteri çekerek geliri artırın",
+    "improveServiceQuality": "Hizmet kalitesini iyileştirin",
+    "modernAndProfessionaImage": "Markanız için modern ve profesyonel bir imaj",
+    "reduceOperationalAndPrintingCosts": "Operasyonel ve baskı maliyetlerini azaltın",
+    "becomeMoreCompetitiveInMarket": "Piyasada daha rekabetçi olun",
+    "whyBusinessNeedMiznex": "İşletmeniz neden Miznex'e ihtiyaç duyar?"
+  },
+  "statistics": {
+    "autoInventoryManagment": "Otomatik envanter yönetimi",
+    "withEachCustomerOrder": "Her müşteri siparişiyle, menü öğelerinin envanteri otomatik olarak azalır",
+    "controlRawMaterials": "Hammaddeyi kontrol edin",
+    "uponOrderPlacement": "Sipariş verildiğinde, o ürün için tüketilen hammadde miktarları otomatik olarak düşülür.",
+    "saveTime": "Zaman kazanın",
+    "noMoreNeedForManualAccounting": "Artık manuel muhasebe ve envanter sayımına gerek yok",
+    "accurateStatisticalReports": "Doğru istatistiksel raporlar",
+    "instantAccessToSalesReports": "Satış raporlarına, en popüler öğelere ve satış trendlerine anında erişim",
+    "professionalStatisticsSystem": "Profesyonel istatistik sistemi",
+    "noNeedForSeparateAccountingSystem": "Artık ayrı bir muhasebe sistemine gerek yok! Miznex envanterinizi ve hammaddelerinizi akıllıca yönetir.",
+    "customerPlacesOrder": "Müşteri sipariş verir",
+    "customerGivesYouOrder": "Müşteri size siparişi verir",
+    "automaticInventoryReduction": "Otomatik envanter azaltma",
+    "thePizzaInventorySystem": "Pizza envanter sistemi 1 birim azalır",
+    "reduceRawMaterials": "Hammaddeyi azaltın",
+    "rawMaterialsWillAlsoDecrease": "Hamur, peynir, et ve diğer hammaddeler de azalacak"
+  },
+  "faq": {
+    "doesMiznexMenuWork": "Miznex menüsü tüm telefonlarda çalışır mı?",
+    "yesOurMenusAreFullyResponsive": "Evet. Menülerimiz tamamen duyarlıdır ve tüm Android ve iOS cihazlarında ayrıca masaüstlerinde mükemmel görüntülenir.",
+    "isCodingRequiredToUse": "Miznex kullanmak için kodlama gerekli midir?",
+    "noPanelIsDesignedToBeCompletelyVisual": "Hayır, hiç değil! Kullanıcı panelimiz tamamen görsel (Sürükle & Bırak) olarak tasarlanmıştır, böylece herkes menüsünü birkaç dakikadan az sürede oluşturabilir",
+    "ifWeUpdateMenu": "Menüyü güncellersek QR kodu değişir mi?",
+    "dedicatedQRCodeIsPermanentAndNeverChanges": "Hayır. Özel QR kodunuz kalıcıdır ve asla değişmez. Tüm menü değişiklikleriniz aynı QR kodunun altında otomatik olarak uygulanır.",
+    "frequentlyAskedQuestions": "Sıkça Sorulan Sorular",
+    "everythingYouNeedToKnow": "Miznex hakkında bilmeniz gereken her şey",
+    "ifPricesChangeDaily": "Fiyatlar günlük değişirse yönetim paneli hızlı yanıt verebilir mi?",
+    "ourSystemIsDesignedToBeDynamic": "Sistemimiz dinamik olarak tasarlanmıştır. Fiyatları bir saniyenin onda birinde güncelleyebilirsiniz. Bu, gerçek zamanlı fiyatlandırma yapan restoranlar için en hayati araçtır.",
+    "stillHaveQuestions": "Hala sorunuz var mı?",
+    "contactSupport": "Destek ile İletişime Geçin"
+  },
+  "footer": {
+    "quickLinks": "Hızlı Bağlantılar",
+    "aboutUs": "Hakkımızda",
+    "howItWorks": "Nasıl Çalışır",
+    "features": "Özellikler",
+    "portfolio": "Portföy",
+    "resources": "Kaynaklar",
+    "blog": "Blog",
+    "support": "Destek",
+    "documentation": "Dökümantasyon",
+    "frequentlyAskedQuestions": "Sıkça Sorulan Sorular",
+    "phone": "33886501 21 +98",
+    "miznex": "Miznex",
+    "intelligentPlatform": "Restoranlar ve kafeler için dijital menüler oluşturmak üzere akıllı platform, envanter yönetimi ve gelişmiş analitik özelliklerle.",
+    "miznexOnSocialMedia": "Sosyal Medyada Miznex",
+    "copyRight": "Miznex. Tüm hakları saklıdır.",
+    "privacyPolicy": "Gizlilik Politikası",
+    "termsOfUse": "Kullanım Şartları",
+    "termsAndConditions": "Şartlar ve Koşullar"
+  }
+}

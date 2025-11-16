@@ -1,0 +1,144 @@
+{
+  "navbar": {
+    "miznex": "Miznex",
+    "desktopNavbar": {
+      "home": "หน้าหลัก",
+      "aboutUs": "เกี่ยวกับเรา",
+      "howItWorks": "วิธีการทำงาน",
+      "features": "คุณสมบัติ",
+      "frequentlyAskedQuestions": "คำถามที่พบบ่อย",
+      "downloadApp": "ดาวน์โหลดแอป"
+    }
+  },
+  "heroSection": {
+    "heroContent": {
+      "miznex": "Miznex",
+      "theFirstFreeMenuMaker": "เครื่องมือสร้างเมนูฟรีตัวแรก",
+      "createAnOnlineAndFreeMenu": "สร้างเมนูออนไลน์และฟรี",
+      "yourRestaurantCafeInNoTime": "ร้านอาหาร/คาเฟ่ของคุณในทันที!",
+      "aSmartAndFreeAlternative": "ทางเลือกอัจฉริยะและฟรีสำหรับเว็บไซต์ราคาแพง! เมนูดิจิทัลระดับมืออาชีพ",
+      "digitalMenuWithIntegrated": "พร้อมการวิเคราะห์และการจัดการสต็อกที่รวมอยู่.",
+      "downloadApp": "ดาวน์โหลดแอป",
+      "support": "สนับสนุน"
+    },
+    "heroImage": {
+      "smartDashboard": "แดชบอร์ดอัจฉริยะ",
+      "smartMenu": "เมนูอัจฉริยะ",
+      "free": "ฟรี!"
+    }
+  },
+  "categorySection": {
+    "miznexEverythingInHands": "ด้วย Miznex ทุกอย่างอยู่ในมือคุณ!",
+    "createMeTakeOrders": "สร้างเมนู รับคำสั่งซื้อ และประมวลผลการชำระเงินทันที! ทั้งหมดบนแพลตฟอร์มที่เน้นมือถือ!"
+  },
+  "statsSection": {
+    "completelyFreeMenuCreation": "การสร้างเมนูฟรีสมบูรณ์",
+    "createEditPublishAtNoCost": "สร้าง แก้ไข เผยแพร่โดยไม่มีค่าใช้จ่าย!",
+    "completelyFreeMeansZeroCost": "ฟรีสมบูรณ์หมายถึงค่าใช้จ่ายเป็นศูนย์",
+    "freeSetup": "การตั้งค่าฟรี",
+    "fastReliableAndSecure": "รวดเร็ว น่าเชื่อถือ และปลอดภัย",
+    "freeAndQuickSupport": "การสนับสนุนฟรีและรวดเร็ว",
+    "multipleMenus": "เมนูหลายรายการ",
+    "createDedicatedMenu": "สร้างเมนูเฉพาะสำหรับอาหารเช้า กลางวัน เย็น และอื่นๆ!",
+    "mobileApp": "แอปมือถือ",
+    "dedicatedAnalyticalDashboard": "แดชบอร์ดวิเคราะห์เฉพาะ",
+    "analyzeYourBusiness": "วิเคราะห์ธุรกิจของคุณและเพิ่มรายได้รายเดือน!",
+    "totalSalesAnalysis": "การวิเคราะห์ยอดขายทั้งหมด",
+    "bestSellingItems": "รายการขายดีที่สุด",
+    "mostPopularItems": "รายการยอดนิยม",
+    "graphicalAnalyses": "การวิเคราะห์กราฟิก",
+    "attractiveAppearance": "รูปลักษณ์ที่น่าดึงดูด",
+    "yourRestaurantCafeMenuShould": "เมนูร้านอาหาร/คาเฟ่ของคุณควรน่าดึงดูดเท่ากับอาหารของคุณ",
+    "onlinePayment": "การชำระเงินออนไลน์",
+    "avoidTheRush": "หลีกเลี่ยงความแออัดที่เคาน์เตอร์ด้วยการชำระเงินออนไลน์!"
+  },
+  "howItWorks": {
+    "howMiznexWorks": "Miznex ทำงานอย่างไร",
+    "setUpYourDigitalMenu": "ตั้งค่าเมนูดิจิทัลของคุณในสามขั้นตอนง่ายๆ",
+    "signUpForMiznex": "สมัคร Miznex",
+    "createYourFreeAccount": "สร้างบัญชีฟรีของคุณในไม่กี่วินาที ไม่มีค่าใช้จ่ายในการเริ่มต้น.",
+    "createYourDigitalMenu": "สร้างเมนูดิจิทัลของคุณ",
+    "useOurSimpleEditor": "ใช้ตัวแก้ไขง่ายๆ ของเราเพื่อเพิ่มรายการ รูปภาพ ราคา และปรับแต่งรูปลักษณ์ให้เหมาะกับแบรนด์ของคุณ.",
+    "shareYourQRCode": "แบ่งปันรหัส QR ของคุณกับลูกค้า",
+    "createUniqueQRCode": "สร้างรหัส QR ที่ไม่ซ้ำกันและให้ลูกค้าดูเมนูของคุณทันทีบนอุปกรณ์ของพวกเขา."
+  },
+  "grow": {
+    "+45%": "+45%",
+    "increaseSatisfiedCustomers": "เพิ่มลูกค้าที่พึงพอใจ",
+    "byProvidingModern": "โดยให้ประสบการณ์ดิจิทัลที่ทันสมัยและมืออาชีพแก่ลูกค้า",
+    "+35%": "+35%",
+    "increaseOrders": "เพิ่มคำสั่งซื้อ",
+    "easyAccessToMenu": "การเข้าถึงเมนูที่ง่ายนำไปสู่คำสั่งซื้อที่มากขึ้น",
+    "+60%": "+60%",
+    "reduceErrorsInOrders": "ลดข้อผิดพลาดในคำสั่งซื้อ",
+    "withClearDigitalMenu": "ด้วยเมนูดิจิทัลที่ชัดเจน ข้อผิดพลาดในการรับคำสั่งซื้อจะถูกลดลง",
+    "+70%": "+70%",
+    "reduceOrderTakingTime": "ลดเวลาการรับคำสั่งซื้อ",
+    "customersDecideAndOrderFaster": "ลูกค้าตัดสินใจและสั่งซื้อเร็วขึ้น",
+    "withMiznex": "ทำเลย!",
+    "growWithMiznex": "เติบโต",
+    "Do": "ด้วย miznex",
+    "createAMenuTakeOrders": "ด้วย Miznex จัดการคำสั่งซื้อได้ง่ายขึ้นและเพิ่มยอดขายร้านอาหารของคุณ."
+  },
+  "WhyMiznex": {
+    "betterBusinessManagement": "การจัดการธุรกิจที่ดีกว่าด้วยข้อมูลที่แม่นยำ",
+    "increaseRevenueByAttractingMoreCustomers": "เพิ่มรายได้โดยดึงดูดลูกค้ามากขึ้น",
+    "improveServiceQuality": "ปรับปรุงคุณภาพการบริการ",
+    "modernAndProfessionaImage": "ภาพลักษณ์ที่ทันสมัยและมืออาชีพสำหรับแบรนด์ของคุณ",
+    "reduceOperationalAndPrintingCosts": "ลดต้นทุนการดำเนินงานและการพิมพ์",
+    "becomeMoreCompetitiveInMarket": "แข่งขันได้มากขึ้นในตลาด",
+    "whyBusinessNeedMiznex": "ทำไมธุรกิจของคุณถึงต้องการ Miznex?"
+  },
+  "statistics": {
+    "autoInventoryManagment": "การจัดการสต็อกอัตโนมัติ",
+    "withEachCustomerOrder": "ด้วยแต่ละคำสั่งซื้อของลูกค้า สต็อกของรายการเมนูจะลดลงโดยอัตโนมัติ",
+    "controlRawMaterials": "ควบคุมวัตถุดิบ",
+    "uponOrderPlacement": "เมื่อวางคำสั่งซื้อ ปริมาณวัตถุดิบที่ใช้สำหรับผลิตภัณฑ์นั้นจะถูกหักออกโดยอัตโนมัติ.",
+    "saveTime": "ประหยัดเวลา",
+    "noMoreNeedForManualAccounting": "ไม่จำเป็นต้องทำบัญชีด้วยตนเองและนับสต็อกอีกต่อไป",
+    "accurateStatisticalReports": "รายงานสถิติที่แม่นยำ",
+    "instantAccessToSalesReports": "การเข้าถึงรายงานการขาย รายการยอดนิยม และแนวโน้มการขายทันที",
+    "professionalStatisticsSystem": "ระบบสถิติระดับมืออาชีพ",
+    "noNeedForSeparateAccountingSystem": "ไม่จำเป็นต้องมีระบบบัญชีแยกอีก! Miznex จัดการสต็อกและวัตถุดิบของคุณอย่างชาญฉลาด.",
+    "customerPlacesOrder": "ลูกค้าวางคำสั่งซื้อ",
+    "customerGivesYouOrder": "ลูกค้าให้คำสั่งซื้อแก่คุณ",
+    "automaticInventoryReduction": "การลดสต็อกอัตโนมัติ",
+    "thePizzaInventorySystem": "ระบบสต็อกพิซซ่าลดลง 1 หน่วย",
+    "reduceRawMaterials": "ลดวัตถุดิบ",
+    "rawMaterialsWillAlsoDecrease": "แป้ง ชีส เนื้อ และวัตถุดิบอื่นๆ จะลดลงด้วย"
+  },
+  "faq": {
+    "doesMiznexMenuWork": "เมนู Miznex ทำงานบนโทรศัพท์ทุกเครื่องหรือไม่?",
+    "yesOurMenusAreFullyResponsive": "ใช่ เมนูของเราตอบสนองได้สมบูรณ์และแสดงผลอย่างสมบูรณ์บนอุปกรณ์ Android และ iOS ทุกตัว รวมถึงเดสก์ท็อป.",
+    "isCodingRequiredToUse": "การใช้ Miznex ต้องใช้การเขียนโค้ดหรือไม่?",
+    "noPanelIsDesignedToBeCompletelyVisual": "ไม่เลย! แผงผู้ใช้ของเราออกแบบให้เป็นภาพสมบูรณ์ (Drag & Drop) เพื่อให้ใครก็สามารถสร้างเมนูได้ในเวลาน้อยกว่าสองสามนาที",
+    "ifWeUpdateMenu": "หากเราอัปเดตเมนู รหัส QR จะเปลี่ยนหรือไม่?",
+    "dedicatedQRCodeIsPermanentAndNeverChanges": "ไม่ รหัส QR เฉพาะของคุณเป็นแบบถาวรและไม่เคยเปลี่ยนแปลง การเปลี่ยนแปลงเมนูทั้งหมดจะถูกนำไปใช้โดยอัตโนมัติภายใต้รหัส QR เดียวกัน.",
+    "frequentlyAskedQuestions": "คำถามที่พบบ่อย",
+    "everythingYouNeedToKnow": "ทุกสิ่งที่คุณต้องรู้เกี่ยวกับ Miznex",
+    "ifPricesChangeDaily": "หากราคาเปลี่ยนแปลงทุกวัน แผงจัดการสามารถตอบสนองได้อย่างรวดเร็วหรือไม่?",
+    "ourSystemIsDesignedToBeDynamic": "ระบบของเราออกแบบให้มีพลวัต คุณสามารถอัปเดตราคาได้ในเสี้ยววินาที ความสามารถนี้เป็นเครื่องมือสำคัญที่สุดสำหรับร้านอาหารที่มีการกำหนดราคาแบบเรียลไทม์.",
+    "stillHaveQuestions": "ยังมีคำถามหรือไม่?",
+    "contactSupport": "ติดต่อฝ่ายสนับสนุน"
+  },
+  "footer": {
+    "quickLinks": "ลิงก์ด่วน",
+    "aboutUs": "เกี่ยวกับเรา",
+    "howItWorks": "วิธีการทำงาน",
+    "features": "คุณสมบัติ",
+    "portfolio": "พอร์ตโฟลิโอ",
+    "resources": "ทรัพยากร",
+    "blog": "บล็อก",
+    "support": "สนับสนุน",
+    "documentation": "เอกสาร",
+    "frequentlyAskedQuestions": "คำถามที่พบบ่อย",
+    "phone": "33886501 21 +98",
+    "miznex": "Miznex",
+    "intelligentPlatform": "แพลตฟอร์มอัจฉริยะสำหรับสร้างเมนูดิจิทัลสำหรับร้านอาหารและคาเฟ่ พร้อมการจัดการสต็อกและคุณสมบัติวิเคราะห์ขั้นสูง.",
+    "miznexOnSocialMedia": "Miznex บนโซเชียลมีเดีย",
+    "copyRight": "Miznex สงวนลิขสิทธิ์ทั้งหมด.",
+    "privacyPolicy": "นโยบายความเป็นส่วนตัว",
+    "termsOfUse": "ข้อกำหนดการใช้งาน",
+    "termsAndConditions": "ข้อกำหนดและเงื่อนไข"
+  }
+}

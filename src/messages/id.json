@@ -1,0 +1,144 @@
+{
+  "navbar": {
+    "miznex": "Miznex",
+    "desktopNavbar": {
+      "home": "Beranda",
+      "aboutUs": "Tentang Kami",
+      "howItWorks": "Cara Kerja",
+      "features": "Fitur",
+      "frequentlyAskedQuestions": "Pertanyaan Umum",
+      "downloadApp": "Unduh Aplikasi"
+    }
+  },
+  "heroSection": {
+    "heroContent": {
+      "miznex": "Miznex",
+      "theFirstFreeMenuMaker": "Pembuat menu gratis pertama",
+      "createAnOnlineAndFreeMenu": "Buat menu online dan gratis",
+      "yourRestaurantCafeInNoTime": "Restoran/kafe Anda dalam sekejap!",
+      "aSmartAndFreeAlternative": "Alternatif pintar dan gratis untuk situs web mahal! Menu digital profesional",
+      "digitalMenuWithIntegrated": "dengan analitik terintegrasi dan manajemen inventaris.",
+      "downloadApp": "Unduh Aplikasi",
+      "support": "Dukungan"
+    },
+    "heroImage": {
+      "smartDashboard": "Dashboard Pintar",
+      "smartMenu": "Menu Pintar",
+      "free": "Gratis!"
+    }
+  },
+  "categorySection": {
+    "miznexEverythingInHands": "Dengan Miznex, semuanya di tangan Anda!",
+    "createMeTakeOrders": "Buat menu, terima pesanan, dan proses pembayaran seketika! Semua di platform berbasis mobile!"
+  },
+  "statsSection": {
+    "completelyFreeMenuCreation": "Pembuatan menu sepenuhnya gratis",
+    "createEditPublishAtNoCost": "Buat, edit, publikasikan tanpa biaya!",
+    "completelyFreeMeansZeroCost": "Sepenuhnya gratis berarti nol biaya",
+    "freeSetup": "Pengaturan gratis",
+    "fastReliableAndSecure": "Cepat, andal, dan aman",
+    "freeAndQuickSupport": "Dukungan gratis dan cepat",
+    "multipleMenus": "Beberapa menu",
+    "createDedicatedMenu": "Buat menu khusus untuk sarapan, makan siang, makan malam, dan lainnya!",
+    "mobileApp": "Aplikasi mobile",
+    "dedicatedAnalyticalDashboard": "Dashboard analitik khusus",
+    "analyzeYourBusiness": "Analisis bisnis Anda dan tingkatkan pendapatan bulanan!",
+    "totalSalesAnalysis": "Analisis penjualan total",
+    "bestSellingItems": "Item terlaris",
+    "mostPopularItems": "Item paling populer",
+    "graphicalAnalyses": "Analisis grafis",
+    "attractiveAppearance": "Penampilan menarik",
+    "yourRestaurantCafeMenuShould": "Menu restoran/kafe Anda harus sama menariknya dengan hidangan Anda",
+    "onlinePayment": "Pembayaran online",
+    "avoidTheRush": "Hindari keramaian di kasir dengan pembayaran online!"
+  },
+  "howItWorks": {
+    "howMiznexWorks": "Cara kerja Miznex",
+    "setUpYourDigitalMenu": "Siapkan menu digital Anda dalam tiga langkah sederhana",
+    "signUpForMiznex": "Daftar ke Miznex",
+    "createYourFreeAccount": "Buat akun gratis Anda dalam hitungan detik. Tidak ada biaya untuk memulai.",
+    "createYourDigitalMenu": "Buat menu digital Anda",
+    "useOurSimpleEditor": "Gunakan editor sederhana kami untuk menambahkan item, foto, harga, dan sesuaikan tampilan agar sesuai dengan merek Anda.",
+    "shareYourQRCode": "Bagikan kode QR Anda dengan pelanggan",
+    "createUniqueQRCode": "Buat kode QR unik dan biarkan pelanggan melihat menu Anda seketika di perangkat mereka."
+  },
+  "grow": {
+    "+45%": "+45%",
+    "increaseSatisfiedCustomers": "Tingkatkan pelanggan yang puas",
+    "byProvidingModern": "Dengan menyediakan pengalaman digital modern dan profesional kepada pelanggan",
+    "+35%": "+35%",
+    "increaseOrders": "Tingkatkan pesanan",
+    "easyAccessToMenu": "Akses mudah ke menu mengarah ke lebih banyak pesanan",
+    "+60%": "+60%",
+    "reduceErrorsInOrders": "Kurangi kesalahan pesanan",
+    "withClearDigitalMenu": "Dengan menu digital yang jelas, kesalahan pengambilan pesanan diminimalkan",
+    "+70%": "+70%",
+    "reduceOrderTakingTime": "Kurangi waktu pengambilan pesanan",
+    "customersDecideAndOrderFaster": "Pelanggan memutuskan dan memesan lebih cepat",
+    "withMiznex": "Lakukan!",
+    "growWithMiznex": "Tumbuh",
+    "Do": "dengan miznex",
+    "createAMenuTakeOrders": "Dengan Miznex, kelola pesanan lebih mudah dan tingkatkan penjualan restoran Anda."
+  },
+  "WhyMiznex": {
+    "betterBusinessManagement": "Manajemen bisnis yang lebih baik dengan data akurat",
+    "increaseRevenueByAttractingMoreCustomers": "Tingkatkan pendapatan dengan menarik lebih banyak pelanggan",
+    "improveServiceQuality": "Tingkatkan kualitas layanan",
+    "modernAndProfessionaImage": "Gambar modern dan profesional untuk merek Anda",
+    "reduceOperationalAndPrintingCosts": "Kurangi biaya operasional dan pencetakan",
+    "becomeMoreCompetitiveInMarket": "Menjadi lebih kompetitif di pasar",
+    "whyBusinessNeedMiznex": "Mengapa bisnis Anda membutuhkan Miznex?"
+  },
+  "statistics": {
+    "autoInventoryManagment": "Manajemen inventaris otomatis",
+    "withEachCustomerOrder": "Dengan setiap pesanan pelanggan, inventaris item menu secara otomatis berkurang",
+    "controlRawMaterials": "Kontrol bahan baku",
+    "uponOrderPlacement": "Setelah penempatan pesanan, jumlah bahan baku yang dikonsumsi untuk produk tersebut secara otomatis dikurangi.",
+    "saveTime": "Hemat waktu",
+    "noMoreNeedForManualAccounting": "Tidak lagi perlu akuntansi manual dan penghitungan inventaris",
+    "accurateStatisticalReports": "Laporan statistik akurat",
+    "instantAccessToSalesReports": "Akses instan ke laporan penjualan, item paling populer, dan tren penjualan",
+    "professionalStatisticsSystem": "Sistem statistik profesional",
+    "noNeedForSeparateAccountingSystem": "Tidak perlu sistem akuntansi terpisah lagi! Miznex mengelola inventaris dan bahan baku Anda secara cerdas.",
+    "customerPlacesOrder": "Pelanggan menempatkan pesanan",
+    "customerGivesYouOrder": "Pelanggan memberikan pesanan kepada Anda",
+    "automaticInventoryReduction": "Pengurangan inventaris otomatis",
+    "thePizzaInventorySystem": "Sistem inventaris pizza berkurang 1 unit",
+    "reduceRawMaterials": "Kurangi bahan baku",
+    "rawMaterialsWillAlsoDecrease": "Adonan, keju, daging, dan bahan baku lainnya juga akan berkurang"
+  },
+  "faq": {
+    "doesMiznexMenuWork": "Apakah menu Miznex berfungsi di semua ponsel?",
+    "yesOurMenusAreFullyResponsive": "Ya. Menu kami sepenuhnya responsif dan ditampilkan dengan sempurna di semua perangkat Android dan iOS serta desktop.",
+    "isCodingRequiredToUse": "Apakah pengkodean diperlukan untuk menggunakan Miznex?",
+    "noPanelIsDesignedToBeCompletelyVisual": "Tidak, sama sekali tidak! Panel pengguna kami dirancang sepenuhnya visual (Drag & Drop) sehingga siapa pun dapat membangun menu mereka dalam waktu kurang dari beberapa menit",
+    "ifWeUpdateMenu": "Jika kami memperbarui menu, apakah kode QR berubah?",
+    "dedicatedQRCodeIsPermanentAndNeverChanges": "Tidak. Kode QR khusus Anda permanen dan tidak pernah berubah. Semua perubahan menu secara otomatis diterapkan di bawah kode QR yang sama.",
+    "frequentlyAskedQuestions": "Pertanyaan Umum",
+    "everythingYouNeedToKnow": "Semua yang perlu Anda ketahui tentang Miznex",
+    "ifPricesChangeDaily": "Jika harga berubah setiap hari, apakah panel manajemen dapat merespons dengan cepat?",
+    "ourSystemIsDesignedToBeDynamic": "Sistem kami dirancang dinamis. Anda dapat memperbarui harga dalam sekejap. Kemampuan ini adalah alat terpenting bagi restoran yang memiliki penetapan harga waktu nyata.",
+    "stillHaveQuestions": "Masih ada pertanyaan?",
+    "contactSupport": "Hubungi Dukungan"
+  },
+  "footer": {
+    "quickLinks": "Tautan Cepat",
+    "aboutUs": "Tentang Kami",
+    "howItWorks": "Cara Kerja",
+    "features": "Fitur",
+    "portfolio": "Portofolio",
+    "resources": "Sumber Daya",
+    "blog": "Blog",
+    "support": "Dukungan",
+    "documentation": "Dokumentasi",
+    "frequentlyAskedQuestions": "Pertanyaan Umum",
+    "phone": "33886501 21 +98",
+    "miznex": "Miznex",
+    "intelligentPlatform": "Platform cerdas untuk membuat menu digital untuk restoran dan kafe dengan manajemen inventaris dan fitur analitik lanjutan.",
+    "miznexOnSocialMedia": "Miznex di Media Sosial",
+    "copyRight": "Miznex. Semua hak dilindungi.",
+    "privacyPolicy": "Kebijakan Privasi",
+    "termsOfUse": "Syarat Penggunaan",
+    "termsAndConditions": "Syarat dan Ketentuan"
+  }
+}

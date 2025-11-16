@@ -4,9 +4,9 @@ import { useAuthStore } from "@/store/authStore";
 import { useState } from "react";
 import { useUserProfile } from "@/services";
 import { usePathname } from "next/navigation";
-import Logo from "./Logo";
 import DesktopNavbar from "./DesktopNavbar";
 import MobileNavbar from "./MobileNavbar";
+import { useTranslations } from "next-intl";
 
 const Navbar = () => {
   // Auth and user data
@@ -27,11 +27,13 @@ const Navbar = () => {
     pathname,
   };
 
+  const t = useTranslations("navbar");
+
   return (
-    <div className="bg-gradient-to-br from-amber-50 via-orange-50 to-red-50 dark:from-[#18181c] dark:via-[#23232a] dark:to-[#18181c]">
-      <nav className="fixed top-6 inset-x-4 h-16 bg-white/80 dark:bg-[#23232a]/80 backdrop-blur-sm border border-white/20 dark:border-[#23232a]/60 max-w-screen-xl mx-auto rounded-full shadow-lg z-50">
-        <div className="h-full flex items-center justify-between mx-auto px-4">
-          <Logo />
+    <div >
+      <nav className="fixed top-6 inset-x-4 h-12 rtl:max-w-[720px] ltr:max-w-[966px] bg-[#404040] backdrop-blur-sm mx-auto rounded-full shadow-[0px_4px_30px_rgba(0,0,0,0.2)] z-50">
+        <div className="h-full flex items-center justify-between mx-auto p-[3px] rtl:pr-2 ltr:pl-2">
+          <h3 className="text-theme-xl font-bold text-white">{t("miznex")}</h3>
 
           <DesktopNavbar
             {...sharedProps}

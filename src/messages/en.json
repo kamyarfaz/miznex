@@ -1,0 +1,162 @@
+{
+  "navbar": {
+    "miznex": "Miznex",
+    "desktopNavbar": {
+      "home": "Home",
+      "aboutUs": "About Us",
+      "howItWorks": "How it Works",
+      "features": "Features",
+      "frequentlyAskedQuestions": "Frequently Asked Questions",
+      "downloadApp": "Download App"
+    }
+  },
+  "heroSection": {
+    "heroContent": {
+      "miznex": "Miznex",
+      "theFirstFreeMenuMaker": "The first free menu maker",
+      "createAnOnlineAndFreeMenu": "Create an online and free menu",
+      "yourRestaurantCafeInNoTime": "Your restaurant/cafe in no time!",
+      "aSmartAndFreeAlternative": "A smart and free alternative to expensive websites! A professional",
+      "digitalMenuWithIntegrated": "digital menu with integrated analytics and inventory management.",
+      "downloadApp": "Download App",
+      "support": "Support"
+    },
+    "heroImage": {
+      "smartDashboard": "Smart Dashboard",
+      "smartMenu": "Smart Menu",
+      "free": "Free!"
+    }
+  },
+  "categorySection": {
+    "miznexEverythingInHands": "With Miznex, everything is in your hands!",
+    "createMeTakeOrders": "Create me, take orders, and process payments instantly! All on a mobile-centric platform!"
+  },
+  "statsSection": {
+    "completelyFreeMenuCreation": "Completely free menu creation",
+    "createEditPublishAtNoCost": "Create, edit, publish at no cost!",
+    "completelyFreeMeansZeroCost": "Completely free means zero cost",
+    "freeSetup": "Free setup",
+    "fastReliableAndSecure": "Fast, reliable, and secure",
+    "freeAndQuickSupport": "Free and quick support",
+    "multipleMenus": "Multiple menus",
+    "createDedicatedMenu": "Create a dedicated menu for breakfast, lunch, dinner, and more!",
+    "mobileApp": "Mobile app",
+    "dedicatedAnalyticalDashboard": "Dedicated analytical dashboard",
+    "analyzeYourBusiness": "Analyze your business and increase your monthly revenue!",
+    "totalSalesAnalysis": "Total sales analysis",
+    "bestSellingItems": "Best-selling items",
+    "mostPopularItems": "Most popular items",
+    "graphicalAnalyses": "Graphical analyses",
+    "attractiveAppearance": "Attractive appearance",
+    "yourRestaurantCafeMenuShould": "Your restaurant/cafe menu should be as appealing as your dishes",
+    "onlinePayment": "Online payment",
+    "avoidTheRush": "Avoid the rush at the register with online payment!"
+  },
+  "howItWorks": {
+    "howMiznexWorks": "How Miznex works",
+    "setUpYourDigitalMenu": "Set up your digital menu in three simple steps",
+    "signUpForMiznex": "Sign up for Miznex",
+    "createYourFreeAccount": "Create your free account in seconds. No cost to get started.",
+    "createYourDigitalMenu": "Create your digital menu",
+    "useOurSimpleEditor": "Use our simple editor to add items, photos, prices, and customize the appearance to fit your brand.",
+    "shareYourQRCode": "Share your QR code with customers",
+    "createUniqueQRCode": "Create a unique QR code and let customers view your menu instantly on their devices."
+  },
+  "grow": {
+    "+45%": "+45%",
+    "increaseSatisfiedCustomers": "Increase satisfied customers",
+    "byProvidingModern": "By providing a modern and professional digital experience to customers",
+    "+35%": "+35%",
+    "increaseOrders": "Increase orders",
+    "easyAccessToMenu": "Easy access to the menu leads to more orders",
+    "+60%": "+60%",
+    "reduceErrorsInOrders": "Reduce errors in orders",
+    "withClearDigitalMenu": "With a clear digital menu, order-taking mistakes are minimized",
+    "+70%": "+70%",
+    "reduceOrderTakingTime": "Reduce order-taking time",
+    "customersDecideAndOrderFaster": "Customers decide and order faster",
+    "withMiznex": "Do it!",
+    "growWithMiznex": "Grow",
+    "Do": "with miznex",
+    "createAMenuTakeOrders": "With Miznex, manage orders more easily and increase your restaurant's sales."
+  },
+  "WhyMiznex": {
+    "betterBusinessManagement": "Better business management with accurate data",
+    "increaseRevenueByAttractingMoreCustomers": "Increase revenue by attracting more customers",
+    "improveServiceQuality": "Improve service quality",
+    "modernAndProfessionaImage": "A modern and professional image for your brand",
+    "reduceOperationalAndPrintingCosts": "Reduce operational and printing costs",
+    "becomeMoreCompetitiveInMarket": "Become more competitive in the market",
+    "whyBusinessNeedMiznex": "Why does your business need Miznex?"
+  },
+  "statistics": {
+    "autoInventoryManagment": "AutoInventory managment",
+    "withEachCustomerOrder": "With each customer order, the inventory of menu items is automatically reduced",
+    "controlRawMaterials": "Control raw materials",
+    "uponOrderPlacement": "Upon order placement, the quantities of raw materials consumed for that product are automatically deducted.",
+    "saveTime": "Save time",
+    "noMoreNeedForManualAccounting": "No more need for manual accounting and inventory counting",
+    "accurateStatisticalReports": "Accurate statistical reports",
+    "instantAccessToSalesReports": "Instant access to sales reports, most popular items, and sales trends",
+    "professionalStatisticsSystem": "Professional statistics system",
+    "noNeedForSeparateAccountingSystem": "No need for a separate accounting system anymore! Miznex intelligently manages your inventory and raw materials.",
+    "customerPlacesOrder": "Customer places an order",
+    "customerGivesYouOrder": "Customer gives you the order",
+    "automaticInventoryReduction": "Automatic inventory reduction",
+    "thePizzaInventorySystem": "The pizza inventory system reduces by 1 unit",
+    "reduceRawMaterials": "Reduce raw materials",
+    "rawMaterialsWillAlsoDecrease": "Dough, cheese, meat, and other raw materials will also decrease"
+  },
+  "faq": {
+    "doesMiznexMenuWork": "Does the Miznex menu work on all phones?",
+    "yesOurMenusAreFullyResponsive": "Yes. Our menus are fully responsive and display perfectly on all Android and iOS devices as well as desktops.",
+    "isCodingRequiredToUse": "Is coding required to use Miznex?",
+    "noPanelIsDesignedToBeCompletelyVisual": "No, not at all! Our user panel is designed to be completely visual (Drag & Drop) so that anyone can build their menu in less than a few minutes",
+    "ifWeUpdateMenu": "If we update the menu, will the QR code change?",
+    "dedicatedQRCodeIsPermanentAndNeverChanges": "No. Your dedicated QR code is permanent and never changes. All your menu changes are automatically applied under the same QR code.",
+    "frequentlyAskedQuestions": "Frequently Asked Questions",
+    "everythingYouNeedToKnow": "Everything you need to know about Miznex",
+    "ifPricesChangeDaily": "If prices change daily, can the management panel respond quickly?",
+    "ourSystemIsDesignedToBeDynamic": "Our system is designed to be dynamic. You can update prices in a split second. This capability is the most vital tool for restaurants that have real-time pricing.",
+    "stillHaveQuestions": "Still have questions?",
+    "contactSupport": "Contact Support"
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "aboutUs": "About Us",
+    "howItWorks": "How it Works",
+    "features": "Features",
+    "portfolio": "Portfolio",
+    "resources": "Resources",
+    "blog": "Blog",
+    "support": "Support",
+    "documentation": "Documentation",
+    "frequentlyAskedQuestions": "Frequently Asked Questions",
+    "phone": "33886501 21 +98",
+    "miznex": "Miznex",
+    "intelligentPlatform": "An intelligent platform for creating digital menus for restaurants and cafes with inventory management and advanced analytics features.",
+    "miznexOnSocialMedia": "Miznex on Social Media",
+    "copyRight": "Miznex. All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfUse": "Terms of Use",
+    "termsAndConditions": "Terms and Conditions"
+  },
+  "adminPanel": {
+    "layout": {
+        "appSidebar": {
+            "miznex": "Miznex",
+            "dashboard": "Dashboard",
+            "userManagement": "User Management",
+            "categoryManagement": "Category Management",
+            "itemManagement": "Item Management",
+            "orderManagement": "Order Management",
+            "discountManagement": "Discount Management",
+            "ticketManagement": "Ticket Management",
+            "commentManagement": "Comment Management",
+            "userMessageManagement": "User Message Management",
+            "blacklist": "Blacklist",
+            "restrictionManagement": "Restriction Management"
+        }
+    }
+}
+}

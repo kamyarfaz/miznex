@@ -1,10 +1,19 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
+import createMiddleware from "next-intl/middleware";
+import { routing } from "./i18n/routing";
+
+// مرحله ۱: middleware چندزبانه
+const intlMiddleware = createMiddleware(routing);
+
 export async function middleware(request: NextRequest) {
+  // اول next-intl اجرا بشه
+  const intlResponse = intlMiddleware(request);
+  if (intlResponse) return intlResponse;
+
   const { pathname } = request.nextUrl;
 
-  // دریافت تمام کوکی‌ها
   const allCookies = request.cookies.getAll();
   const accessToken = request.cookies.get("access-token");
   const refreshToken = request.cookies.get("refresh-token");
@@ -28,9 +37,6 @@ export async function middleware(request: NextRequest) {
     refreshToken?.value ? "✅ Found" : "❌ Not found"
   );
 
-
-
-
   // if (isProtected) {
   //   console.log("🔒 Protected route detected");
 
@@ -41,7 +47,6 @@ export async function middleware(request: NextRequest) {
 
   //   console.log("✅ Access token exists → attempting to resolve user role");
 
-  //   // تلاش برای واکشی نقش کاربر از API داخلی
   //   let resolvedRole: string | null = null;
   //   try {
   //     const controller = new AbortController();
@@ -54,11 +59,9 @@ export async function middleware(request: NextRequest) {
   //       method: "GET",
   //       headers: {
   //         Accept: "application/json",
-  //         // انتقال تمام کوکی ها برای احراز هویت سمت سرور
   //         Cookie: request.headers.get("cookie") || "",
   //       },
   //       signal: controller.signal,
-  //       // در میدلور نباید کش شود تا نقش همیشه به‌روز باشد
   //       cache: "no-store",
   //     }).catch((err) => {
   //       console.error("❌ Role fetch network error:", err);
@@ -78,7 +81,6 @@ export async function middleware(request: NextRequest) {
   //     console.error("❌ Failed to resolve role:", err);
   //   }
 
-  //   // اضافه کردن توکن و نقش به هدرها برای استفاده در کامپوننت‌ها
   //   const response = NextResponse.next();
   //   response.headers.set("x-auth-token", accessToken.value);
   //   if (resolvedRole) {
@@ -88,7 +90,6 @@ export async function middleware(request: NextRequest) {
   //     console.log("⚠️ Role not available; x-user-role header not set");
   //   }
 
-  //   // نمونه ساده RBAC: دسترسی داشبورد فقط برای ادمین
   //   if (
   //     pathname.startsWith("/dashboard") &&
   //     resolvedRole &&
@@ -107,5 +108,9 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/dashboard/:path*", "/profile/:path*"],
+  matcher: [
+    "/dashboard/:path*",
+    "/profile/:path*",
+    "/((?!api|trpc|_next|_vercel|.*\\..*).*)",
+  ],
 };

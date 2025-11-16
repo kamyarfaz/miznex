@@ -1,0 +1,144 @@
+{
+  "navbar": {
+    "miznex": "Miznex",
+    "desktopNavbar": {
+      "home": "Trang chủ",
+      "aboutUs": "Về chúng tôi",
+      "howItWorks": "Cách hoạt động",
+      "features": "Tính năng",
+      "frequentlyAskedQuestions": "Câu hỏi thường gặp",
+      "downloadApp": "Tải ứng dụng"
+    }
+  },
+  "heroSection": {
+    "heroContent": {
+      "miznex": "Miznex",
+      "theFirstFreeMenuMaker": "Công cụ tạo menu miễn phí đầu tiên",
+      "createAnOnlineAndFreeMenu": "Tạo menu trực tuyến và miễn phí",
+      "yourRestaurantCafeInNoTime": "Nhà hàng/quán cà phê của bạn ngay lập tức!",
+      "aSmartAndFreeAlternative": "Giải pháp thông minh và miễn phí thay thế cho các trang web đắt tiền! Menu kỹ thuật số chuyên nghiệp",
+      "digitalMenuWithIntegrated": "với phân tích tích hợp và quản lý hàng tồn kho.",
+      "downloadApp": "Tải ứng dụng",
+      "support": "Hỗ trợ"
+    },
+    "heroImage": {
+      "smartDashboard": "Bảng điều khiển thông minh",
+      "smartMenu": "Menu thông minh",
+      "free": "Miễn phí!"
+    }
+  },
+  "categorySection": {
+    "miznexEverythingInHands": "Với Miznex, mọi thứ trong tầm tay bạn!",
+    "createMeTakeOrders": "Tạo menu, nhận đơn hàng và xử lý thanh toán ngay lập tức! Tất cả trên nền tảng tập trung vào di động!"
+  },
+  "statsSection": {
+    "completelyFreeMenuCreation": "Tạo menu hoàn toàn miễn phí",
+    "createEditPublishAtNoCost": "Tạo, chỉnh sửa, xuất bản không tốn kém!",
+    "completelyFreeMeansZeroCost": "Hoàn toàn miễn phí nghĩa là chi phí bằng không",
+    "freeSetup": "Thiết lập miễn phí",
+    "fastReliableAndSecure": "Nhanh chóng, đáng tin cậy và an toàn",
+    "freeAndQuickSupport": "Hỗ trợ miễn phí và nhanh chóng",
+    "multipleMenus": "Nhiều menu",
+    "createDedicatedMenu": "Tạo menu dành riêng cho bữa sáng, trưa, tối và hơn thế nữa!",
+    "mobileApp": "Ứng dụng di động",
+    "dedicatedAnalyticalDashboard": "Bảng điều khiển phân tích dành riêng",
+    "analyzeYourBusiness": "Phân tích doanh nghiệp của bạn và tăng doanh thu hàng tháng!",
+    "totalSalesAnalysis": "Phân tích doanh số tổng thể",
+    "bestSellingItems": "Mặt hàng bán chạy nhất",
+    "mostPopularItems": "Mặt hàng phổ biến nhất",
+    "graphicalAnalyses": "Phân tích đồ họa",
+    "attractiveAppearance": "Giao diện hấp dẫn",
+    "yourRestaurantCafeMenuShould": "Menu nhà hàng/quán cà phê của bạn nên hấp dẫn như món ăn của bạn",
+    "onlinePayment": "Thanh toán trực tuyến",
+    "avoidTheRush": "Tránh chen chúc tại quầy với thanh toán trực tuyến!"
+  },
+  "howItWorks": {
+    "howMiznexWorks": "Miznex hoạt động như thế nào",
+    "setUpYourDigitalMenu": "Thiết lập menu kỹ thuật số của bạn trong ba bước đơn giản",
+    "signUpForMiznex": "Đăng ký Miznex",
+    "createYourFreeAccount": "Tạo tài khoản miễn phí của bạn trong vài giây. Không tốn kém để bắt đầu.",
+    "createYourDigitalMenu": "Tạo menu kỹ thuật số của bạn",
+    "useOurSimpleEditor": "Sử dụng trình chỉnh sửa đơn giản của chúng tôi để thêm mục, ảnh, giá và tùy chỉnh giao diện phù hợp với thương hiệu của bạn.",
+    "shareYourQRCode": "Chia sẻ mã QR của bạn với khách hàng",
+    "createUniqueQRCode": "Tạo mã QR duy nhất và để khách hàng xem menu của bạn ngay lập tức trên thiết bị của họ."
+  },
+  "grow": {
+    "+45%": "+45%",
+    "increaseSatisfiedCustomers": "Tăng khách hàng hài lòng",
+    "byProvidingModern": "Bằng cách cung cấp trải nghiệm kỹ thuật số hiện đại và chuyên nghiệp cho khách hàng",
+    "+35%": "+35%",
+    "increaseOrders": "Tăng đơn hàng",
+    "easyAccessToMenu": "Truy cập dễ dàng vào menu dẫn đến nhiều đơn hàng hơn",
+    "+60%": "+60%",
+    "reduceErrorsInOrders": "Giảm lỗi đơn hàng",
+    "withClearDigitalMenu": "Với menu kỹ thuật số rõ ràng, lỗi nhận đơn hàng được giảm thiểu",
+    "+70%": "+70%",
+    "reduceOrderTakingTime": "Giảm thời gian nhận đơn hàng",
+    "customersDecideAndOrderFaster": "Khách hàng quyết định và đặt hàng nhanh hơn",
+    "withMiznex": "Làm ngay!",
+    "growWithMiznex": "Phát triển",
+    "Do": "với miznex",
+    "createAMenuTakeOrders": "Với Miznex, quản lý đơn hàng dễ dàng hơn và tăng doanh số nhà hàng của bạn."
+  },
+  "WhyMiznex": {
+    "betterBusinessManagement": "Quản lý kinh doanh tốt hơn với dữ liệu chính xác",
+    "increaseRevenueByAttractingMoreCustomers": "Tăng doanh thu bằng cách thu hút nhiều khách hàng hơn",
+    "improveServiceQuality": "Cải thiện chất lượng dịch vụ",
+    "modernAndProfessionaImage": "Hình ảnh hiện đại và chuyên nghiệp cho thương hiệu của bạn",
+    "reduceOperationalAndPrintingCosts": "Giảm chi phí vận hành và in ấn",
+    "becomeMoreCompetitiveInMarket": "Trở nên cạnh tranh hơn trên thị trường",
+    "whyBusinessNeedMiznex": "Tại sao doanh nghiệp của bạn cần Miznex?"
+  },
+  "statistics": {
+    "autoInventoryManagment": "Quản lý hàng tồn kho tự động",
+    "withEachCustomerOrder": "Với mỗi đơn hàng khách hàng, hàng tồn kho của các mục menu được giảm tự động",
+    "controlRawMaterials": "Kiểm soát nguyên liệu thô",
+    "uponOrderPlacement": "Khi đặt hàng, số lượng nguyên liệu thô tiêu thụ cho sản phẩm đó được khấu trừ tự động.",
+    "saveTime": "Tiết kiệm thời gian",
+    "noMoreNeedForManualAccounting": "Không còn cần kế toán thủ công và đếm hàng tồn kho",
+    "accurateStatisticalReports": "Báo cáo thống kê chính xác",
+    "instantAccessToSalesReports": "Truy cập ngay lập tức vào báo cáo bán hàng, mục phổ biến nhất và xu hướng bán hàng",
+    "professionalStatisticsSystem": "Hệ thống thống kê chuyên nghiệp",
+    "noNeedForSeparateAccountingSystem": "Không cần hệ thống kế toán riêng nữa! Miznex quản lý hàng tồn kho và nguyên liệu thô của bạn một cách thông minh.",
+    "customerPlacesOrder": "Khách hàng đặt hàng",
+    "customerGivesYouOrder": "Khách hàng đưa đơn hàng cho bạn",
+    "automaticInventoryReduction": "Giảm hàng tồn kho tự động",
+    "thePizzaInventorySystem": "Hệ thống hàng tồn kho pizza giảm 1 đơn vị",
+    "reduceRawMaterials": "Giảm nguyên liệu thô",
+    "rawMaterialsWillAlsoDecrease": "Bột, phô mai, thịt và các nguyên liệu thô khác cũng sẽ giảm"
+  },
+  "faq": {
+    "doesMiznexMenuWork": "Menu Miznex có hoạt động trên tất cả các điện thoại không?",
+    "yesOurMenusAreFullyResponsive": "Có. Menu của chúng tôi hoàn toàn phản hồi và hiển thị hoàn hảo trên tất cả các thiết bị Android và iOS cũng như máy tính để bàn.",
+    "isCodingRequiredToUse": "Có cần mã hóa để sử dụng Miznex không?",
+    "noPanelIsDesignedToBeCompletelyVisual": "Không, hoàn toàn không! Bảng điều khiển người dùng của chúng tôi được thiết kế hoàn toàn hình ảnh (Kéo & Thả) để bất kỳ ai cũng có thể xây dựng menu của họ trong vòng chưa đầy vài phút",
+    "ifWeUpdateMenu": "Nếu chúng tôi cập nhật menu, mã QR có thay đổi không?",
+    "dedicatedQRCodeIsPermanentAndNeverChanges": "Không. Mã QR dành riêng của bạn là vĩnh viễn và không bao giờ thay đổi. Tất cả các thay đổi menu được áp dụng tự động dưới cùng một mã QR.",
+    "frequentlyAskedQuestions": "Câu hỏi thường gặp",
+    "everythingYouNeedToKnow": "Mọi thứ bạn cần biết về Miznex",
+    "ifPricesChangeDaily": "Nếu giá thay đổi hàng ngày, bảng điều khiển quản lý có thể phản hồi nhanh chóng không?",
+    "ourSystemIsDesignedToBeDynamic": "Hệ thống của chúng tôi được thiết kế động. Bạn có thể cập nhật giá trong chớp mắt. Khả năng này là công cụ quan trọng nhất cho các nhà hàng có định giá thời gian thực.",
+    "stillHaveQuestions": "Vẫn còn câu hỏi?",
+    "contactSupport": "Liên hệ Hỗ trợ"
+  },
+  "footer": {
+    "quickLinks": "Liên kết nhanh",
+    "aboutUs": "Về chúng tôi",
+    "howItWorks": "Cách hoạt động",
+    "features": "Tính năng",
+    "portfolio": "Danh mục đầu tư",
+    "resources": "Tài nguyên",
+    "blog": "Blog",
+    "support": "Hỗ trợ",
+    "documentation": "Tài liệu",
+    "frequentlyAskedQuestions": "Câu hỏi thường gặp",
+    "phone": "33886501 21 +98",
+    "miznex": "Miznex",
+    "intelligentPlatform": "Nền tảng thông minh để tạo menu kỹ thuật số cho nhà hàng và quán cà phê với quản lý hàng tồn kho và tính năng phân tích nâng cao.",
+    "miznexOnSocialMedia": "Miznex trên Mạng xã hội",
+    "copyRight": "Miznex. Tất cả quyền được bảo lưu.",
+    "privacyPolicy": "Chính sách bảo mật",
+    "termsOfUse": "Điều khoản sử dụng",
+    "termsAndConditions": "Điều khoản và điều kiện"
+  }
+}

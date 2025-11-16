@@ -1,0 +1,144 @@
+{
+  "navbar": {
+    "miznex": "Miznex",
+    "desktopNavbar": {
+      "home": "Главная",
+      "aboutUs": "О нас",
+      "howItWorks": "Как это работает",
+      "features": "Функции",
+      "frequentlyAskedQuestions": "Часто задаваемые вопросы",
+      "downloadApp": "Скачать приложение"
+    }
+  },
+  "heroSection": {
+    "heroContent": {
+      "miznex": "Miznex",
+      "theFirstFreeMenuMaker": "Первый бесплатный создатель меню",
+      "createAnOnlineAndFreeMenu": "Создайте онлайн-меню бесплатно",
+      "yourRestaurantCafeInNoTime": "Ваш ресторан/кафе в кратчайшие сроки!",
+      "aSmartAndFreeAlternative": "Умная и бесплатная альтернатива дорогим сайтам! Профессиональное",
+      "digitalMenuWithIntegrated": "цифровое меню с интегрированной аналитикой и управлением запасами.",
+      "downloadApp": "Скачать приложение",
+      "support": "Поддержка"
+    },
+    "heroImage": {
+      "smartDashboard": "Умная панель",
+      "smartMenu": "Умное меню",
+      "free": "Бесплатно!"
+    }
+  },
+  "categorySection": {
+    "miznexEverythingInHands": "С Miznex всё в ваших руках!",
+    "createMeTakeOrders": "Создайте меню, принимайте заказы и обрабатывайте платежи мгновенно! Всё на мобильно-ориентированной платформе!"
+  },
+  "statsSection": {
+    "completelyFreeMenuCreation": "Полностью бесплатное создание меню",
+    "createEditPublishAtNoCost": "Создавайте, редактируйте, публикуйте без затрат!",
+    "completelyFreeMeansZeroCost": "Полностью бесплатно значит нулевые затраты",
+    "freeSetup": "Бесплатная настройка",
+    "fastReliableAndSecure": "Быстро, надежно и безопасно",
+    "freeAndQuickSupport": "Бесплатная и быстрая поддержка",
+    "multipleMenus": "Несколько меню",
+    "createDedicatedMenu": "Создайте специальное меню для завтрака, обеда, ужина и многого другого!",
+    "mobileApp": "Мобильное приложение",
+    "dedicatedAnalyticalDashboard": "Специальная аналитическая панель",
+    "analyzeYourBusiness": "Анализируйте свой бизнес и увеличивайте ежемесячный доход!",
+    "totalSalesAnalysis": "Анализ общих продаж",
+    "bestSellingItems": "Самые продаваемые товары",
+    "mostPopularItems": "Самые популярные товары",
+    "graphicalAnalyses": "Графический анализ",
+    "attractiveAppearance": "Привлекательный вид",
+    "yourRestaurantCafeMenuShould": "Меню вашего ресторана/кафе должно быть таким же привлекательным, как ваши блюда",
+    "onlinePayment": "Онлайн-оплата",
+    "avoidTheRush": "Избегайте очередей у кассы с онлайн-оплатой!"
+  },
+  "howItWorks": {
+    "howMiznexWorks": "Как работает Miznex",
+    "setUpYourDigitalMenu": "Настройте ваше цифровое меню в три простых шага",
+    "signUpForMiznex": "Зарегистрируйтесь в Miznex",
+    "createYourFreeAccount": "Создайте бесплатный аккаунт за секунды. Без затрат на старт.",
+    "createYourDigitalMenu": "Создайте ваше цифровое меню",
+    "useOurSimpleEditor": "Используйте наш простой редактор для добавления товаров, фото, цен и настройки внешнего вида под вашу марку.",
+    "shareYourQRCode": "Поделитесь вашим QR-кодом с клиентами",
+    "createUniqueQRCode": "Создайте уникальный QR-код и позвольте клиентам просматривать ваше меню мгновенно на их устройствах."
+  },
+  "grow": {
+    "+45%": "+45%",
+    "increaseSatisfiedCustomers": "Увеличьте количество довольных клиентов",
+    "byProvidingModern": "Предоставляя клиентам современный и профессиональный цифровой опыт",
+    "+35%": "+35%",
+    "increaseOrders": "Увеличьте заказы",
+    "easyAccessToMenu": "Легкий доступ к меню приводит к большему количеству заказов",
+    "+60%": "+60%",
+    "reduceErrorsInOrders": "Сократите ошибки в заказах",
+    "withClearDigitalMenu": "С четким цифровым меню минимизируются ошибки при приеме заказов",
+    "+70%": "+70%",
+    "reduceOrderTakingTime": "Сократите время приема заказов",
+    "customersDecideAndOrderFaster": "Клиенты решают и заказывают быстрее",
+    "withMiznex": "Сделайте это!",
+    "growWithMiznex": "Растите",
+    "Do": "с miznex",
+    "createAMenuTakeOrders": "С Miznex управляйте заказами проще и увеличивайте продажи вашего ресторана."
+  },
+  "WhyMiznex": {
+    "betterBusinessManagement": "Лучшее управление бизнесом с точными данными",
+    "increaseRevenueByAttractingMoreCustomers": "Увеличьте доход, привлекая больше клиентов",
+    "improveServiceQuality": "Улучшите качество обслуживания",
+    "modernAndProfessionaImage": "Современный и профессиональный имидж вашего бренда",
+    "reduceOperationalAndPrintingCosts": "Сократите операционные и печатные затраты",
+    "becomeMoreCompetitiveInMarket": "Станьте более конкурентоспособным на рынке",
+    "whyBusinessNeedMiznex": "Почему вашему бизнесу нужен Miznex?"
+  },
+  "statistics": {
+    "autoInventoryManagment": "Автоматическое управление запасами",
+    "withEachCustomerOrder": "С каждым заказом клиента запас товаров меню автоматически уменьшается",
+    "controlRawMaterials": "Контролируйте сырье",
+    "uponOrderPlacement": "При размещении заказа количества сырья, потребляемого на этот продукт, автоматически вычитаются.",
+    "saveTime": "Экономьте время",
+    "noMoreNeedForManualAccounting": "Больше не нужно ручное бухгалтерское учет и подсчет запасов",
+    "accurateStatisticalReports": "Точные статистические отчеты",
+    "instantAccessToSalesReports": "Мгновенный доступ к отчетам о продажах, самым популярным товарам и тенденциям",
+    "professionalStatisticsSystem": "Профессиональная система статистики",
+    "noNeedForSeparateAccountingSystem": "Больше не нужен отдельный бухгалтерский учет! Miznex умно управляет вашими запасами и сырьем.",
+    "customerPlacesOrder": "Клиент размещает заказ",
+    "customerGivesYouOrder": "Клиент дает вам заказ",
+    "automaticInventoryReduction": "Автоматическое уменьшение запасов",
+    "thePizzaInventorySystem": "Система запасов пиццы уменьшается на 1 единицу",
+    "reduceRawMaterials": "Сократите сырье",
+    "rawMaterialsWillAlsoDecrease": "Тесто, сыр, мясо и другое сырье также уменьшатся"
+  },
+  "faq": {
+    "doesMiznexMenuWork": "Работает ли меню Miznex на всех телефонах?",
+    "yesOurMenusAreFullyResponsive": "Да. Наши меню полностью адаптивны и отображаются идеально на всех устройствах Android и iOS, а также на десктопах.",
+    "isCodingRequiredToUse": "Требуется ли программирование для использования Miznex?",
+    "noPanelIsDesignedToBeCompletelyVisual": "Нет, ни в коем случае! Наша панель пользователя полностью визуальная (перетаскивание) для того, чтобы любой мог создать меню за несколько минут",
+    "ifWeUpdateMenu": "Если мы обновим меню, изменится ли QR-код?",
+    "dedicatedQRCodeIsPermanentAndNeverChanges": "Нет. Ваш专用 QR-код постоянный и никогда не меняется. Все изменения меню автоматически применяются под тем же QR-кодом.",
+    "frequentlyAskedQuestions": "Часто задаваемые вопросы",
+    "everythingYouNeedToKnow": "Всё, что вам нужно знать о Miznex",
+    "ifPricesChangeDaily": "Если цены меняются ежедневно, может ли панель управления быстро реагировать?",
+    "ourSystemIsDesignedToBeDynamic": "Наша система разработана для динамичности. Вы можете обновить цены за долю секунды. Эта возможность — самый важный инструмент для ресторанов с реал-тайм ценообразованием.",
+    "stillHaveQuestions": "У вас остались вопросы?",
+    "contactSupport": "Свяжитесь с поддержкой"
+  },
+  "footer": {
+    "quickLinks": "Быстрые ссылки",
+    "aboutUs": "О нас",
+    "howItWorks": "Как это работает",
+    "features": "Функции",
+    "portfolio": "Портфолио",
+    "resources": "Ресурсы",
+    "blog": "Блог",
+    "support": "Поддержка",
+    "documentation": "Документация",
+    "frequentlyAskedQuestions": "Часто задаваемые вопросы",
+    "phone": "33886501 21 +98",
+    "miznex": "Miznex",
+    "intelligentPlatform": "Интеллектуальная платформа для создания цифровых меню для ресторанов и кафе с управлением запасами и расширенными аналитическими функциями.",
+    "miznexOnSocialMedia": "Miznex в социальных сетях",
+    "copyRight": "Miznex. Все права защищены.",
+    "privacyPolicy": "Политика конфиденциальности",
+    "termsOfUse": "Условия использования",
+    "termsAndConditions": "Условия и положения"
+  }
+}

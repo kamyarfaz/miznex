@@ -1,0 +1,144 @@
+{
+  "navbar": {
+    "miznex": "ميزنكس",
+    "desktopNavbar": {
+      "home": "الرئيسية",
+      "aboutUs": "عن الشركة",
+      "howItWorks": "كيفية العمل",
+      "features": "الميزات",
+      "frequentlyAskedQuestions": "الأسئلة الشائعة",
+      "downloadApp": "تحميل التطبيق"
+    }
+  },
+  "heroSection": {
+    "heroContent": {
+      "miznex": "ميزنكس",
+      "theFirstFreeMenuMaker": "أول صانع قوائم مجاني",
+      "createAnOnlineAndFreeMenu": "إنشاء قائمة عبر الإنترنت ومجانية",
+      "yourRestaurantCafeInNoTime": "مطعمك/مقاهيك في وقت قصير!",
+      "aSmartAndFreeAlternative": "بديل ذكي ومجاني للمواقع الإلكترونية الباهظة! قائمة رقمية احترافية",
+      "digitalMenuWithIntegrated": "مع تحليلات مدمجة وإدارة المخزون.",
+      "downloadApp": "تحميل التطبيق",
+      "support": "الدعم"
+    },
+    "heroImage": {
+      "smartDashboard": "لوحة تحكم ذكية",
+      "smartMenu": "قائمة ذكية",
+      "free": "مجاني!"
+    }
+  },
+  "categorySection": {
+    "miznexEverythingInHands": "مع ميزنكس، كل شيء بين يديك!",
+    "createMeTakeOrders": "أنشئ القائمة، خذ الطلبات، وعالج المدفوعات فورًا! كل ذلك على منصة مركزة على الهواتف المحمولة!"
+  },
+  "statsSection": {
+    "completelyFreeMenuCreation": "إنشاء قائمة مجانية تمامًا",
+    "createEditPublishAtNoCost": "أنشئ، حرر، انشر بدون تكلفة!",
+    "completelyFreeMeansZeroCost": "مجاني تمامًا يعني تكلفة صفر",
+    "freeSetup": "إعداد مجاني",
+    "fastReliableAndSecure": "سريع، موثوق، وآمن",
+    "freeAndQuickSupport": "دعم مجاني وسريع",
+    "multipleMenus": "قوائم متعددة",
+    "createDedicatedMenu": "أنشئ قائمة مخصصة للإفطار، الغداء، العشاء، وأكثر!",
+    "mobileApp": "تطبيق الهاتف المحمول",
+    "dedicatedAnalyticalDashboard": "لوحة تحليلية مخصصة",
+    "analyzeYourBusiness": "حلل أعمالك وزد إيراداتك الشهرية!",
+    "totalSalesAnalysis": "تحليل المبيعات الإجمالية",
+    "bestSellingItems": "العناصر الأكثر مبيعًا",
+    "mostPopularItems": "العناصر الأكثر شعبية",
+    "graphicalAnalyses": "تحليلات رسومية",
+    "attractiveAppearance": "مظهر جذاب",
+    "yourRestaurantCafeMenuShould": "يجب أن تكون قائمة مطعمك/مقاهيك جذابة مثل أطباقك",
+    "onlinePayment": "الدفع عبر الإنترنت",
+    "avoidTheRush": "تجنب الزحام عند الصندوق بالدفع عبر الإنترنت!"
+  },
+  "howItWorks": {
+    "howMiznexWorks": "كيف يعمل ميزنكس",
+    "setUpYourDigitalMenu": "قم بإعداد قائمتك الرقمية في ثلاث خطوات بسيطة",
+    "signUpForMiznex": "سجل في ميزنكس",
+    "createYourFreeAccount": "أنشئ حسابك المجاني في ثوانٍ. بدون تكلفة للبدء.",
+    "createYourDigitalMenu": "أنشئ قائمتك الرقمية",
+    "useOurSimpleEditor": "استخدم محررنا البسيط لإضافة العناصر، الصور، الأسعار، وتخصيص المظهر ليتناسب مع علامتك التجارية.",
+    "shareYourQRCode": "شارك رمز QR الخاص بك مع العملاء",
+    "createUniqueQRCode": "أنشئ رمز QR فريد ودع العملاء يشاهدون قائمتك فورًا على أجهزتهم."
+  },
+  "grow": {
+    "+45%": "+45%",
+    "increaseSatisfiedCustomers": "زيادة العملاء الراضين",
+    "byProvidingModern": "من خلال تقديم تجربة رقمية حديثة ومهنية للعملاء",
+    "+35%": "+35%",
+    "increaseOrders": "زيادة الطلبات",
+    "easyAccessToMenu": "الوصول السهل إلى القائمة يؤدي إلى المزيد من الطلبات",
+    "+60%": "+60%",
+    "reduceErrorsInOrders": "تقليل الأخطاء في الطلبات",
+    "withClearDigitalMenu": "مع قائمة رقمية واضحة، تقل الأخطاء في تسجيل الطلبات",
+    "+70%": "+70%",
+    "reduceOrderTakingTime": "تقليل وقت تسجيل الطلبات",
+    "customersDecideAndOrderFaster": "يقرر العملاء ويطلبون أسرع",
+    "withMiznex": "افعل ذلك!",
+    "growWithMiznex": "نمو",
+    "Do": "مع ميزنكس",
+    "createAMenuTakeOrders": "مع ميزنكس، أدر الطلبات بسهولة أكبر وزد مبيعات مطعمك."
+  },
+  "WhyMiznex": {
+    "betterBusinessManagement": "إدارة أعمال أفضل ببيانات دقيقة",
+    "increaseRevenueByAttractingMoreCustomers": "زيادة الإيرادات بجذب المزيد من العملاء",
+    "improveServiceQuality": "تحسين جودة الخدمة",
+    "modernAndProfessionaImage": "صورة حديثة ومهنية لعلامتك التجارية",
+    "reduceOperationalAndPrintingCosts": "تقليل التكاليف التشغيلية والطباعة",
+    "becomeMoreCompetitiveInMarket": "كن أكثر تنافسية في السوق",
+    "whyBusinessNeedMiznex": "لماذا يحتاج عملك إلى ميزنكس؟"
+  },
+  "statistics": {
+    "autoInventoryManagment": "إدارة المخزون التلقائية",
+    "withEachCustomerOrder": "مع كل طلب عميل، يتم تقليل مخزون عناصر القائمة تلقائيًا",
+    "controlRawMaterials": "التحكم في المواد الخام",
+    "uponOrderPlacement": "عند وضع الطلب، تُخصم كميات المواد الخام المستهلكة لهذا المنتج تلقائيًا.",
+    "saveTime": "توفير الوقت",
+    "noMoreNeedForManualAccounting": "لا حاجة للمحاسبة اليدوية وعد المخزون بعد الآن",
+    "accurateStatisticalReports": "تقارير إحصائية دقيقة",
+    "instantAccessToSalesReports": "الوصول الفوري إلى تقارير المبيعات، العناصر الأكثر شعبية، والاتجاهات",
+    "professionalStatisticsSystem": "نظام إحصائي احترافي",
+    "noNeedForSeparateAccountingSystem": "لا حاجة لنظام محاسبي منفصل بعد الآن! ميزنكس يدير مخزونك والمواد الخام بذكاء.",
+    "customerPlacesOrder": "يضع العميل الطلب",
+    "customerGivesYouOrder": "يعطي العميل الطلب لك",
+    "automaticInventoryReduction": "تقليل المخزون التلقائي",
+    "thePizzaInventorySystem": "نظام مخزون البيتزا يقلل بوحدة واحدة",
+    "reduceRawMaterials": "تقليل المواد الخام",
+    "rawMaterialsWillAlsoDecrease": "العجينة، الجبن، اللحم، وغيرها من المواد الخام ستقل أيضًا"
+  },
+  "faq": {
+    "doesMiznexMenuWork": "هل تعمل قائمة ميزنكس على جميع الهواتف؟",
+    "yesOurMenusAreFullyResponsive": "نعم. قوائمنا متجاوبة تمامًا وتعرض بشكل مثالي على جميع أجهزة أندرويد وiOS وكذلك سطح المكتب.",
+    "isCodingRequiredToUse": "هل يتطلب استخدام ميزنكس البرمجة؟",
+    "noPanelIsDesignedToBeCompletelyVisual": "لا، على الإطلاق! لوحة المستخدم لدينا مصممة لتكون بصرية تمامًا (سحب وإسقاط) حتى يتمكن أي شخص من بناء قائمته في أقل من دقائق",
+    "ifWeUpdateMenu": "إذا قمنا بتحديث القائمة، هل سيغير رمز QR؟",
+    "dedicatedQRCodeIsPermanentAndNeverChanges": "لا. رمز QR المخصص الخاص بك دائم ولا يتغير أبدًا. جميع تغييرات القائمة تُطبق تلقائيًا تحت نفس الرمز QR.",
+    "frequentlyAskedQuestions": "الأسئلة الشائعة",
+    "everythingYouNeedToKnow": "كل ما تحتاج معرفته عن ميزنكس",
+    "ifPricesChangeDaily": "إذا تغيرت الأسعار يوميًا، هل يمكن للوحة الإدارة الرد بسرعة؟",
+    "ourSystemIsDesignedToBeDynamic": "نظامنا مصمم ليكون ديناميكيًا. يمكنك تحديث الأسعار في جزء من الثانية. هذه القدرة هي الأداة الأكثر أهمية للمطاعم التي لديها تسعير في الوقت الفعلي.",
+    "stillHaveQuestions": "لا تزال لديك أسئلة؟",
+    "contactSupport": "اتصل بالدعم"
+  },
+  "footer": {
+    "quickLinks": "روابط سريعة",
+    "aboutUs": "عن الشركة",
+    "howItWorks": "كيفية العمل",
+    "features": "الميزات",
+    "portfolio": "المحفظة",
+    "resources": "الموارد",
+    "blog": "المدونة",
+    "support": "الدعم",
+    "documentation": "الوثائق",
+    "frequentlyAskedQuestions": "الأسئلة الشائعة",
+    "phone": "33886501 21 +98",
+    "miznex": "ميزنكس",
+    "intelligentPlatform": "منصة ذكية لإنشاء قوائم رقمية للمطاعم والمقاهي مع إدارة المخزون وميزات التحليل المتقدمة.",
+    "miznexOnSocialMedia": "ميزنكس على وسائل التواصل الاجتماعي",
+    "copyRight": "ميزنكس. جميع الحقوق محفوظة.",
+    "privacyPolicy": "سياسة الخصوصية",
+    "termsOfUse": "شروط الاستخدام",
+    "termsAndConditions": "الشروط والأحكام"
+  }
+}

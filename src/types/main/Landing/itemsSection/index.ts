@@ -29,7 +29,3 @@ export interface ItemResponse {
     limit?: number;
   };
 }
-
-export interface ItemSectionClientProps {
-  items: Item[];
-}

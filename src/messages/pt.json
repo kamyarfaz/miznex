@@ -1,0 +1,144 @@
+{
+  "navbar": {
+    "miznex": "Miznex",
+    "desktopNavbar": {
+      "home": "Início",
+      "aboutUs": "Sobre nós",
+      "howItWorks": "Como funciona",
+      "features": "Funcionalidades",
+      "frequentlyAskedQuestions": "Perguntas frequentes",
+      "downloadApp": "Descarregar app"
+    }
+  },
+  "heroSection": {
+    "heroContent": {
+      "miznex": "Miznex",
+      "theFirstFreeMenuMaker": "O primeiro criador de menus gratuito",
+      "createAnOnlineAndFreeMenu": "Crie um menu online e gratuito",
+      "yourRestaurantCafeInNoTime": "O seu restaurante/café num instante!",
+      "aSmartAndFreeAlternative": "Uma alternativa inteligente e gratuita a sites caros! Um profissional",
+      "digitalMenuWithIntegrated": "menu digital com análises integradas e gestão de inventário.",
+      "downloadApp": "Descarregar app",
+      "support": "Suporte"
+    },
+    "heroImage": {
+      "smartDashboard": "Painel inteligente",
+      "smartMenu": "Menu inteligente",
+      "free": "Grátis!"
+    }
+  },
+  "categorySection": {
+    "miznexEverythingInHands": "Com o Miznex, tudo nas suas mãos!",
+    "createMeTakeOrders": "Crie o menu, receba pedidos e processe pagamentos instantaneamente! Tudo numa plataforma centrada no móvel!"
+  },
+  "statsSection": {
+    "completelyFreeMenuCreation": "Criação de menus completamente gratuita",
+    "createEditPublishAtNoCost": "Crie, edite, publique sem custo!",
+    "completelyFreeMeansZeroCost": "Completamente gratuito significa custo zero",
+    "freeSetup": "Configuração gratuita",
+    "fastReliableAndSecure": "Rápido, fiável e seguro",
+    "freeAndQuickSupport": "Suporte gratuito e rápido",
+    "multipleMenus": "Menus múltiplos",
+    "createDedicatedMenu": "Crie um menu dedicado para pequeno-almoço, almoço, jantar e mais!",
+    "mobileApp": "App móvel",
+    "dedicatedAnalyticalDashboard": "Painel analítico dedicado",
+    "analyzeYourBusiness": "Analise o seu negócio e aumente os seus rendimentos mensais!",
+    "totalSalesAnalysis": "Análise de vendas totais",
+    "bestSellingItems": "Itens mais vendidos",
+    "mostPopularItems": "Itens mais populares",
+    "graphicalAnalyses": "Análises gráficas",
+    "attractiveAppearance": "Aparência atrativa",
+    "yourRestaurantCafeMenuShould": "O menu do seu restaurante/café deve ser tão apelativo como os seus pratos",
+    "onlinePayment": "Pagamento online",
+    "avoidTheRush": "Evite o ajuntamento na caixa com pagamento online!"
+  },
+  "howItWorks": {
+    "howMiznexWorks": "Como funciona o Miznex",
+    "setUpYourDigitalMenu": "Configure o seu menu digital em três passos simples",
+    "signUpForMiznex": "Registe-se no Miznex",
+    "createYourFreeAccount": "Crie a sua conta gratuita em segundos. Sem custo para começar.",
+    "createYourDigitalMenu": "Crie o seu menu digital",
+    "useOurSimpleEditor": "Use o nosso editor simples para adicionar itens, fotos, preços e personalizar a aparência para se adequar à sua marca.",
+    "shareYourQRCode": "Partilhe o seu código QR com os clientes",
+    "createUniqueQRCode": "Crie um código QR único e deixe os clientes verem o seu menu instantaneamente nos seus dispositivos."
+  },
+  "grow": {
+    "+45%": "+45%",
+    "increaseSatisfiedCustomers": "Aumente clientes satisfeitos",
+    "byProvidingModern": "Fornecendo uma experiência digital moderna e profissional aos clientes",
+    "+35%": "+35%",
+    "increaseOrders": "Aumente pedidos",
+    "easyAccessToMenu": "Acesso fácil ao menu leva a mais pedidos",
+    "+60%": "+60%",
+    "reduceErrorsInOrders": "Reduza erros em pedidos",
+    "withClearDigitalMenu": "Com um menu digital claro, os erros na tomada de pedidos são minimizados",
+    "+70%": "+70%",
+    "reduceOrderTakingTime": "Reduza o tempo de tomada de pedidos",
+    "customersDecideAndOrderFaster": "Os clientes decidem e pedem mais rápido",
+    "withMiznex": "Faça-o!",
+    "growWithMiznex": "Cresça",
+    "Do": "com miznex",
+    "createAMenuTakeOrders": "Com o Miznex, gerencie pedidos com mais facilidade e aumente as vendas do seu restaurante."
+  },
+  "WhyMiznex": {
+    "betterBusinessManagement": "Melhor gestão de negócios com dados precisos",
+    "increaseRevenueByAttractingMoreCustomers": "Aumente receitas atraindo mais clientes",
+    "improveServiceQuality": "Melhore a qualidade de serviço",
+    "modernAndProfessionaImage": "Uma imagem moderna e profissional para a sua marca",
+    "reduceOperationalAndPrintingCosts": "Reduza custos operacionais e de impressão",
+    "becomeMoreCompetitiveInMarket": "Torne-se mais competitivo no mercado",
+    "whyBusinessNeedMiznex": "Por que o seu negócio precisa do Miznex?"
+  },
+  "statistics": {
+    "autoInventoryManagment": "Gestão automática de inventário",
+    "withEachCustomerOrder": "Com cada pedido de cliente, o inventário de itens do menu é reduzido automaticamente",
+    "controlRawMaterials": "Controle matérias-primas",
+    "uponOrderPlacement": "Ao colocar o pedido, as quantidades de matérias-primas consumidas para esse produto são deduzidas automaticamente.",
+    "saveTime": "Economize tempo",
+    "noMoreNeedForManualAccounting": "Não mais necessidade de contabilidade manual e contagem de inventário",
+    "accurateStatisticalReports": "Relatórios estatísticos precisos",
+    "instantAccessToSalesReports": "Acesso instantâneo a relatórios de vendas, itens mais populares e tendências",
+    "professionalStatisticsSystem": "Sistema de estatísticas profissional",
+    "noNeedForSeparateAccountingSystem": "Não precisa mais de um sistema de contabilidade separado! O Miznex gerencia inteligentemente o seu inventário e matérias-primas.",
+    "customerPlacesOrder": "O cliente faz um pedido",
+    "customerGivesYouOrder": "O cliente dá-lhe o pedido",
+    "automaticInventoryReduction": "Redução automática de inventário",
+    "thePizzaInventorySystem": "O sistema de inventário de pizza reduz em 1 unidade",
+    "reduceRawMaterials": "Reduza matérias-primas",
+    "rawMaterialsWillAlsoDecrease": "A massa, queijo, carne e outras matérias-primas também diminuirão"
+  },
+  "faq": {
+    "doesMiznexMenuWork": "O menu Miznex funciona em todos os telemóveis?",
+    "yesOurMenusAreFullyResponsive": "Sim. Os nossos menus são totalmente responsivos e exibem-se perfeitamente em todos os dispositivos Android e iOS, bem como em desktops.",
+    "isCodingRequiredToUse": "É necessária programação para usar o Miznex?",
+    "noPanelIsDesignedToBeCompletelyVisual": "Não, de todo! O nosso painel de utilizador é projetado para ser completamente visual (arrastar e largar) para que qualquer pessoa possa construir o seu menu em menos de alguns minutos",
+    "ifWeUpdateMenu": "Se atualizarmos o menu, o código QR mudará?",
+    "dedicatedQRCodeIsPermanentAndNeverChanges": "Não. O seu código QR dedicado é permanente e nunca muda. Todas as alterações no menu são aplicadas automaticamente sob o mesmo código QR.",
+    "frequentlyAskedQuestions": "Perguntas frequentes",
+    "everythingYouNeedToKnow": "Tudo o que precisa saber sobre o Miznex",
+    "ifPricesChangeDaily": "Se os preços mudarem diariamente, o painel de gestão pode responder rapidamente?",
+    "ourSystemIsDesignedToBeDynamic": "O nosso sistema é projetado para ser dinâmico. Pode atualizar preços num piscar de olhos. Esta capacidade é a ferramenta mais vital para restaurantes com precificação em tempo real.",
+    "stillHaveQuestions": "Ainda tem perguntas?",
+    "contactSupport": "Contacte o suporte"
+  },
+  "footer": {
+    "quickLinks": "Ligações rápidas",
+    "aboutUs": "Sobre nós",
+    "howItWorks": "Como funciona",
+    "features": "Funcionalidades",
+    "portfolio": "Portfólio",
+    "resources": "Recursos",
+    "blog": "Blog",
+    "support": "Suporte",
+    "documentation": "Documentação",
+    "frequentlyAskedQuestions": "Perguntas frequentes",
+    "phone": "33886501 21 +98",
+    "miznex": "Miznex",
+    "intelligentPlatform": "Uma plataforma inteligente para criar menus digitais para restaurantes e cafés com gestão de inventário e funcionalidades de análise avançadas.",
+    "miznexOnSocialMedia": "Miznex nas redes sociais",
+    "copyRight": "Miznex. Todos os direitos reservados.",
+    "privacyPolicy": "Política de privacidade",
+    "termsOfUse": "Termos de uso",
+    "termsAndConditions": "Termos e condições"
+  }
+}

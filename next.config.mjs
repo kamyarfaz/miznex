@@ -1,5 +1,6 @@
 import crypto from "crypto";
 import serwistNext from "@serwist/next";
+import createNextIntlPlugin from "next-intl/plugin";
 
 const isProd = process.env.NODE_ENV === "production";
 const revision = crypto.randomUUID();
@@ -93,7 +94,7 @@ const nextConfig = {
   },
 };
 
-export default isProd
+const serwistNextConfig = isProd
   ? serwistNext({
       swSrc: "src/app/sw.ts",
       swDest: "public/sw.js",
@@ -129,3 +130,6 @@ export default isProd
       maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
     })(nextConfig)
   : nextConfig;
+
+const withNextIntl = createNextIntlPlugin();
+export default withNextIntl(serwistNextConfig);
