@@ -42,6 +42,7 @@
 
   --color-bodyDark: var(--bodyDark);
   --color-bodyNormal: var(--bodyNormal);
+  --color-bodyLight: var(--bodyLight);
   --color-headings: var(--headings);
   --color-primary: var(--primary);
   --color-bo-primary: var(--bo-primary);
@@ -390,6 +391,7 @@ html[dir="rtl"] body {
   
   --bodyDark : #444955 ;
   --bodyNormal : #737780 ;
+  --bodyLight : #A1A4AA ;
   --headings : #333740 ;
   --primary : #444955 ;
   --bo-primary : #D0D1D4 ;

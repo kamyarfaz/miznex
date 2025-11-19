@@ -18,6 +18,7 @@ import {
   ClipboardPlus,
   Hamburger,
   House,
+  LogOut,
   MessageCircleCode,
   OctagonMinus,
   Send,
@@ -180,7 +181,7 @@ const AppSidebar: React.FC = () => {
                 <TooltipTrigger asChild>
                   <button
                     onClick={() => handleSubmenuToggle(index, menuType)}
-                    className={`menu-item group flex items-center px-4 py-3 rounded-lg ${
+                    className={`menu-item group flex items-center pr-4 py-3 rounded-lg ${
                       openSubmenu?.type === menuType &&
                       openSubmenu?.index === index
                         ? "menu-item-active text-amber-600"
@@ -200,7 +201,7 @@ const AppSidebar: React.FC = () => {
                       {nav.icon}
                     </span>
                     {(isExpanded || isMobileOpen) && (
-                      <span className="menu-item-text text-base mr-3">
+                      <span className="menu-item-text text-sm mr-3 text-right">
                         {nav.name}
                       </span>
                     )}
@@ -320,15 +321,19 @@ const AppSidebar: React.FC = () => {
           )}
         </li>
       ))}
-      <div className="mt-4 border-t border-gray-300 dark:border-gray-700">
+      <div className="w-[90%] h-[1px] bg-bodyLight mx-auto box-border"></div>
+      <div className="hover:bg-gray-100 rounded-lg">
         <Link
           href="/logout"
-          className={`menu-item group flex items-center px-4 py-3 rounded-lg cursor-pointer ${
+          className={`menu-item group flex items-center px-4 py-3 cursor-pointer ${
             !isExpanded ? "lg:justify-center" : "lg:justify-start"
           }`}
         >
           {(isExpanded || isMobileOpen) && (
-            <span className="menu-item-text text-base mr-[35px]">خروج</span>
+            <span className="menu-item-text text-base flex items-center justify-between">
+              <LogOut stroke="#ff0000" />
+              <span className="mr-6 text-[#ff0000]">خروج</span>
+            </span>
           )}
         </Link>
       </div>
