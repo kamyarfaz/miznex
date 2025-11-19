@@ -32,7 +32,6 @@ type NavItem = {
   subItems?: { name: string; path: string; pro?: boolean; new?: boolean }[];
 };
 
-
 const AppSidebar: React.FC = () => {
   const { isExpanded, isMobileOpen, isHovered, setIsHovered } = useSidebar();
   const pathname = usePathname();
@@ -40,58 +39,74 @@ const AppSidebar: React.FC = () => {
   const navItems: NavItem[] = [
     {
       icon: <House />,
-      name: t("dashboard"),
+      name: "داشبورد",
       path: "/dashboard/overview",
     },
     {
-      name: t("userManagement"),
-      icon: <CircleUserRound />,
-      path: "/dashboard/users",
-    },
-    {
-      name: t("categoryManagement"),
-      icon: <ChartBarStacked />,
-      path: "/dashboard/categories",
-    },
-    {
-      name: t("itemManagement"),
+      name: "مدیریت منو",
       icon: <Hamburger />,
-      path: "/dashboard/items",
+      subItems: [
+        {
+          name: "مدیریت آیتم‌ها",
+          path: "/dashboard/items",
+        },
+        {
+          name: "مدیریت دسته‌بندی",
+          path: "/dashboard/categories",
+        },
+        {
+          name: "مدیریت QR Code",
+          path: "/dashboard/qr-codes",
+        },
+        {
+          name: "مدیریت تخفیف‌ها",
+          path: "/dashboard/discounts",
+        },
+      ],
     },
     {
-      name: t("orderManagement"),
-      icon: <BadgeDollarSign />,
-      path: "/dashboard/orders",
+      name: "سیستم حسابداری",
+      icon: <ChartBarStacked />,
+      subItems: [
+        {
+          name: "سیستم POS / Entry Order",
+          path: "/dashboard/pos",
+        },
+        {
+          name: "سیستم آشپزخانه (KDS)",
+          path: "/dashboard/kds",
+        },
+        {
+          name: "مدیریت موجودی",
+          path: "/dashboard/inventory",
+        },
+      ],
     },
     {
-      name: t("discountManagement"),
-      icon: <ClipboardPlus />,
-      path: "/dashboard/discounts",
-    },
-    {
-      name: t("ticketManagement"),
-      icon: <TicketsPlane />,
-      path: "/dashboard/tickets",
-    },
-    {
-      name: t("commentManagement"),
-      icon: <MessageCircleCode />,
-      path: "/dashboard/comments",
-    },
-    {
-      name: t("userMessageManagement"),
-      icon: <Send />,
-      path: "/dashboard/messages",
-    },
-    {
-      name: t("blacklist"),
-      icon: <OctagonMinus />,
-      path: "/dashboard/blacklist",
-    },
-    {
-      name: t("restrictionManagement"),
-      icon: <ShieldBan />,
-      path: "/dashboard/rate-limit",
+      name: "مدیریت کاربران",
+      icon: <CircleUserRound />,
+      subItems: [
+        {
+          name: "مدیریت تیکت‌ها",
+          path: "/dashboard/tickets",
+        },
+        {
+          name: "مدیریت کامنت‌ها",
+          path: "/dashboard/comments",
+        },
+        {
+          name: "مدیریت پیام کاربران",
+          path: "/dashboard/messages",
+        },
+        {
+          name: "لیست سیاه",
+          path: "/dashboard/blacklist",
+        },
+        {
+          name: "مدیریت محدودیت‌ها",
+          path: "/dashboard/restrictions",
+        },
+      ],
     },
   ];
 
@@ -168,7 +183,7 @@ const AppSidebar: React.FC = () => {
                     className={`menu-item group flex items-center px-4 py-3 rounded-lg ${
                       openSubmenu?.type === menuType &&
                       openSubmenu?.index === index
-                        ? "menu-item-active"
+                        ? "menu-item-active text-amber-600"
                         : "menu-item-inactive"
                     } cursor-pointer ${
                       !isExpanded ? "lg:justify-center" : "lg:justify-start"
@@ -178,14 +193,14 @@ const AppSidebar: React.FC = () => {
                       className={`menu-item-icon-size flex items-center justify-center text-2xl ${
                         openSubmenu?.type === menuType &&
                         openSubmenu?.index === index
-                          ? "menu-item-icon-active"
+                          ? "menu-item-icon-active text-amber-600"
                           : "menu-item-icon-inactive text-gray-500 dark:text-white"
                       }`}
                     >
                       {nav.icon}
                     </span>
                     {(isExpanded || isMobileOpen) && (
-                      <span className="menu-item-text text-lg mr-3">
+                      <span className="menu-item-text text-base mr-3">
                         {nav.name}
                       </span>
                     )}
@@ -194,7 +209,7 @@ const AppSidebar: React.FC = () => {
                         className={`mr-auto w-6 h-6 transition-transform duration-200 ${
                           openSubmenu?.type === menuType &&
                           openSubmenu?.index === index
-                            ? "rotate-180 text-brand-500"
+                            ? "rotate-180 text-amber-600"
                             : ""
                         }`}
                       />
@@ -233,7 +248,7 @@ const AppSidebar: React.FC = () => {
                         {nav.icon}
                       </span>
                       {(isExpanded || isMobileOpen) && (
-                        <span className="menu-item-text text-medium mr-3 font-bold">
+                        <span className="menu-item-text text-base mr-3">
                           {nav.name}
                         </span>
                       )}
@@ -266,7 +281,7 @@ const AppSidebar: React.FC = () => {
                   <li key={subItem.name}>
                     <Link
                       href={subItem.path}
-                      className={`menu-dropdown-item text-base px-4 py-2 ${
+                      className={`menu-dropdown-item text-sm px-4 py-2 ${
                         isActive(subItem.path)
                           ? "menu-dropdown-item-active"
                           : "menu-dropdown-item-inactive"
@@ -305,6 +320,18 @@ const AppSidebar: React.FC = () => {
           )}
         </li>
       ))}
+      <div className="mt-4 border-t border-gray-300 dark:border-gray-700">
+        <Link
+          href="/logout"
+          className={`menu-item group flex items-center px-4 py-3 rounded-lg cursor-pointer ${
+            !isExpanded ? "lg:justify-center" : "lg:justify-start"
+          }`}
+        >
+          {(isExpanded || isMobileOpen) && (
+            <span className="menu-item-text text-base mr-[35px]">خروج</span>
+          )}
+        </Link>
+      </div>
     </ul>
   );
 
@@ -319,7 +346,9 @@ const AppSidebar: React.FC = () => {
             : "w-[110px]"
         }
         ${
-          isMobileOpen ? "translate-x-0" : "rtl:max-lg:translate-x-full ltr:max-lg:-translate-x-full lg:translate-x-0"
+          isMobileOpen
+            ? "translate-x-0"
+            : "rtl:max-lg:translate-x-full ltr:max-lg:-translate-x-full lg:translate-x-0"
         }`}
       onMouseEnter={() => !isExpanded && setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -347,7 +376,7 @@ const AppSidebar: React.FC = () => {
                 width={70}
               /> */}
               <p className="text-4xl font-extrabold mt-1 leading-none">
-                <span className="text-headings drop-shadow-sm">
+                <span className="text-headings drop-shadow-sm text-2xl">
                   {t("miznex")}
                 </span>
               </p>
