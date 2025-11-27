@@ -6,6 +6,7 @@ import Image from "next/image";
 import LogoDark from "./../../../assets/Logo/4.png";
 import LogoLight from "./../../../assets/Logo/3.png";
 import { LoginContentProps } from "@/types/main";
+import MiznexSVG from "@/assets/svg/MiznexSVG";
 
 export const LoginContent: React.FC<LoginContentProps> = ({
   step,
@@ -21,19 +22,8 @@ export const LoginContent: React.FC<LoginContentProps> = ({
   formatTime,
 }) => {
   const LogoComponent = () => (
-    <div className="flex flex-col items-center gap-4 mb-3">
-      <Image
-        src={LogoDark}
-        alt="Logo Website"
-        width={150}
-        className="block dark:hidden"
-      />
-      <Image
-        src={LogoLight}
-        alt="Logo Website"
-        width={150}
-        className="hidden dark:block"
-      />
+    <div className="flex flex-col items-center gap-4 mb-6 scale-150">
+      <MiznexSVG />
     </div>
   );
 

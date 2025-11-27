@@ -139,7 +139,7 @@ export const PhoneInputForm: React.FC<PhoneInputFormProps> = ({
             disabled={isLoading || !isValid}
             className={cn(
               "w-full  max-w-sm h-12 cursor-pointer text-lg font-bold",
-              "bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600",
+              "bg-action hover:bg-action-hover",
               "text-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 rounded-xl",
               "disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
             )}

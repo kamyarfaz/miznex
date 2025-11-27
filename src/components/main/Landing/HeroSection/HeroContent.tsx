@@ -12,7 +12,7 @@ const HeroContent = () => {
   const t = useTranslations("heroSection");
 
   return (
-    <div className="text-center rtl:lg:text-right ltr:lg:text-left space-y-8">
+    <div className="text-center rtl:text-right ltr:text-left space-y-8 max-lg:order-2">
       <MotionDiv
         className="space-y-4"
         initial={{ opacity: 0, y: 20 }}
@@ -32,7 +32,7 @@ const HeroContent = () => {
           </div>
         </div>
         <MotionH1
-          className="text-2xl lg:text-3xl xl:text-[40px] font-semibold text-[#3B3B3B]"
+          className="text-lg lg:text-3xl xl:text-[40px] font-semibold text-[#3B3B3B]"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -47,7 +47,7 @@ const HeroContent = () => {
           >
             {t("heroContent.createAnOnlineAndFreeMenu")}
           </MotionSpan>
-          <br className="my-5" />
+          <br className="lg:my-5" />
           <MotionSpan
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -59,13 +59,12 @@ const HeroContent = () => {
 
         <MotionP
           data-testid="hero-description"
-          className="text-xs lg:text-sm xl:text-[16px] font-normal text-bodyNormal max-w-2xl mx-auto lg:mx-0 leading-relaxed flex flex-col"
+          className="text-[16px] font-normal text-bodyNormal max-w-2xl lg:mx-0 leading-relaxed flex flex-col"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.7 }}
         >
           <span>{t("heroContent.aSmartAndFreeAlternative")}</span>
-
           <span>{t("heroContent.digitalMenuWithIntegrated")}</span>
         </MotionP>
       </MotionDiv>
@@ -77,7 +76,7 @@ const HeroContent = () => {
         transition={{ duration: 0.8, delay: 1.3 }}
       >
         <MotionDiv className="flex items-center gap-4 text-[15px] [&>div]:rounded-full [&>div]:cursor-pointer [&>div]:py-2 [&>div]:px-[29px]">
-          <div className="text-white bg-[#404040] font-medium">
+          <div className="text-white bg-action lg:bg-[#404040] font-medium">
             {t("heroContent.downloadApp")}
           </div>
           <div className="text-bodyDark font-normal border border-bodyNormal">

@@ -15,7 +15,7 @@ const HeroImage = () => {
 
   return (
     <MotionDiv
-      className="relative mb-4 max-w-[696px]"
+      className="relative mb-4 max-w-[696px] max-lg:max-w-[550px] max-md:mx-auto max-lg:order-1 rtl:max-lg:-left-16 ltr:max-lg:-right-16  rtl:max-md:left-16 ltr:max-md:right-16"
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8, delay: 0.5 }}
@@ -32,9 +32,9 @@ const HeroImage = () => {
         alt="pic"
         className="absolute -top-8 rtl:left-0 ltr:right-0 scale-110"
       />
-      <GlassButton text={t("heroImage.smartDashboard")} customClass="rtl:left-10 ltr:right-10 -top-3 rtl:max-2xl:-left-5 ltr:max-2xl:-right-5" />
-      <GlassButton text={t("heroImage.smartMenu")} customClass="rtl:left-[70px] ltr:right-[70px] -bottom-2 !border-none rtl:max-2xl:left-1 ltr:max-2xl:right-1" />
-      <GlassButton text={t("heroImage.free")} customClass="rtl:right-32 ltr:left-32 top-[72px] !border-2 max-2xl:top-12" />
+      <GlassButton text={t("heroImage.smartDashboard")} customClass="rtl:left-10 ltr:right-10 -top-3 max-2xl:-top-6 rtl:max-2xl:-left-5 ltr:max-2xl:-right-5 max-md:scale-[70%]" />
+      <GlassButton text={t("heroImage.smartMenu")} customClass="rtl:left-[70px] ltr:right-[70px] -bottom-2 max-2xl:-bottom-4 !border-none rtl:max-2xl:-left-10 ltr:max-2xl:right-1 max-md:scale-[70%]" />
+      <GlassButton text={t("heroImage.free")} customClass="rtl:right-32 ltr:left-32 top-[72px] !border-2 max-2xl:top-10 max-md:scale-[70%]" />
     </MotionDiv>
   );
 };

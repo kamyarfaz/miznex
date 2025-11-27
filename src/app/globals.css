@@ -51,6 +51,7 @@
   --color-surface-dark: var(--surface-dark);
   --color-t-dark: var(--t-dark);
   --color-action: var(--action);
+  --color-action-hover: var(--action-hover);
   --color-success: var(--success);
 }
 
@@ -400,6 +401,7 @@ html[dir="rtl"] body {
   --surface-dark : #333740 ;
   --t-dark : #222 ;
   --action : #FF5B35 ;
+  --action-hover : #E85330 ;
   --success : #27B365 ;
 }
 

@@ -86,8 +86,8 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({
           onOpenChange={setOpenLoginDialog}
           onSuccess={() => setOpenLoginDialog(false)}
         /> */}
-        <div className="bg-white text-bodyDark h-full px-4 rounded-full font-medium flex items-center gap-2 text-[15px] cursor-pointer">
-          <Download width={18} /> {t("desktopNavbar.downloadApp")}
+        <div className="bg-white text-bodyDark h-full px-4 rounded-full font-medium flex items-center gap-2 text-[15px] cursor-pointer max-lg:border max-lg:border-action">
+          <Download width={18} className="max-lg:stroke-action-hover"/> {t("desktopNavbar.downloadApp")}
         </div>
       </div>
     </>

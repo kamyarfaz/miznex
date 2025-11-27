@@ -42,18 +42,15 @@ const MobileNavbar: React.FC<MobileNavbarProps> = ({
     <div className="lg:hidden">
       <Sheet open={openMobileMenu} onOpenChange={setOpenMobileMenu}>
         <SheetTrigger asChild>
-          <Button
-            data-testid="mobile-menu-button"
-            variant="outline"
-            size="icon"
-            className="rounded-full transition-all duration-300 hover:bg-amber-100 hover:text-amber-600 dark:hover:bg-amber-900/30 dark:hover:text-amber-400"
+          <div
+            className="rounded-full transition-all duration-300"
           >
             {openMobileMenu ? (
-              <X className="h-6 w-6 transition-transform duration-300 rotate-90" />
+              <X className="h-6 w-6 transition-transform duration-300 rotate-90 stroke-action-hover scale-110" />
             ) : (
-              <Menu className="h-6 w-6 transition-transform duration-300" />
+              <Menu className="h-6 w-6 transition-transform duration-300 stroke-action-hover scale-110 cursor-pointer" />
             )}
-          </Button>
+          </div>
         </SheetTrigger>
 
         <SheetContent
@@ -68,7 +65,7 @@ const MobileNavbar: React.FC<MobileNavbarProps> = ({
 
           <div className="flex flex-col h-full">
             <div className="flex  justify-evenly items-center  border-b border-amber-100/60 dark:border-zinc-800/60 py-4 mb-4">
-              <Logo />
+              <Logo width={50} />
               <div className="flex md:hidden justify-center">
                 <ThemeSwitcher />
               </div>
