@@ -43,6 +43,7 @@
   --color-bodyDark: var(--bodyDark);
   --color-bodyNormal: var(--bodyNormal);
   --color-bodyLight: var(--bodyLight);
+  --color-disable: var(--disable);
   --color-headings: var(--headings);
   --color-primary: var(--primary);
   --color-bo-primary: var(--bo-primary);
@@ -238,6 +239,7 @@ html[dir="rtl"] body {
   --breakpoint-2xsm: 375px;
   --breakpoint-xsm: 425px;
   --breakpoint-3xl: 2000px;
+  --breakpoint-sx: 550px;
   --breakpoint-sm: 640px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 1024px;
@@ -393,6 +395,7 @@ html[dir="rtl"] body {
   --bodyDark : #444955 ;
   --bodyNormal : #737780 ;
   --bodyLight : #A1A4AA ;
+  --disable : #D0D1D4 ;
   --headings : #333740 ;
   --primary : #444955 ;
   --bo-primary : #D0D1D4 ;
@@ -661,6 +664,13 @@ html[dir="rtl"] body {
     box-shadow: 5px -5px 0 5px #23232a;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .swiper-slide {
+    width : auto !important;
+  }
+}
+
 
 .swiper-slide-thumb-active > div {
   @apply ring-4 ring-amber-500 scale-105 shadow-lg;

@@ -23,20 +23,20 @@ const FooterBottom = () => {
   return (
     <>
       <MotionDiv
-        className="py-6 flex flex-col md:flex-row justify-between items-center max-md:gap-6"
+        className="py-6 flex flex-row justify-between items-center max-md:gap-6"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false }}
         transition={{ duration: 0.6 }}
       >
         <div className="flex flex-col gap-4">
-          <h3 className="text-t-dark font-medium">
+          <h3 className="text-t-dark font-medium max-sx:text-[14px] whitespace-nowrap">
             {t("miznexOnSocialMedia")}
           </h3>
           <div className="flex items-center gap-4">
             {socialMedia.map((item, index) => (
               <div
-                className="flex items-center justify-center rounded-2xl border border-bo-primary w-11 h-11"
+                className="flex items-center justify-center rounded-2xl border border-bo-primary w-11 h-11 max-sx:!size-8 max-sx:[&>svg]:scale-75"
                 key={index}
               >
                 {item}
@@ -44,31 +44,31 @@ const FooterBottom = () => {
             ))}
           </div>
         </div>
-        <div className="flex items-center gap-10">
+        <div className="flex items-center gap-10 max-sm:gap-4">
           <Image
             width={55}
             height={77}
             src={zarinpal}
             alt="pic"
-            className="h-[77px] w-[55px]"
+            className="h-[77px] w-[55px] max-sm:h-[62px] max-sm:w-[40px]"
           />
           <Image
             width={103}
             height={71}
             src={eNamad}
             alt="pic"
-            className="h-[71px] w-[103px]"
+            className="h-[71px] w-[103px] max-sm:h-[56px] max-sm:w-[88px]"
           />
         </div>
       </MotionDiv>
       <MotionDiv
-        className="pt-8 border-t border-t-bo-primary flex flex-col md:flex-row justify-between items-center"
+        className="pt-8 border-t border-t-bo-primary flex flex-col-reverse md:flex-row justify-between items-start md:items-center"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false }}
         transition={{ duration: 0.6 }}
       >
-        <div className="text-center md:text-right mb-4 md:mb-0">
+        <div className="text-center md:text-right mt-4 md:mt-0">
           <MotionP
             className="text-bodyNormal text-[12px] font-regular"
             initial={{ opacity: 0 }}

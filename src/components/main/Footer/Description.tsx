@@ -6,7 +6,7 @@ const Description = () => {
   const t = useTranslations("footer");
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-3 col-span-2 sx:col-span-3 sm:col-span-1">
       <MotionDiv
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}

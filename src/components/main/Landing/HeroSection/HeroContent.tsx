@@ -70,7 +70,7 @@ const HeroContent = () => {
       </MotionDiv>
 
       <MotionDiv
-        className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start"
+        className="flex flex-col sm:flex-row gap-6 justify-start"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.3 }}
