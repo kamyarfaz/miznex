@@ -45,8 +45,8 @@ const Footer = () => {
         }}
       />
 
-      <div className="relative container mx-auto px-4 sm:px-6 pt-12 pb-8 z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 max-lg:gap-6 pb-3 items-start">
+      <div className="relative sx:container mx-auto px-4 sm:px-6 pt-12 pb-8 z-10">
+        <div className="grid grid-cols-2 sx:grid-cols-3 sm:grid-cols-2 lg:grid-cols-4 gap-2 max-lg:gap-6 pb-3 items-start">
           <QuickLinks quickLinks={footerData?.quickLinks} />
           <Resources resources={footerData?.resources} />
           <ContactInfo contactInfo={footerData?.contactInfo} />

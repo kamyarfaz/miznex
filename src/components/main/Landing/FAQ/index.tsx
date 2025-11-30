@@ -60,12 +60,12 @@ const FAQ = () => {
           visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
         }}
       >
-        <div className="relative flex flex-col md:flex-row items-center justify-between gap-12">
+        <div className="relative flex flex-col lg:flex-row items-center justify-between gap-12">
           <div className="w-full space-y-4">
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-[#F6F6F6] rounded-2xl overflow-hidden p-4 w-full max-w-[738px]"
+                className="bg-[#F6F6F6] rounded-2xl overflow-hidden p-4 w-full lg:max-w-[738px]"
               >
                 <div>
                   <button
@@ -74,7 +74,7 @@ const FAQ = () => {
                       setOpenIndex(openIndex === index ? null : index)
                     }
                   >
-                    <span className="font-medium text-headings text-lg">
+                    <span className="font-medium text-headings text-lg max-md:text-[15px]">
                       {faq.question}
                     </span>
 
@@ -87,7 +87,7 @@ const FAQ = () => {
                   </button>
 
                   {openIndex === index && (
-                    <div className="text-bodyNormal rtl:ml-20 ltr:mr-20 mt-3 rtl:text-right ltr:text-left font-regular">
+                    <div className="text-bodyNormal rtl:ml-20 ltr:mr-20 rtl:max-sx:ml-14 ltr:max-sx:mr-14 mt-3 rtl:text-right ltr:text-left font-regular max-md:text-[13px]">
                       {faq.answer}
                     </div>
                   )}

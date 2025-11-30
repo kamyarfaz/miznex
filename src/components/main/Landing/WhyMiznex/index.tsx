@@ -17,6 +17,7 @@ const WhyMiznex = () => {
     t("reduceOperationalAndPrintingCosts"),
     t("becomeMoreCompetitiveInMarket"),
   ];
+  const duplicatedBenefits = [...benefits, ...benefits, ...benefits];
 
   return (
     <div className="relative mt-32">
@@ -46,29 +47,23 @@ const WhyMiznex = () => {
           visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
         }}
       >
-        <div className="relative rounded-2xl mb-5 z-10 rtl:-left-1/6 ltr:-right-1/6">
+        <div className="relative rounded-2xl mb-5 z-10 rtl:-left-1/6 ltr:-right-1/6 rtl:max-md:-left-1/2 ltr:max-md:-right-1/2">
           <Swiper
             modules={[Autoplay]}
             spaceBetween={20}
-            breakpoints={{
-              0: { slidesPerView: 1.2 },
-              640: { slidesPerView: 2 },
-              1024: { slidesPerView: 2 },
-              1280: { slidesPerView: 3 },
-            }}
+            slidesPerView="auto"
             centeredSlides={false}
             loop={true}
             freeMode={true}
             autoplay={{
-              delay: 2000,
+              delay: 10,
               disableOnInteraction: false,
-              pauseOnMouseEnter: true,
             }}
-            speed={1000}
-            className="h-full w-full !p-10 !overflow-visible"
+            speed={3000}
+            className="h-full w-full !p-10 !overflow-visible !ease-linear"
           >
-            {benefits.map((benefit, index) => (
-              <SwiperSlide key={index}>
+            {duplicatedBenefits.map((benefit, index) => (
+              <SwiperSlide key={index} className="!w-auto">
                 <div className="flex items-center text-center justify-center whitespace-nowrap p-4 gap-2 bg-white text-bodyDark shadow-[0_0_35px_rgba(0,0,0,0.07)] rounded-[12px]">
                   <TickCircleSVG />
                   {benefit}

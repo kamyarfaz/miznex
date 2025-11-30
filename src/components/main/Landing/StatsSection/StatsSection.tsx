@@ -33,7 +33,7 @@ const StatsSection = () => {
         data-testid="stats-section"
         className="flex flex-col xl:flex-row justify-center gap-6 pb-12 px-4 [&>div>div>div]:shadow-[0_0_35px_rgba(0,0,0,0.07)] [&>div>div>div]:flex [&>div>div>div]:flex-col [&>div>div>div]:bg-white [&>div>div>div]:p-5 [&>div>div>div]:rounded-3xl [&_h3]:text-lg [&_h3]:text-bodyDark [&_h3]:font-bold [&_h3]:peyda [&_img]:mb-3 [&_p]:text-[14px] [&_p]:mt-2 [&_p]:leading-[22px] [&_p]:text-bodyNormal"
       >
-        <div className="flex gap-6 max-xl:[&>div]:w-full">
+        <div className="flex gap-6 max-xl:[&>div]:w-full max-sm:flex-col">
           <div className="flex flex-col justify-center">
             <div>
               <Image src={aboutUs1} alt={t("completelyFreeMenuCreation")} />
@@ -58,7 +58,7 @@ const StatsSection = () => {
             </div>
           </div>
 
-          <div className="flex flex-col justify-center gap-4">
+          <div className="flex flex-col justify-center gap-4 max-sm:flex-row max-sm:[&>div]:w-1/2 max-xsm:flex-col max-xsm:[&>div]:w-full">
             <div>
               <Image src={aboutUs2} alt={t("multipleMenus")} />
               <h3>{t("multipleMenus")}</h3>
@@ -68,11 +68,11 @@ const StatsSection = () => {
             <div>
               <Image src={aboutUs3} alt={t("mobileApp")} />
               <h3>{t("mobileApp")}</h3>
-              <p>{t("createDedicatedMenu")}</p>
+              <p>{t("withMobileApp")}</p>
             </div>
           </div>
         </div>
-        <div className="flex gap-6 max-xl:[&>div]:w-full">
+        <div className="flex gap-6 max-xl:[&>div]:w-full max-sm:flex-col">
           <div className="flex flex-col justify-center">
             <div>
               <Image src={aboutUs4} alt={t("dedicatedAnalyticalDashboard")} />
@@ -97,7 +97,7 @@ const StatsSection = () => {
             </div>
           </div>
 
-          <div className="flex flex-col justify-center gap-4">
+          <div className="flex flex-col justify-center gap-4 max-sm:flex-row max-sm:[&>div]:w-1/2 max-xsm:flex-col max-xsm:[&>div]:w-full">
             <div>
               <Image src={aboutUs5} alt={t("attractiveAppearance")} />
               <h3>{t("attractiveAppearance")}</h3>
