@@ -75,7 +75,7 @@ const AppSidebar: React.FC = () => {
         },
         {
           name: "سیستم آشپزخانه (KDS)",
-          path: "/dashboard/kds",
+          path: "/kds",
         },
         {
           name: "مدیریت موجودی",
