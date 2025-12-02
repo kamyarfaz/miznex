@@ -8,7 +8,7 @@ interface KDSCategoryBadgeProps {
   className?: string;
 }
 
-const categoryStyles: Record<ItemCategoryKDS, string> = {
+const categoryStyles: Record<string, string> = {
   grill: 'bg-[var(--category-grill-bg)] text-[var(--category-grill-fg)] border-[var(--category-grill-border)]',
   salad: 'bg-[var(--category-salad-bg)] text-[var(--category-salad-fg)] border-[var(--category-salad-border)]',
   drinks: 'bg-[var(--category-drinks-bg)] text-[var(--category-drinks-fg)] border-[var(--category-drinks-border)]',
@@ -40,13 +40,13 @@ export function KDSCategoryBadge({
     <Badge
       variant="outline"
       className={cn(
-        categoryStyles[category],
+        categoryStyles[category.title],
         sizeStyles[size],
         'capitalize',
         className
       )}
     >
-      {category}
+      {category.title}
     </Badge>
   );
 }

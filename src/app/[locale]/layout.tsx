@@ -43,15 +43,15 @@ export default async function RootLayout({
       <body className={`${IRANYekanX.variable} ${Peyda.variable} ${dir === "ltr" ? Poppins.variable : ""} font-sans`}>
         <NextIntlClientProvider>
           <QueryProvider>
-            <ThemeProvider
+            {/* <ThemeProvider
               attribute="class"
               defaultTheme="system"
               enableSystem
               disableTransitionOnChange
-            >
+            > */}
               <Toaster position="top-right" richColors />
               {children}
-            </ThemeProvider>
+            {/* </ThemeProvider> */}
           </QueryProvider>
         </NextIntlClientProvider>
       </body>

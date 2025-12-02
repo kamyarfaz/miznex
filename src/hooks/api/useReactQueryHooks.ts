@@ -1,10 +1,10 @@
-import {
-  useQuery,
-  useMutation,
-  UseQueryOptions,
-  UseMutationOptions,
-} from "@tanstack/react-query";
 import { fetchApi } from "@/hooks/api/useAuthToken";
+import {
+  useMutation,
+  UseMutationOptions,
+  useQuery,
+  UseQueryOptions,
+} from "@tanstack/react-query";
 
 type ServerError = Error;
 
@@ -15,9 +15,9 @@ export const useGet = <T>(
 ) => {
   return useQuery<T, ServerError>({
     queryKey: options?.queryKey ?? [endpoint],
+    ...options,
     queryFn: () => fetchApi.get<T>(endpoint),
     staleTime: 5 * 60 * 1000,
-    ...options,
   });
 };
 

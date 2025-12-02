@@ -1,7 +1,7 @@
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { cn } from '@/utils/utils';
-import type { OrderStatusKDS } from '@/types';
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import type { Category, OrderStatusKDS } from "@/types";
+import { cn } from "@/utils/utils";
 
 interface FilterOption {
   value: string;
@@ -11,21 +11,21 @@ interface FilterOption {
 
 interface KDSFilterTabsProps {
   options: FilterOption[];
-  activeFilter: string;
+  activeFilter: Category | "all";
   onFilterChange: (filter: string) => void;
-  variant?: 'default' | 'pills' | 'underline';
+  variant?: "default" | "pills" | "underline";
   className?: string;
 }
 
 /**
  * KDS Filter Tabs Component
- * 
+ *
  * Displays filter options with counts and active state
  * Variants:
  * - default: Button style
  * - pills: Rounded pill style
  * - underline: Tab with underline
- * 
+ *
  * @example
  * <KDSFilterTabs
  *   options={[
@@ -40,21 +40,21 @@ export function KDSFilterTabs({
   options,
   activeFilter,
   onFilterChange,
-  variant = 'default',
+  variant = "default",
   className,
 }: KDSFilterTabsProps) {
-  if (variant === 'pills') {
+  if (variant === "pills") {
     return (
-      <div className={cn('flex flex-wrap gap-2', className)}>
-        {options.map(option => (
+      <div className={cn("flex flex-wrap gap-2", className)}>
+        {options.map((option) => (
           <button
             key={option.value}
             onClick={() => onFilterChange(option.value)}
             className={cn(
-              'px-4 py-2 rounded-full transition-all',
+              "px-4 py-2 rounded-full transition-all",
               activeFilter === option.value
-                ? 'bg-[var(--brand-primary)] text-white'
-                : 'bg-white border border-gray-200 hover:border-gray-300'
+                ? "bg-[var(--brand-primary)] text-white"
+                : "bg-white border border-gray-200 hover:border-gray-300"
             )}
           >
             <span className="flex items-center gap-2">
@@ -63,10 +63,10 @@ export function KDSFilterTabs({
                 <Badge
                   variant="secondary"
                   className={cn(
-                    'ml-1',
+                    "ml-1",
                     activeFilter === option.value
-                      ? 'bg-white/20 text-white'
-                      : 'bg-gray-100 text-gray-700'
+                      ? "bg-white/20 text-white"
+                      : "bg-gray-100 text-gray-700"
                   )}
                 >
                   {option.count}
@@ -79,18 +79,18 @@ export function KDSFilterTabs({
     );
   }
 
-  if (variant === 'underline') {
+  if (variant === "underline") {
     return (
-      <div className={cn('flex border-b border-gray-200', className)}>
-        {options.map(option => (
+      <div className={cn("flex border-b border-gray-200", className)}>
+        {options.map((option) => (
           <button
             key={option.value}
             onClick={() => onFilterChange(option.value)}
             className={cn(
-              'px-4 py-3 transition-all relative',
+              "px-4 py-3 transition-all relative",
               activeFilter === option.value
-                ? 'text-[var(--brand-primary)]'
-                : 'text-gray-600 hover:text-gray-900'
+                ? "text-[var(--brand-primary)]"
+                : "text-gray-600 hover:text-gray-900"
             )}
           >
             <span className="flex items-center gap-2">
@@ -111,11 +111,11 @@ export function KDSFilterTabs({
   }
 
   return (
-    <div className={cn('flex flex-wrap gap-2', className)}>
-      {options.map(option => (
+    <div className={cn("flex flex-wrap gap-2", className)}>
+      {options.map((option) => (
         <Button
           key={option.value}
-          variant={activeFilter === option.value ? 'default' : 'outline'}
+          variant={activeFilter === option.value ? "default" : "outline"}
           onClick={() => onFilterChange(option.value)}
           size="sm"
           className="capitalize"
@@ -125,10 +125,10 @@ export function KDSFilterTabs({
             <Badge
               variant="secondary"
               className={cn(
-                'ml-2',
+                "ml-2",
                 activeFilter === option.value
-                  ? 'bg-white/20 text-white'
-                  : 'bg-gray-100'
+                  ? "bg-white/20 text-white"
+                  : "bg-gray-100"
               )}
             >
               {option.count}
@@ -142,35 +142,41 @@ export function KDSFilterTabs({
 
 /**
  * KDS Status Filter Component
- * 
+ *
  * Pre-configured filter for order statuses
  */
 interface KDSStatusFilterProps {
-  activeStatus: OrderStatusKDS | 'all';
-  onStatusChange: (status: OrderStatusKDS | 'all') => void;
-  counts?: Record<OrderStatusKDS | 'all', number>;
-  variant?: 'default' | 'pills' | 'underline';
+  activeStatus: Category | "all";
+  onStatusChange: (status: OrderStatusKDS | "all") => void;
+  counts?: Record<OrderStatusKDS | "all", number>;
+  variant?: "default" | "pills" | "underline";
 }
 
 export function KDSStatusFilter({
   activeStatus,
   onStatusChange,
   counts,
-  variant = 'default',
+  variant = "default",
 }: KDSStatusFilterProps) {
   const options: FilterOption[] = [
-    { value: 'all', label: 'All Orders', count: counts?.all },
-    { value: 'new', label: 'New', count: counts?.new },
-    { value: 'in-progress', label: 'In Progress', count: counts?.['in-progress'] },
-    { value: 'ready', label: 'Ready', count: counts?.ready },
-    { value: 'completed', label: 'Completed', count: counts?.completed },
+    { value: "all", label: "All Orders", count: counts?.all },
+    { value: "new", label: "New", count: counts?.new },
+    {
+      value: "in-progress",
+      label: "In Progress",
+      count: counts?.["in-progress"],
+    },
+    { value: "ready", label: "Ready", count: counts?.ready },
+    { value: "completed", label: "Completed", count: counts?.completed },
   ];
 
   return (
     <KDSFilterTabs
       options={options}
       activeFilter={activeStatus}
-      onFilterChange={(value) => onStatusChange(value as OrderStatusKDS | 'all')}
+      onFilterChange={(value) =>
+        onStatusChange(value as OrderStatusKDS | "all")
+      }
       variant={variant}
     />
   );

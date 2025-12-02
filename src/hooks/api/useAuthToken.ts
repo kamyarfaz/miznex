@@ -7,24 +7,29 @@ export const getApiUrl = (endpoint: string, isServer: boolean = false) => {
       ? endpoint
       : `${process.env.NEXT_PUBLIC_API_URL}${endpoint}`;
   }
-  return endpoint.startsWith("/api") ? endpoint : `/api${endpoint}`;
+  if (endpoint.startsWith("http")) return endpoint;
+  return `${process.env.NEXT_PUBLIC_API_URL}${endpoint}`;
 };
 
-const makeRequest = (url: string, options: RequestInit) => {
+const makeRequest = async (url: string, options: RequestInit) => {
   const fullUrl = getApiUrl(url);
+  console.log(fullUrl);
   const isFormData = options.body instanceof FormData;
 
   const headers = {
     Accept: "application/json",
     ...(options.headers || {}),
     ...(isFormData ? {} : { "Content-Type": "application/json" }),
+    Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5NTBiNmU1NC0zYzY5LTRiYmItYThjNS0zYzU5YTFlNGNiNTIiLCJmaXJzdE5hbWUiOiJuYXZpZHJlemEiLCJsYXN0TmFtZSI6ImFiYmFzemFkZWgiLCJlbWFpbCI6Im5hdmlkcmV6YWFiYmFzemFkZWg4OUBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NjQwODYzNTUsImV4cCI6MTc2NDY5MTE1NX0.5J44NzcMHqXIwvq63HyEAQdQBAP98wZMvlISJL4mfbg"
   };
 
-  return fetch(fullUrl, {
+  const req = await fetch(fullUrl, {
     ...options,
     headers,
-    credentials: "include",
+    credentials: "include"
   });
+  console.log("req", req);
+  return req;
 };
 
 const onError = async (response: Response, url: string) => {
@@ -56,38 +61,21 @@ export async function fetchWithAuth(url: string, options: RequestInit = {}) {
     const response = await makeRequest(url, options);
 
     if (response.status === 401) {
-      const authState = useAuthStore.getState();
-      if (!authState.isAuthenticated && !authState.user) {
-        throw { status: 401, message: "کاربر لاگین نیست" };
-      }
-
-      const refreshResponse = await fetch(getApiUrl("/v1/auth/refresh"), {
-        method: "GET",
-        credentials: "include",
-      });
-
-      if (refreshResponse.ok) {
-        useAuthStore.getState().setAuthenticated(true);
-        const retry = await makeRequest(url, options);
-        return await retry.json();
-      } else {
-        useAuthStore.getState().resetAuth();
-        toast.error("نشست شما منقضی شده، لطفاً دوباره وارد شوید.");
-        throw { status: 401, message: "نشست منقضی شده" };
-      }
+      console.log("401 handling");
     }
 
     if (response.ok) {
-      return await response.json();
+      const json = await response.json();
+      return json;
     }
 
     await onError(response, url);
   } catch (error) {
-    if (error instanceof Error && (error as any).statusCode) {
-      throw error;
-    }
+    console.log("fetchWithAuth error", error);
+    throw error;
   }
 }
+
 
 type FetchOptions = Omit<RequestInit, "method" | "body">;
 

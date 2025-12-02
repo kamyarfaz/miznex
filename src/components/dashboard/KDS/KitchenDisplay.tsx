@@ -1,7 +1,10 @@
+import type { ItemCategoryKDS, OrderKDS, OrderStatusKDS } from "@/types";
+import { AnimatePresence, motion } from "framer-motion";
+import { CheckCircle2, ChefHat, Clock } from "lucide-react";
 import { useState } from "react";
-import { Card, CardContent, CardHeader } from "../../ui/card";
 import { Badge } from "../../ui/badge";
 import { Button } from "../../ui/button";
+import { Card, CardContent, CardHeader } from "../../ui/card";
 import {
   Dialog,
   DialogContent,
@@ -9,9 +12,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from "../../ui/dialog";
-import { Clock, ChefHat, CheckCircle2 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import type { ItemCategoryKDS, OrderStatusKDS, OrderKDS } from "@/types";
 
 interface Props {
   orders: OrderKDS[];
@@ -30,7 +30,7 @@ const statusColors: Record<OrderStatusKDS, string> = {
   completed: "bg-gray-400 text-white",
 };
 
-const categoryColors: Record<ItemCategoryKDS, string> = {
+const categoryColors = {
   grill: "bg-orange-100 text-orange-800 border-orange-300",
   salad: "bg-green-100 text-green-800 border-green-300",
   drinks: "bg-blue-100 text-blue-800 border-blue-300",
@@ -124,10 +124,10 @@ export function KitchenDisplay({
                           <Badge
                             variant="outline"
                             className={`text-xs ${
-                              categoryColors[item.category]
+                              categoryColors[item.category.title]
                             }`}
                           >
-                            {item.category}
+                            {item.category.title}
                           </Badge>
                         </div>
                       ))}
@@ -198,8 +198,8 @@ export function KitchenDisplay({
                             )}
                           </div>
                         </div>
-                        <Badge className={categoryColors[item.category]}>
-                          {item.category}
+                        <Badge className={categoryColors[item.category.title]}>
+                          {item.category.title}
                         </Badge>
                       </div>
                     </CardContent>

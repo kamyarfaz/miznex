@@ -1,3 +1,5 @@
+import { ItemCategoryKDS } from "@/types/restaurant";
+
 // Menu Item Types
 export interface MenuItem {
   [x: string]: any;
@@ -11,9 +13,7 @@ export interface MenuItem {
   rate: number;
   rate_count: number;
   createdAt: string | Date;
-  category: {
-    title: string;
-  };
+  category: ItemCategoryKDS
   images: {
     image: string;
     imageUrl: string;
@@ -23,7 +23,7 @@ export interface MenuItem {
 export interface MenuItemResponse {
   data: {
     items: MenuItem[];
-    total: number;
+    totalCount: number;
     page: number;
     limit: number;
   };
@@ -38,8 +38,12 @@ export interface Category {
 }
 
 export interface CategoryResponseMenu {
-  data: Category[];
-  totalCount: number;
+  data: {
+    categories: Category[];
+    totalCount: number;
+    page: number;
+    limit: number;
+  };
 }
 
 // Component Props Types

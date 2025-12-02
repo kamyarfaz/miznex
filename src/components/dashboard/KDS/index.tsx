@@ -1,7 +1,11 @@
 "use client"
 
 import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import dynamic from "next/dynamic";
+const Tabs = dynamic(() => import("../../ui/tabs").then(module => module.Tabs), { ssr: false });
+const TabsContent = dynamic(() => import("../../ui/tabs").then(module => module.TabsContent), { ssr: false });
+const TabsList = dynamic(() => import("../../ui/tabs").then(module => module.TabsList), { ssr: false });
+const TabsTrigger = dynamic(() => import("../../ui/tabs").then(module => module.TabsTrigger), { ssr: false });
 import type { OrderItemKDS, OrderKDS, OrderStatusKDS } from "@/types";
 import {
   BarChart3,
