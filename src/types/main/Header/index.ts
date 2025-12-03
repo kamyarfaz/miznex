@@ -1,3 +1,8 @@
+type link = {
+  href: string, 
+  label: string
+}
+
 export interface MobileNavbarProps {
   isAuthenticated: boolean;
   user: any;
@@ -6,6 +11,9 @@ export interface MobileNavbarProps {
   setOpenMobileMenu: (open: boolean) => void;
   openMobileLoginDialog: boolean;
   setOpenMobileLoginDialog: (open: boolean) => void;
+  links: Array<link>;
+  handleScroll: (href: string) => void;
+  activeId: string;
 }
 
 export interface UserDropdownProps {
@@ -20,4 +28,7 @@ export interface DesktopNavbarProps {
   pathname: string;
   openLoginDialog: boolean;
   setOpenLoginDialog: (open: boolean) => void;
+  links: Array<link>;
+  handleScroll: (href: string) => void;
+  activeId: string;
 }

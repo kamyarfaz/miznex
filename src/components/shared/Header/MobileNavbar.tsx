@@ -35,6 +35,9 @@ const MobileNavbar: React.FC<MobileNavbarProps> = ({
   setOpenMobileMenu,
   openMobileLoginDialog,
   setOpenMobileLoginDialog,
+  links,
+  handleScroll,
+  activeId,
 }) => {
   const { logout, isPending } = useLogout();
 
@@ -42,9 +45,7 @@ const MobileNavbar: React.FC<MobileNavbarProps> = ({
     <div className="lg:hidden">
       <Sheet open={openMobileMenu} onOpenChange={setOpenMobileMenu}>
         <SheetTrigger asChild>
-          <div
-            className="rounded-full transition-all duration-300"
-          >
+          <div className="rounded-full transition-all duration-300">
             {openMobileMenu ? (
               <X className="h-6 w-6 transition-transform duration-300 rotate-90 stroke-action-hover scale-110" />
             ) : (
@@ -56,7 +57,7 @@ const MobileNavbar: React.FC<MobileNavbarProps> = ({
         <SheetContent
           data-testid="mobile-menu"
           side="right"
-          className="w-[270px] scrollbar-hide bg-gradient-to-b from-amber-50 to-white dark:from-zinc-950 dark:to-zinc-900 border-l border-amber-100 dark:border-zinc-800 shadow-2xl"
+          className="w-[270px] scrollbar-hide bg-white [&>button]:!ring-0 [&>button]:!scale-150 [&>button]:!top-4 shadow-2xl"
         >
           <VisuallyHidden>
             <SheetTitle>Mobile Sidebar</SheetTitle>
@@ -64,47 +65,37 @@ const MobileNavbar: React.FC<MobileNavbarProps> = ({
           </VisuallyHidden>
 
           <div className="flex flex-col h-full">
-            <div className="flex  justify-evenly items-center  border-b border-amber-100/60 dark:border-zinc-800/60 py-4 mb-4">
-              <Logo width={50} />
-              <div className="flex md:hidden justify-center">
-                <ThemeSwitcher />
-              </div>
+            <div className="flex justify-start items-center p-3 pr-4 mb-4">
+              <Logo width={40} />
             </div>
 
-            <div data-testid="mobile-nav" className="flex-1 py-4 px-3 space-y-2 overflow-y-auto scrollbar-hide">
-              {[
-                { href: "/", label: "صفحه اصلی", icon: Home },
-                { href: "/menu", label: "منو", icon: FileText },
-                { href: "/about-us", label: "درباره ما", icon: Users },
-                {
-                  href: "/contact-us",
-                  label: "تماس با ما",
-                  icon: Phone,
-                },
-              ]?.map(({ href, label, icon: Icon }) => {
-                const isActive = pathname === href;
+            <div
+              data-testid="mobile-nav"
+              className="flex-1 py-4 px-3 space-y-2 overflow-y-auto scrollbar-hide"
+            >
+              {links?.map(({ href, label }, index) => {
+                const isActive = activeId === href;
                 return (
-                  <Link
-                    key={href}
-                    href={href}
-                    className={`relative flex items-center gap-3 p-4 rounded-xl transition-all duration-300 ${
+                  <span
+                    key={index}
+                    onClick={() => handleScroll(href)}
+                    className={`relative flex items-center gap-3 py-1.5 px-2 rounded-lg transition-all duration-300 cursor-pointer overflow-hidden ${
                       isActive
-                        ? "bg-gradient-to-r from-amber-50/80 to-orange-50/80 dark:from-amber-900/30 dark:to-orange-900/20 text-amber-700 dark:text-amber-300 shadow-inner"
-                        : "text-gray-600 dark:text-gray-300 hover:bg-gray-50/80 dark:hover:bg-gray-800/50"
+                        ? "bg-[#eee] text-action shadow-inner"
+                        : "text-bodyDark hover:text-action hover:bg-[#f5f5f5]"
                     }
                         `}
                   >
                     {isActive && (
                       <MotionDiv
-                        className="absolute right-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-amber-500 to-orange-500 rounded-l-lg"
+                        className="absolute right-0 top-0 bottom-0 w-1 bg-action"
                         initial={{ height: 0 }}
                         animate={{ height: "100%" }}
                         transition={{ duration: 0.3 }}
                       />
                     )}
-                    <Icon className="w-5 h-5" />
                     <span>{label}</span>
-                  </Link>
+                  </span>
                 );
               })}
 
@@ -125,26 +116,6 @@ const MobileNavbar: React.FC<MobileNavbarProps> = ({
                     <LogOut className="w-5 h-5" />
                     <span>{isPending ? "در حال خروج..." : "خروج"}</span>
                   </button>
-                </>
-              )}
-            </div>
-
-            <div className="border-t border-amber-100/60 dark:border-zinc-800/60 pt-6 pb-6 px-4 space-y-4">
-              {!isAuthenticated && (
-                <>
-                  <Button
-                    data-testid="mobile-login-button"
-                    className="w-full gap-2 bg-amber-600 hover:bg-amber-700 text-white rounded-xl shadow-lg transition-all"
-                    onClick={() => setOpenMobileLoginDialog(true)}
-                  >
-                    <LogIn className="w-4 h-4" />
-                    ورود / ثبت نام
-                  </Button>
-                  <LoginForm
-                    open={openMobileLoginDialog}
-                    onOpenChange={setOpenMobileLoginDialog}
-                    onSuccess={() => setOpenMobileLoginDialog(false)}
-                  />
                 </>
               )}
             </div>

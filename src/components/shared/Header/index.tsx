@@ -27,7 +27,28 @@ const Navbar = () => {
     pathname,
   };
 
+  const [activeId, setActiveId] = useState<string>("home");
+
+  const handleScroll = (href: string) => {
+    const el = document.getElementById(href);
+    if (!el) return;
+
+    const offset = href === "home" ? 0 : -100;
+    const top = el.getBoundingClientRect().top + window.scrollY + offset;
+
+    window.scrollTo({ top, behavior: "smooth" });
+    setActiveId(href);
+  };
+
   const t = useTranslations("navbar");
+
+  const links = [
+    { href: "home", label: t("desktopNavbar.home") },
+    { href: "about-us", label: t("desktopNavbar.aboutUs") },
+    { href: "HowItWorks", label: t("desktopNavbar.howItWorks") },
+    { href: "contact-us", label: t("desktopNavbar.features") },
+    { href: "faq", label: t("desktopNavbar.frequentlyAskedQuestions") },
+  ];
 
   return (
     <div>
@@ -40,6 +61,9 @@ const Navbar = () => {
               setOpenMobileMenu={setOpenMobileMenu}
               openMobileLoginDialog={openMobileLoginDialog}
               setOpenMobileLoginDialog={setOpenMobileLoginDialog}
+              links={links}
+              handleScroll={handleScroll}
+              activeId={activeId}
             />
             <h3 className="text-theme-xl font-bold text-action lg:text-white">
               {t("miznex")}
@@ -50,6 +74,9 @@ const Navbar = () => {
             {...sharedProps}
             openLoginDialog={openLoginDialog}
             setOpenLoginDialog={setOpenLoginDialog}
+            links={links}
+            handleScroll={handleScroll}
+            activeId={activeId}
           />
         </div>
       </nav>

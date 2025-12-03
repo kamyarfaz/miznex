@@ -13,7 +13,7 @@ import HeroBackground from "@/components/main/Landing/HeroSection/HeroBackground
 export default function Home() {
   return (
     <>
-      <div className="relative hidden" id="home">
+      <div className="relative opacity-0" id="home">
         <HeroBackground />
       </div>
       <HeroSection />
