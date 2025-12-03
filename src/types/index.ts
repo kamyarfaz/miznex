@@ -6,3 +6,6 @@ export * from "./main";
 
 // Profile types
 export * from "./Profile";
+
+// Restaurant types
+export * from "./restaurant";
