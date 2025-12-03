@@ -32,7 +32,6 @@ export interface OrderKDS {
   status: OrderStatusKDS;
   createdAt: Date;
   updatedAt: Date;
-  waiterName: string;
   tableNumber: string;
   notes?: string;
 }

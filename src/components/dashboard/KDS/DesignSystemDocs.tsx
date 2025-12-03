@@ -381,11 +381,6 @@ export function DesignSystemDocs() {
             <CardContent className="space-y-6 max-w-md">
               <KDSInput label="Table Number" placeholder="e.g., 12" />
               <KDSInput
-                label="Waiter Name"
-                placeholder="e.g., John"
-                leftIcon={<User className="h-4 w-4" />}
-              />
-              <KDSInput
                 label="Email"
                 type="email"
                 error="Invalid email address"

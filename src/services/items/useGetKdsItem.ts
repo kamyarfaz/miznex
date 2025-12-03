@@ -1,17 +1,37 @@
 import { useGet } from "@/hooks/api/useReactQueryHooks";
 import { MenuItemResponse } from "@/types/main/menu";
 
-// useGetItems is used to get the items useQuery
+export interface KdsQuery {
+  page?: number;
+  limit?: number;
+  category?: string;
+  search?: string;
+  sort?: string;
+}
+
 export const useGetKdsItems = (
   restaurantId: string,
-  queryString?: string,
+  query: KdsQuery = {},
   initialData?: MenuItemResponse
 ) => {
-  const endpoint = `/v1/menu/restaurant/${restaurantId}?${queryString}`;
+  // Build query string safely
+  const params = new URLSearchParams({
+    page: query.page?.toString() || "1",
+    limit: query.limit?.toString() || "10",
+  });
+
+  if (query.category && query.category !== "all")
+    params.append("category", query.category);
+
+  if (query.search) params.append("search", query.search);
+  if (query.sort) params.append("sort", query.sort);
+
+  const queryString = params.toString();
+  const endpoint = `/v1/menu/restaurant/${restaurantId}?${queryString ?? ""}`;
 
   const { data, isLoading, error } = useGet(endpoint, {
-    queryKey: ["kds-items", queryString],
-    initialData: initialData,
+    queryKey: ["kds-items", restaurantId, query],
+    initialData,
   });
 
   return {

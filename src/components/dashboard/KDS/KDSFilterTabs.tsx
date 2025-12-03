@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import type { Category, OrderStatusKDS } from "@/types";
+import type { OrderStatusKDS } from "@/types";
+import { Category } from "@/types/restaurant";
 import { cn } from "@/utils/utils";
 
 interface FilterOption {
