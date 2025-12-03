@@ -13,6 +13,9 @@ interface MenuContentProps {
     { item: MenuItem; quantity: number; notes: string }
   >;
   total: number | undefined;
+  fetchNextPage?: () => void;
+  hasNextPage?: boolean;
+  isFetchingNextPage?: boolean;
 }
 
 const MenuContent = ({
@@ -21,6 +24,9 @@ const MenuContent = ({
   items,
   addItem,
   selectedItems,
+  fetchNextPage,
+  hasNextPage,
+  isFetchingNextPage,
 }: MenuContentProps) => {
   return (
     <CardContent className="p-5 md:p-6">
@@ -29,12 +35,15 @@ const MenuContent = ({
         <CategoryCard selectedCategory={selectedCategory} />
       )}
 
-      {/* Menu Items Grid */}
+      {/* Menu Items Grid with Infinite Scroll */}
       <MenuItemsGrid
         items={items}
         selectedCategory={selectedCategory}
         addItem={addItem}
         selectedItems={selectedItems}
+        fetchNextPage={fetchNextPage}
+        hasNextPage={hasNextPage}
+        isFetchingNextPage={isFetchingNextPage}
       />
     </CardContent>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { useGetKdsItems } from "@/services/items/useGetKdsItem";
+import { useGetKdsItemsInfinite } from "@/services/items/useKdsItemsInfinite";
 import type { MenuItem, OrderItemKDS } from "@/types";
 import { Category } from "@/types/restaurant";
 import { useState } from "react";
@@ -21,12 +21,7 @@ interface Props {
 export function OrderCreationPOS({ onSendOrder }: Props) {
   // Params
   const { restaurantId } = useParams();
-  // API call for fetching restaurant menu items
-  const { items, total, isLoading, page, limit } = useGetKdsItems(
-    restaurantId as string,
-    { page: 1, limit: 4 }
-  );
-
+  
   // Hooks
   const [selectedItems, setSelectedItems] = useState<
     Map<string, { item: MenuItem; quantity: number; notes: string }>
@@ -35,7 +30,20 @@ export function OrderCreationPOS({ onSendOrder }: Props) {
     "all"
   );
 
-  // Add item (Mock: To-do -> Bind it to API)
+  // API call for fetching restaurant menu items with infinite scroll
+  const {
+    items,
+    totalCount,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+    isLoading,
+  } = useGetKdsItemsInfinite(restaurantId as string, {
+    limit: 12, // Load 12 items per page for better UX
+    category: selectedCategory !== "all" ? selectedCategory : undefined,
+  });
+
+  // Add item
   const addItem = (menuItem: MenuItem) => {
     const newMap = new Map(selectedItems);
     const existing = newMap.get(menuItem.id);
@@ -53,17 +61,20 @@ export function OrderCreationPOS({ onSendOrder }: Props) {
       <div className="lg:col-span-2">
         <Card className="h-full border-r border-gray-100 shadow-xl overflow-hidden">
           <MenuHeader
-            total={total}
+            total={totalCount}
             setSelectedCategory={setSelectedCategory}
             selectedCategory={selectedCategory}
           />
 
           <MenuContent
-            total={total}
+            total={totalCount}
             addItem={addItem}
             selectedCategory={selectedCategory}
             items={items}
             selectedItems={selectedItems}
+            fetchNextPage={fetchNextPage}
+            hasNextPage={hasNextPage}
+            isFetchingNextPage={isFetchingNextPage}
           />
         </Card>
       </div>
@@ -72,7 +83,7 @@ export function OrderCreationPOS({ onSendOrder }: Props) {
       <OrderSummary
         addItem={addItem}
         onSendOrder={onSendOrder}
-        total={total}
+        total={totalCount}
         selectedItems={selectedItems}
         setSelectedItems={setSelectedItems}
       />
