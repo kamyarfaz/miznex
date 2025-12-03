@@ -26,6 +26,7 @@ import Logo from "./Logo";
 import { MotionDiv } from "@/utils/MotionWrapper";
 import { MobileNavbarProps } from "@/types/main";
 import { useLogout } from "@/services/auth";
+import { useParams } from "next/navigation";
 
 const MobileNavbar: React.FC<MobileNavbarProps> = ({
   isAuthenticated,
@@ -40,6 +41,7 @@ const MobileNavbar: React.FC<MobileNavbarProps> = ({
   activeId,
 }) => {
   const { logout, isPending } = useLogout();
+  const params = useParams()
 
   return (
     <div className="lg:hidden">
@@ -56,8 +58,8 @@ const MobileNavbar: React.FC<MobileNavbarProps> = ({
 
         <SheetContent
           data-testid="mobile-menu"
-          side="right"
-          className="w-[270px] scrollbar-hide bg-white [&>button]:!ring-0 [&>button]:!scale-150 [&>button]:!top-4 shadow-2xl"
+          side={["fa", "ar"].includes(String(params.locale)) ? "right" : "left"}
+          className="w-[270px] scrollbar-hide bg-white [&>button]:!ring-0 [&>button]:!scale-150 [&>button]:!top-4 ltr:[&>button]:!right-4 ltr:[&>button]:!left-auto shadow-2xl"
         >
           <VisuallyHidden>
             <SheetTitle>Mobile Sidebar</SheetTitle>
@@ -88,7 +90,7 @@ const MobileNavbar: React.FC<MobileNavbarProps> = ({
                   >
                     {isActive && (
                       <MotionDiv
-                        className="absolute right-0 top-0 bottom-0 w-1 bg-action"
+                        className="absolute rtl:right-0 ltr:left-0 top-0 bottom-0 w-1 bg-action"
                         initial={{ height: 0 }}
                         animate={{ height: "100%" }}
                         transition={{ duration: 0.3 }}
@@ -98,26 +100,6 @@ const MobileNavbar: React.FC<MobileNavbarProps> = ({
                   </span>
                 );
               })}
-
-              {isAuthenticated && user && (
-                <>
-                  <Link
-                    href="/profile"
-                    className="flex items-center gap-3 p-4 rounded-xl border border-amber-600 text-amber-700 dark:text-amber-300 bg-amber-100/50 dark:bg-amber-900/20 hover:bg-amber-200/50 dark:hover:bg-amber-800/40 transition-all"
-                  >
-                    <User className="w-5 h-5" />
-                    <span> ورود به پنل کاربری</span>
-                  </Link>
-                  <button
-                    onClick={() => logout("/")}
-                    disabled={isPending}
-                    className="flex items-center gap-3 p-4 rounded-xl border border-transparent hover:bg-red-50 dark:hover:bg-red-900/20 hover:border-red-200 dark:hover:border-red-800 text-red-600 dark:text-red-400 transition-all w-full disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    <LogOut className="w-5 h-5" />
-                    <span>{isPending ? "در حال خروج..." : "خروج"}</span>
-                  </button>
-                </>
-              )}
             </div>
           </div>
         </SheetContent>
