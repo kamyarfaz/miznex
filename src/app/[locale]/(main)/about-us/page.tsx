@@ -13,7 +13,7 @@ import {
 } from "@/components/main/about-us";
 import { aboutUsMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = aboutUsMetadata;
+export const metadata: Metadata = aboutUsMetadata as Metadata;
 
 export default function AboutUs() {
   return (

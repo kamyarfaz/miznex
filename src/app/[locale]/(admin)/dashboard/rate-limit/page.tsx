@@ -25,11 +25,11 @@ import {
 } from "@/components/ui/select";
 
 import { columns } from "./columns";
-import { RateLimitRecordsParams } from "@/types/admin";
+import { RateLimitRecordsParams , RateLimitResponse } from "@/types/admin";
 import { StatisticsSkeleton } from "@/components/skeleton";
 import { StatisticsCard } from "../../components/common/StatisticsCard";
 
-const rateLimitRecords = {
+const rateLimitRecords: RateLimitResponse = {
   data: {
     records: [
       {
@@ -214,7 +214,7 @@ export default function RateLimit() {
           resettingVars: resetRateLimit.variables,
         })}
         isLoading={false}
-        totalCount={rateLimitRecords?.data.total || 0}
+        // totalCount={rateLimitRecords?.data.total || 0}
         headerProps={headerProps}
         emptyStateMessage="هیچ رکورد محدودیت یافت نشد"
         emptyStateDescription="رکوردهای محدودیت درخواست در اینجا نمایش داده خواهند شد"

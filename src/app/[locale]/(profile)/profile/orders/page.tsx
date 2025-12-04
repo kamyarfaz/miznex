@@ -14,7 +14,7 @@ import {
 } from "@/components/profile/orders";
 import { confirm } from "@/components/shared/ConfirmModal";
 
-export const orders = {
+const orders = {
   orders: [
     {
       id: "order-001",

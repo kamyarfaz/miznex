@@ -5,7 +5,7 @@ import { User } from "lucide-react";
 import { columns } from "./columns";
 import { useGetBlacklist, useRemoveUserFromBlacklist } from "@/services";
 
-export const blacklist = [
+const blacklist = [
   {
     id: "user-201",
     username: "spam_account_99",
@@ -70,7 +70,10 @@ export default function Blacklist() {
   const [currentLimit, setCurrentLimit] = useState(10);
   const [searchValue, setSearchValue] = useState("");
 
-  const { mockBlacklist, isLoading, total } = useGetBlacklist({
+  const { 
+    // mockBlacklist, 
+    // isLoading,
+     total } = useGetBlacklist({
     page: currentPage,
     limit: currentLimit,
   });

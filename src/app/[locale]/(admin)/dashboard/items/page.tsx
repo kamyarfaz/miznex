@@ -20,7 +20,7 @@ const ItemFormModal = dynamic(
   { ssr: false }
 );
 
-export const items = [
+const items = [
   {
     id: "item-001",
     title: "Margherita Pizza",
@@ -36,8 +36,14 @@ export const items = [
       title: "Pizza",
     },
     images: [
-      { image: "https://example.com/images/pizza1.jpg", imageUrl: "https://example.com/images/pizza1.jpg" },
-      { image: "https://example.com/images/pizza2.jpg", imageUrl: "https://example.com/images/pizza2.jpg" },
+      {
+        image: "https://example.com/images/pizza1.jpg",
+        imageUrl: "https://example.com/images/pizza1.jpg",
+      },
+      {
+        image: "https://example.com/images/pizza2.jpg",
+        imageUrl: "https://example.com/images/pizza2.jpg",
+      },
     ],
     isFav: true,
   },
@@ -45,7 +51,8 @@ export const items = [
     id: "item-002",
     title: "Beef Burger Deluxe",
     ingredients: ["Beef Patty", "Cheddar", "Lettuce", "Tomato", "Bun"],
-    description: "Juicy grilled beef burger with melted cheddar and fresh veggies.",
+    description:
+      "Juicy grilled beef burger with melted cheddar and fresh veggies.",
     price: 15.5,
     discount: 5,
     quantity: 1,
@@ -56,7 +63,10 @@ export const items = [
       title: "Burgers",
     },
     images: [
-      { image: "https://example.com/images/burger1.jpg", imageUrl: "https://example.com/images/burger1.jpg" },
+      {
+        image: "https://example.com/images/burger1.jpg",
+        imageUrl: "https://example.com/images/burger1.jpg",
+      },
     ],
     isFav: false,
   },
@@ -64,7 +74,8 @@ export const items = [
     id: "item-003",
     title: "Vegan Smoothie Bowl",
     ingredients: ["Banana", "Berries", "Coconut", "Chia Seeds"],
-    description: "A refreshing smoothie bowl packed with nutrients and antioxidants.",
+    description:
+      "A refreshing smoothie bowl packed with nutrients and antioxidants.",
     price: 9.99,
     discount: 0,
     quantity: 1,
@@ -75,7 +86,10 @@ export const items = [
       title: "Smoothies",
     },
     images: [
-      { image: "https://example.com/images/smoothie1.jpg", imageUrl: "https://example.com/images/smoothie1.jpg" },
+      {
+        image: "https://example.com/images/smoothie1.jpg",
+        imageUrl: "https://example.com/images/smoothie1.jpg",
+      },
     ],
     isFav: false,
   },
@@ -83,7 +97,8 @@ export const items = [
     id: "item-004",
     title: "Caesar Salad",
     ingredients: ["Lettuce", "Parmesan", "Croutons", "Chicken"],
-    description: "Crispy Caesar salad with grilled chicken and creamy dressing.",
+    description:
+      "Crispy Caesar salad with grilled chicken and creamy dressing.",
     price: 11.5,
     discount: 0,
     quantity: 1,
@@ -94,7 +109,10 @@ export const items = [
       title: "Salads",
     },
     images: [
-      { image: "https://example.com/images/salad1.jpg", imageUrl: "https://example.com/images/salad1.jpg" },
+      {
+        image: "https://example.com/images/salad1.jpg",
+        imageUrl: "https://example.com/images/salad1.jpg",
+      },
     ],
     isFav: true,
   },
@@ -113,12 +131,14 @@ export const items = [
       title: "Drinks",
     },
     images: [
-      { image: "https://example.com/images/latte.jpg", imageUrl: "https://example.com/images/latte.jpg" },
+      {
+        image: "https://example.com/images/latte.jpg",
+        imageUrl: "https://example.com/images/latte.jpg",
+      },
     ],
     isFav: false,
   },
 ];
-
 
 export default function Items() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -129,7 +149,11 @@ export default function Items() {
   const [debouncedSearch] = useDebounce(search, 500);
 
   const [sortBy, setSortBy] = useState<string>("newest");
-  const { items: mocked, isLoading, total } = useGetItemsAdmin({
+  const {
+    items: mocked,
+    isLoading,
+    total,
+  } = useGetItemsAdmin({
     page: currentPage,
     limit: currentLimit,
     search: debouncedSearch,

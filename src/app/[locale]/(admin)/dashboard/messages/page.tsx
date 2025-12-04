@@ -23,7 +23,7 @@ const ViewMessageModal = dynamic(
   { ssr: false }
 );
 
-export const contacts = [
+const contacts = [
   {
     id: "contact-001",
     name: "John Doe",
@@ -107,7 +107,6 @@ export const contacts = [
     ],
   },
 ];
-
 
 export default function Messages() {
   // Pagination and search states

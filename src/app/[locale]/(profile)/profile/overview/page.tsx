@@ -41,7 +41,7 @@ const PromotionalBanner = dynamic(
   { ssr: false }
 );
 
-export const ordersData = {
+const ordersData = {
   length: 2,
   total: 2,
   page: 1,
@@ -209,7 +209,7 @@ export const ordersData = {
   ],
 };
 
-export const favoritesData = [
+const favoritesData = [
   {
     id: "fav-001",
     isAvailable: true,
@@ -265,7 +265,7 @@ export const favoritesData = [
   },
 ];
 
-export const overviewData = {
+const overviewData = {
   data: {
     address: {
       total: 3,

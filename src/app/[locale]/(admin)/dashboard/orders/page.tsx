@@ -43,7 +43,7 @@ const data = {
     canceled: 13,
   },
 };
-const orders = [
+const orders: OrderAdmin[] = [
   {
     id: "order-001",
     payment_amount: 180,

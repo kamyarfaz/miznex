@@ -54,6 +54,26 @@ export interface RateLimitRecordsParams {
   blockStatus?: "none" | "temporary" | "permanent";
 }
 
+export interface RateLimitRecord {
+  id: string;
+  identifier: string;
+  endpoint: string;
+  violation_count: number;
+  window_start_at: string;
+  requests_in_window: number;
+  block_status: "none" | "temporary" | "permanent";
+  block_expires_at: string | null;
+  violation_count_reset_at: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface RateLimitResponse {
+  data: {
+    records: RateLimitRecord[];
+  };
+}
+
 export interface GetRateLimitRecordParams {
   id: string;
 }

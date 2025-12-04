@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { columns } from "./columns";
 import { CategoryModal } from "./add-with-edit-modal";
 
-export const categories = [
+const categories = [
   {
     id: "cat-001",
     title: "Pizza",
