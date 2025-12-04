@@ -11,14 +11,12 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { LogIn, User, LogOut } from "lucide-react";
 import Link from "next/link";
 import { UserDropdownProps } from "@/types/main";
-import { useLogout } from "@/services/auth";
 
 const UserDropdown: React.FC<UserDropdownProps> = ({
   user,
   isAuthenticated,
   onLoginClick,
 }) => {
-  const { logout, isPending } = useLogout();
 
   if (isAuthenticated && user) {
     return (
@@ -67,12 +65,9 @@ const UserDropdown: React.FC<UserDropdownProps> = ({
           <DropdownMenuSeparator />
           <DropdownMenuItem
             className="cursor-pointer font-bold"
-            onClick={() => logout("/")}
-            disabled={isPending}
             variant="destructive"
           >
             <LogOut className="w-4 h-4" />
-            {isPending ? "در حال خروج..." : "خروج از حساب کاربری"}
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

@@ -1,5 +1,4 @@
 "use client";
-import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
@@ -7,40 +6,23 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { MobileNavbarProps } from "@/types/main";
+import { MotionDiv } from "@/utils/MotionWrapper";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import {
   Menu,
-  Home,
-  FileText,
-  Users,
-  Phone,
-  LogIn,
-  User,
-  LogOut,
-  X,
+  X
 } from "lucide-react";
-import Link from "next/link";
-import { ThemeSwitcher } from "../ThemeToggle";
-import { LoginForm } from "@/components/main/auth";
-import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
-import Logo from "./Logo";
-import { MotionDiv } from "@/utils/MotionWrapper";
-import { MobileNavbarProps } from "@/types/main";
-import { useLogout } from "@/services/auth";
 import { useParams } from "next/navigation";
+import Logo from "./Logo";
 
-const MobileNavbar: React.FC<MobileNavbarProps> = ({
-  isAuthenticated,
-  user,
-  pathname,
+const MobileNavbar: React.FC<any> = ({
   openMobileMenu,
   setOpenMobileMenu,
-  openMobileLoginDialog,
-  setOpenMobileLoginDialog,
   links,
   handleScroll,
   activeId,
 }) => {
-  const { logout, isPending } = useLogout();
   const params = useParams()
 
   return (
@@ -75,7 +57,7 @@ const MobileNavbar: React.FC<MobileNavbarProps> = ({
               data-testid="mobile-nav"
               className="flex-1 py-4 px-3 space-y-2 overflow-y-auto scrollbar-hide"
             >
-              {links?.map(({ href, label }, index) => {
+              {links?.map(({ href, label }: any, index: any) => {
                 const isActive = activeId === href;
                 return (
                   <span

@@ -1,9 +1,8 @@
-import { Download } from "lucide-react";
 import { MotionSpan } from "@/utils/MotionWrapper";
-import { DesktopNavbarProps } from "@/types/main";
+import { Download } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-const DesktopNavbar: React.FC<DesktopNavbarProps> = ({
+const DesktopNavbar: React.FC<any> = ({
   isAuthenticated,
   user,
   pathname,
@@ -18,7 +17,7 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({
   return (
     <>
       <div data-testid="main-nav" className="hidden lg:flex items-center gap-4">
-        {links?.map(({ href, label }) => {
+        {links?.map(({ href, label }: any) => {
           const isActive = activeId === href;
 
           return (

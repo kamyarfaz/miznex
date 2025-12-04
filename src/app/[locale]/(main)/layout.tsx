@@ -1,9 +1,8 @@
-import { ConfirmModal } from "@/components/shared/ConfirmModal";
 import Footer from "@/components/shared/Footer/Footer";
 import Navbar from "@/components/shared/Header";
 import { Toaster } from "@/components/ui/sonner";
-import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { routing } from "@/i18n/routing";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 
 export function generateStaticParams() {
@@ -27,7 +26,6 @@ export default async function MainLayout({
       <NextIntlClientProvider>
         <Toaster position="top-right" richColors />
         <Navbar />
-        <ConfirmModal />
         {children}
         <Footer />
         {/* <FloatingContactButton /> */}

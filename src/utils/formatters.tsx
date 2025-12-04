@@ -1,8 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { StockStatus } from "@/types/main/menu";
-import { OrderStatus } from "@/types/Profile";
 import moment from "jalali-moment";
-export const getStatusBadge = (status: OrderStatus) => {
+export const getStatusBadge = (status: any) => {
   switch (status) {
     case "pending":
       return (

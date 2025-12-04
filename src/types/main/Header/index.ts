@@ -5,7 +5,6 @@ type link = {
 
 export interface MobileNavbarProps {
   isAuthenticated: boolean;
-  user: any;
   pathname: string;
   openMobileMenu: boolean;
   setOpenMobileMenu: (open: boolean) => void;

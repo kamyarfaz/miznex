@@ -2,7 +2,6 @@
 
 import { useAuthStore } from "@/store/authStore";
 import { useState } from "react";
-import { useUserProfile } from "@/services";
 import { usePathname } from "next/navigation";
 import DesktopNavbar from "./DesktopNavbar";
 import MobileNavbar from "./MobileNavbar";
@@ -11,8 +10,6 @@ import { useTranslations } from "next-intl";
 const Navbar = () => {
   // Auth and user data
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
-  const { data: userProfile } = useUserProfile();
-  const user = userProfile;
   const pathname = usePathname();
 
   // State management
@@ -23,7 +20,6 @@ const Navbar = () => {
   // Shared props for both desktop and mobile components
   const sharedProps = {
     isAuthenticated,
-    user,
     pathname,
   };
 
@@ -56,7 +52,6 @@ const Navbar = () => {
         <div className="h-full flex items-center justify-between mx-auto p-[3px] rtl:pr-2 ltr:pl-2">
           <div className="flex items-center gap-2">
             <MobileNavbar
-              {...sharedProps}
               openMobileMenu={openMobileMenu}
               setOpenMobileMenu={setOpenMobileMenu}
               openMobileLoginDialog={openMobileLoginDialog}
