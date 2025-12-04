@@ -26,7 +26,7 @@ export function OrderCreationPOS({ onSendOrder }: Props) {
   const [selectedItems, setSelectedItems] = useState<
     Map<string, { item: MenuItem; quantity: number; notes: string }>
   >(new Map());
-  const [selectedCategory, setSelectedCategory] = useState<Category | "all">(
+  const [selectedCategory, setSelectedCategory] = useState<string>(
     "all"
   );
 
@@ -40,7 +40,7 @@ export function OrderCreationPOS({ onSendOrder }: Props) {
     isLoading,
   } = useGetKdsItemsInfinite(restaurantId as string, {
     limit: 12, // Load 12 items per page for better UX
-    category: selectedCategory !== "all" ? selectedCategory : undefined,
+    categoryId: selectedCategory !== "all" ? selectedCategory : undefined,
   });
 
   // Add item

@@ -7,7 +7,7 @@ import { useEffect } from "react";
 
 interface MenuItemsGridProps {
   items: MenuItem[] | undefined;
-  selectedCategory: Category | "all";
+  selectedCategory: string;
   addItem: (item: MenuItem) => void;
   selectedItems: Map<string, { quantity: number }>;
   fetchNextPage?: () => void;

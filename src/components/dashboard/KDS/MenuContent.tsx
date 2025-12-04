@@ -5,7 +5,7 @@ import CategoryCard from "./CategoryCard";
 import MenuItemsGrid from "./MenuItemsGrid";
 
 interface MenuContentProps {
-  selectedCategory: Category | "all";
+  selectedCategory: string;
   items: MenuItem[] | undefined;
   addItem: (item: MenuItem) => void;
   selectedItems: Map<

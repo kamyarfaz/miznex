@@ -12,7 +12,7 @@ interface FilterOption {
 
 interface KDSFilterTabsProps {
   options: FilterOption[];
-  activeFilter: Category | "all";
+  activeFilter: string;
   onFilterChange: (filter: string) => void;
   variant?: "default" | "pills" | "underline";
   className?: string;

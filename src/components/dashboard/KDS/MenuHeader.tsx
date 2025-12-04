@@ -5,8 +5,8 @@ import { KDSFilterTabs } from "./KDSFilterTabs";
 
 interface MenuHeaderProps {
   total: number | undefined;
-  setSelectedCategory: React.Dispatch<React.SetStateAction<Category | "all">>;
-  selectedCategory: Category | "all";
+  setSelectedCategory: React.Dispatch<React.SetStateAction<string>>;
+  selectedCategory: string;
 }
 
 const MenuHeader = ({

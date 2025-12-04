@@ -4,7 +4,7 @@ import { fetchApi } from "@/hooks/api/useAuthToken";
 
 export interface KdsQuery {
   limit?: number;
-  category?: string;
+  categoryId?: string;
   search?: string;
   sort?: string;
 }
@@ -19,8 +19,8 @@ export const useGetKdsItemsInfinite = (
       limit: query.limit?.toString() || "12",
     });
 
-    if (query.category && query.category !== "all")
-      params.append("category", query.category);
+    if (query.categoryId && query.categoryId !== "all")
+      params.append("category", query.categoryId);
 
     if (query.search) params.append("search", query.search);
     if (query.sort) params.append("sort", query.sort);

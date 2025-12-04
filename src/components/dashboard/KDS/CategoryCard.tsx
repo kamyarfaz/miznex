@@ -2,7 +2,7 @@ import { Category } from "@/types/restaurant";
 import { getCategoryIcon } from "@/utils/GetCategoryIcon";
 
 interface CategoryCardProps {
-  selectedCategory: Category;
+  selectedCategory: string;
 }
 
 const CategoryCard = ({ selectedCategory }: CategoryCardProps) => {
