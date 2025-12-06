@@ -7,23 +7,29 @@ export interface KdsQuery {
   categoryId?: string;
   search?: string;
   sort?: string;
+  minPrice?: number;
+  maxPrice?: number;
+  orderBy?: string;
 }
 
 export const useGetKdsItemsInfinite = (
   restaurantId: string,
   query: KdsQuery = {}
 ) => {
+  const { categoryId, search, minPrice, maxPrice, orderBy, sort } = query;
   const fetchItems = async ({ pageParam = 1 }): Promise<MenuItemResponse> => {
     const params = new URLSearchParams({
       page: pageParam.toString(),
       limit: query.limit?.toString() || "12",
     });
 
+    if (orderBy) params.append("orderBy", orderBy);
+    if (sort) params.append("sort", sort);
     if (query.categoryId && query.categoryId !== "all")
-      params.append("category", query.categoryId);
-
+      params.append("categoryId", query.categoryId);
+    if (query.minPrice) params.append("minPrice", query.minPrice.toString());
+    if (query.maxPrice) params.append("maxPrice", query.maxPrice.toString());
     if (query.search) params.append("search", query.search);
-    if (query.sort) params.append("sort", query.sort);
 
     const queryString = params.toString();
     const endpoint = `/v1/menu/restaurant/${restaurantId}?${queryString}`;
@@ -41,7 +47,16 @@ export const useGetKdsItemsInfinite = (
     isLoading,
     error,
   } = useInfiniteQuery({
-    queryKey: ["kds-items-infinite", restaurantId, query],
+    queryKey: [
+      "kds-items-infinite",
+      restaurantId,
+      categoryId,
+      search,
+      maxPrice,
+      minPrice,
+      sort,
+      orderBy,
+    ],
     queryFn: fetchItems,
     getNextPageParam: (lastPage) => {
       const currentPage = lastPage?.data?.page || 1;

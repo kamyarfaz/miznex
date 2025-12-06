@@ -1,5 +1,5 @@
 import { MenuItem } from "@/types";
-import { Category } from "@/types/restaurant";
+import { Category, ItemCategoryKDS } from "@/types/restaurant";
 import { getCategoryIcon } from "@/utils/GetCategoryIcon";
 import { Plus, Loader2 } from "lucide-react";
 import { useInView } from "react-intersection-observer";
@@ -7,7 +7,7 @@ import { useEffect } from "react";
 
 interface MenuItemsGridProps {
   items: MenuItem[] | undefined;
-  selectedCategory: string;
+  selectedCategory: ItemCategoryKDS | "all";
   addItem: (item: MenuItem) => void;
   selectedItems: Map<string, { quantity: number }>;
   fetchNextPage?: () => void;
@@ -73,7 +73,7 @@ const MenuItemsGrid = ({
         <p className="text-gray-500 max-w-md mx-auto">
           {selectedCategory === "all"
             ? "No menu items available. Please check back later."
-            : `No items in "${selectedCategory.replace(
+            : `No items in "${selectedCategory.title.replace(
                 /_/g,
                 " "
               )}" category. Try another category.`}

@@ -1,11 +1,10 @@
 import { CardContent } from "@/components/ui/card";
 import { MenuItem } from "@/types/main/menu";
-import { Category } from "@/types/restaurant";
-import CategoryCard from "./CategoryCard";
 import MenuItemsGrid from "./MenuItemsGrid";
+import { ItemCategoryKDS } from "@/types";
 
 interface MenuContentProps {
-  selectedCategory: string;
+  selectedCategory: ItemCategoryKDS | "all";
   items: MenuItem[] | undefined;
   addItem: (item: MenuItem) => void;
   selectedItems: Map<
@@ -30,10 +29,6 @@ const MenuContent = ({
 }: MenuContentProps) => {
   return (
     <CardContent className="p-5 md:p-6">
-      {/* Category Header with Stats */}
-      {selectedCategory !== "all" && (
-        <CategoryCard selectedCategory={selectedCategory} />
-      )}
 
       {/* Menu Items Grid with Infinite Scroll */}
       <MenuItemsGrid

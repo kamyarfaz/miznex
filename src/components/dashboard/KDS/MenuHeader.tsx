@@ -1,25 +1,39 @@
 import { CardHeader, CardTitle } from "@/components/ui/card";
 import { useGetCategories } from "@/services";
-import { Category } from "@/types/restaurant";
+import { ItemCategoryKDS } from "@/types";
 import { KDSFilterTabs } from "./KDSFilterTabs";
+import PriceFilterDropdown from "./PriceFilterDropdown";
+import SortDropdown from "./SortDropdown";
 
 interface MenuHeaderProps {
   total: number | undefined;
-  setSelectedCategory: React.Dispatch<React.SetStateAction<string>>;
-  selectedCategory: string;
+  setSelectedCategory: React.Dispatch<
+    React.SetStateAction<ItemCategoryKDS | "all">
+  >;
+  selectedCategory: ItemCategoryKDS | "all";
+  setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
+  setMinAndMaxPrice: React.Dispatch<
+    React.SetStateAction<{ min: number; max: number }>
+  >;
+  setSortParams: React.Dispatch<
+    React.SetStateAction<{ orderBy: string; sort: string }>
+  >;
 }
 
 const MenuHeader = ({
   total,
   setSelectedCategory,
+  setMinAndMaxPrice,
+  setSortParams,
   selectedCategory,
+  setSearchQuery,
 }: MenuHeaderProps) => {
   // API call for getting categories
   const { categories } = useGetCategories("page=1&limit=50");
 
   // Helper
   const categoryOptions = categories?.map((cat) => ({
-    value: cat.title,
+    value: cat,
     label: cat.title.charAt(0).toUpperCase() + cat.title.slice(1),
   }));
   return (
@@ -72,47 +86,30 @@ const MenuHeader = ({
               type="search"
               placeholder="Search menu items..."
               className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all bg-white shadow-sm"
-              // Add search functionality here
-              // onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
 
           <div className="flex items-center gap-2">
-            <button className="p-2.5 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
-              <svg
-                className="h-4 w-4 text-gray-600"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"
-                />
-              </svg>
-            </button>
-            <button className="p-2.5 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
-              <svg
-                className="h-4 w-4 text-gray-600"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
-                />
-              </svg>
-            </button>
+            <PriceFilterDropdown
+              minPrice={0}
+              maxPrice={100}
+              defaultMin={0}
+              defaultMax={100}
+              onPriceChange={(min, max) => {
+                setMinAndMaxPrice({ min, max });
+              }}
+            />
+            <SortDropdown
+              onSortChange={(orderBy, sort) => {
+                setSortParams({ orderBy, sort });
+              }}
+            />
           </div>
         </div>
       </div>
 
-      {/* Enhanced Filter Tabs */}
+      {/* Filter Tabs */}
       <div className="mt-6">
         <div className="flex items-center justify-between mb-2">
           <h3 className="text-sm font-semibold text-gray-700 uppercase tracking-wide">
@@ -122,7 +119,7 @@ const MenuHeader = ({
             <span className="text-xs text-gray-500">
               {selectedCategory === "all"
                 ? "All categories"
-                : selectedCategory?.replace(/_/g, " ")}
+                : selectedCategory?.title.replace(/_/g, " ")}
             </span>
             {selectedCategory !== "all" && (
               <button
@@ -148,9 +145,7 @@ const MenuHeader = ({
                 })) || []),
               ]}
               activeFilter={selectedCategory}
-              onFilterChange={(cat) =>
-                setSelectedCategory(cat as Category | "all")
-              }
+              onFilterChange={(cat) => setSelectedCategory(cat)}
             />
           </div>
           {/* Gradient fade for scroll */}

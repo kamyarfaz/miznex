@@ -1,14 +1,14 @@
 "use client";
 
 import { useGetKdsItemsInfinite } from "@/services/items/useKdsItemsInfinite";
-import type { MenuItem, OrderItemKDS } from "@/types";
-import { Category } from "@/types/restaurant";
+import type { ItemCategoryKDS, MenuItem, OrderItemKDS } from "@/types";
+import { useParams } from "next/navigation";
 import { useState } from "react";
+import { useDebounce } from "use-debounce";
 import { Card } from "../../ui/card";
 import MenuContent from "./MenuContent";
 import MenuHeader from "./MenuHeader";
 import OrderSummary from "./OrderSummary";
-import { useParams } from "next/navigation";
 
 interface Props {
   onSendOrder: (
@@ -21,14 +21,24 @@ interface Props {
 export function OrderCreationPOS({ onSendOrder }: Props) {
   // Params
   const { restaurantId } = useParams();
-  
+
   // Hooks
   const [selectedItems, setSelectedItems] = useState<
     Map<string, { item: MenuItem; quantity: number; notes: string }>
   >(new Map());
-  const [selectedCategory, setSelectedCategory] = useState<string>(
-    "all"
-  );
+  const [selectedCategory, setSelectedCategory] = useState<
+    ItemCategoryKDS | "all"
+  >("all");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [search] = useDebounce(searchQuery, 1000);
+  const [minAndMaxPrice, setMinAndMaxPrice] = useState<{
+    min: number;
+    max: number;
+  }>({ min: 0, max: 100 });
+  const [sortParams, setSortParams] = useState<{
+    orderBy: string;
+    sort: string;
+  }>({ orderBy: "createdAt", sort: "desc" });
 
   // API call for fetching restaurant menu items with infinite scroll
   const {
@@ -39,8 +49,13 @@ export function OrderCreationPOS({ onSendOrder }: Props) {
     isFetchingNextPage,
     isLoading,
   } = useGetKdsItemsInfinite(restaurantId as string, {
-    limit: 12, // Load 12 items per page for better UX
-    categoryId: selectedCategory !== "all" ? selectedCategory : undefined,
+    limit: 12,
+    categoryId: selectedCategory !== "all" ? selectedCategory.id : undefined,
+    search: search,
+    minPrice: minAndMaxPrice.min,
+    maxPrice: minAndMaxPrice.max,
+    orderBy: sortParams.orderBy,
+    sort: sortParams.sort,
   });
 
   // Add item
@@ -61,6 +76,9 @@ export function OrderCreationPOS({ onSendOrder }: Props) {
       <div className="lg:col-span-2">
         <Card className="h-full border-r border-gray-100 shadow-xl overflow-hidden">
           <MenuHeader
+            setMinAndMaxPrice={setMinAndMaxPrice}
+            setSearchQuery={setSearchQuery}
+            setSortParams={setSortParams}
             total={totalCount}
             setSelectedCategory={setSelectedCategory}
             selectedCategory={selectedCategory}
