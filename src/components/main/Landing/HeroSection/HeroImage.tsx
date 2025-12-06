@@ -15,7 +15,7 @@ const HeroImage = () => {
 
   return (
     <MotionDiv
-      className="relative mb-4 max-w-[696px] max-lg:max-w-[550px] max-md:mx-auto max-lg:order-1 rtl:max-lg:-left-16 ltr:max-lg:-right-16  rtl:max-md:left-16 ltr:max-md:right-16"
+      className="max-lg:hidden relative mb-4 max-w-[696px] max-lg:max-w-[550px] max-md:mx-auto max-lg:order-1 rtl:max-lg:-left-16 ltr:max-lg:-right-16 rtl:max-md:left-16 ltr:max-md:right-16"
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8, delay: 0.5 }}

@@ -12,7 +12,7 @@ const HeroContent = () => {
   const t = useTranslations("heroSection");
 
   return (
-    <div className="text-center rtl:text-right ltr:text-left space-y-8 max-lg:order-2">
+    <div className="max-lg: text-center rtl:text-right ltr:text-left space-y-8 max-lg:order-2">
       <MotionDiv
         className="space-y-4"
         initial={{ opacity: 0, y: 20 }}
