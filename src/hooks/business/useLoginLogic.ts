@@ -1,77 +1,83 @@
 import { useState, useEffect } from "react";
 import { migrateGuestCartToServer } from "@/store/cartStore";
 import { useAddToCartMultiple, useCart } from "@/services";
-import { useResendOTP, useSendOTP, useVerifyOTP } from "@/services";
-import { LoginStep, UseLoginLogicProps } from "@/types/main";
+import { useVerifyEmailOrLoginCode } from "@/services/auth/useVerifyEmailOrLoginCode";
+import { useRegisterUser } from "@/services/auth/useRegisterUser";
+import { UseLoginLogicProps } from "@/types";
+import { useSendEmailOrLoginCode } from "@/services/auth/useSendEmailOrLoginCode";
+import { setClientCookie , getClientCookie  } from "@/components/helper/client-cookie";
 
-export const useLoginLogic = ({
-  onSuccess,
-  onClose,
-}: UseLoginLogicProps = {}) => {
-  const [step, setStep] = useState<LoginStep>("phone");
-  const [phoneValue, setPhoneValue] = useState<string>("");
+export const useLoginLogic = ({ onSuccess, onClose }: UseLoginLogicProps = {}) => {
+  const [step, setStep] = useState<"email" | "verifyEmail" | "completeProfile">("email");
+  const [emailValue, setEmailValue] = useState("");
   const [resendTimer, setResendTimer] = useState(0);
+  const [isExistingUser, setIsExistingUser] = useState(false);
+  const [Test, setTest] = useState(false);
+  const [usernameError, setUsernameError] = useState<string | null>(null);
 
-  const { mutateAsync: addToCartMultiple } = useAddToCartMultiple();
-  const { refetch: refetchCart } = useCart();
-  const { mutate: sendOTP, isPending: isSendOTPLoading } = useSendOTP();
-  const { mutate: verifyOTP, isPending: isVerifyOTPLoading } = useVerifyOTP();
-  const { mutate: resendOTP, isPending: isResendOTPLoading } = useResendOTP();
+  const { sendCode, isPending: isSendLoading } = useSendEmailOrLoginCode();
+  const { verifyCode, isPending: isVerifyLoading } = useVerifyEmailOrLoginCode();
+  const { mutateAsync: registerUser, isPending: isRegisterLoading } = useRegisterUser();
 
-  const handleSendOTP = (phone: string) => {
-    sendOTP(
-      { phone },
-      {
-        onSuccess: () => {
-          setPhoneValue(phone);
-          setStep("otp");
-          setResendTimer(120);
-        },
-      }
-    );
+  // const { mutateAsync: addToCartMultiple } = useAddToCartMultiple();
+  // const { refetch: refetchCart } = useCart();
+
+  const handleSendEmailCode = async (email: string) => {
+    sendCode(email , setIsExistingUser);
+    setEmailValue(email);
+    setStep("verifyEmail");
+    setResendTimer(120);
   };
 
-  const handleVerifyOTP = (otp: string, phone: string) => {
-    verifyOTP(
-      { phone: phone, otpCode: otp },
-      {
-        onSuccess: () => {
-          // Migrate guest cart to server
-          migrateGuestCartToServer(addToCartMultiple, refetchCart);
-          if (onClose) {
-            onClose();
-          } else if (onSuccess) {
-            onSuccess();
-          }
-          setStep("phone");
-        },
-      }
-    );
-  };
+const handleVerifyEmailCode = async (code: string) => {
+  const res : any = await verifyCode(emailValue, code, isExistingUser);
 
-  const handleResendOTP = () => {
-    resendOTP(
-      { phone: phoneValue },
-      {
-        onSuccess: () => {
-          setResendTimer(120);
-        },
-      }
-    );
-  };
+  const token = res?.data?.token?.access_token;
 
-  const goBackToPhone = () => {
-    setStep("phone");
-  };
+  if (token) {
+    setClientCookie("access_token", token, 60 * 24 * 7);
+    setTest(!Test)
+  }
 
-  useEffect(() => {
-    if (resendTimer > 0) {
-      const timer = setTimeout(() => {
-        setResendTimer(resendTimer - 1);
-      }, 1000);
-      return () => clearTimeout(timer);
+  if (isExistingUser) {
+    onClose?.();
+    onSuccess?.();
+    return;
+  }
+
+  setStep("completeProfile");
+};
+
+useEffect(() => {
+ const token = getClientCookie("access_token");
+ console.log(token ,"sssssssssssssssssssss");
+ 
+}, [Test])
+
+const handleCompleteProfile = async (firstName: string, lastName: string, username: string) => {
+  try {
+    setUsernameError(null);
+    await registerUser({
+      email: emailValue,
+      firstName,
+      lastName,
+      username,
+    });
+    onClose?.();
+    onSuccess?.();
+  } catch (err: any) {
+    if (err?.statusCode === 409) {
+      setUsernameError("این نام کاربری قبلاً استفاده شده است");
+    } else {
+      throw err;
     }
-  }, [resendTimer]);
+  }
+};
+
+  const handleResend = async () => {
+    await sendCode(emailValue , setIsExistingUser);
+    setResendTimer(120);
+  };
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
@@ -79,20 +85,26 @@ export const useLoginLogic = ({
     return `${mins}:${secs.toString().padStart(2, "0")}`;
   };
 
+  useEffect(() => {
+    if (resendTimer > 0) {
+      const t = setTimeout(() => setResendTimer(resendTimer - 1), 1000);
+      return () => clearTimeout(t);
+    }
+  }, [resendTimer]);
+
   return {
     step,
-    phoneValue,
+    emailValue,
     resendTimer,
-
-    isSendOTPLoading,
-    isVerifyOTPLoading,
-    isResendOTPLoading,
-
-    // Handlers
-    handleSendOTP,
-    handleVerifyOTP,
-    handleResendOTP,
-    goBackToPhone,
+    isExistingUser,
+    isSendLoading,
+    isVerifyLoading,
+    isRegisterLoading,
+    usernameError : usernameError || "",
     formatTime,
+    handleSendEmailCode,
+    handleVerifyEmailCode,
+    handleCompleteProfile,
+    handleResend,
   };
 };

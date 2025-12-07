@@ -28,19 +28,38 @@ export const LoginForm: React.FC<LoginFormProps> = ({
   onSuccess,
 }) => {
   const isMobile = useIsMobile();
+
   const {
     step,
-    isSendOTPLoading,
-    isVerifyOTPLoading,
-    isResendOTPLoading,
-    phoneValue,
+    emailValue,
     resendTimer,
-    handleSendOTP,
-    handleVerifyOTP,
-    handleResendOTP,
-    goBackToPhone,
+    isSendLoading,
+    usernameError,
+    isExistingUser,
+    isVerifyLoading,
+    isRegisterLoading,
+    handleSendEmailCode,
+    handleVerifyEmailCode,
+    handleCompleteProfile,
+    handleResend,
     formatTime,
   } = useLoginLogic({ onSuccess, onClose: () => onOpenChange(false) });
+
+  const contentProps = {
+    step,
+    emailValue,
+    resendTimer,
+    isSendLoading,
+    usernameError,
+    isExistingUser,
+    isVerifyLoading,
+    isRegisterLoading,
+    handleSendEmailCode,
+    handleVerifyEmailCode,
+    handleCompleteProfile,
+    handleResend,
+    formatTime,
+  };
 
   if (isMobile) {
     return (
@@ -53,19 +72,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
             </VisuallyHidden>
           </DrawerHeader>
           <div className="px-4 pb-4 overflow-y-auto scrollbar-hide">
-            <LoginContent
-              step={step}
-              isSendOTPLoading={isSendOTPLoading}
-              isVerifyOTPLoading={isVerifyOTPLoading}
-              isResendOTPLoading={isResendOTPLoading}
-              phoneValue={phoneValue}
-              handleSendOTP={handleSendOTP}
-              handleVerifyOTP={handleVerifyOTP}
-              handleResendOTP={handleResendOTP}
-              goBackToPhone={goBackToPhone}
-              resendTimer={resendTimer}
-              formatTime={formatTime}
-            />
+            <LoginContent {...contentProps} />
           </div>
         </DrawerContent>
       </Drawer>
@@ -77,7 +84,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
       <DialogContent
         data-testid="login-modal"
         showCloseButton={false}
-        className="!w-lg max-h-[90vh] px-0  border-none"
+        className="!w-lg max-h-[90vh] px-0 border-none"
       >
         <DialogHeader>
           <DialogClose asChild>
@@ -89,23 +96,13 @@ export const LoginForm: React.FC<LoginFormProps> = ({
             </button>
           </DialogClose>
         </DialogHeader>
+
         <VisuallyHidden>
           <DialogTitle>فرم ورود و ثبت نام</DialogTitle>
           <DialogDescription>فرم ورود و ثبت نام</DialogDescription>
         </VisuallyHidden>
-        <LoginContent
-          step={step}
-          isSendOTPLoading={isSendOTPLoading}
-          isVerifyOTPLoading={isVerifyOTPLoading}
-          isResendOTPLoading={isResendOTPLoading}
-          phoneValue={phoneValue}
-          handleSendOTP={handleSendOTP}
-          handleVerifyOTP={handleVerifyOTP}
-          handleResendOTP={handleResendOTP}
-          goBackToPhone={goBackToPhone}
-          resendTimer={resendTimer}
-          formatTime={formatTime}
-        />
+
+        <LoginContent {...contentProps} />
       </DialogContent>
     </Dialog>
   );

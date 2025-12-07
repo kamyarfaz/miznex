@@ -1,25 +1,26 @@
 "use client";
 
-import { OtpInputForm } from "./OtpInputForm";
-import { PhoneInputForm } from "./PhoneInputForm";
-import Image from "next/image";
-import LogoDark from "./../../../assets/Logo/4.png";
-import LogoLight from "./../../../assets/Logo/3.png";
-import { LoginContentProps } from "@/types/main";
 import MiznexSVG from "@/assets/svg/MiznexSVG";
+import { LoginContentProps } from "@/types/main";
+
+import { EmailInputForm } from "./EmailInputForm";
+import { VerifyEmailForm } from "./VerifyEmailForm";
+import { CompleteProfileForm } from "./CompleteProfileForm";
 
 export const LoginContent: React.FC<LoginContentProps> = ({
   step,
-  isSendOTPLoading,
-  isVerifyOTPLoading,
-  isResendOTPLoading,
-  phoneValue,
-  handleSendOTP,
-  handleVerifyOTP,
-  handleResendOTP,
-  goBackToPhone,
+  emailValue,
   resendTimer,
+  isSendLoading,
+  isVerifyLoading,
+  isRegisterLoading,
+  isExistingUser,
+  usernameError,
   formatTime,
+  handleSendEmailCode,
+  handleVerifyEmailCode,
+  handleCompleteProfile,
+  handleResend,
 }) => {
   const LogoComponent = () => (
     <div className="flex flex-col items-center gap-4 mb-6 scale-150">
@@ -30,18 +31,31 @@ export const LoginContent: React.FC<LoginContentProps> = ({
   return (
     <>
       <LogoComponent />
-      {step === "phone" ? (
-        <PhoneInputForm onSubmit={handleSendOTP} isLoading={isSendOTPLoading} />
-      ) : (
-        <OtpInputForm
-          phoneNumber={phoneValue}
-          onSubmit={handleVerifyOTP}
-          onResend={handleResendOTP}
-          onBack={goBackToPhone}
-          isVerifyOTPLoading={isVerifyOTPLoading}
-          isResendLoading={isResendOTPLoading}
+
+      {step === "email" && (
+        <EmailInputForm
+          onSubmit={handleSendEmailCode}
+          isLoading={isSendLoading}
+        />
+      )}
+
+      {step === "verifyEmail" && (
+        <VerifyEmailForm
+          email={emailValue}
+          onSubmit={handleVerifyEmailCode}
+          onResend={handleResend}
+          isLoading={isVerifyLoading}
           resendTimer={resendTimer}
+          isExistingUser={isExistingUser}
           formatTime={formatTime}
+        />
+      )}
+
+      {step === "completeProfile" && (
+        <CompleteProfileForm
+          onSubmit={handleCompleteProfile}
+          isLoading={isRegisterLoading}
+          usernameError={usernameError}
         />
       )}
     </>
