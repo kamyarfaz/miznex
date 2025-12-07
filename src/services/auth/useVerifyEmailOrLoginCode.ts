@@ -12,7 +12,7 @@ export const useVerifyEmailOrLoginCode = () => {
 
   const verifyCode = (email: string, code: string, isExistingUser: boolean, onSuccess?: (data: any) => void) => {
     if (isExistingUser) {
-      const res = verifyLoginCode({ email, code }, { onSuccess: onSuccess, onError: () => toast.error("خطا در وریفای کد ورود") });
+      verifyLoginCode({ email, code }, { onSuccess: onSuccess, onError: () => toast.error("خطا در وریفای کد ورود") });
     } else {
       verifyRegisterCode({ email, code }, { onSuccess: onSuccess, onError: () => toast.error("خطا در وریفای کد ثبت نام") });
     }

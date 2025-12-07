@@ -29,12 +29,7 @@ export const useLoginLogic = ({ onSuccess, onClose }: UseLoginLogicProps = {}) =
 
   const handleVerifyEmailCode = (code: string) => {
     verifyCode(emailValue, code, isExistingUser, (data) => {
-      if (data?.token?.access_token) {
-        console.log(data.token.access_token , "data.token.access_tokendata.token.access_tokendata.token.access_token");
-        
-        localStorage.setItem("token", data.token.access_token);
-      }
-      if (data?.hasProfile || isExistingUser) {
+      if (isExistingUser) {
         // migrateGuestCartToServer(addToCartMultiple, refetchCart);
         onClose?.();
         onSuccess?.();
