@@ -22,7 +22,7 @@ import {
   Settings2,
   ChevronDown,
   PlusSquare,
-  Share2
+  Share2,
 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -89,19 +89,18 @@ export function UsersMetrics() {
                 className="border text-slate-500 bg-white/90 dark:bg-gray-900 w-full mt-2 py-1 px-4 transition-all duration-300 rounded-lg flex  items-center"
               >
                 <Share2 size={18} className="text-slate-500" />
-               اشتراک گذاری
+                اشتراک گذاری
               </Button>
             </div>
           </div>
           <div className="border-none w-9/12 h-full">
             <div className="border-none flex w-full h-3/12 items-center gap-2">
-              <div className="p-[1.5px] rounded-lg bg-gradient-to-r w-6/12 mr-3 from-amber-500 to-orange-500 inline-flex">
-                <Input
-                  id="title"
-                  placeholder="https://miznex.com/menu"
-                  className="w-full text-left h-8 rounded-lg bg-white dark:bg-gray-900 p-0 px-1 border-none focus:ring-0 focus:outline-none"
-                />
-              </div>
+              <Input
+  id="title"
+  placeholder="https://miznex.com/menu"
+  className="w-full h-9 rounded-lg bg-white text-left px-2 mr-6 w-6/12 border border-orange-500 focus:outline-none focus:ring-0 text-sm"
+/>
+
               <Button
                 variant="outline"
                 className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 ml-2 hover:to-orange-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 py-1 rounded-lg flex w-20 items-center gap-2"
@@ -112,7 +111,7 @@ export function UsersMetrics() {
             </div>
 
             <div className="border-none w-full h-auto">
-              <div className="flex flex-col p-4 space-y-5 text-justify">
+              <div className="flex flex-col p-4 mr-2 space-y-5 text-justify">
                 {QrActions.map((act) => (
                   <div key={act.id} className="flex">
                     <CircleCheck
@@ -127,7 +126,6 @@ export function UsersMetrics() {
               </div>
             </div>
           </div>
-          
         </div>
       </CardContent>
     </Card>
