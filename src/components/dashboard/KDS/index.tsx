@@ -92,41 +92,46 @@ export default function KDSPanel() {
   }, []);
 
   return (
-    <div className="flex flex-col bg-gray-50">
+    <div className="flex flex-col bg-gray-50 min-h-screen">
       <NotificationCenter
         notifications={notifications}
         onDismiss={handleDismissNotification}
       />
 
       {/* Header */}
-      <div className="bg-white border-b px-6 py-4 shadow-sm">
+      <div className="bg-white border-b border-gray-200 px-6 py-4 shadow-sm">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="p-2 bg-orange-500 rounded-lg">
+            <div className="p-2 bg-[#FF5B35] rounded-lg shadow-sm">
               <UtensilsCrossed className="h-6 w-6 text-white" />
             </div>
             <div>
-              <h1 className="text-orange-600">Kitchen Display System</h1>
-              <p className="text-sm text-muted-foreground">
+              <h1 className="text-2xl font-bold text-[#FF5B35] tracking-tight">
+                Kitchen Display System
+              </h1>
+              <p className="text-sm text-gray-500 mt-0.5">
                 Real-time order management
               </p>
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              <Badge variant="outline" className="text-sm">
-                Active Orders: ActiveOrdersCount
+            <div className="flex items-center gap-3">
+              <Badge
+                variant="outline"
+                className="text-sm border-[#FF5B35] text-[#FF5B35] bg-[#FFF5F2] font-medium px-3 py-1.5"
+              >
+                {/* Active Orders: {activeOrdersCount} */}
               </Badge>
               {/* {newOrdersCount > 0 && (
-                <Badge className="bg-red-500 text-sm">
-                  {newOrdersCount} New
-                </Badge>
-              )}
-              {readyOrdersCount > 0 && (
-                <Badge className="bg-green-500 text-sm">
-                  {readyOrdersCount} Ready
-                </Badge>
-              )} */}
+            <Badge className="bg-[#FF5B35] text-white text-sm font-medium px-3 py-1.5 shadow-sm">
+              {newOrdersCount} New
+            </Badge>
+          )}
+          {readyOrdersCount > 0 && (
+            <Badge className="bg-green-500 text-white text-sm font-medium px-3 py-1.5 shadow-sm">
+              {readyOrdersCount} Ready
+            </Badge>
+          )} */}
             </div>
           </div>
         </div>
@@ -138,56 +143,71 @@ export default function KDSPanel() {
         onValueChange={setActiveTab}
         className="flex-1 flex flex-col"
       >
-        <div className="bg-white border-b px-6">
-          <TabsList className="w-full justify-start">
-            <TabsTrigger value="pos" className="gap-2">
+        <div className="bg-white border-b border-gray-200 px-6 shadow-sm">
+          <TabsList className="w-full justify-start gap-1 p-1">
+            <TabsTrigger
+              value="pos"
+              className="gap-2 px-4 py-2.5 data-[state=active]:bg-[#FFF5F2] data-[state=active]:text-[#FF5B35] data-[state=active]:border-b-2 data-[state=active]:border-[#FF5B35] transition-all duration-200"
+            >
               <UtensilsCrossed className="h-4 w-4" />
               POS / Order Entry
             </TabsTrigger>
-            <TabsTrigger value="kitchen" className="gap-2">
+            <TabsTrigger
+              value="kitchen"
+              className="gap-2 px-4 py-2.5 data-[state=active]:bg-[#FFF5F2] data-[state=active]:text-[#FF5B35] data-[state=active]:border-b-2 data-[state=active]:border-[#FF5B35] transition-all duration-200"
+            >
               <ChefHat className="h-4 w-4" />
               Kitchen Display
               {/* {newOrdersCount > 0 && (
-                <Badge className="ml-2 bg-red-500 text-white">
-                  {newOrdersCount}
-                </Badge>
-              )} */}
+            <span className="ml-2 bg-[#FF5B35] text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+              {newOrdersCount}
+            </span>
+          )} */}
             </TabsTrigger>
-            <TabsTrigger value="waiter" className="gap-2">
+            <TabsTrigger
+              value="waiter"
+              className="gap-2 px-4 py-2.5 data-[state=active]:bg-[#FFF5F2] data-[state=active]:text-[#FF5B35] data-[state=active]:border-b-2 data-[state=active]:border-[#FF5B35] transition-all duration-200"
+            >
               <Bell className="h-4 w-4" />
               Waiter / Pickup
               {/* {readyOrdersCount > 0 && (
-                <Badge className="ml-2 bg-green-500 text-white">
-                  {readyOrdersCount}
-                </Badge>
-              )} */}
+            <span className="ml-2 bg-green-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+              {readyOrdersCount}
+            </span>
+          )} */}
             </TabsTrigger>
-            <TabsTrigger value="admin" className="gap-2">
+            <TabsTrigger
+              value="admin"
+              className="gap-2 px-4 py-2.5 data-[state=active]:bg-[#FFF5F2] data-[state=active]:text-[#FF5B35] data-[state=active]:border-b-2 data-[state=active]:border-[#FF5B35] transition-all duration-200"
+            >
               <BarChart3 className="h-4 w-4" />
               Dashboard
             </TabsTrigger>
-            <TabsTrigger value="design-system" className="gap-2">
+            <TabsTrigger
+              value="design-system"
+              className="gap-2 px-4 py-2.5 data-[state=active]:bg-[#FFF5F2] data-[state=active]:text-[#FF5B35] data-[state=active]:border-b-2 data-[state=active]:border-[#FF5B35] transition-all duration-200"
+            >
               <Palette className="h-4 w-4" />
               Design System
             </TabsTrigger>
           </TabsList>
         </div>
 
-        <div className="flex-1 overflow-hidden">
+        <div className="flex-1 overflow-hidden bg-gradient-to-b from-gray-50 to-white">
           <TabsContent value="pos" className="m-0 h-full p-6">
             <OrderCreationPOS onSendOrder={handleCreateOrder} />
           </TabsContent>
 
           <TabsContent value="kitchen" className="m-0 h-full">
             {/* <KitchenDisplay
-              orders={orders}
-            /> */}
+          orders={orders}
+        /> */}
           </TabsContent>
 
           <TabsContent value="waiter" className="m-0 h-full">
             {/* <WaiterDisplay
-              orders={orders}
-            /> */}
+          orders={orders}
+        /> */}
           </TabsContent>
 
           <TabsContent value="admin" className="m-0 h-full">

@@ -37,25 +37,26 @@ const MenuHeader = ({
     label: cat.title.charAt(0).toUpperCase() + cat.title.slice(1),
   }));
   return (
-    <CardHeader className="pb-3 bg-gradient-to-b from-white to-gray-50/50 border-b sticky top-0 z-10">
+    <CardHeader className="pb-3 bg-gradient-to-b from-white to-gray-50/50 border-b border-gray-200 sticky top-0 z-10">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="hidden sm:block h-8 w-1 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full"></div>
           <div>
             <CardTitle className="text-2xl font-bold text-gray-800 flex items-center gap-2">
-              <svg
-                className="h-5 w-5 text-blue-600"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
-                />
-              </svg>
+              <div className="h-5 w-5 rounded-full bg-[#FF5B35] flex items-center justify-center">
+                <svg
+                  className="h-3 w-3 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
+                  />
+                </svg>
+              </div>
               Menu Items
             </CardTitle>
             <p className="text-sm text-gray-500 mt-1">
@@ -85,7 +86,7 @@ const MenuHeader = ({
             <input
               type="search"
               placeholder="Search menu items..."
-              className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all bg-white shadow-sm"
+              className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FF5B35]/30 focus:border-[#FF5B35] transition-all bg-white"
               onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
@@ -124,7 +125,7 @@ const MenuHeader = ({
             {selectedCategory !== "all" && (
               <button
                 onClick={() => setSelectedCategory("all")}
-                className="text-xs text-blue-600 hover:text-blue-800 hover:bg-blue-50 px-2 py-1 rounded transition-colors"
+                className="text-xs text-[#FF5B35] hover:text-[#FF5B35]/80 hover:bg-[#FFF5F2] px-2 py-1 rounded transition-colors font-medium"
               >
                 Clear
               </button>

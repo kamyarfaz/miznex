@@ -1,9 +1,9 @@
 import { MenuItem } from "@/types";
-import { Category, ItemCategoryKDS } from "@/types/restaurant";
+import { ItemCategoryKDS } from "@/types/restaurant";
 import { getCategoryIcon } from "@/utils/GetCategoryIcon";
-import { Plus, Loader2 } from "lucide-react";
-import { useInView } from "react-intersection-observer";
+import { Loader2, Plus } from "lucide-react";
 import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 
 interface MenuItemsGridProps {
   items: MenuItem[] | undefined;
@@ -13,6 +13,9 @@ interface MenuItemsGridProps {
   fetchNextPage?: () => void;
   hasNextPage?: boolean;
   isFetchingNextPage?: boolean;
+  setSelectedCategory: React.Dispatch<
+    React.SetStateAction<ItemCategoryKDS | "all">
+  >;
 }
 
 // Skeleton loader component for smooth loading experience
@@ -32,6 +35,7 @@ const MenuItemsGrid = ({
   selectedCategory,
   addItem,
   selectedItems,
+  setSelectedCategory,
   fetchNextPage,
   hasNextPage,
   isFetchingNextPage,
@@ -51,26 +55,28 @@ const MenuItemsGrid = ({
 
   if (items?.length === 0) {
     return (
-      <div className="text-center py-12">
-        <div className="h-20 w-20 mx-auto rounded-full bg-gray-100 flex items-center justify-center mb-4">
-          <svg
-            className="h-10 w-10 text-gray-400"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1.5}
-              d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
+      <div className="text-center py-12 px-4">
+        <div className="h-20 w-20 mx-auto rounded-full bg-[#FFF5F2] flex items-center justify-center mb-4 border-2 border-[#FF5B35]/10">
+          <div className="h-12 w-12 rounded-full bg-gradient-to-br from-[#FF5B35]/20 to-[#FF5B35]/5 flex items-center justify-center">
+            <svg
+              className="h-6 w-6 text-[#FF5B35]"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.5}
+                d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          </div>
         </div>
-        <h3 className="text-lg font-semibold text-gray-700 mb-2">
+        <h3 className="text-lg font-semibold text-gray-800 mb-2">
           No items found
         </h3>
-        <p className="text-gray-500 max-w-md mx-auto">
+        <p className="text-gray-600 max-w-md mx-auto mb-4">
           {selectedCategory === "all"
             ? "No menu items available. Please check back later."
             : `No items in "${selectedCategory.title.replace(
@@ -78,13 +84,34 @@ const MenuItemsGrid = ({
                 " "
               )}" category. Try another category.`}
         </p>
+        {selectedCategory !== "all" && (
+          <button
+            onClick={() => setSelectedCategory("all")}
+            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-[#FF5B35] bg-[#FFF5F2] hover:bg-[#FFEBE5] rounded-lg transition-colors border border-[#FF5B35]/20 hover:border-[#FF5B35]/30"
+          >
+            View All Categories
+            <svg
+              className="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              />
+            </svg>
+          </button>
+        )}
       </div>
     );
   }
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
         {items?.map((item) => (
           <div
             key={item.id}
@@ -93,15 +120,15 @@ const MenuItemsGrid = ({
           >
             <div
               className={`
-                h-full border rounded-2xl overflow-hidden bg-white shadow-sm 
-                hover:shadow-xl hover:-translate-y-1 hover:border-blue-300 
-                transition-all duration-300 cursor-pointer
-                ${
-                  selectedItems.has(item.id)
-                    ? "border-2 border-blue-500 ring-2 ring-blue-100"
-                    : "border-gray-200 hover:border-blue-300"
-                }
-              `}
+            h-full border rounded-2xl overflow-hidden bg-white shadow-sm 
+            hover:shadow-2xl hover:-translate-y-1 hover:border-[#FF5B35]/30 
+            transition-all duration-300 cursor-pointer
+            ${
+              selectedItems.has(item.id)
+                ? "border-2 border-[#FF5B35] ring-2 ring-[#FF5B35]/10 bg-[#FFF5F2]/30"
+                : "border-gray-200 hover:border-[#FF5B35]/30"
+            }
+          `}
             >
               {/* Item Image Area */}
               <div className="relative h-40 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
@@ -109,7 +136,7 @@ const MenuItemsGrid = ({
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center">
@@ -121,14 +148,14 @@ const MenuItemsGrid = ({
 
                 {/* Category Badge */}
                 <div className="absolute top-3 left-3">
-                  <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-white/90 backdrop-blur-sm text-gray-700 border border-white/20">
+                  <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-white/95 backdrop-blur-sm text-gray-800 border border-white/30 shadow-sm">
                     {item.category.title.replace(/_/g, " ")}
                   </span>
                 </div>
 
                 {/* Price Tag */}
                 <div className="absolute bottom-3 right-3">
-                  <div className="px-3 py-1.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold rounded-lg shadow-lg">
+                  <div className="px-3 py-1.5 bg-gradient-to-r from-[#FF5B35] to-[#FF5B35]/90 text-white font-bold rounded-lg shadow-lg">
                     ${item.price?.toFixed(2)}
                   </div>
                 </div>
@@ -136,16 +163,18 @@ const MenuItemsGrid = ({
                 {/* Add Button Overlay */}
                 <div
                   className={`
-                    absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent 
-                    opacity-0 group-hover:opacity-100 transition-opacity duration-300 
-                    flex items-center justify-center
-                  `}
+                absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent 
+                opacity-0 group-hover:opacity-100 transition-opacity duration-300 
+                flex items-center justify-center
+              `}
                 >
                   <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 flex flex-col items-center">
-                    <div className="h-12 w-12 rounded-full bg-white flex items-center justify-center shadow-lg">
-                      <Plus className="h-6 w-6 text-blue-600" />
+                    <div className="h-14 w-14 rounded-full bg-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
+                      <div className="h-10 w-10 rounded-full bg-gradient-to-br from-[#FF5B35] to-[#FF5B35]/80 flex items-center justify-center">
+                        <Plus className="h-5 w-5 text-white" />
+                      </div>
                     </div>
-                    <p className="text-white font-bold mt-2 text-sm">
+                    <p className="text-white font-bold mt-3 text-sm tracking-wide">
                       Add to Order
                     </p>
                   </div>
@@ -155,12 +184,16 @@ const MenuItemsGrid = ({
               {/* Item Info */}
               <div className="p-4">
                 <div className="flex items-start justify-between mb-2">
-                  <h3 className="font-bold text-gray-800 group-hover:text-blue-700 transition-colors line-clamp-1">
+                  <h3
+                    className={`font-bold text-gray-800 group-hover:text-[#FF5B35] transition-colors line-clamp-1 ${
+                      selectedItems.has(item.id) ? "text-[#FF5B35]" : ""
+                    }`}
+                  >
                     {item.title}
                   </h3>
                   {selectedItems.has(item.id) && (
                     <div className="flex-shrink-0 ml-2">
-                      <div className="h-6 w-6 rounded-full bg-green-100 flex items-center justify-center">
+                      <div className="h-6 w-6 rounded-full bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center border border-green-200">
                         <svg
                           className="h-3 w-3 text-green-600"
                           fill="none"
@@ -188,7 +221,7 @@ const MenuItemsGrid = ({
                   <div className="mt-2 pt-2 border-t border-gray-100">
                     <div className="flex items-center justify-between">
                       <span className="text-sm text-gray-500">In order:</span>
-                      <span className="font-semibold text-blue-600">
+                      <span className="font-bold text-[#FF5B35] text-lg">
                         {selectedItems.get(item.id)?.quantity}x
                       </span>
                     </div>
@@ -210,7 +243,7 @@ const MenuItemsGrid = ({
       {hasNextPage && (
         <div ref={ref} className="flex justify-center py-8">
           {isFetchingNextPage ? (
-            <div className="flex items-center gap-2 text-blue-600">
+            <div className="flex items-center gap-2 text-[#FF5B35]">
               <Loader2 className="h-5 w-5 animate-spin" />
               <span className="text-sm font-medium">Loading more items...</span>
             </div>
@@ -223,9 +256,13 @@ const MenuItemsGrid = ({
       {/* End of results indicator */}
       {!hasNextPage && items && items.length > 0 && (
         <div className="text-center py-8">
-          <p className="text-sm text-gray-500">
-            You've reached the end of the menu
-          </p>
+          <div className="inline-flex items-center gap-2 text-gray-500">
+            <div className="h-px w-12 bg-gradient-to-r from-transparent to-gray-300" />
+            <p className="text-sm font-medium">
+              You've reached the end of the menu
+            </p>
+            <div className="h-px w-12 bg-gradient-to-l from-transparent to-gray-300" />
+          </div>
         </div>
       )}
     </>

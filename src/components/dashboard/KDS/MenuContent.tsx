@@ -11,15 +11,17 @@ interface MenuContentProps {
     string,
     { item: MenuItem; quantity: number; note: string }
   >;
-  total: number | undefined;
   fetchNextPage?: () => void;
   hasNextPage?: boolean;
   isFetchingNextPage?: boolean;
+  setSelectedCategory: React.Dispatch<
+    React.SetStateAction<ItemCategoryKDS | "all">
+  >;
 }
 
 const MenuContent = ({
-  total,
   selectedCategory,
+  setSelectedCategory,
   items,
   addItem,
   selectedItems,
@@ -29,9 +31,9 @@ const MenuContent = ({
 }: MenuContentProps) => {
   return (
     <CardContent className="p-5 md:p-6">
-
       {/* Menu Items Grid with Infinite Scroll */}
       <MenuItemsGrid
+        setSelectedCategory={setSelectedCategory}
         items={items}
         selectedCategory={selectedCategory}
         addItem={addItem}
