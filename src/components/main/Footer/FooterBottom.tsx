@@ -52,13 +52,19 @@ const FooterBottom = () => {
             alt="pic"
             className="h-[77px] w-[55px] max-sm:h-[62px] max-sm:w-[40px]"
           />
-          <Image
-            width={103}
-            height={71}
-            src={eNamad}
-            alt="pic"
-            className="h-[71px] w-[103px] max-sm:h-[56px] max-sm:w-[88px]"
-          />
+          <a
+            referrerPolicy="origin"
+            target="_blank"
+            href="https://trustseal.enamad.ir/?id=682981&Code=Ou7SR3tN4IPlRtENXyhQVTZEWVY6gmWT"
+          >
+            <img
+              referrerPolicy="origin"
+              src="https://trustseal.enamad.ir/logo.aspx?id=682981&Code=Ou7SR3tN4IPlRtENXyhQVTZEWVY6gmWT"
+              alt=""
+              style={{ cursor: "pointer" }}
+              className="h-[77px] w-[55px] max-sm:h-[62px] max-sm:w-[40px]"
+            />
+          </a>
         </div>
       </MotionDiv>
       <MotionDiv
