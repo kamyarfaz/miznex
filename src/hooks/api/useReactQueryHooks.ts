@@ -28,10 +28,11 @@ export const usePost = <T, D = any>(
   options?: UseMutationOptions<T, ServerError, D>
 ) => {
   return useMutation<T, ServerError, D>({
-    mutationFn: (data: D) => {
+    mutationFn: async (data: D) => {
       const url = typeof getUrl === "string" ? getUrl : getUrl(data);
       const body = getBody ? getBody(data) : data;
-      return fetchApi.post<T>(url, body);
+      const res = await fetchApi.post<T>(url, body);
+      return res;
     },
     ...options,
   });

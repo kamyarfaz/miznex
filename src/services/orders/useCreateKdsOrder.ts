@@ -1,13 +1,13 @@
 import { usePost } from "@/hooks/api/useReactQueryHooks";
 import { toast } from "sonner";
 
-export const useCreateOrder = () => {
-  const { mutate, isPending, variables } = usePost(
+export const useCreateOrder = ({ onSuccess }: { onSuccess: () => void }) => {
+  const { mutate, isPending } = usePost(
     () => `/v1/orders`,
-    (orderPayload) => (orderPayload),
+    (orderPayload) => orderPayload,
     {
       onSuccess: () => {
-        toast.success("Order created successfully");
+        onSuccess();
       },
       onError: () => {
         toast.error("Error creating order");
@@ -18,6 +18,5 @@ export const useCreateOrder = () => {
   return {
     mutate,
     isPending,
-    variables,
   };
 };

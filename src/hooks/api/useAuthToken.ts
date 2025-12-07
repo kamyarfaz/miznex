@@ -28,7 +28,6 @@ const makeRequest = async (url: string, options: RequestInit) => {
     headers,
     credentials: "include"
   });
-  console.log("req", req);
   return req;
 };
 

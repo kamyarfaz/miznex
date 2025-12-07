@@ -23,7 +23,8 @@ interface OrderSummaryProps {
   onSendOrder: (
     items: OrderItemKDS[],
     tableNumber: string,
-    notes: string
+    notes: string,
+    onSuccess: () => void
   ) => void;
   total: number | undefined;
   addItem: (menuItem: MenuItem) => void;
@@ -51,7 +52,7 @@ const OrderSummary = ({
     setSelectedItems(newMap);
   };
 
-  // Update item notes (Mock: To-do -> Bind it to API)
+  // Update item notes
   const updateItemNotes = (menuItemId: string, notes: string) => {
     const newMap = new Map(selectedItems);
     const existing = newMap.get(menuItemId);
@@ -76,15 +77,8 @@ const OrderSummary = ({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  // Send order (Mock: To-do -> Bind it to API)
+  // Send order
   const handleSendOrder = () => {
-    if (selectedItems.size === 0 || !tableNumber) {
-      toast.info(
-        "Please fill in all required fields and add at least one item"
-      );
-      return;
-    }
-
     const orderItems: OrderItemKDS[] = Array.from(selectedItems.values()).map(
       ({ item, quantity, note }) => ({
         menuItemId: item.id,
@@ -93,12 +87,11 @@ const OrderSummary = ({
       })
     );
 
-    onSendOrder(orderItems, tableNumber, orderNotes);
-
-    // Reset form
-    setSelectedItems(new Map());
-    setTableNumber("");
-    setOrderNotes("");
+    onSendOrder(orderItems, tableNumber, orderNotes, () => {
+      setSelectedItems(new Map());
+      setTableNumber("");
+      setOrderNotes("");
+    });
   };
   return (
     <div className="lg:col-span-1">

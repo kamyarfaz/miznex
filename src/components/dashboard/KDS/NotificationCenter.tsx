@@ -7,7 +7,6 @@ interface Notification {
   id: string;
   type: "new-order" | "order-ready";
   message: string;
-  orderNumber: number;
 }
 
 interface Props {

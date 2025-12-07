@@ -39,52 +39,60 @@ interface Notification {
   id: string;
   type: "new-order" | "order-ready";
   message: string;
-  orderNumber: number;
 }
 
 export default function KDSPanel() {
   const [orders, setOrders] = useState<OrderKDS[]>([]);
   const [notifications, setNotifications] = useState<Notification[]>([]);
-  const [orderCounter, setOrderCounter] = useState(1);
   const [activeTab, setActiveTab] = useState("pos");
-  const { mutate } = useCreateOrder();
-
-  // Create a new order from POS
-  const handleCreateOrder = useCallback(
-    (items: OrderItemKDS[], tableNumber: string, note: string) => {
-      const newOrder: OrderKDS = {
-        items,
-        tableNumber: Number(tableNumber),
-        note,
-      };
-
-      setOrders((prev) => [newOrder, ...prev]);
-      setOrderCounter((prev) => prev + 1);
-
+  const [notifInfo, setNotifInfo] = useState({
+    tableNumber: "",
+    itemsCount: 0,
+  });
+  const { mutate } = useCreateOrder({
+    onSuccess: () => {
       // Add notification
       const notification: Notification = {
         id: crypto.randomUUID(),
         type: "new-order",
-        message: `Order #${orderCounter} - Table ${tableNumber}`,
-        orderNumber: orderCounter,
+        message: ` Table ${notifInfo.tableNumber} - ${notifInfo.itemsCount} items`,
       };
       setNotifications((prev) => [...prev, notification]);
-
-      // Show toast
-      toast.success(`Order #${orderCounter} sent to kitchen!`, {
-        description: `Table ${tableNumber} - ${items.length} items`,
-      });
-
-      // Auto-switch to kitchen view for demo purposes
-      // setTimeout(() => {
-      //   setActiveTab("kitchen");
-      // }, 500);
-
-      console.log(newOrder);
-      mutate(newOrder);
+      setTimeout(() => {
+        setActiveTab("kitchen");
+      }, 500);
     },
-    [orderCounter]
-  );
+  });
+
+  // Create a new order from POS
+  const handleCreateOrder = (
+    items: OrderItemKDS[],
+    tableNumber: string,
+    note: string,
+    onSuccess: () => void
+  ) => {
+    const newOrder: OrderKDS = {
+      items,
+      tableNumber: Number(tableNumber),
+      note,
+    };
+
+    setOrders((prev) => [newOrder, ...prev]);
+
+    setNotifInfo({ tableNumber, itemsCount: items.length });
+    console.log(newOrder);
+    if (newOrder.items.length === 0) {
+      toast.error("Cannot create an order with zero items.");
+      return;
+    }
+    if (!tableNumber) {
+      toast.error("Table number is required to create an order.");
+      return;
+    }
+    // Send order to backend
+    const data = mutate(newOrder);
+    console.log("data", data);
+  };
 
   // Dismiss notification
   const handleDismissNotification = useCallback((id: string) => {
