@@ -10,31 +10,22 @@ interface OrderSummaryHeaderProps {
 
 const OrderSummaryHeader = ({ selectedItems }: OrderSummaryHeaderProps) => {
   return (
-    <CardHeader className="pb-4 border-b bg-gradient-to-r from-gray-50 to-white pt-10">
+    <CardHeader className="pb-4 border-b border-gray-200 bg-gradient-to-r from-[#FFF5F2] to-white pt-6">
       <div className="flex items-center justify-between">
-        <CardTitle className="text-2xl font-bold text-gray-800 flex items-center gap-2">
-          <div className="h-3 w-3 rounded-full bg-green-500 animate-pulse"></div>
-          Current Order
-          <span className="text-sm font-normal bg-gray-100 text-gray-600 px-2 py-1 rounded-full">
+        <div className="flex items-center gap-3">
+          <CardTitle className="text-2xl font-bold text-gray-800 flex items-center gap-2">
+            Current Order
+          </CardTitle>
+          <span className="text-sm font-medium bg-gradient-to-r from-[#FF5B35]/10 to-[#FF5B35]/5 text-[#FF5B35] px-3 py-1.5 rounded-full border border-[#FF5B35]/20">
             {selectedItems.size} {selectedItems.size === 1 ? "item" : "items"}
           </span>
-        </CardTitle>
-        <div className="h-8 w-8 rounded-full bg-blue-50 flex items-center justify-center">
-          <svg
-            className="h-4 w-4 text-blue-600"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-            />
-          </svg>
         </div>
       </div>
+      <p className="text-sm text-gray-500 mt-2">
+        {selectedItems.size === 0
+          ? "Add items from the menu to start an order"
+          : "Review and modify items before sending to kitchen"}
+      </p>
     </CardHeader>
   );
 };

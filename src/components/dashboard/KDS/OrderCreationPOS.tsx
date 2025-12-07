@@ -14,7 +14,8 @@ interface Props {
   onSendOrder: (
     items: OrderItemKDS[],
     tableNumber: string,
-    note: string
+    note: string,
+    onSuccess: () => void
   ) => void;
 }
 
@@ -39,6 +40,12 @@ export function OrderCreationPOS({ onSendOrder }: Props) {
     orderBy: string;
     sort: string;
   }>({ orderBy: "createdAt", sort: "desc" });
+
+  // Inside OrderSummary component, add this calculation
+  const orderTotal = Array.from(selectedItems.values()).reduce(
+    (sum, { item, quantity }) => sum + item.price * quantity,
+    0
+  );
 
   // API call for fetching restaurant menu items with infinite scroll
   const {
@@ -85,7 +92,7 @@ export function OrderCreationPOS({ onSendOrder }: Props) {
           />
 
           <MenuContent
-            total={totalCount}
+            setSelectedCategory={setSelectedCategory}
             addItem={addItem}
             selectedCategory={selectedCategory}
             items={items}
@@ -101,7 +108,7 @@ export function OrderCreationPOS({ onSendOrder }: Props) {
       <OrderSummary
         addItem={addItem}
         onSendOrder={onSendOrder}
-        total={totalCount}
+        total={orderTotal}
         selectedItems={selectedItems}
         setSelectedItems={setSelectedItems}
       />
