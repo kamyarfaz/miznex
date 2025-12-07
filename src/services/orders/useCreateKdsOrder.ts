@@ -2,7 +2,7 @@ import { usePost } from "@/hooks/api/useReactQueryHooks";
 import { toast } from "sonner";
 
 export const useCreateOrder = ({ onSuccess }: { onSuccess: () => void }) => {
-  const { mutate, isPending } = usePost(
+  const { mutateAsync, isPending } = usePost(
     () => `/v1/orders`,
     (orderPayload) => orderPayload,
     {
@@ -16,7 +16,7 @@ export const useCreateOrder = ({ onSuccess }: { onSuccess: () => void }) => {
   );
 
   return {
-    mutate,
+    mutateAsync,
     isPending,
   };
 };

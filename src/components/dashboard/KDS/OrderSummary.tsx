@@ -23,8 +23,7 @@ interface OrderSummaryProps {
   onSendOrder: (
     items: OrderItemKDS[],
     tableNumber: string,
-    notes: string,
-    onSuccess: () => void
+    notes: string
   ) => void;
   total: number | undefined;
   addItem: (menuItem: MenuItem) => void;
@@ -62,6 +61,19 @@ const OrderSummary = ({
     setSelectedItems(newMap);
   };
 
+  // Send order
+  const handleSendOrder = () => {
+    const orderItems: OrderItemKDS[] = Array.from(selectedItems.values()).map(
+      ({ item, quantity, note }) => ({
+        menuItemId: item.id,
+        count: quantity,
+        note,
+      })
+    );
+
+    onSendOrder(orderItems, tableNumber, orderNotes);
+  };
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       const isEnter = e.key === "Enter";
@@ -77,22 +89,6 @@ const OrderSummary = ({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  // Send order
-  const handleSendOrder = () => {
-    const orderItems: OrderItemKDS[] = Array.from(selectedItems.values()).map(
-      ({ item, quantity, note }) => ({
-        menuItemId: item.id,
-        count: quantity,
-        note,
-      })
-    );
-
-    onSendOrder(orderItems, tableNumber, orderNotes, () => {
-      setSelectedItems(new Map());
-      setTableNumber("");
-      setOrderNotes("");
-    });
-  };
   return (
     <div className="lg:col-span-1">
       <Card className="h-full flex flex-col border-l border-gray-100 shadow-xl p-0 bg-gradient-to-b from-white to-gray-50/30">

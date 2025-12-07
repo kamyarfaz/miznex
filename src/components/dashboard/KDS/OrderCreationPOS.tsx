@@ -15,7 +15,6 @@ interface Props {
     items: OrderItemKDS[],
     tableNumber: string,
     note: string,
-    onSuccess: () => void
   ) => void;
 }
 

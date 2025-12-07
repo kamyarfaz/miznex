@@ -27,7 +27,7 @@ export const usePost = <T, D = any>(
   getBody?: (data: D) => unknown,
   options?: UseMutationOptions<T, ServerError, D>
 ) => {
-  return useMutation<T, ServerError, D>({
+  const mutation = useMutation<T, ServerError, D>({
     mutationFn: async (data: D) => {
       const url = typeof getUrl === "string" ? getUrl : getUrl(data);
       const body = getBody ? getBody(data) : data;
@@ -36,6 +36,7 @@ export const usePost = <T, D = any>(
     },
     ...options,
   });
+  return mutation;
 };
 
 // PUT
