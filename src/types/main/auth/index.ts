@@ -12,31 +12,44 @@ export interface UseLoginLogicProps {
 }
 
 export interface LoginContentProps {
-  step: LoginStep;
-  isSendOTPLoading: boolean;
-  isVerifyOTPLoading: boolean;
-  isResendOTPLoading: boolean;
-  phoneValue: string;
-  handleSendOTP: (phone: string) => void;
-  handleVerifyOTP: (otp: string, phone: string) => void;
-  handleResendOTP: () => void;
-  goBackToPhone: () => void;
+  step: "email" | "verifyEmail" | "completeProfile";
+
+  emailValue: string;
+  usernameError: string;
   resendTimer: number;
+  isVerifyLoading: boolean;
+  isSendLoading: boolean;
+  isRegisterLoading: boolean;
+  isExistingUser: boolean;
+  
   formatTime: (seconds: number) => string;
+  handleSendEmailCode: (email: string) => void;
+  handleVerifyEmailCode: (code: string , isExistingUser : boolean) => void;
+  handleCompleteProfile: (
+    firstName: string,
+    lastName: string,
+    username: string
+  ) => void;
+  handleResend: () => void;
 }
 
-export interface PhoneInputFormProps {
-  onSubmit: (phone: string) => void;
-  isLoading: boolean;
+export interface EmailInputFormProps {
+  onSubmit: (email: string) => void;
+  isLoading?: boolean;
 }
 
-export interface OtpInputFormProps {
-  phoneNumber: string;
-  onSubmit: (otp: string, phone: string) => void;
+export interface VerifyEmailFormProps {
+  email: string;
+  onSubmit: (code: string , isExistingUser : boolean) => void;
   onResend: () => void;
-  onBack: () => void;
-  isVerifyOTPLoading: boolean;
+  isLoading?: boolean;
+  isExistingUser: boolean;
   resendTimer: number;
   formatTime: (seconds: number) => string;
-  isResendLoading: boolean;
+}
+
+export interface CompleteProfileFormProps {
+  onSubmit: (firstName: string, lastName: string, username: string) => void;
+  isLoading?: boolean;
+  usernameError : string
 }

@@ -1,0 +1,112 @@
+"use client";
+
+import { useForm, Controller } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+} from "@/components/ui/input-otp";
+import { REGEXP_ONLY_DIGITS_AND_CHARS } from "input-otp";
+import { Button } from "@/components/ui/button";
+import { CheckCircle2 } from "lucide-react";
+import { verifyCodeSchema } from "@/schemas";
+import { cn } from "@/utils/utils";
+import { VerifyEmailFormProps } from "@/types/main";
+
+export const VerifyEmailForm: React.FC<VerifyEmailFormProps> = ({
+  email,
+  onSubmit,
+  onResend,
+  isLoading,
+  resendTimer,
+  formatTime,
+  isExistingUser
+}) => {
+  const { control, handleSubmit, watch } = useForm<{ code: string }>({
+    resolver: zodResolver(verifyCodeSchema),
+    defaultValues: { code: "" },
+    mode: "onChange",
+  });
+
+  const codeValue = watch("code", "");
+
+  const handleFormSubmit = (data: { code: string }) => {
+    onSubmit(data.code ,isExistingUser);
+    console.log(data.code , "code");
+  };
+
+  return (
+    <div className="space-y-3">
+      <div className="text-center space-y-2">
+        <h2 className="text-2xl font-bold bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 bg-clip-text text-transparent">
+          تایید ایمیل
+        </h2>
+        <p className="text-gray-600 dark:text-gray-300 text-base">
+          کد تایید به ایمیل{" "}
+          {/* <span className="text-amber-600 dark:text-amber-400 font-semibold">
+            {email}
+          </span>{" "} */}
+          ارسال شد
+        </p>
+      </div>
+
+      <form className="space-y-3 px-6">
+        <Controller
+          name="code"
+          control={control}
+          render={({ field }) => (
+            <InputOTP
+              maxLength={6}
+              value={field.value}
+              onChange={field.onChange}
+              pattern={REGEXP_ONLY_DIGITS_AND_CHARS}
+              onInput={(e) => {
+                e.currentTarget.value = e.currentTarget.value.replace(
+                  /[^0-9]/g,
+                  ""
+                );
+              }}
+              containerClassName="justify-center flex gap-3"
+            >
+              <InputOTPGroup>
+                {[0, 1, 2, 3, 4, 5].map((i) => (
+                  <InputOTPSlot
+                    key={i}
+                    index={i}
+                    className="w-12 h-12 border-2 rounded-lg bg-white/80 dark:bg-gray-800/80 text-lg font-bold mx-1"
+                  />
+                ))}
+              </InputOTPGroup>
+            </InputOTP>
+          )}
+        />
+
+        <Button
+          type="submit"
+          disabled={isLoading || !codeValue || codeValue.length !== 6}
+          onClick={handleSubmit(handleFormSubmit)}
+          className={cn(
+            "w-full h-12 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold text-lg rounded-xl",
+            "hover:scale-105 transition-all shadow-md mt-3"
+          )}
+        >
+          <CheckCircle2 className="w-5 h-5 ml-2" />
+          {isLoading ? "در حال تایید..." : "تایید ایمیل"}
+        </Button>
+
+        <Button
+          type="button"
+          variant="outline"
+          onClick={onResend}
+          disabled={resendTimer > 0}
+          className="w-full h-10"
+        >
+          {resendTimer > 0
+            ? `ارسال مجدد (${formatTime(resendTimer)})`
+            : "ارسال مجدد"}
+        </Button>
+      </form>
+    </div>
+  );
+};
