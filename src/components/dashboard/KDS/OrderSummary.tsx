@@ -12,11 +12,11 @@ import OrderSummaryHeader from "./OrderSummaryHeader";
 interface OrderSummaryProps {
   selectedItems: Map<
     string,
-    { item: MenuItem; quantity: number; notes: string }
+    { item: MenuItem; quantity: number; note: string }
   >;
   setSelectedItems: React.Dispatch<
     React.SetStateAction<
-      Map<string, { item: MenuItem; quantity: number; notes: string }>
+      Map<string, { item: MenuItem; quantity: number; note: string }>
     >
   >;
   onSendOrder: (
@@ -55,7 +55,7 @@ const OrderSummary = ({
     const newMap = new Map(selectedItems);
     const existing = newMap.get(menuItemId);
     if (existing) {
-      newMap.set(menuItemId, { ...existing, notes });
+      newMap.set(menuItemId, { ...existing, note: notes });
     }
     setSelectedItems(newMap);
   };
@@ -68,13 +68,10 @@ const OrderSummary = ({
     }
 
     const orderItems: OrderItemKDS[] = Array.from(selectedItems.values()).map(
-      ({ item, quantity, notes }) => ({
-        id: crypto.randomUUID(),
-        name: item.title,
-        category: item.category,
-        quantity,
-        notes,
-        status: "new" as const,
+      ({ item, quantity, note }) => ({
+        menuItemId: item.id,
+        count: quantity,
+        note,
       })
     );
 
@@ -169,7 +166,7 @@ const OrderSummary = ({
                 </div>
               ) : (
                 Array.from(selectedItems.values()).map(
-                  ({ item, quantity, notes }) => (
+                  ({ item, quantity, note }) => (
                     <div
                       key={item.id}
                       className="bg-white rounded-xl border border-gray-200 hover:border-gray-300 transition-all duration-200 overflow-hidden shadow-sm hover:shadow-md"
@@ -231,7 +228,7 @@ const OrderSummary = ({
                           </label>
                           <KDSInput
                             placeholder="e.g., No onions, extra sauce, well done..."
-                            value={notes}
+                            value={note}
                             onChange={(e) =>
                               updateItemNotes(item.id, e.target.value)
                             }

@@ -9,7 +9,7 @@ interface MenuContentProps {
   addItem: (item: MenuItem) => void;
   selectedItems: Map<
     string,
-    { item: MenuItem; quantity: number; notes: string }
+    { item: MenuItem; quantity: number; note: string }
   >;
   total: number | undefined;
   fetchNextPage?: () => void;

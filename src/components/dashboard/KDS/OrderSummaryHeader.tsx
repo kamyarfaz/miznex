@@ -4,7 +4,7 @@ import { MenuItem } from "@/types";
 interface OrderSummaryHeaderProps {
   selectedItems: Map<
     string,
-    { item: MenuItem; quantity: number; notes: string }
+    { item: MenuItem; quantity: number; note: string }
   >;
 }
 

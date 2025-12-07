@@ -1,7 +1,17 @@
 "use client";
 
 import { Badge } from "@/components/ui/badge";
+import type { OrderItemKDS, OrderKDS } from "@/types";
+import {
+  BarChart3,
+  Bell,
+  ChefHat,
+  Palette,
+  UtensilsCrossed,
+} from "lucide-react";
 import dynamic from "next/dynamic";
+import { useCallback, useState } from "react";
+import { toast } from "sonner";
 const Tabs = dynamic(
   () => import("../../ui/tabs").then((module) => module.Tabs),
   { ssr: false }
@@ -18,23 +28,12 @@ const TabsTrigger = dynamic(
   () => import("../../ui/tabs").then((module) => module.TabsTrigger),
   { ssr: false }
 );
-import type { OrderItemKDS, OrderKDS, OrderStatusKDS } from "@/types";
-import {
-  BarChart3,
-  Bell,
-  ChefHat,
-  Palette,
-  UtensilsCrossed,
-} from "lucide-react";
-import { useCallback, useState } from "react";
-import { toast } from "sonner";
 
+import { useCreateOrder } from "@/services/orders/useCreateKdsOrder";
 import { AdminDashboard } from "./AdminDashboard";
 import { DesignSystemDocs } from "./DesignSystemDocs";
-import { KitchenDisplay } from "./KitchenDisplay";
 import { NotificationCenter } from "./NotificationCenter";
 import { OrderCreationPOS } from "./OrderCreationPOS";
-import { WaiterDisplay } from "./WaiterDisplay";
 
 interface Notification {
   id: string;
@@ -48,23 +47,15 @@ export default function KDSPanel() {
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [orderCounter, setOrderCounter] = useState(1);
   const [activeTab, setActiveTab] = useState("pos");
+  const { mutate } = useCreateOrder();
 
   // Create a new order from POS
   const handleCreateOrder = useCallback(
-    (
-      items: OrderItemKDS[],
-      tableNumber: string,
-      notes: string
-    ) => {
+    (items: OrderItemKDS[], tableNumber: string, note: string) => {
       const newOrder: OrderKDS = {
-        id: crypto.randomUUID(),
-        orderNumber: orderCounter,
         items,
-        status: "new",
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        tableNumber,
-        notes,
+        tableNumber: Number(tableNumber),
+        note,
       };
 
       setOrders((prev) => [newOrder, ...prev]);
@@ -85,136 +76,20 @@ export default function KDSPanel() {
       });
 
       // Auto-switch to kitchen view for demo purposes
-      setTimeout(() => {
-        setActiveTab("kitchen");
-      }, 500);
+      // setTimeout(() => {
+      //   setActiveTab("kitchen");
+      // }, 500);
+
+      console.log(newOrder);
+      mutate(newOrder);
     },
     [orderCounter]
-  );
-
-  // Update order status
-  const handleUpdateOrderStatus = useCallback(
-    (orderId: string, status: OrderStatusKDS) => {
-      setOrders((prev) =>
-        prev.map((order) => {
-          if (order.id === orderId) {
-            const updatedOrder = { ...order, status, updatedAt: new Date() };
-
-            // If order is marked as ready, notify waiters
-            if (status === "ready") {
-              const notification: Notification = {
-                id: crypto.randomUUID(),
-                type: "order-ready",
-                message: `Order #${order.orderNumber} - Table ${order.tableNumber}`,
-                orderNumber: order.orderNumber,
-              };
-              setNotifications((prev) => [...prev, notification]);
-
-              toast.success(`Order #${order.orderNumber} is ready!`, {
-                description: `Table ${order.tableNumber} ready for pickup`,
-              });
-            }
-
-            // Update all items to match order status
-            if (status === "in-progress" || status === "ready") {
-              updatedOrder.items = order.items.map((item) => ({
-                ...item,
-                status,
-              }));
-            }
-
-            return updatedOrder;
-          }
-          return order;
-        })
-      );
-    },
-    []
-  );
-
-  // Update individual item status
-  const handleUpdateItemStatus = useCallback(
-    (orderId: string, itemId: string, status: OrderStatusKDS) => {
-      setOrders((prev: any) =>
-        prev.map((order: OrderKDS) => {
-          if (order.id === orderId) {
-            const updatedItems = order.items.map((item) =>
-              item.id === itemId ? { ...item, status } : item
-            );
-
-            // Check if all items are ready
-            const allItemsReady = updatedItems.every(
-              (item) => item.status === "ready"
-            );
-            const orderStatus = allItemsReady ? "ready" : "in-progress";
-
-            const updatedOrder = {
-              ...order,
-              items: updatedItems,
-              status: orderStatus,
-              updatedAt: new Date(),
-            };
-
-            // Notify if order becomes ready
-            if (allItemsReady && order.status !== "ready") {
-              const notification: Notification = {
-                id: crypto.randomUUID(),
-                type: "order-ready",
-                message: `Order #${order.orderNumber} - Table ${order.tableNumber}`,
-                orderNumber: order.orderNumber,
-              };
-              setNotifications((prev) => [...prev, notification]);
-
-              toast.success(`Order #${order.orderNumber} is ready!`, {
-                description: `Table ${order.tableNumber} ready for pickup`,
-              });
-            }
-
-            return updatedOrder;
-          }
-          return order;
-        })
-      );
-    },
-    []
-  );
-
-  // Mark order as delivered
-  const handleMarkDelivered = useCallback(
-    (orderId: string) => {
-      setOrders((prev) =>
-        prev.map((order) =>
-          order.id === orderId
-            ? {
-                ...order,
-                status: "completed" as OrderStatusKDS,
-                updatedAt: new Date(),
-              }
-            : order
-        )
-      );
-
-      const order = orders.find((o) => o.id === orderId);
-      if (order) {
-        toast.success(`Order #${order.orderNumber} delivered!`, {
-          description: `Table ${order.tableNumber}`,
-        });
-      }
-    },
-    [orders]
   );
 
   // Dismiss notification
   const handleDismissNotification = useCallback((id: string) => {
     setNotifications((prev) => prev.filter((n) => n.id !== id));
   }, []);
-
-  // Get counts for badges
-  const newOrdersCount = orders.filter((o) => o.status === "new").length;
-  const readyOrdersCount = orders.filter((o) => o.status === "ready").length;
-  const activeOrdersCount = orders.filter(
-    (o) => o.status !== "completed"
-  ).length;
 
   return (
     <div className="flex flex-col bg-gray-50">
@@ -240,9 +115,9 @@ export default function KDSPanel() {
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
               <Badge variant="outline" className="text-sm">
-                Active Orders: {activeOrdersCount}
+                Active Orders: ActiveOrdersCount
               </Badge>
-              {newOrdersCount > 0 && (
+              {/* {newOrdersCount > 0 && (
                 <Badge className="bg-red-500 text-sm">
                   {newOrdersCount} New
                 </Badge>
@@ -251,7 +126,7 @@ export default function KDSPanel() {
                 <Badge className="bg-green-500 text-sm">
                   {readyOrdersCount} Ready
                 </Badge>
-              )}
+              )} */}
             </div>
           </div>
         </div>
@@ -272,20 +147,20 @@ export default function KDSPanel() {
             <TabsTrigger value="kitchen" className="gap-2">
               <ChefHat className="h-4 w-4" />
               Kitchen Display
-              {newOrdersCount > 0 && (
+              {/* {newOrdersCount > 0 && (
                 <Badge className="ml-2 bg-red-500 text-white">
                   {newOrdersCount}
                 </Badge>
-              )}
+              )} */}
             </TabsTrigger>
             <TabsTrigger value="waiter" className="gap-2">
               <Bell className="h-4 w-4" />
               Waiter / Pickup
-              {readyOrdersCount > 0 && (
+              {/* {readyOrdersCount > 0 && (
                 <Badge className="ml-2 bg-green-500 text-white">
                   {readyOrdersCount}
                 </Badge>
-              )}
+              )} */}
             </TabsTrigger>
             <TabsTrigger value="admin" className="gap-2">
               <BarChart3 className="h-4 w-4" />
@@ -304,18 +179,15 @@ export default function KDSPanel() {
           </TabsContent>
 
           <TabsContent value="kitchen" className="m-0 h-full">
-            <KitchenDisplay
+            {/* <KitchenDisplay
               orders={orders}
-              onUpdateOrderStatus={handleUpdateOrderStatus}
-              onUpdateItemStatus={handleUpdateItemStatus}
-            />
+            /> */}
           </TabsContent>
 
           <TabsContent value="waiter" className="m-0 h-full">
-            <WaiterDisplay
+            {/* <WaiterDisplay
               orders={orders}
-              onMarkDelivered={handleMarkDelivered}
-            />
+            /> */}
           </TabsContent>
 
           <TabsContent value="admin" className="m-0 h-full">

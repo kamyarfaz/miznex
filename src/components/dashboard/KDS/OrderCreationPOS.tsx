@@ -14,7 +14,7 @@ interface Props {
   onSendOrder: (
     items: OrderItemKDS[],
     tableNumber: string,
-    notes: string
+    note: string
   ) => void;
 }
 
@@ -24,7 +24,7 @@ export function OrderCreationPOS({ onSendOrder }: Props) {
 
   // Hooks
   const [selectedItems, setSelectedItems] = useState<
-    Map<string, { item: MenuItem; quantity: number; notes: string }>
+    Map<string, { item: MenuItem; quantity: number; note: string }>
   >(new Map());
   const [selectedCategory, setSelectedCategory] = useState<
     ItemCategoryKDS | "all"
@@ -65,7 +65,7 @@ export function OrderCreationPOS({ onSendOrder }: Props) {
     if (existing) {
       newMap.set(menuItem.id, { ...existing, quantity: existing.quantity + 1 });
     } else {
-      newMap.set(menuItem.id, { item: menuItem, quantity: 1, notes: "" });
+      newMap.set(menuItem.id, { item: menuItem, quantity: 1, note: "" });
     }
     setSelectedItems(newMap);
   };

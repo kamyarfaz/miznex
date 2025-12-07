@@ -17,21 +17,13 @@ export interface ItemCategoryKDS {
 }
 
 export interface OrderItemKDS {
-  id: string;
-  name: string;
-  category: ItemCategoryKDS;
-  quantity: number;
-  notes?: string;
-  status: OrderStatusKDS;
+  menuItemId: string;
+  count: number;
+  note?: string;
 }
 
 export interface OrderKDS {
-  id: string;
-  orderNumber: number;
   items: OrderItemKDS[];
-  status: OrderStatusKDS;
-  createdAt: Date;
-  updatedAt: Date;
-  tableNumber: string;
-  notes?: string;
+  tableNumber: number;
+  note?: string;
 }
