@@ -29,17 +29,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 export function UsersMetrics() {
-  const QuickAction = [
-    { id: "1", title: "ویرایش لینک", icon: Pencil, href: "#" },
-    { id: "2", title: "اشتراک گذاری لینک", icon: Redo2, href: "#" },
-  ];
-
-  const Tips = [
-    { id: "1", title: "همیشه QR Code را در دسترس قرار دهید." },
-    { id: "2", title: "کیفیت چاپ QR Code مهم است." },
-    { id: "3", title: "لینک کوتاه و قابل فهم انتخاب کنید." },
-  ];
-
   const QrActions = [
     {
       id: "1",
@@ -125,7 +114,7 @@ export function UsersMetrics() {
             <div className="border-none w-full h-auto">
               <div className="flex flex-col p-4 space-y-5 text-justify">
                 {QrActions.map((act) => (
-                  <div id={act.id} className="flex">
+                  <div key={act.id} className="flex">
                     <CircleCheck
                       size={16}
                       className="text-slate-400 dark:text-slate-400 flex-shrink-0"
