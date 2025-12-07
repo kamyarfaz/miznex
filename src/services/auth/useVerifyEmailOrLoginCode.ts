@@ -10,7 +10,7 @@ export const useVerifyEmailOrLoginCode = () => {
     () => `${process.env.NEXT_PUBLIC_APP_API}/auth/verify-login-code`
   );
 
-  const verifyCode = (email: string, code: string, isExistingUser: boolean, onSuccess?: (data: any) => void) => {
+  const verifyCode = async (email: string, code: string, isExistingUser: boolean, onSuccess?: (data: any) => void) => {
     if (isExistingUser) {
       verifyLoginCode({ email, code }, { onSuccess: onSuccess, onError: () => toast.error("خطا در وریفای کد ورود") });
     } else {

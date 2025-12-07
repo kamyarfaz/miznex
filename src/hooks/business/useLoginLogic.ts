@@ -5,12 +5,14 @@ import { useVerifyEmailOrLoginCode } from "@/services/auth/useVerifyEmailOrLogin
 import { useRegisterUser } from "@/services/auth/useRegisterUser";
 import { UseLoginLogicProps } from "@/types";
 import { useSendEmailOrLoginCode } from "@/services/auth/useSendEmailOrLoginCode";
+import { setClientCookie , getClientCookie  } from "@/components/helper/client-cookie";
 
 export const useLoginLogic = ({ onSuccess, onClose }: UseLoginLogicProps = {}) => {
   const [step, setStep] = useState<"email" | "verifyEmail" | "completeProfile">("email");
   const [emailValue, setEmailValue] = useState("");
   const [resendTimer, setResendTimer] = useState(0);
   const [isExistingUser, setIsExistingUser] = useState(false);
+  const [Test, setTest] = useState(false);
   const [usernameError, setUsernameError] = useState<string | null>(null);
 
   const { sendCode, isPending: isSendLoading } = useSendEmailOrLoginCode();
@@ -27,17 +29,30 @@ export const useLoginLogic = ({ onSuccess, onClose }: UseLoginLogicProps = {}) =
     setResendTimer(120);
   };
 
-  const handleVerifyEmailCode = (code: string) => {
-    verifyCode(emailValue, code, isExistingUser, (data) => {
-      if (isExistingUser) {
-        // migrateGuestCartToServer(addToCartMultiple, refetchCart);
-        onClose?.();
-        onSuccess?.();
-        return;
-      }
-      setStep("completeProfile");
-    });
-  };
+const handleVerifyEmailCode = async (code: string) => {
+  const res : any = await verifyCode(emailValue, code, isExistingUser);
+
+  const token = res?.data?.token?.access_token;
+
+  if (token) {
+    setClientCookie("access_token", token, 60 * 24 * 7);
+    setTest(!Test)
+  }
+
+  if (isExistingUser) {
+    onClose?.();
+    onSuccess?.();
+    return;
+  }
+
+  setStep("completeProfile");
+};
+
+useEffect(() => {
+ const token = getClientCookie("access_token");
+ console.log(token ,"sssssssssssssssssssss");
+ 
+}, [Test])
 
 const handleCompleteProfile = async (firstName: string, lastName: string, username: string) => {
   try {
