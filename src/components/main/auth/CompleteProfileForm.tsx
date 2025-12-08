@@ -11,7 +11,7 @@ import { CompleteProfileFormProps } from "@/types/main";
 export const CompleteProfileForm: React.FC<CompleteProfileFormProps> = ({
   onSubmit,
   isLoading,
-  usernameError
+  usernameError,
 }) => {
   const {
     register,
@@ -34,17 +34,13 @@ export const CompleteProfileForm: React.FC<CompleteProfileFormProps> = ({
   return (
     <div className="space-y-3">
       <div className="text-center space-y-2">
-        <h2 className="text-2xl font-bold bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 bg-clip-text text-transparent">
-          تکمیل پروفایل
-        </h2>
-        <p className="text-gray-600 dark:text-gray-300 text-base">
-          لطفاً مشخصات خود را وارد کنید
-        </p>
+        <h2 className="text-2xl font-bold text-action mb-3">تکمیل پروفایل</h2>
+        <p className="text-headings text-base">لطفاً مشخصات خود را وارد کنید</p>
       </div>
 
       <form
         onSubmit={handleSubmit(handleFormSubmit)}
-        className="space-y-4 px-6"
+        className="space-y-4 px-6 mt-5"
       >
         <Input
           {...register("firstName")}
@@ -63,20 +59,20 @@ export const CompleteProfileForm: React.FC<CompleteProfileFormProps> = ({
           placeholder="نام کاربری"
           className="h-12 text-lg text-center font-medium"
         />
-        {usernameError && (
-          <div className="text-red-600 text-sm mt-1">{usernameError}</div>
+        {usernameError ? (
+          <div className="text-red-600 w-full rtl:text-right relative bottom-2 text-[14px]">{usernameError}</div>
+        ) : (
+          <div className="w-full rtl:text-right text-bodyLight relative bottom-2 text-[14px]">
+            نام کاربری در لینک صفحه شما ثبت میشود
+          </div>
         )}
-
-        <div className="w-full rtl:text-right text-bodyLight relative bottom-3">
-          نام کاربری در لینک صفحه شما ثبت میشود
-        </div>
 
         <Button
           type="submit"
           disabled={isLoading || !isValid}
           className={cn(
             "w-full h-12 bg-action text-white font-bold text-lg rounded-xl",
-            "hover:scale-105 transition-all shadow-lg"
+            "hover:bg-action-hover transition-all shadow-lg"
           )}
         >
           {isLoading ? "در حال ثبت..." : "ثبت اطلاعات"}
