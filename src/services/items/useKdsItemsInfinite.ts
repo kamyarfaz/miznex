@@ -32,7 +32,7 @@ export const useGetKdsItemsInfinite = (
     if (query.search) params.append("search", query.search);
 
     const queryString = params.toString();
-    const endpoint = `/v1/menu/restaurant/${restaurantId}?${queryString}`;
+    const endpoint = `/menu/restaurant/${restaurantId}?${queryString}`;
 
     const response = await fetchApi.get<MenuItemResponse>(endpoint);
 

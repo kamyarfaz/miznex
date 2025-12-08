@@ -3,7 +3,7 @@ import { toast } from "sonner";
 
 export const useCreateOrder = ({ onSuccess }: { onSuccess: () => void }) => {
   const { mutateAsync, isPending } = usePost(
-    () => `/v1/orders`,
+    () => `/orders`,
     (orderPayload) => orderPayload,
     {
       onSuccess: () => {

@@ -19,7 +19,7 @@ export const useGetOrdersAdmin = ({
     ...(sortBy ? { sortBy } : {}),
   });
 
-  const url = `/v1/order?${params.toString()}`;
+  const url = `/order?${params.toString()}`;
   const { data, isLoading, error } = useGet<GetOrdersResponse>(url, {
     queryKey: ["orders-admin", limit, page, status, sortBy],
   });

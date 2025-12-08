@@ -7,7 +7,7 @@ export const useChangeOrderStatus = () => {
   const queryClient = useQueryClient();
 
   const { mutate, isPending, variables } = usePost(
-    ({ id }) => `/v1/order/status?id=${id}`,
+    ({ id }) => `/order/status?id=${id}`,
     ({ status }: ChangeOrderStatusRequest) => ({ status }),
     {
       onSuccess: () => {

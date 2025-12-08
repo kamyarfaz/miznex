@@ -6,7 +6,7 @@ export const useGetCategories = (queryString?: string) => {
     data: result,
     isLoading,
     error,
-  } = useGet<CategoryResponseMenu>(`/v1/categories?${queryString}`, {
+  } = useGet<CategoryResponseMenu>(`/categories?${queryString}`, {
     queryKey: ["categories"],
     staleTime: 0,
   });

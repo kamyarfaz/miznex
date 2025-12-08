@@ -2,7 +2,7 @@ import { usePost } from "@/hooks/api/useReactQueryHooks";
 import { toast } from "sonner";
 
 export const useVerifyEmailOrLoginCode = () => {
-  const { mutate: verifyRegisterCode, isPending: isVerifyRegisterPending } = usePost<any, { email: string; code: string }>(
+  const { mutate: verifyRegisterCode, isPending: isVerifyRegisterPending, data } = usePost<any, { email: string; code: string }>(
     () => `${process.env.NEXT_PUBLIC_APP_API}/auth/verify-code`
   );
 

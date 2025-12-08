@@ -15,6 +15,9 @@ interface OrdersUpdatePayload {
   orders: OrderKDS[];
   action: "add" | "update" | "remove";
   timestamp: number;
+  statusCode?: number;
+  success?: boolean;
+  message?: string;
 }
 
 interface StatusUpdatePayload {
@@ -29,6 +32,9 @@ interface NotificationPayload {
   message: string;
   orderId: string;
   timestamp: number;
+  statusCode?: number;
+  success?: boolean;
+  messageText?: string;
 }
 
 // Backend base URL
@@ -48,15 +54,15 @@ export function useKdsWebSocket(options: UseKdsWebSocketOptions) {
   const [isConnected, setIsConnected] = useState(false);
   const [orders, setOrders] = useState<OrderKDS[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [statusCode, setStatusCode] = useState<number | null>(null);
 
-  // Use refs for callbacks to avoid re-creating socket connection
+  // Keep stable refs for callbacks
   const callbacksRef = useRef({
     onOrderCreated,
     onOrderUpdated,
     onOrderRemoved,
   });
 
-  // Update refs when callbacks change
   useEffect(() => {
     callbacksRef.current = {
       onOrderCreated,
@@ -65,78 +71,89 @@ export function useKdsWebSocket(options: UseKdsWebSocketOptions) {
     };
   }, [onOrderCreated, onOrderUpdated, onOrderRemoved]);
 
-  // Fetch initial orders via REST API
+  // Fetch initial orders via REST API and handle statusCode/success/message
   const fetchInitialOrders = useCallback(async () => {
     try {
       setIsLoading(true);
-      const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5NTBiNmU1NC0zYzY5LTRiYmItYThjNS0zYzU5YTFlNGNiNTIiLCJmaXJzdE5hbWUiOiJuYXZpZHJlemEiLCJsYXN0TmFtZSI6ImFiYmFzemFkZWgiLCJlbWFpbCI6Im5hdmlkcmV6YWFiYmFzemFkZWg4OUBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NjUxMzU4OTgsImV4cCI6MTc2NTc0MDY5OH0.SRalCQ1X2d1Dxs9TrNEa7omKoUsEJ8Z4pklqqDxVgI0"
+
+      // TODO: replace with your auth token provider
+      const token =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5NTBiNmU1NC0zYzY5LTRiYmItYThjNS0zYzU5YTFlNGNiNTIiLCJmaXJzdE5hbWUiOiJuYXZpZHJlemEiLCJsYXN0TmFtZSI6ImFiYmFzemFkZWgiLCJlbWFpbCI6Im5hdmlkcmV6YWFiYmFzemFkZWg4OUBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NjUxMzU4OTgsImV4cCI6MTc2NTc0MDY5OH0.SRalCQ1X2d1Dxs9TrNEa7omKoUsEJ8Z4pklqqDxVgI0";
 
       if (!token) {
-        console.error("No token found in localStorage");
         toast.error("Please login first");
         setIsLoading(false);
+        setStatusCode(401);
         return;
       }
 
-      console.log(
-        "📡 Fetching initial orders from:",
-        `${API_BASE_URL}/kds/active-orders/${restaurantId}`
-      );
+      const url = `${API_BASE_URL}/kds/active-orders/${restaurantId}`;
+      console.log("📡 Fetching initial orders:", url);
 
-      const response = await fetch(
-        `${API_BASE_URL}/kds/active-orders/${restaurantId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await fetch(url, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      // set statusCode from HTTP response when available
+      setStatusCode(response.status);
 
       if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        // try read body for message
+        let body: any = {};
+        try {
+          body = await response.json();
+        } catch {
+          /* ignore */
+        }
+        const serverMessage = body?.message || response.statusText || "Failed to load orders";
+        toast.error(serverMessage);
+        setOrders([]);
+        return;
       }
 
       const responseData = await response.json();
-      console.log("✅ Initial orders fetched:", responseData);
-      console.log("   Response structure:", Object.keys(responseData));
+      // server may send: { success, statusCode, message, data: { activeOrders: [...] } }
+      const statusFromBody = responseData?.statusCode ?? response.status;
+      setStatusCode(statusFromBody);
 
-      // Handle both response formats:
-      // Direct: { activeOrders: [...] }
-      // Wrapped: { success: true, data: { activeOrders: [...] } }
-      const data = responseData.data || responseData;
-      const activeOrders = data.activeOrders || [];
-
-      console.log("   Active orders count:", activeOrders.length);
-
-      if (activeOrders.length > 0) {
-        console.log("   First order:", activeOrders[0]);
+      const success = typeof responseData.success === "boolean" ? responseData.success : true;
+      const serverMessage = responseData.message ?? null;
+      if (!success || (statusFromBody && statusFromBody !== 200)) {
+        toast.error(serverMessage ?? `Server returned status ${statusFromBody}`);
+        setOrders([]);
+        return;
       }
+
+      // normalize data shape
+      const data = responseData.data ?? responseData;
+      const activeOrders = data?.activeOrders ?? [];
 
       setOrders(activeOrders);
     } catch (error) {
       console.error("❌ Error fetching initial orders:", error);
       toast.error("Failed to load orders");
+      setOrders([]);
+      setStatusCode(500);
     } finally {
       setIsLoading(false);
     }
   }, [restaurantId]);
 
-  // WebSocket connection effect - ONLY depend on restaurantId and section
   useEffect(() => {
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5NTBiNmU1NC0zYzY5LTRiYmItYThjNS0zYzU5YTFlNGNiNTIiLCJmaXJzdE5hbWUiOiJuYXZpZHJlemEiLCJsYXN0TmFtZSI6ImFiYmFzemFkZWgiLCJlbWFpbCI6Im5hdmlkcmV6YWFiYmFzemFkZWg4OUBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NjUxMzU4OTgsImV4cCI6MTc2NTc0MDY5OH0.SRalCQ1X2d1Dxs9TrNEa7omKoUsEJ8Z4pklqqDxVgI0"
+    // token provider
+    const token =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5NTBiNmU1NC0zYzY5LTRiYmItYThjNS0zYzU5YTFlNGNiNTIiLCJmaXJzdE5hbWUiOiJuYXZpZHJlemEiLCJsYXN0TmFtZSI6ImFiYmFzemFkZWgiLCJlbWFpbCI6Im5hdmlkcmV6YWFiYmFzemFkZWg4OUBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NjUxMzU4OTgsImV4cCI6MTc2NTc0MDY5OH0.SRalCQ1X2d1Dxs9TrNEa7omKoUsEJ8Z4pklqqDxVgI0";
 
     if (!token) {
-      console.error("❌ No auth token found");
-      toast.error("Authentication required - Please login");
+      toast.error("Authentication required - please login");
       setIsLoading(false);
+      setStatusCode(401);
       return;
     }
 
-    console.log("🔌 Initializing WebSocket connection...");
-    console.log("   URL:", `${WS_BASE_URL}/kds`);
-    console.log("   Restaurant ID:", restaurantId);
-
-    // Connect to WebSocket
+    console.log("🔌 Initializing WebSocket connection...", `${WS_BASE_URL}/kds`);
     const socket = io(`${WS_BASE_URL}/kds`, {
       auth: { token },
       transports: ["websocket", "polling"],
@@ -147,25 +164,29 @@ export function useKdsWebSocket(options: UseKdsWebSocketOptions) {
 
     socketRef.current = socket;
 
-    // Connection events
     socket.on("connect", () => {
-      console.log("✅ Connected to KDS WebSocket");
-      console.log("   Socket ID:", socket.id);
       setIsConnected(true);
       toast.success("Connected to Kitchen Display");
     });
 
-    socket.on("connected", (data) => {
-      console.log("✅ Received 'connected' event:", data);
+    socket.on("connected", (payload: any) => {
+      // payload may contain statusCode/success/message and optional initial data
+      console.log("✅ socket 'connected' payload:", payload);
 
-      // Join restaurant-specific room
-      console.log("📍 Joining restaurant room:", restaurantId);
-      socket.emit("joinSection", {
-        restaurantId,
-        section,
-      });
+      // If server returned status info, surface it
+      if (typeof payload?.statusCode === "number") {
+        setStatusCode(payload.statusCode);
+      }
 
-      // Fetch initial orders after joining
+      if (payload?.success === false) {
+        const msg = payload?.message ?? "Server reports an issue";
+        toast.error(msg);
+      }
+
+      // Join restaurant room
+      socket.emit("joinSection", { restaurantId, section });
+
+      // fetch initial orders once we've joined the channel
       fetchInitialOrders();
     });
 
@@ -174,10 +195,7 @@ export function useKdsWebSocket(options: UseKdsWebSocketOptions) {
     });
 
     socket.on("disconnect", (reason) => {
-      console.log("❌ Disconnected from KDS WebSocket. Reason:", reason);
       setIsConnected(false);
-
-      // Only show error toast if it's not a client-initiated disconnect
       if (reason !== "io client disconnect") {
         toast.error("Disconnected from Kitchen Display");
       }
@@ -185,107 +203,94 @@ export function useKdsWebSocket(options: UseKdsWebSocketOptions) {
 
     socket.on("connect_error", (error) => {
       console.error("❌ Connection Error:", error);
-      toast.error(`Connection failed: ${error.message}`);
+      toast.error(`Connection failed: ${error?.message ?? "Unknown error"}`);
+      // expose status code 503 for connection error
+      setStatusCode(503);
     });
 
     socket.on("error", (error) => {
       console.error("❌ Socket error:", error);
-      toast.error(error.message || "WebSocket error");
+      toast.error(error?.message ?? "WebSocket error");
     });
 
-    // Listen for order updates
+    // ordersUpdate: may include statusCode, success, message
     socket.on("ordersUpdate", (data: OrdersUpdatePayload) => {
       console.log("📦 Orders update received:", data);
+      if (typeof data?.statusCode === "number") {
+        setStatusCode(data.statusCode);
+      }
+      if (data?.success === false) {
+        toast.error(data?.message ?? "Server error on orders update");
+        return;
+      }
 
       if (data.action === "add") {
         setOrders((prev) => {
-          const newOrders = data.orders.filter(
-            (newOrder) => !prev.some((order) => order.id === newOrder.id)
-          );
+          const newOrders = data.orders.filter((n) => !prev.some((p) => p.id === n.id));
           if (newOrders.length > 0) {
-            console.log("➕ Adding new orders:", newOrders.length);
-            newOrders.forEach((order) => {
-              callbacksRef.current.onOrderCreated?.(order);
-            });
+            newOrders.forEach((order) => callbacksRef.current.onOrderCreated?.(order));
             return [...newOrders, ...prev];
           }
           return prev;
         });
       } else if (data.action === "update") {
-        console.log("🔄 Updating orders");
         setOrders((prev) =>
           prev.map((order) => {
-            const updatedOrder = data.orders.find((o) => o.id === order.id);
-            if (updatedOrder) {
-              callbacksRef.current.onOrderUpdated?.(updatedOrder);
-              return updatedOrder;
+            const updated = data.orders.find((o) => o.id === order.id);
+            if (updated) {
+              callbacksRef.current.onOrderUpdated?.(updated);
+              return updated;
             }
             return order;
           })
         );
       } else if (data.action === "remove") {
         const removedIds = data.orders.map((o) => o.id);
-        console.log("➖ Removing orders:", removedIds);
         setOrders((prev) => prev.filter((o) => !removedIds.includes(o.id)));
-        removedIds.forEach((id) => {
-          callbacksRef.current.onOrderRemoved?.(id);
-        });
+        removedIds.forEach((id) => callbacksRef.current.onOrderRemoved?.(id));
       }
     });
 
-    // Listen for status updates
     socket.on("statusUpdate", (data: StatusUpdatePayload) => {
-      console.log("📊 Status update received:", data);
-
       setOrders((prev) =>
-        prev.map((order) =>
-          order.id === data.orderId
-            ? { ...order, status: data.status as any }
-            : order
-        )
+        prev.map((order) => (order.id === data.orderId ? { ...order, status: data.status as any } : order))
       );
     });
 
-    // Listen for notifications
     socket.on("notification", (notification: NotificationPayload) => {
-      console.log("🔔 Notification received:", notification);
+      if (typeof notification?.statusCode === "number") {
+        setStatusCode(notification.statusCode);
+      }
+      if (notification?.success === false) {
+        toast.error(notification.message ?? notification.title ?? "Server notification");
+        return;
+      }
 
       if (notification.type === "new-order") {
-        toast.info(notification.message, {
-          description: notification.title,
-          duration: 5000,
-        });
+        toast.info(notification.message, { description: notification.title, duration: 5000 });
       } else if (notification.type === "order-ready") {
-        toast.success(notification.message, {
-          description: notification.title,
-          duration: 5000,
-        });
+        toast.success(notification.message, { description: notification.title, duration: 5000 });
       }
     });
 
-    // Ping for keep-alive
+    // keep-alive ping
     const pingInterval = setInterval(() => {
-      if (socket.connected) {
-        socket.emit("ping");
-      }
-    }, 30000);
+      if (socket.connected) socket.emit("ping");
+    }, 30_000);
 
-    // Cleanup function
     return () => {
-      console.log("🧹 Cleaning up WebSocket connection...");
       clearInterval(pingInterval);
-
       if (socket.connected) {
-        socket.emit("leaveSection", {
-          restaurantId,
-          section,
-        });
+        socket.emit("leaveSection", { restaurantId, section });
         socket.disconnect();
+      } else {
+        socket.close();
       }
+      socketRef.current = null;
+      setIsConnected(false);
     };
-  }, [restaurantId, section, fetchInitialOrders]); // Only these dependencies
+  }, [restaurantId, section, fetchInitialOrders]);
 
-  // Subscribe to a specific order
   const subscribeToOrder = useCallback((orderId: string) => {
     if (socketRef.current?.connected) {
       socketRef.current.emit("subscribeToOrder", { orderId });
@@ -298,5 +303,6 @@ export function useKdsWebSocket(options: UseKdsWebSocketOptions) {
     isLoading,
     subscribeToOrder,
     socket: socketRef.current,
+    statusCode,
   };
 }

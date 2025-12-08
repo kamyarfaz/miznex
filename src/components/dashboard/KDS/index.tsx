@@ -1,7 +1,12 @@
 "use client";
 
 import { Badge } from "@/components/ui/badge";
-import type { OrderItemKDS, OrderKDS, OrderStatusKDS } from "@/types";
+import { useCreateOrder } from "@/services/orders/useCreateKdsOrder";
+import { useKdsWebSocket } from "@/services/orders/useKDSWebsocketHook";
+import { useUpdateItemStatus } from "@/services/orders/useUpdateOrderItemStatus";
+import { useUpdateOrderStatus } from "@/services/orders/useUpdateOrderStatus";
+import type { CreateOrderKDS, OrderItemKDS } from "@/types";
+import { Notification } from "@/types/kds";
 import {
   BarChart3,
   Bell,
@@ -12,10 +17,17 @@ import {
   WifiOff,
 } from "lucide-react";
 import dynamic from "next/dynamic";
+import { useParams } from "next/navigation";
 import { useCallback, useState } from "react";
 import { toast } from "sonner";
-import { useKdsWebSocket } from "@/services/orders/useKDSWebsocketHook";
+import { AdminDashboard } from "./AdminDashboard";
+import { DesignSystemDocs } from "./DesignSystemDocs";
+import { KitchenDisplay } from "./KitchenDisplay";
+import { NotificationCenter } from "./NotificationCenter";
+import { OrderCreationPOS } from "./OrderCreationPOS";
+import RestaurantNotFound from "./RestaurantNotFoundError";
 
+// Lazy load Tabs components to avoid SSR issues
 const Tabs = dynamic(
   () => import("../../ui/tabs").then((module) => module.Tabs),
   { ssr: false }
@@ -33,38 +45,23 @@ const TabsTrigger = dynamic(
   { ssr: false }
 );
 
-import { useCreateOrder } from "@/services/orders/useCreateKdsOrder";
-import { AdminDashboard } from "./AdminDashboard";
-import { DesignSystemDocs } from "./DesignSystemDocs";
-import { NotificationCenter } from "./NotificationCenter";
-import { OrderCreationPOS } from "./OrderCreationPOS";
-import { KitchenDisplay } from "./KitchenDisplay";
-
-interface Notification {
-  id: string;
-  type: "new-order" | "order-ready";
-  message: string;
-}
-
-// Backend API URL
-const API_BASE_URL = "http://localhost:3000/api/v1";
-
-// TODO: Get this from user context/settings
-const RESTAURANT_ID = "2e6994ad-904a-4e60-8def-063e1e287ed2";
-
 export default function KDSPanel() {
+  // Notifications
   const [notifications, setNotifications] = useState<Notification[]>([]);
+  // Tabs
   const [activeTab, setActiveTab] = useState("pos");
+  // Notification Info
   const [notifInfo, setNotifInfo] = useState({
     tableNumber: "",
     itemsCount: 0,
   });
+  // Restaurant ID from params
+  const { restaurantId } = useParams();
 
   // WebSocket connection for real-time updates
-  const { orders, isConnected, isLoading } = useKdsWebSocket({
-    restaurantId: RESTAURANT_ID,
+  const { orders, isConnected, isLoading, statusCode } = useKdsWebSocket({
+    restaurantId: restaurantId?.toString() || "",
     onOrderCreated: (order) => {
-      console.log("New order received via WebSocket:", order);
       const notification: Notification = {
         id: order.id,
         type: "new-order",
@@ -73,8 +70,7 @@ export default function KDSPanel() {
       setNotifications((prev) => [...prev, notification]);
     },
     onOrderUpdated: (order) => {
-      console.log("Order updated via WebSocket:", order);
-      if (order.status === "ready") {
+      if (order.status === "done") {
         const notification: Notification = {
           id: `${order.id}-ready`,
           type: "order-ready",
@@ -84,6 +80,20 @@ export default function KDSPanel() {
       }
     },
   });
+
+  // Dismiss notification
+  const handleDismissNotification = useCallback((id: string) => {
+    setNotifications((prev) => prev.filter((n) => n.id !== id));
+  }, []);
+
+  const { updateItemStatus: handleUpdateItemStatus, isPending } =
+    useUpdateItemStatus({
+      getToken: () => localStorage.getItem("token"),
+      onSuccess: () => console.log("Item updated!"),
+    });
+
+  const { updateOrderStatus: handleUpdateOrderStatus, loading } =
+    useUpdateOrderStatus({});
 
   const { mutateAsync } = useCreateOrder({
     onSuccess: () => {
@@ -98,6 +108,10 @@ export default function KDSPanel() {
       }, 500);
     },
   });
+
+  if (statusCode == 404) {
+    return <RestaurantNotFound />;
+  }
 
   // Create a new order from POS
   const handleCreateOrder = (
@@ -114,113 +128,17 @@ export default function KDSPanel() {
       return;
     }
 
-    const newOrder: OrderKDS = {
+    const newOrder: CreateOrderKDS = {
       items,
       tableNumber: Number(tableNumber),
       note,
     };
 
     setNotifInfo({ tableNumber, itemsCount: items.length });
-    console.log("Creating order:", newOrder);
 
     // Send order to backend
     mutateAsync(newOrder);
   };
-
-  // Update order status via API
-  const handleUpdateOrderStatus = async (
-    orderId: string,
-    status: OrderStatusKDS
-  ) => {
-    try {
-      const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5NTBiNmU1NC0zYzY5LTRiYmItYThjNS0zYzU5YTFlNGNiNTIiLCJmaXJzdE5hbWUiOiJuYXZpZHJlemEiLCJsYXN0TmFtZSI6ImFiYmFzemFkZWgiLCJlbWFpbCI6Im5hdmlkcmV6YWFiYmFzemFkZWg4OUBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NjUxMzU4OTgsImV4cCI6MTc2NTc0MDY5OH0.SRalCQ1X2d1Dxs9TrNEa7omKoUsEJ8Z4pklqqDxVgI0"
-      
-      if (!token) {
-        toast.error("Please login first");
-        return;
-      }
-
-      console.log(`Updating order ${orderId} status to ${status}`);
-      
-      const response = await fetch(
-        `${API_BASE_URL}/kds/orders/${orderId}/status`,
-        {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({ status }),
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-      }
-
-      const data = await response.json();
-      console.log("✅ Order status updated:", data);
-      toast.success(`Order status updated to ${status}`);
-      return data;
-    } catch (error) {
-      console.error("❌ Error updating order status:", error);
-      toast.error("Failed to update order status");
-    }
-  };
-
-  // Update item status via API
-  const handleUpdateItemStatus = async (
-    orderId: string,
-    itemId: string,
-    status: OrderStatusKDS
-  ) => {
-    try {
-      const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5NTBiNmU1NC0zYzY5LTRiYmItYThjNS0zYzU5YTFlNGNiNTIiLCJmaXJzdE5hbWUiOiJuYXZpZHJlemEiLCJsYXN0TmFtZSI6ImFiYmFzemFkZWgiLCJlbWFpbCI6Im5hdmlkcmV6YWFiYmFzemFkZWg4OUBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NjUxMzU4OTgsImV4cCI6MTc2NTc0MDY5OH0.SRalCQ1X2d1Dxs9TrNEa7omKoUsEJ8Z4pklqqDxVgI0"
-      
-      if (!token) {
-        toast.error("Please login first");
-        return;
-      }
-
-      console.log(`Updating item ${itemId} in order ${orderId} status to ${status}`);
-      
-      const response = await fetch(
-        `${API_BASE_URL}/kds/orders/${orderId}/items/${itemId}/status`,
-        {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({ status, itemId }),
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-      }
-
-      const data = await response.json();
-      console.log("✅ Item status updated:", data);
-      toast.success(`Item status updated to ${status}`);
-      return data;
-    } catch (error) {
-      console.error("❌ Error updating item status:", error);
-      toast.error("Failed to update item status");
-    }
-  };
-
-  // Dismiss notification
-  const handleDismissNotification = useCallback((id: string) => {
-    setNotifications((prev) => prev.filter((n) => n.id !== id));
-  }, []);
-
-  // Calculate counts
-  const activeOrdersCount = orders.filter(
-    (o) => o.status !== "completed"
-  ).length;
-  const newOrdersCount = orders.filter((o) => o.status === "new").length;
-  const readyOrdersCount = orders.filter((o) => o.status === "ready").length;
 
   return (
     <div className="flex flex-col bg-gray-50 min-h-screen">
@@ -271,9 +189,9 @@ export default function KDSPanel() {
                 variant="outline"
                 className="text-sm border-[#FF5B35] text-[#FF5B35] bg-[#FFF5F2] font-medium px-3 py-1.5"
               >
-                Active Orders: {activeOrdersCount}
+                Active Orders: mocked
               </Badge>
-              {newOrdersCount > 0 && (
+              {/* {newOrdersCount > 0 && (
                 <Badge className="bg-[#FF5B35] text-white text-sm font-medium px-3 py-1.5 shadow-sm">
                   {newOrdersCount} New
                 </Badge>
@@ -282,7 +200,7 @@ export default function KDSPanel() {
                 <Badge className="bg-green-500 text-white text-sm font-medium px-3 py-1.5 shadow-sm">
                   {readyOrdersCount} Ready
                 </Badge>
-              )}
+              )} */}
             </div>
           </div>
         </div>
@@ -309,11 +227,11 @@ export default function KDSPanel() {
             >
               <ChefHat className="h-4 w-4" />
               Kitchen Display
-              {newOrdersCount > 0 && (
+              {/* {newOrdersCount > 0 && (
                 <span className="ml-2 bg-[#FF5B35] text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
                   {newOrdersCount}
                 </span>
-              )}
+              )} */}
             </TabsTrigger>
             <TabsTrigger
               value="waiter"
@@ -321,11 +239,11 @@ export default function KDSPanel() {
             >
               <Bell className="h-4 w-4" />
               Waiter / Pickup
-              {readyOrdersCount > 0 && (
+              {/* {readyOrdersCount > 0 && (
                 <span className="ml-2 bg-green-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
                   {readyOrdersCount}
                 </span>
-              )}
+              )} */}
             </TabsTrigger>
             <TabsTrigger
               value="admin"
