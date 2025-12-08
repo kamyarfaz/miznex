@@ -15,6 +15,10 @@ const UsersMetrics = dynamic(() =>
   import("./components").then((mod) => mod.UsersMetrics)
 );
 
+const FormSections = dynamic(() =>
+  import("./components").then((mod) => mod.FormSections)
+);
+
 const data = {
   // 👤 User Overview
   user: {
@@ -140,7 +144,6 @@ const data = {
 };
 
 export default function Overview() {
-
   const isLoading = false;
   return (
     <>
@@ -167,11 +170,11 @@ export default function Overview() {
         </div>
 
         <div className="col-span-12">
-          {isLoading ? (
-            <UsersMetricsSkeleton />
-          ) : (
-            <UsersMetrics />
-          )}
+          {isLoading ? <UsersMetricsSkeleton /> : <UsersMetrics />}
+        </div>
+
+        <div className="col-span-6">
+          {isLoading ? <UsersMetricsSkeleton /> : <FormSections />}
         </div>
       </div>
     </>
