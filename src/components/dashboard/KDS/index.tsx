@@ -46,8 +46,11 @@ interface Notification {
   message: string;
 }
 
+// Backend API URL
+const API_BASE_URL = "http://localhost:3000/api/v1";
+
 // TODO: Get this from user context/settings
-const RESTAURANT_ID = "2e6994ad-904a-4e60-8def-063e1e287ed2"; // Replace with actual restaurant ID from context
+const RESTAURANT_ID = "2e6994ad-904a-4e60-8def-063e1e287ed2";
 
 export default function KDSPanel() {
   const [notifications, setNotifications] = useState<Notification[]>([]);
@@ -84,7 +87,6 @@ export default function KDSPanel() {
 
   const { mutateAsync } = useCreateOrder({
     onSuccess: () => {
-      // Add notification
       const notification: Notification = {
         id: crypto.randomUUID(),
         type: "new-order",
@@ -119,7 +121,7 @@ export default function KDSPanel() {
     };
 
     setNotifInfo({ tableNumber, itemsCount: items.length });
-    console.log(newOrder);
+    console.log("Creating order:", newOrder);
 
     // Send order to backend
     mutateAsync(newOrder);
@@ -131,9 +133,17 @@ export default function KDSPanel() {
     status: OrderStatusKDS
   ) => {
     try {
-      const token = localStorage.getItem("authToken");
+      const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5NTBiNmU1NC0zYzY5LTRiYmItYThjNS0zYzU5YTFlNGNiNTIiLCJmaXJzdE5hbWUiOiJuYXZpZHJlemEiLCJsYXN0TmFtZSI6ImFiYmFzemFkZWgiLCJlbWFpbCI6Im5hdmlkcmV6YWFiYmFzemFkZWg4OUBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NjUxMzU4OTgsImV4cCI6MTc2NTc0MDY5OH0.SRalCQ1X2d1Dxs9TrNEa7omKoUsEJ8Z4pklqqDxVgI0"
+      
+      if (!token) {
+        toast.error("Please login first");
+        return;
+      }
+
+      console.log(`Updating order ${orderId} status to ${status}`);
+      
       const response = await fetch(
-        `http://localhost:3001/kds/orders/${orderId}/status`,
+        `${API_BASE_URL}/kds/orders/${orderId}/status`,
         {
           method: "PATCH",
           headers: {
@@ -145,14 +155,15 @@ export default function KDSPanel() {
       );
 
       if (!response.ok) {
-        throw new Error("Failed to update order status");
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
 
       const data = await response.json();
+      console.log("✅ Order status updated:", data);
       toast.success(`Order status updated to ${status}`);
       return data;
     } catch (error) {
-      console.error("Error updating order status:", error);
+      console.error("❌ Error updating order status:", error);
       toast.error("Failed to update order status");
     }
   };
@@ -164,9 +175,17 @@ export default function KDSPanel() {
     status: OrderStatusKDS
   ) => {
     try {
-      const token = localStorage.getItem("authToken");
+      const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5NTBiNmU1NC0zYzY5LTRiYmItYThjNS0zYzU5YTFlNGNiNTIiLCJmaXJzdE5hbWUiOiJuYXZpZHJlemEiLCJsYXN0TmFtZSI6ImFiYmFzemFkZWgiLCJlbWFpbCI6Im5hdmlkcmV6YWFiYmFzemFkZWg4OUBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NjUxMzU4OTgsImV4cCI6MTc2NTc0MDY5OH0.SRalCQ1X2d1Dxs9TrNEa7omKoUsEJ8Z4pklqqDxVgI0"
+      
+      if (!token) {
+        toast.error("Please login first");
+        return;
+      }
+
+      console.log(`Updating item ${itemId} in order ${orderId} status to ${status}`);
+      
       const response = await fetch(
-        `http://localhost:3001/kds/orders/${orderId}/items/${itemId}/status`,
+        `${API_BASE_URL}/kds/orders/${orderId}/items/${itemId}/status`,
         {
           method: "PATCH",
           headers: {
@@ -178,14 +197,15 @@ export default function KDSPanel() {
       );
 
       if (!response.ok) {
-        throw new Error("Failed to update item status");
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
 
       const data = await response.json();
+      console.log("✅ Item status updated:", data);
       toast.success(`Item status updated to ${status}`);
       return data;
     } catch (error) {
-      console.error("Error updating item status:", error);
+      console.error("❌ Error updating item status:", error);
       toast.error("Failed to update item status");
     }
   };

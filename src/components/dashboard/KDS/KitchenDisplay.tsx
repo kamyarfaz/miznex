@@ -1,7 +1,7 @@
 import type { OrderKDS, OrderStatusKDS } from "@/types";
 import { AnimatePresence, motion } from "framer-motion";
 import { CheckCircle2, ChefHat, Clock } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Badge } from "../../ui/badge";
 import { Button } from "../../ui/button";
 import { Card, CardContent, CardHeader } from "../../ui/card";
@@ -53,7 +53,7 @@ function getTimerColor(minutes: number): string {
 }
 
 function getCategoryColor(category: string): string {
-  const key = category.toLowerCase();
+  const key = category?.toLowerCase() || "default";
   return categoryColors[key] || categoryColors.default;
 }
 
@@ -64,15 +64,37 @@ export function KitchenDisplay({
 }: Props) {
   const [selectedOrder, setSelectedOrder] = useState<OrderKDS | null>(null);
 
+  // Debug logging
+  useEffect(() => {
+    console.log("🔍 KitchenDisplay - Orders:", orders);
+    console.log("🔍 KitchenDisplay - Orders count:", orders.length);
+    if (orders.length > 0) {
+      console.log("🔍 KitchenDisplay - First order:", orders[0]);
+      console.log("🔍 KitchenDisplay - First order items:", orders[0].items);
+    }
+  }, [orders]);
+
   const activeOrders = orders.filter((o) => o.status !== "completed");
+
+  console.log("🔍 KitchenDisplay - Active orders count:", activeOrders.length);
 
   return (
     <div className="h-full flex flex-col">
+      {/* Debug info */}
+      <div className="p-4 bg-blue-50 border-b">
+        <p className="text-sm">
+          Total Orders: {orders.length} | Active: {activeOrders.length}
+        </p>
+      </div>
+
       {activeOrders.length === 0 ? (
         <div className="flex items-center justify-center h-full">
           <div className="text-center">
             <ChefHat className="h-16 w-16 text-gray-300 mx-auto mb-4" />
             <p className="text-xl text-gray-500">No active orders</p>
+            <p className="text-sm text-gray-400 mt-2">
+              Total orders in system: {orders.length}
+            </p>
             <p className="text-sm text-gray-400 mt-2">
               New orders will appear here
             </p>
@@ -87,6 +109,8 @@ export function KitchenDisplay({
                   1000 /
                   60
               );
+
+              console.log("🔍 Rendering order:", order.id, order);
 
               return (
                 <motion.div
@@ -111,7 +135,7 @@ export function KitchenDisplay({
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
                           <span className="text-2xl font-bold">
-                            #{order.orderNumber}
+                            #{order.orderNumber || "N/A"}
                           </span>
                           <Badge className={statusColors[order.status]}>
                             {order.status.toUpperCase().replace("-", " ")}
@@ -127,32 +151,40 @@ export function KitchenDisplay({
                         </div>
                       </div>
                       <div className="text-sm text-muted-foreground">
-                        Table {order.tableNumber} • {order.waiterName || "Guest"}
+                        Table {order.tableNumber} •{" "}
+                        {order.waiterName || "Guest"}
                       </div>
                     </CardHeader>
                     <CardContent>
                       <div className="space-y-2">
-                        {order.items.map((item) => (
-                          <div
-                            key={item.id}
-                            className="flex items-center justify-between text-sm"
-                          >
-                            <div className="flex items-center gap-2 flex-1">
-                              <span className="w-6 h-6 flex items-center justify-center bg-gray-100 rounded font-semibold">
-                                {item.quantity}
-                              </span>
-                              <span className="truncate">{item.name}</span>
-                            </div>
-                            <Badge
-                              variant="outline"
-                              className={`text-xs ${getCategoryColor(
-                                item.category
-                              )}`}
-                            >
-                              {item.category}
-                            </Badge>
-                          </div>
-                        ))}
+                        {order.items && order.items.length > 0 ? (
+                          order.items.map((item) => {
+                            console.log("🔍 Rendering item:", item);
+                            return (
+                              <div
+                                key={item.id}
+                                className="flex items-center justify-between text-sm"
+                              >
+                                <div className="flex items-center gap-2 flex-1">
+                                  <span className="w-6 h-6 flex items-center justify-center bg-gray-100 rounded font-semibold">
+                                    {item.quantity}
+                                  </span>
+                                  <span className="truncate">{item.name}</span>
+                                </div>
+                                <Badge
+                                  variant="outline"
+                                  className={`text-xs ${getCategoryColor(
+                                    item.category
+                                  )}`}
+                                >
+                                  {item.category || "Unknown"}
+                                </Badge>
+                              </div>
+                            );
+                          })
+                        ) : (
+                          <p className="text-sm text-gray-500">No items</p>
+                        )}
                       </div>
                       {order.notes && (
                         <div className="mt-3 p-2 bg-yellow-50 border border-yellow-200 rounded text-sm">
@@ -204,32 +236,34 @@ export function KitchenDisplay({
               </DialogHeader>
 
               <div className="space-y-4 mt-4">
-                {selectedOrder.items.map((item) => (
-                  <Card key={item.id}>
-                    <CardContent className="p-4">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <span className="w-8 h-8 flex items-center justify-center bg-gray-100 rounded font-semibold">
-                            {item.quantity}
-                          </span>
-                          <div>
-                            <div className="font-medium">{item.name}</div>
-                            {item.note && (
-                              <div className="text-sm text-muted-foreground italic mt-1">
-                                Note: {item.note}
-                              </div>
-                            )}
+                {selectedOrder.items && selectedOrder.items.length > 0 ? (
+                  selectedOrder.items.map((item) => (
+                    <Card key={item.id}>
+                      <CardContent className="p-4">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <span className="w-8 h-8 flex items-center justify-center bg-gray-100 rounded font-semibold">
+                              {item.quantity}
+                            </span>
+                            <div>
+                              <div className="font-medium">{item.name}</div>
+                              {item.note && (
+                                <div className="text-sm text-muted-foreground italic mt-1">
+                                  Note: {item.note}
+                                </div>
+                              )}
+                            </div>
                           </div>
+                          <Badge className={getCategoryColor(item.category)}>
+                            {item.category || "Unknown"}
+                          </Badge>
                         </div>
-                        <Badge
-                          className={getCategoryColor(item.category)}
-                        >
-                          {item.category}
-                        </Badge>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
+                      </CardContent>
+                    </Card>
+                  ))
+                ) : (
+                  <p className="text-gray-500">No items in this order</p>
+                )}
 
                 {selectedOrder.notes && (
                   <div className="p-3 bg-yellow-50 border border-yellow-200 rounded">
