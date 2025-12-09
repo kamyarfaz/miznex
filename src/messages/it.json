@@ -141,5 +141,62 @@
     "privacyPolicy": "Informativa sulla privacy",
     "termsOfUse": "Termini di utilizzo",
     "termsAndConditions": "Termini e condizioni"
+  },
+  "adminPanel": {
+    "layout": {
+      "appSidebar": {
+        "miznex": "Miznex",
+        "dashboard": "Cruscotto",
+        "userManagement": "Gestione utenti",
+        "categoryManagement": "Gestione categorie",
+        "itemManagement": "Gestione articoli",
+        "orderManagement": "Gestione ordini",
+        "discountManagement": "Gestione sconti",
+        "ticketManagement": "Gestione ticket",
+        "commentManagement": "Gestione commenti",
+        "userMessageManagement": "Gestione messaggi utenti",
+        "blacklist": "Lista nera",
+        "restrictionManagement": "Gestione restrizioni"
+      }
+    },
+    "dashboard": {
+      "Qrcodes": {
+        "Statistics": {
+          "qr_scan": "Scansione codice QR",
+          "compared_to_last_month": "Rispetto al mese scorso",
+          "recent_visits": "Visite recenti",
+          "item_clicks": "Click sugli articoli",
+          "menu_views": "Visualizzazioni menu"
+        },
+        "QrcodeSections": {
+          "title": "Il tuo codice QR dedicato",
+          "copy": "Copia",
+          "print_code": "Stampa codice",
+          "share": "Condividi",
+          "description": {
+            "desc1": "Posiziona il codice QR su tavoli, pannelli o carte speciali affinché i clienti possano scansionarlo facilmente con i loro telefoni.",
+            "desc2": "I clienti aprono la fotocamera del telefono e scansionano il codice QR, che li indirizza automaticamente al menu digitale.",
+            "desc3": "Aggiorna il menu in qualsiasi momento nell'app e le modifiche saranno immediatamente visibili nel menu digitale e nel codice QR.",
+            "desc4": "Questo link viene utilizzato per condividere il menu del tuo caffè sui social media.",
+            "desc5": "Visualizza qui i report di scansione QR e visite al menu per capire quale menu o filiale è più utilizzato."
+          }
+        },
+        "FormSections": {
+          "title": "Informazioni sulla pagina di atterraggio",
+          "cafe_name_label": "Nome del caffè",
+          "cafe_name": "Javad Cafe",
+          "cafe_slogan_label": "Slogan del caffè",
+          "cafe_slogan": "Il miglior caffè della città",
+          "short_description_label": "Descrizione breve",
+          "short_description": "Javad Cafe, con oltre 10 anni di esperienza, offre i caffè più freschi e un ambiente accogliente e tranquillo.",
+          "working_hours_label": "Orari di lavoro",
+          "phone_number_label": "Numero di telefono",
+          "cafe_logo_label": "Logo del caffè",
+          "main_image_label": "Immagine principale del caffè",
+          "image_limit_note": "Dimensione massima 2 MB in formato PNG",
+          "save_changes": "Salva modifiche"
+        }
+      }
+    }
   }
 }

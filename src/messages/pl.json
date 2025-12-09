@@ -141,5 +141,62 @@
     "privacyPolicy": "Polityka prywatności",
     "termsOfUse": "Warunki korzystania",
     "termsAndConditions": "Regulamin"
+  },
+  "adminPanel": {
+    "layout": {
+      "appSidebar": {
+        "miznex": "Miznex",
+        "dashboard": "Panel główny",
+        "userManagement": "Zarządzanie użytkownikami",
+        "categoryManagement": "Zarządzanie kategoriami",
+        "itemManagement": "Zarządzanie przedmiotami",
+        "orderManagement": "Zarządzanie zamówieniami",
+        "discountManagement": "Zarządzanie rabatami",
+        "ticketManagement": "Zarządzanie zgłoszeniami",
+        "commentManagement": "Zarządzanie komentarzami",
+        "userMessageManagement": "Zarządzanie wiadomościami użytkowników",
+        "blacklist": "Czarna lista",
+        "restrictionManagement": "Zarządzanie ograniczeniami"
+      }
+    },
+    "dashboard": {
+      "Qrcodes": {
+        "Statistics": {
+          "qr_scan": "Skanowanie kodu QR",
+          "compared_to_last_month": "W porównaniu z zeszłym miesiącem",
+          "recent_visits": "Ostatnie wizyty",
+          "item_clicks": "Kliknięcia przedmiotów",
+          "menu_views": "Wyświetlenia menu"
+        },
+        "QrcodeSections": {
+          "title": "Twój dedykowany kod QR",
+          "copy": "Kopiuj",
+          "print_code": "Drukuj kod",
+          "share": "Udostępnij",
+          "description": {
+            "desc1": "Umieść kod QR na stołach, tablicach lub specjalnych kartach, aby klienci mogli go łatwo zeskanować swoimi telefonami.",
+            "desc2": "Klienci otwierają aparat w telefonie i skanują kod QR, który automatycznie przekierowuje ich do menu cyfrowego.",
+            "desc3": "Aktualizuj swoje menu w aplikacji w dowolnym momencie, a zmiany zostaną natychmiast odzwierciedlone w menu cyfrowym i kodzie QR.",
+            "desc4": "Ten link służy do udostępniania menu kawiarni w mediach społecznościowych.",
+            "desc5": "Przeglądaj tutaj raporty skanowania QR i odwiedzin menu, aby zrozumieć, które menu lub oddział jest częściej używany."
+          }
+        },
+        "FormSections": {
+          "title": "Informacje o stronie docelowej",
+          "cafe_name_label": "Nazwa kawiarni",
+          "cafe_name": "Javad Cafe",
+          "cafe_slogan_label": "Slogan kawiarni",
+          "cafe_slogan": "Najlepsza kawa w mieście",
+          "short_description_label": "Krótki opis",
+          "short_description": "Javad Cafe, z ponad 10-letnim doświadczeniem, oferuje najświeższą kawę oraz przytulne i spokojne otoczenie.",
+          "working_hours_label": "Godziny pracy",
+          "phone_number_label": "Numer telefonu",
+          "cafe_logo_label": "Logo kawiarni",
+          "main_image_label": "Główne zdjęcie kawiarni",
+          "image_limit_note": "Maksymalny rozmiar 2 MB w formacie PNG",
+          "save_changes": "Zapisz zmiany"
+        }
+      }
+    }
   }
 }

@@ -141,5 +141,62 @@
     "privacyPolicy": "Kebijakan Privasi",
     "termsOfUse": "Syarat Penggunaan",
     "termsAndConditions": "Syarat dan Ketentuan"
+  },
+  "adminPanel": {
+    "layout": {
+      "appSidebar": {
+        "miznex": "Miznex",
+        "dashboard": "Dasbor",
+        "userManagement": "Manajemen Pengguna",
+        "categoryManagement": "Manajemen Kategori",
+        "itemManagement": "Manajemen Item",
+        "orderManagement": "Manajemen Pesanan",
+        "discountManagement": "Manajemen Diskon",
+        "ticketManagement": "Manajemen Tiket",
+        "commentManagement": "Manajemen Komentar",
+        "userMessageManagement": "Manajemen Pesan Pengguna",
+        "blacklist": "Daftar Hitam",
+        "restrictionManagement": "Manajemen Pembatasan"
+      }
+    },
+    "dashboard": {
+      "Qrcodes": {
+        "Statistics": {
+          "qr_scan": "Pindai Kode QR",
+          "compared_to_last_month": "Dibandingkan dengan bulan lalu",
+          "recent_visits": "Kunjungan terbaru",
+          "item_clicks": "Klik item",
+          "menu_views": "Tampilan menu"
+        },
+        "QrcodeSections": {
+          "title": "Kode QR khusus Anda",
+          "copy": "Salin",
+          "print_code": "Cetak kode",
+          "share": "Bagikan",
+          "description": {
+            "desc1": "Tempatkan kode QR di meja, papan, atau kartu khusus sehingga pelanggan dapat memindainya dengan mudah menggunakan ponsel mereka.",
+            "desc2": "Pelanggan membuka kamera ponsel dan memindai kode QR, yang secara otomatis mengarahkan mereka ke menu digital.",
+            "desc3": "Perbarui menu kapan saja di aplikasi, dan perubahan akan langsung terlihat di menu digital dan kode QR.",
+            "desc4": "Tautan ini digunakan untuk membagikan menu kafe Anda di media sosial.",
+            "desc5": "Lihat laporan pemindaian QR dan kunjungan menu di sini untuk mengetahui menu atau cabang mana yang lebih sering digunakan."
+          }
+        },
+        "FormSections": {
+          "title": "Informasi halaman landing",
+          "cafe_name_label": "Nama kafe",
+          "cafe_name": "Kafe Javad",
+          "cafe_slogan_label": "Slogan kafe",
+          "cafe_slogan": "Kopi terbaik di kota",
+          "short_description_label": "Deskripsi singkat",
+          "short_description": "Kafe Javad, dengan pengalaman lebih dari 10 tahun, menawarkan kopi paling segar dan lingkungan yang nyaman dan tenang.",
+          "working_hours_label": "Jam kerja",
+          "phone_number_label": "Nomor telepon",
+          "cafe_logo_label": "Logo kafe",
+          "main_image_label": "Gambar utama kafe",
+          "image_limit_note": "Ukuran maksimum 2 MB dalam format PNG",
+          "save_changes": "Simpan perubahan"
+        }
+      }
+    }
   }
 }

@@ -141,5 +141,62 @@
     "privacyPolicy": "Datenschutzrichtlinie",
     "termsOfUse": "Nutzungsbedingungen",
     "termsAndConditions": "Allgemeine Geschäftsbedingungen"
+  },
+  "adminPanel": {
+    "layout": {
+      "appSidebar": {
+        "miznex": "Miznex",
+        "dashboard": "Dashboard",
+        "userManagement": "Benutzerverwaltung",
+        "categoryManagement": "Kategorieverwaltung",
+        "itemManagement": "Artikelverwaltung",
+        "orderManagement": "Bestellverwaltung",
+        "discountManagement": "Rabattverwaltung",
+        "ticketManagement": "Ticketverwaltung",
+        "commentManagement": "Kommentarverwaltung",
+        "userMessageManagement": "Benutzernachrichtenverwaltung",
+        "blacklist": "Blacklist",
+        "restrictionManagement": "Einschränkungsverwaltung"
+      }
+    },
+    "dashboard": {
+      "Qrcodes": {
+        "Statistics": {
+          "qr_scan": "QR-Code-Scan",
+          "compared_to_last_month": "Im Vergleich zum letzten Monat",
+          "recent_visits": "Letzte Besuche",
+          "item_clicks": "Artikelklicks",
+          "menu_views": "Menüansichten"
+        },
+        "QrcodeSections": {
+          "title": "Ihr zugewiesener QR-Code",
+          "copy": "Kopieren",
+          "print_code": "Code drucken",
+          "share": "Teilen",
+          "description": {
+            "desc1": "Platzieren Sie den QR-Code auf Tischen, Tafeln oder speziellen Karten, damit Kunden ihn leicht mit ihrem Handy scannen können.",
+            "desc2": "Kunden öffnen die Telefonkamera und scannen den QR-Code, der sie automatisch zum digitalen Menü weiterleitet.",
+            "desc3": "Aktualisieren Sie Ihr Menü jederzeit in der App. Die Änderungen werden sofort im digitalen Menü und QR-Code angezeigt.",
+            "desc4": "Dieser Link wird verwendet, um Ihr Café-Menü in den sozialen Medien zu teilen.",
+            "desc5": "Sehen Sie hier Berichte über QR-Scans und Menüaufrufe, um zu verstehen, welches Menü oder welche Filiale mehr genutzt wird."
+          }
+        },
+        "FormSections": {
+          "title": "Informationen zur Landingpage",
+          "cafe_name_label": "Name des Cafés",
+          "cafe_name": "Javad Cafe",
+          "cafe_slogan_label": "Café-Slogan",
+          "cafe_slogan": "Der beste Kaffee der Stadt",
+          "short_description_label": "Kurze Beschreibung",
+          "short_description": "Javad Café bietet mit über 10 Jahren Erfahrung die frischesten Kaffees sowie eine gemütliche und ruhige Atmosphäre.",
+          "working_hours_label": "Öffnungszeiten",
+          "phone_number_label": "Telefonnummer",
+          "cafe_logo_label": "Café-Logo",
+          "main_image_label": "Hauptbild des Cafés",
+          "image_limit_note": "Maximale Größe 2 MB im PNG-Format",
+          "save_changes": "Änderungen speichern"
+        }
+      }
+    }
   }
 }
