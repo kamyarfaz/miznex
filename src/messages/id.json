@@ -141,5 +141,33 @@
     "privacyPolicy": "Kebijakan Privasi",
     "termsOfUse": "Syarat Penggunaan",
     "termsAndConditions": "Syarat dan Ketentuan"
+  },
+  "adminLogin": {
+    "loginRegister": "Masuk / Daftar",
+    "enterEmail": "Silakan masukkan email Anda",
+    "sending": "Mengirim...",
+    "sendVerificationCode": "Kirim Kode Verifikasi",
+    "verifyEmail": "Verifikasi Email",
+    "codeSent": "Kode verifikasi telah dikirim ke email Anda",
+    "verifying": "Memverifikasi...",
+    "verify": "Verifikasi Email",
+    "resend": "Kirim ulang",
+    "completeProfile": "Lengkapi Profil",
+    "enterProfileInfo": "Silakan masukkan informasi pribadi Anda",
+    "firstName": "Nama Depan",
+    "lastName": "Nama Belakang",
+    "username": "Nama Pengguna",
+    "usernameNote": "Nama pengguna Anda akan muncul di tautan halaman Anda",
+    "submitting": "Mengirim...",
+    "submitInfo": "Kirim Informasi",
+    "usernameTaken": "Nama pengguna ini sudah digunakan",
+    "signupCodeSent": "Kode pendaftaran telah dikirim",
+    "loginCodeSent": "Kode login telah dikirim",
+    "loginCodeError": "Terjadi kesalahan saat mengirim kode login",
+    "codeSendError": "Terjadi kesalahan saat mengirim kode",
+    "verifyLoginCodeError": "Kesalahan saat memverifikasi kode login",
+    "verifyRegisterCodeError": "Kesalahan saat memverifikasi kode pendaftaran",
+    "registerSuccess": "Pendaftaran berhasil diselesaikan",
+    "registerFailed": "Pendaftaran gagal"
   }
 }

@@ -198,5 +198,33 @@
         }
       }
     }
+  },
+  "adminLogin": {
+    "loginRegister": "Login / Sign Up",
+    "enterEmail": "Please enter your email",
+    "sending": "Sending...",
+    "sendVerificationCode": "Send Verification Code",
+    "verifyEmail": "Verify Email",
+    "codeSent": "The verification code has been sent to your email",
+    "verifying": "Verifying...",
+    "verify": "Verify Email",
+    "resend": "Resend",
+    "completeProfile": "Complete Profile",
+    "enterProfileInfo": "Please enter your personal information",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "username": "Username",
+    "usernameNote": "Your username will appear in your page link",
+    "submitting": "Submitting...",
+    "submitInfo": "Submit Information",
+    "usernameTaken": "This username is already taken",
+    "signupCodeSent": "The sign-up code has been sent",
+    "loginCodeSent": "The login code has been sent",
+    "loginCodeError": "An error occurred while sending the login code",
+    "codeSendError": "An error occurred while sending the code",
+    "verifyLoginCodeError": "Error verifying the login code",
+    "verifyRegisterCodeError": "Error verifying the registration code",
+    "registerSuccess": "Registration completed successfully",
+    "registerFailed": "Registration failed"
   }
 }

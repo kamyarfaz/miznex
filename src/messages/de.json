@@ -141,5 +141,33 @@
     "privacyPolicy": "Datenschutzrichtlinie",
     "termsOfUse": "Nutzungsbedingungen",
     "termsAndConditions": "Allgemeine Geschäftsbedingungen"
+  },
+  "adminLogin": {
+    "loginRegister": "Anmelden / Registrieren",
+    "enterEmail": "Bitte geben Sie Ihre E-Mail-Adresse ein",
+    "sending": "Wird gesendet...",
+    "sendVerificationCode": "Bestätigungscode senden",
+    "verifyEmail": "E-Mail bestätigen",
+    "codeSent": "Der Bestätigungscode wurde an Ihre E-Mail gesendet",
+    "verifying": "Wird überprüft...",
+    "verify": "E-Mail bestätigen",
+    "resend": "Erneut senden",
+    "completeProfile": "Profil vervollständigen",
+    "enterProfileInfo": "Bitte geben Sie Ihre persönlichen Daten ein",
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "username": "Benutzername",
+    "usernameNote": "Ihr Benutzername erscheint in Ihrem Seitenlink",
+    "submitting": "Wird übermittelt...",
+    "submitInfo": "Informationen absenden",
+    "usernameTaken": "Dieser Benutzername ist bereits vergeben",
+    "signupCodeSent": "Der Registrierungscode wurde gesendet",
+    "loginCodeSent": "Der Anmeldecode wurde gesendet",
+    "loginCodeError": "Fehler beim Senden des Anmeldecodes",
+    "codeSendError": "Fehler beim Senden des Codes",
+    "verifyLoginCodeError": "Fehler bei der Verifizierung des Anmeldecodes",
+    "verifyRegisterCodeError": "Fehler bei der Verifizierung des Registrierungscodes",
+    "registerSuccess": "Registrierung erfolgreich abgeschlossen",
+    "registerFailed": "Registrierung fehlgeschlagen"
   }
 }

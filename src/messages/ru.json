@@ -141,5 +141,33 @@
     "privacyPolicy": "Политика конфиденциальности",
     "termsOfUse": "Условия использования",
     "termsAndConditions": "Условия и положения"
+  },
+  "adminLogin": {
+    "loginRegister": "Вход / Регистрация",
+    "enterEmail": "Пожалуйста, введите ваш e-mail",
+    "sending": "Отправка...",
+    "sendVerificationCode": "Отправить код подтверждения",
+    "verifyEmail": "Подтвердить e-mail",
+    "codeSent": "Код подтверждения отправлен на вашу почту",
+    "verifying": "Проверка...",
+    "verify": "Подтвердить e-mail",
+    "resend": "Отправить снова",
+    "completeProfile": "Завершить профиль",
+    "enterProfileInfo": "Пожалуйста, введите ваши личные данные",
+    "firstName": "Имя",
+    "lastName": "Фамилия",
+    "username": "Имя пользователя",
+    "usernameNote": "Ваше имя пользователя будет отображаться в ссылке на страницу",
+    "submitting": "Отправка...",
+    "submitInfo": "Отправить данные",
+    "usernameTaken": "Это имя пользователя уже занято",
+    "signupCodeSent": "Код регистрации отправлен",
+    "loginCodeSent": "Код входа отправлен",
+    "loginCodeError": "Ошибка при отправке кода входа",
+    "codeSendError": "Ошибка при отправке кода",
+    "verifyLoginCodeError": "Ошибка проверки кода входа",
+    "verifyRegisterCodeError": "Ошибка проверки кода регистрации",
+    "registerSuccess": "Регистрация успешно завершена",
+    "registerFailed": "Регистрация не удалась"
   }
 }

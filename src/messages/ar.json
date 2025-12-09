@@ -141,5 +141,33 @@
     "privacyPolicy": "سياسة الخصوصية",
     "termsOfUse": "شروط الاستخدام",
     "termsAndConditions": "الشروط والأحكام"
+  },
+  "adminLogin": {
+    "loginRegister": "تسجيل الدخول / إنشاء حساب",
+    "enterEmail": "يرجى إدخال بريدك الإلكتروني",
+    "sending": "جاري الإرسال...",
+    "sendVerificationCode": "إرسال رمز التحقق",
+    "verifyEmail": "تأكيد البريد الإلكتروني",
+    "codeSent": "تم إرسال رمز التحقق إلى بريدك الإلكتروني",
+    "verifying": "جاري التحقق...",
+    "verify": "تأكيد البريد الإلكتروني",
+    "resend": "إعادة الإرسال",
+    "completeProfile": "استكمال الملف الشخصي",
+    "enterProfileInfo": "يرجى إدخال معلوماتك الشخصية",
+    "firstName": "الاسم الأول",
+    "lastName": "اسم العائلة",
+    "username": "اسم المستخدم",
+    "usernameNote": "سيظهر اسم المستخدم في رابط صفحتك",
+    "submitting": "جاري التسجيل...",
+    "submitInfo": "تسجيل المعلومات",
+    "usernameTaken": "اسم المستخدم هذا مستخدم بالفعل",
+    "signupCodeSent": "تم إرسال رمز التسجيل",
+    "loginCodeSent": "تم إرسال رمز تسجيل الدخول",
+    "loginCodeError": "حدث خطأ أثناء إرسال رمز تسجيل الدخول",
+    "codeSendError": "حدث خطأ أثناء إرسال الرمز",
+    "verifyLoginCodeError": "خطأ في التحقق من رمز تسجيل الدخول",
+    "verifyRegisterCodeError": "خطأ في التحقق من رمز التسجيل",
+    "registerSuccess": "تم التسجيل بنجاح",
+    "registerFailed": "فشل التسجيل"
   }
 }

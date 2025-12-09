@@ -141,5 +141,33 @@
     "privacyPolicy": "Política de privacidade",
     "termsOfUse": "Termos de uso",
     "termsAndConditions": "Termos e condições"
+  },
+  "adminLogin": {
+    "loginRegister": "Login / Cadastro",
+    "enterEmail": "Por favor, insira seu e-mail",
+    "sending": "Enviando...",
+    "sendVerificationCode": "Enviar código de verificação",
+    "verifyEmail": "Verificar e-mail",
+    "codeSent": "O código de verificação foi enviado para seu e-mail",
+    "verifying": "Verificando...",
+    "verify": "Verificar e-mail",
+    "resend": "Reenviar",
+    "completeProfile": "Completar perfil",
+    "enterProfileInfo": "Por favor, insira suas informações pessoais",
+    "firstName": "Nome",
+    "lastName": "Sobrenome",
+    "username": "Nome de usuário",
+    "usernameNote": "Seu nome de usuário aparecerá no link da sua página",
+    "submitting": "Enviando...",
+    "submitInfo": "Enviar informações",
+    "usernameTaken": "Este nome de usuário já está em uso",
+    "signupCodeSent": "O código de cadastro foi enviado",
+    "loginCodeSent": "O código de login foi enviado",
+    "loginCodeError": "Erro ao enviar o código de login",
+    "codeSendError": "Erro ao enviar o código",
+    "verifyLoginCodeError": "Erro ao verificar o código de login",
+    "verifyRegisterCodeError": "Erro ao verificar o código de cadastro",
+    "registerSuccess": "Cadastro concluído com sucesso",
+    "registerFailed": "Falha no cadastro"
   }
 }

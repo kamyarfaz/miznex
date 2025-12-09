@@ -141,5 +141,33 @@
     "privacyPolicy": "隐私政策",
     "termsOfUse": "使用条款",
     "termsAndConditions": "条款和条件"
+  },
+  "adminLogin": {
+    "loginRegister": "登录 / 注册",
+    "enterEmail": "请输入您的电子邮箱",
+    "sending": "正在发送...",
+    "sendVerificationCode": "发送验证码",
+    "verifyEmail": "验证邮箱",
+    "codeSent": "验证码已发送至您的邮箱",
+    "verifying": "正在验证...",
+    "verify": "验证邮箱",
+    "resend": "重新发送",
+    "completeProfile": "完善资料",
+    "enterProfileInfo": "请填写您的个人信息",
+    "firstName": "名字",
+    "lastName": "姓氏",
+    "username": "用户名",
+    "usernameNote": "用户名将显示在您的页面链接中",
+    "submitting": "正在提交...",
+    "submitInfo": "提交信息",
+    "usernameTaken": "此用户名已被使用",
+    "signupCodeSent": "注册验证码已发送",
+    "loginCodeSent": "登录验证码已发送",
+    "loginCodeError": "发送登录验证码时出错",
+    "codeSendError": "发送验证码时出错",
+    "verifyLoginCodeError": "验证登录验证码时出错",
+    "verifyRegisterCodeError": "验证注册验证码时出错",
+    "registerSuccess": "注册成功",
+    "registerFailed": "注册失败"
   }
 }

@@ -657,5 +657,33 @@
         }
       }
     }
+  },
+  "adminLogin": {
+    "loginRegister": "ورود / ثبت نام",
+    "enterEmail": "لطفاً ایمیل خود را وارد کنید",
+    "sending": "در حال ارسال...",
+    "sendVerificationCode": "ارسال کد تأیید",
+    "verifyEmail": "تایید ایمیل",
+    "codeSent": "کد تایید به ایمیل ارسال شد",
+    "verifying": "در حال تایید...",
+    "verify": "تایید ایمیل",
+    "resend": "ارسال مجدد",
+    "completeProfile": "تکمیل پروفایل",
+    "enterProfileInfo": "لطفاً مشخصات خود را وارد کنید",
+    "firstName": "نام",
+    "lastName": "نام خانوادگی",
+    "username": "نام کاربری",
+    "usernameNote": "نام کاربری در لینک صفحه شما ثبت میشود",
+    "submitting": "در حال ثبت...",
+    "submitInfo": "ثبت اطلاعات",
+    "usernameTaken": "این نام کاربری قبلاً استفاده شده است",
+    "signupCodeSent": "کد ثبت نام ارسال شد",
+    "loginCodeSent": "کد ورود ارسال شد",
+    "loginCodeError": "خطا در ارسال کد ورود",
+    "codeSendError": "خطا در ارسال کد",
+    "verifyLoginCodeError": "خطا در وریفای کد ورود",
+    "verifyRegisterCodeError": "خطا در وریفای کد ثبت نام",
+    "registerSuccess": "ثبت نام با موفقیت انجام شد",
+    "registerFailed": "ثبت نام ناموفق بود"
   }
 }

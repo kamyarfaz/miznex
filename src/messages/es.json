@@ -141,5 +141,33 @@
     "privacyPolicy": "Política de privacidad",
     "termsOfUse": "Términos de uso",
     "termsAndConditions": "Términos y condiciones"
+  },
+  "adminLogin": {
+    "loginRegister": "Iniciar sesión / Registrarse",
+    "enterEmail": "Por favor, introduce tu correo electrónico",
+    "sending": "Enviando...",
+    "sendVerificationCode": "Enviar código de verificación",
+    "verifyEmail": "Verificar correo electrónico",
+    "codeSent": "El código de verificación ha sido enviado a tu correo",
+    "verifying": "Verificando...",
+    "verify": "Verificar correo electrónico",
+    "resend": "Reenviar",
+    "completeProfile": "Completar perfil",
+    "enterProfileInfo": "Por favor, introduce tu información personal",
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "username": "Nombre de usuario",
+    "usernameNote": "Tu nombre de usuario aparecerá en el enlace de tu página",
+    "submitting": "Enviando...",
+    "submitInfo": "Enviar información",
+    "usernameTaken": "Este nombre de usuario ya está en uso",
+    "signupCodeSent": "El código de registro ha sido enviado",
+    "loginCodeSent": "El código de inicio de sesión ha sido enviado",
+    "loginCodeError": "Error al enviar el código de inicio de sesión",
+    "codeSendError": "Error al enviar el código",
+    "verifyLoginCodeError": "Error al verificar el código de inicio de sesión",
+    "verifyRegisterCodeError": "Error al verificar el código de registro",
+    "registerSuccess": "Registro completado con éxito",
+    "registerFailed": "El registro ha fallado"
   }
 }

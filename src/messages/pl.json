@@ -141,5 +141,33 @@
     "privacyPolicy": "Polityka prywatności",
     "termsOfUse": "Warunki korzystania",
     "termsAndConditions": "Regulamin"
+  },
+  "adminLogin": {
+    "loginRegister": "Logowanie / Rejestracja",
+    "enterEmail": "Podaj swój adres e-mail",
+    "sending": "Wysyłanie...",
+    "sendVerificationCode": "Wyślij kod weryfikacyjny",
+    "verifyEmail": "Zweryfikuj e-mail",
+    "codeSent": "Kod weryfikacyjny został wysłany na Twój e-mail",
+    "verifying": "Weryfikacja...",
+    "verify": "Zweryfikuj e-mail",
+    "resend": "Wyślij ponownie",
+    "completeProfile": "Uzupełnij profil",
+    "enterProfileInfo": "Podaj swoje dane osobowe",
+    "firstName": "Imię",
+    "lastName": "Nazwisko",
+    "username": "Nazwa użytkownika",
+    "usernameNote": "Twoja nazwa użytkownika pojawi się w linku do strony",
+    "submitting": "Wysyłanie...",
+    "submitInfo": "Wyślij dane",
+    "usernameTaken": "Ta nazwa użytkownika jest już zajęta",
+    "signupCodeSent": "Kod rejestracji został wysłany",
+    "loginCodeSent": "Kod logowania został wysłany",
+    "loginCodeError": "Błąd podczas wysyłania kodu logowania",
+    "codeSendError": "Błąd podczas wysyłania kodu",
+    "verifyLoginCodeError": "Błąd weryfikacji kodu logowania",
+    "verifyRegisterCodeError": "Błąd weryfikacji kodu rejestracji",
+    "registerSuccess": "Rejestracja zakończona sukcesem",
+    "registerFailed": "Rejestracja nie powiodła się"
   }
 }

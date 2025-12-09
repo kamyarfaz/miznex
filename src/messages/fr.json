@@ -141,5 +141,33 @@
     "privacyPolicy": "Politique de confidentialité",
     "termsOfUse": "Conditions d'utilisation",
     "termsAndConditions": "Conditions générales"
+  },
+  "adminLogin": {
+    "loginRegister": "Connexion / Inscription",
+    "enterEmail": "Veuillez saisir votre adresse e-mail",
+    "sending": "Envoi en cours...",
+    "sendVerificationCode": "Envoyer le code de vérification",
+    "verifyEmail": "Vérifier l’e-mail",
+    "codeSent": "Le code de vérification a été envoyé à votre adresse e-mail",
+    "verifying": "Vérification en cours...",
+    "verify": "Vérifier l’e-mail",
+    "resend": "Renvoyer",
+    "completeProfile": "Compléter le profil",
+    "enterProfileInfo": "Veuillez saisir vos informations personnelles",
+    "firstName": "Prénom",
+    "lastName": "Nom de famille",
+    "username": "Nom d’utilisateur",
+    "usernameNote": "Votre nom d’utilisateur apparaîtra dans le lien de votre page",
+    "submitting": "Envoi en cours...",
+    "submitInfo": "Soumettre les informations",
+    "usernameTaken": "Ce nom d’utilisateur est déjà pris",
+    "signupCodeSent": "Le code d’inscription a été envoyé",
+    "loginCodeSent": "Le code de connexion a été envoyé",
+    "loginCodeError": "Erreur lors de l’envoi du code de connexion",
+    "codeSendError": "Erreur lors de l’envoi du code",
+    "verifyLoginCodeError": "Erreur lors de la vérification du code de connexion",
+    "verifyRegisterCodeError": "Erreur lors de la vérification du code d’inscription",
+    "registerSuccess": "Inscription réussie",
+    "registerFailed": "L’inscription a échoué"
   }
 }

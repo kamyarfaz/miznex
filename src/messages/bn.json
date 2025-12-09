@@ -141,5 +141,33 @@
     "privacyPolicy": "গোপনীয়তা নীতি",
     "termsOfUse": "ব্যবহারের শর্তাবলী",
     "termsAndConditions": "শর্তাবলী এবং নিয়মাবলী"
+  },
+  "adminLogin": {
+    "loginRegister": "লগইন / সাইন আপ",
+    "enterEmail": "অনুগ্রহ করে আপনার ইমেইল লিখুন",
+    "sending": "পাঠানো হচ্ছে...",
+    "sendVerificationCode": "ভেরিফিকেশন কোড পাঠান",
+    "verifyEmail": "ইমেইল যাচাই করুন",
+    "codeSent": "ভেরিফিকেশন কোড আপনার ইমেইলে পাঠানো হয়েছে",
+    "verifying": "যাচাই করা হচ্ছে...",
+    "verify": "ইমেইল যাচাই করুন",
+    "resend": "আবার পাঠান",
+    "completeProfile": "প্রোফাইল সম্পূর্ণ করুন",
+    "enterProfileInfo": "অনুগ্রহ করে আপনার ব্যক্তিগত তথ্য প্রদান করুন",
+    "firstName": "নামের প্রথম অংশ",
+    "lastName": "পারিবারিক নাম",
+    "username": "ইউজারনেম",
+    "usernameNote": "আপনার ইউজারনেম আপনার পেজের লিঙ্কে দেখাবে",
+    "submitting": "জমা দেওয়া হচ্ছে...",
+    "submitInfo": "তথ্য জমা দিন",
+    "usernameTaken": "এই ইউজারনেমটি ইতিমধ্যে নেওয়া হয়েছে",
+    "signupCodeSent": "সাইন-আপ কোড পাঠানো হয়েছে",
+    "loginCodeSent": "লগইন কোড পাঠানো হয়েছে",
+    "loginCodeError": "লগইন কোড পাঠাতে ত্রুটি হয়েছে",
+    "codeSendError": "কোড পাঠাতে ত্রুটি হয়েছে",
+    "verifyLoginCodeError": "লগইন কোড যাচাই করতে ত্রুটি",
+    "verifyRegisterCodeError": "রেজিস্ট্রেশন কোড যাচাই করতে ত্রুটি",
+    "registerSuccess": "রেজিস্ট্রেশন সফলভাবে সম্পন্ন হয়েছে",
+    "registerFailed": "রেজিস্ট্রেশন ব্যর্থ হয়েছে"
   }
 }

@@ -141,5 +141,33 @@
     "privacyPolicy": "プライバシーポリシー",
     "termsOfUse": "利用規約",
     "termsAndConditions": "利用規約"
+  },
+  "adminLogin": {
+    "loginRegister": "ログイン / 登録",
+    "enterEmail": "メールアドレスを入力してください",
+    "sending": "送信中...",
+    "sendVerificationCode": "認証コードを送信",
+    "verifyEmail": "メールアドレスを確認",
+    "codeSent": "認証コードをメールアドレスに送信しました",
+    "verifying": "確認中...",
+    "verify": "メールアドレスを確認",
+    "resend": "再送信",
+    "completeProfile": "プロフィールを完成させる",
+    "enterProfileInfo": "個人情報を入力してください",
+    "firstName": "名",
+    "lastName": "姓",
+    "username": "ユーザー名",
+    "usernameNote": "ユーザー名はページのURLに表示されます",
+    "submitting": "送信中...",
+    "submitInfo": "情報を送信",
+    "usernameTaken": "このユーザー名はすでに使用されています",
+    "signupCodeSent": "登録コードを送信しました",
+    "loginCodeSent": "ログインコードを送信しました",
+    "loginCodeError": "ログインコードの送信中にエラーが発生しました",
+    "codeSendError": "コードの送信中にエラーが発生しました",
+    "verifyLoginCodeError": "ログインコードの検証中にエラーが発生しました",
+    "verifyRegisterCodeError": "登録コードの検証中にエラーが発生しました",
+    "registerSuccess": "登録が正常に完了しました",
+    "registerFailed": "登録に失敗しました"
   }
 }

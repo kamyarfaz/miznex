@@ -7,8 +7,8 @@ import { Mail, LogIn } from "lucide-react";
 import { cn } from "@/utils/utils";
 import { EmailInputFormProps } from "@/types/main";
 import { emailSchema } from "@/schemas";
-import { useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslations } from "next-intl";
 
 export const EmailInputForm: React.FC<EmailInputFormProps> = ({
   onSubmit,
@@ -25,6 +25,7 @@ export const EmailInputForm: React.FC<EmailInputFormProps> = ({
     mode: "onChange",
   });
 
+  const t = useTranslations("adminLogin");
   const emailValue = useWatch({ name: "email", control });
 
   const handleFormSubmit = (data: { email: string }) => {
@@ -35,10 +36,10 @@ export const EmailInputForm: React.FC<EmailInputFormProps> = ({
     <div className="space-y-3">
       <div className="text-center space-y-2">
         <h2 className="text-2xl font-bold text-action mb-3">
-          ورود / ثبت نام
+          {t("loginRegister")}
         </h2>
         <p className="text-headings text-base">
-          لطفاً ایمیل خود را وارد کنید
+          {t("enterEmail")}
         </p>
       </div>
 
@@ -78,7 +79,7 @@ export const EmailInputForm: React.FC<EmailInputFormProps> = ({
           )}
         >
           <LogIn className="w-6 h-6 ml-2" />
-          {isLoading ? "در حال ارسال..." : "ارسال کد تأیید"}
+          {isLoading ? t("sending") : t("sendVerificationCode")}
         </Button>
       </form>
     </div>

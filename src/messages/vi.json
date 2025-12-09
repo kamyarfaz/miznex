@@ -141,5 +141,33 @@
     "privacyPolicy": "Chính sách bảo mật",
     "termsOfUse": "Điều khoản sử dụng",
     "termsAndConditions": "Điều khoản và điều kiện"
+  },
+  "adminLogin": {
+    "loginRegister": "Đăng nhập / Đăng ký",
+    "enterEmail": "Vui lòng nhập email của bạn",
+    "sending": "Đang gửi...",
+    "sendVerificationCode": "Gửi mã xác minh",
+    "verifyEmail": "Xác minh email",
+    "codeSent": "Mã xác minh đã được gửi đến email của bạn",
+    "verifying": "Đang xác minh...",
+    "verify": "Xác minh email",
+    "resend": "Gửi lại",
+    "completeProfile": "Hoàn tất hồ sơ",
+    "enterProfileInfo": "Vui lòng nhập thông tin cá nhân của bạn",
+    "firstName": "Tên",
+    "lastName": "Họ",
+    "username": "Tên người dùng",
+    "usernameNote": "Tên người dùng sẽ hiển thị trong liên kết trang của bạn",
+    "submitting": "Đang gửi...",
+    "submitInfo": "Gửi thông tin",
+    "usernameTaken": "Tên người dùng này đã được sử dụng",
+    "signupCodeSent": "Mã đăng ký đã được gửi",
+    "loginCodeSent": "Mã đăng nhập đã được gửi",
+    "loginCodeError": "Lỗi khi gửi mã đăng nhập",
+    "codeSendError": "Lỗi khi gửi mã",
+    "verifyLoginCodeError": "Lỗi xác minh mã đăng nhập",
+    "verifyRegisterCodeError": "Lỗi xác minh mã đăng ký",
+    "registerSuccess": "Đăng ký thành công",
+    "registerFailed": "Đăng ký thất bại"
   }
 }

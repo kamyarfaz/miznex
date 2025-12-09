@@ -141,5 +141,33 @@
     "privacyPolicy": "Gizlilik Politikası",
     "termsOfUse": "Kullanım Şartları",
     "termsAndConditions": "Şartlar ve Koşullar"
+  },
+  "adminLogin": {
+    "loginRegister": "Giriş / Kayıt Ol",
+    "enterEmail": "Lütfen e-posta adresinizi girin",
+    "sending": "Gönderiliyor...",
+    "sendVerificationCode": "Doğrulama kodunu gönder",
+    "verifyEmail": "E-postayı doğrula",
+    "codeSent": "Doğrulama kodu e-postanıza gönderildi",
+    "verifying": "Doğrulanıyor...",
+    "verify": "E-postayı doğrula",
+    "resend": "Yeniden gönder",
+    "completeProfile": "Profili tamamla",
+    "enterProfileInfo": "Lütfen kişisel bilgilerinizi girin",
+    "firstName": "Ad",
+    "lastName": "Soyad",
+    "username": "Kullanıcı adı",
+    "usernameNote": "Kullanıcı adınız sayfa bağlantınızda görünecek",
+    "submitting": "Gönderiliyor...",
+    "submitInfo": "Bilgileri gönder",
+    "usernameTaken": "Bu kullanıcı adı zaten alınmış",
+    "signupCodeSent": "Kayıt kodu gönderildi",
+    "loginCodeSent": "Giriş kodu gönderildi",
+    "loginCodeError": "Giriş kodu gönderilirken hata oluştu",
+    "codeSendError": "Kod gönderilirken hata oluştu",
+    "verifyLoginCodeError": "Giriş kodu doğrulanırken hata oluştu",
+    "verifyRegisterCodeError": "Kayıt kodu doğrulanırken hata oluştu",
+    "registerSuccess": "Kayıt başarıyla tamamlandı",
+    "registerFailed": "Kayıt başarısız oldu"
   }
 }

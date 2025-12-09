@@ -13,6 +13,7 @@ import { CheckCircle2 } from "lucide-react";
 import { verifyCodeSchema } from "@/schemas";
 import { cn } from "@/utils/utils";
 import { VerifyEmailFormProps } from "@/types/main";
+import { useTranslations } from "next-intl";
 
 export const VerifyEmailForm: React.FC<VerifyEmailFormProps> = ({
   email,
@@ -29,21 +30,21 @@ export const VerifyEmailForm: React.FC<VerifyEmailFormProps> = ({
     mode: "onChange",
   });
 
+  const t = useTranslations("adminLogin");
   const codeValue = watch("code", "");
 
   const handleFormSubmit = (data: { code: string }) => {
     onSubmit(data.code ,isExistingUser);
-    console.log(data.code , "code");
   };
 
   return (
     <div className="space-y-3">
       <div className="text-center space-y-2">
         <h2 className="text-2xl font-bold text-action mb-3">
-          تایید ایمیل
+          {t("verifyEmail")}
         </h2>
         <p className="text-headings text-base">
-          کد تایید به ایمیل ارسال شد
+          {t("codeSent")}
         </p>
       </div>
 
@@ -88,7 +89,7 @@ export const VerifyEmailForm: React.FC<VerifyEmailFormProps> = ({
           )}
         >
           <CheckCircle2 className="w-5 h-5 ml-2" />
-          {isLoading ? "در حال تایید..." : "تایید ایمیل"}
+          {isLoading ? t("verifying") : t("verify")}
         </Button>
 
         <Button
@@ -99,8 +100,8 @@ export const VerifyEmailForm: React.FC<VerifyEmailFormProps> = ({
           className="w-full h-10"
         >
           {resendTimer > 0
-            ? `ارسال مجدد (${formatTime(resendTimer)})`
-            : "ارسال مجدد"}
+            ? `${t("resend")} (${formatTime(resendTimer)})`
+            : t("resend")}
         </Button>
       </form>
     </div>

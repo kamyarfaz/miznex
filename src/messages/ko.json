@@ -141,5 +141,33 @@
     "privacyPolicy": "개인정보 보호정책",
     "termsOfUse": "이용 약관",
     "termsAndConditions": "약관 및 조건"
+  },
+  "adminLogin": {
+    "loginRegister": "로그인 / 회원가입",
+    "enterEmail": "이메일을 입력해 주세요",
+    "sending": "전송 중...",
+    "sendVerificationCode": "인증 코드 보내기",
+    "verifyEmail": "이메일 인증",
+    "codeSent": "인증 코드가 이메일로 전송되었습니다",
+    "verifying": "확인 중...",
+    "verify": "이메일 인증",
+    "resend": "재전송",
+    "completeProfile": "프로필 완성하기",
+    "enterProfileInfo": "개인 정보를 입력해 주세요",
+    "firstName": "이름",
+    "lastName": "성",
+    "username": "사용자 이름",
+    "usernameNote": "사용자 이름은 페이지 링크에 표시됩니다",
+    "submitting": "제출 중...",
+    "submitInfo": "정보 제출",
+    "usernameTaken": "이 사용자 이름은 이미 사용 중입니다",
+    "signupCodeSent": "회원가입 코드가 전송되었습니다",
+    "loginCodeSent": "로그인 코드가 전송되었습니다",
+    "loginCodeError": "로그인 코드 전송 중 오류가 발생했습니다",
+    "codeSendError": "코드 전송 중 오류가 발생했습니다",
+    "verifyLoginCodeError": "로그인 코드 확인 중 오류 발생",
+    "verifyRegisterCodeError": "회원가입 코드 확인 중 오류 발생",
+    "registerSuccess": "회원가입이 성공적으로 완료되었습니다",
+    "registerFailed": "회원가입에 실패했습니다"
   }
 }
