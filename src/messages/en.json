@@ -144,20 +144,59 @@
   },
   "adminPanel": {
     "layout": {
-        "appSidebar": {
-            "miznex": "Miznex",
-            "dashboard": "Dashboard",
-            "userManagement": "User Management",
-            "categoryManagement": "Category Management",
-            "itemManagement": "Item Management",
-            "orderManagement": "Order Management",
-            "discountManagement": "Discount Management",
-            "ticketManagement": "Ticket Management",
-            "commentManagement": "Comment Management",
-            "userMessageManagement": "User Message Management",
-            "blacklist": "Blacklist",
-            "restrictionManagement": "Restriction Management"
+      "appSidebar": {
+        "miznex": "Miznex",
+        "dashboard": "Dashboard",
+        "userManagement": "User Management",
+        "categoryManagement": "Category Management",
+        "itemManagement": "Item Management",
+        "orderManagement": "Order Management",
+        "discountManagement": "Discount Management",
+        "ticketManagement": "Ticket Management",
+        "commentManagement": "Comment Management",
+        "userMessageManagement": "User Message Management",
+        "blacklist": "Blacklist",
+        "restrictionManagement": "Restriction Management"
+      }
+    },
+    "dashboard": {
+      "Qrcodes": {
+        "Statistics": {
+          "qr_scan": "QR Code Scan",
+          "compared_to_last_month": "Compared to last month",
+          "recent_visits": "Recent visits",
+          "item_clicks": "Item clicks",
+          "menu_views": "Menu views"
+        },
+        "QrcodeSections": {
+          "title": "Your dedicated QR Code",
+          "copy": "Copy",
+          "print_code": "Print code",
+          "share": "Share",
+          "description": {
+            "desc1": "Place the QR code on tables, boards, or special cards so customers can easily scan it with their mobile phones.",
+            "desc2": "Customers open their phone camera and scan the QR code, which automatically directs them to the digital menu.",
+            "desc3": "Update your menu anytime in the app, and the changes will instantly be reflected in the digital menu and QR code.",
+            "desc4": "This link is used to share your café menu on social media.",
+            "desc5": "View QR scan and menu visit reports here to understand which menu or branch is used more."
+          }
+        },
+        "FormSections": {
+          "title": "Landing page information",
+          "cafe_name_label": "Cafe name",
+          "cafe_name": "Javad Cafe",
+          "cafe_slogan_label": "Cafe slogan",
+          "cafe_slogan": "The best coffee in town",
+          "short_description_label": "Short description",
+          "short_description": "Javad Cafe, with over 10 years of experience, offers the freshest coffees and a cozy, calm environment.",
+          "working_hours_label": "Working hours",
+          "phone_number_label": "Phone number",
+          "cafe_logo_label": "Cafe logo",
+          "main_image_label": "Main cafe image",
+          "image_limit_note": "Maximum size 2 MB in PNG format",
+          "save_changes": "Save changes"
         }
+      }
     }
-}
+  }
 }

@@ -28,32 +28,31 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
+import { useTranslations } from "next-intl";
+
 export function QrcodeSections() {
+  const t = useTranslations("adminPanel");
+
   const QrActions = [
     {
       id: "1",
-      title:
-        "کد QR را روی میزها، تابلوها یا کارت‌های مخصوص قرار دهید تا مشتریان بتوانند به آسانی با گوشی همراه خود آن را اسکن کنند.",
+      title: t("dashboard.Qrcodes.QrcodeSections.description.desc1"),
     },
     {
       id: "2",
-      title:
-        "مشتریان دوربین موبایل خود را باز کرده و QR code را اسکن می‌کنند که به صورت خودکار به منوی دیجیتال هدایت خواهند شد.",
+      title: t("dashboard.Qrcodes.QrcodeSections.description.desc2"),
     },
     {
       id: "3",
-      title:
-        "هر زمان نیاز بود، منوی خود را در اپلیکیشن به‌روزرسانی کنید و تغییرات به شکل آنی در منوی دیجیتال و QR code اعمال خواهد شد.",
+      title: t("dashboard.Qrcodes.QrcodeSections.description.desc3"),
     },
     {
       id: "4",
-      title:
-        "این لینک برای اشتراک گذاری منوی کافه شما در شبکه‌های اجتماعی استفاده می‌شود.",
+      title: t("dashboard.Qrcodes.QrcodeSections.description.desc4"),
     },
     {
       id: "5",
-      title:
-        "گزارش اسکن و بازدید منو را در این بخش ببینید تا بفهمید کدام منو یا شعبه بیشتر استفاده می‌شود.",
+      title: t("dashboard.Qrcodes.QrcodeSections.description.desc5"),
     },
   ];
 
@@ -64,7 +63,7 @@ export function QrcodeSections() {
           <div className="flex items-center gap-3">
             <div className="space-y-1">
               <CardTitle className="text-medium font-semibold text-gray-800 dark:text-white">
-                QR Code اختصاصی شما
+                {t("dashboard.Qrcodes.QrcodeSections.title")}
               </CardTitle>
             </div>
           </div>
@@ -82,14 +81,14 @@ export function QrcodeSections() {
                 className="border text-slate-500 bg-white/90 dark:bg-gray-900 w-full py-1 px-4 transition-all duration-300 rounded-lg flex  items-center"
               >
                 <Printer size={18} className="text-slate-500" />
-                چاپ کد
+                {t("dashboard.Qrcodes.QrcodeSections.print_code")}
               </Button>
               <Button
                 variant="outline"
                 className="border text-slate-500 bg-white/90 dark:bg-gray-900 w-full mt-2 py-1 px-4 transition-all duration-300 rounded-lg flex  items-center"
               >
                 <Share2 size={18} className="text-slate-500" />
-                اشتراک گذاری
+                {t("dashboard.Qrcodes.QrcodeSections.share")}
               </Button>
             </div>
           </div>
@@ -106,7 +105,7 @@ export function QrcodeSections() {
                 className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 ml-2 hover:to-orange-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 py-1 rounded-lg flex w-20 items-center gap-2"
               >
                 <Copy size={16} />
-                کپی
+                {t("dashboard.Qrcodes.QrcodeSections.copy")}
               </Button>
             </div>
 
