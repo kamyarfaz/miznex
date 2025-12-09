@@ -28,7 +28,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-export function UsersMetrics() {
+export function QrcodeSections() {
   const QrActions = [
     {
       id: "1",

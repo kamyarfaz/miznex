@@ -1,3 +1,3 @@
 export { Statistics } from "./Statistics";
-export { UsersMetrics } from "./UsersMetrics";
+export { QrcodeSections } from "./QrcodeSections";
 export { FormSections } from "./FormSections";

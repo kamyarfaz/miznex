@@ -11,8 +11,8 @@ const Statistics = dynamic(() =>
   import("./components").then((mod) => mod.Statistics)
 );
 
-const UsersMetrics = dynamic(() =>
-  import("./components").then((mod) => mod.UsersMetrics)
+const QrcodeSections = dynamic(() =>
+  import("./components").then((mod) => mod.QrcodeSections)
 );
 
 const FormSections = dynamic(() =>
@@ -170,7 +170,7 @@ export default function Overview() {
         </div>
 
         <div className="col-span-12">
-          {isLoading ? <UsersMetricsSkeleton /> : <UsersMetrics />}
+          {isLoading ? <UsersMetricsSkeleton /> : <QrcodeSections />}
         </div>
 
         <div className="col-span-6">
