@@ -169,5 +169,62 @@
     "verifyRegisterCodeError": "Kayıt kodu doğrulanırken hata oluştu",
     "registerSuccess": "Kayıt başarıyla tamamlandı",
     "registerFailed": "Kayıt başarısız oldu"
+  },
+  "adminPanel": {
+    "layout": {
+      "appSidebar": {
+        "miznex": "Miznex",
+        "dashboard": "Gösterge Paneli",
+        "userManagement": "Kullanıcı Yönetimi",
+        "categoryManagement": "Kategori Yönetimi",
+        "itemManagement": "Ürün Yönetimi",
+        "orderManagement": "Sipariş Yönetimi",
+        "discountManagement": "İndirim Yönetimi",
+        "ticketManagement": "Bilet Yönetimi",
+        "commentManagement": "Yorum Yönetimi",
+        "userMessageManagement": "Kullanıcı Mesaj Yönetimi",
+        "blacklist": "Kara Liste",
+        "restrictionManagement": "Kısıtlama Yönetimi"
+      }
+    },
+    "dashboard": {
+      "Qrcodes": {
+        "Statistics": {
+          "qr_scan": "QR Kod Tarama",
+          "compared_to_last_month": "Geçen aya kıyasla",
+          "recent_visits": "Son Ziyaretler",
+          "item_clicks": "Ürün Tıklamaları",
+          "menu_views": "Menü Görüntülemeleri"
+        },
+        "QrcodeSections": {
+          "title": "Özel QR Kodunuz",
+          "copy": "Kopyala",
+          "print_code": "Kodu Yazdır",
+          "share": "Paylaş",
+          "description": {
+            "desc1": "QR kodunu masalara, panolara veya özel kartlara yerleştirin, böylece müşteriler mobil cihazlarıyla kolayca tarayabilir.",
+            "desc2": "Müşteriler telefon kameralarını açar ve QR kodunu tarar, bu otomatik olarak onları dijital menüye yönlendirir.",
+            "desc3": "Menünüzü uygulamada istediğiniz zaman güncelleyin ve değişiklikler anında dijital menü ve QR koduna yansır.",
+            "desc4": "Bu bağlantı, kafenizin menüsünü sosyal medyada paylaşmak için kullanılır.",
+            "desc5": "Hangi menü veya şubenin daha çok kullanıldığını anlamak için QR tarama ve menü ziyaret raporlarını burada görüntüleyin."
+          }
+        },
+        "FormSections": {
+          "title": "Landing sayfa bilgileri",
+          "cafe_name_label": "Kafe adı",
+          "cafe_name": "Javad Cafe",
+          "cafe_slogan_label": "Kafe sloganı",
+          "cafe_slogan": "Şehirdeki en iyi kahve",
+          "short_description_label": "Kısa açıklama",
+          "short_description": "Javad Cafe, 10 yılı aşkın deneyimiyle en taze kahveleri ve rahat, sakin bir ortam sunar.",
+          "working_hours_label": "Çalışma saatleri",
+          "phone_number_label": "Telefon numarası",
+          "cafe_logo_label": "Kafe logosu",
+          "main_image_label": "Ana kafe resmi",
+          "image_limit_note": "Maksimum boyut 2 MB, PNG formatında",
+          "save_changes": "Değişiklikleri kaydet"
+        }
+      }
+    }
   }
 }

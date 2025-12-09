@@ -102,7 +102,7 @@ export function QrcodeSections() {
 
               <Button
                 variant="outline"
-                className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 ml-2 hover:to-orange-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 py-1 rounded-lg flex w-20 items-center gap-2"
+                className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 ml-2 hover:to-orange-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 py-1 rounded-lg flex w-auto items-center gap-2"
               >
                 <Copy size={16} />
                 {t("dashboard.Qrcodes.QrcodeSections.copy")}

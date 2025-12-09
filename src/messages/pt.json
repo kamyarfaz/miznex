@@ -169,5 +169,62 @@
     "verifyRegisterCodeError": "Erro ao verificar o código de cadastro",
     "registerSuccess": "Cadastro concluído com sucesso",
     "registerFailed": "Falha no cadastro"
+  },
+  "adminPanel": {
+    "layout": {
+      "appSidebar": {
+        "miznex": "Miznex",
+        "dashboard": "Painel de Controle",
+        "userManagement": "Gerenciamento de Usuários",
+        "categoryManagement": "Gerenciamento de Categorias",
+        "itemManagement": "Gerenciamento de Itens",
+        "orderManagement": "Gerenciamento de Pedidos",
+        "discountManagement": "Gerenciamento de Descontos",
+        "ticketManagement": "Gerenciamento de Tickets",
+        "commentManagement": "Gerenciamento de Comentários",
+        "userMessageManagement": "Gerenciamento de Mensagens de Usuário",
+        "blacklist": "Lista Negra",
+        "restrictionManagement": "Gerenciamento de Restrições"
+      }
+    },
+    "dashboard": {
+      "Qrcodes": {
+        "Statistics": {
+          "qr_scan": "Escaneamento de Código QR",
+          "compared_to_last_month": "Comparado ao mês passado",
+          "recent_visits": "Visitas recentes",
+          "item_clicks": "Cliques em itens",
+          "menu_views": "Visualizações do menu"
+        },
+        "QrcodeSections": {
+          "title": "Seu Código QR dedicado",
+          "copy": "Copiar",
+          "print_code": "Imprimir código",
+          "share": "Compartilhar",
+          "description": {
+            "desc1": "Coloque o código QR em mesas, quadros ou cartões especiais para que os clientes possam escaneá-lo facilmente com seus celulares.",
+            "desc2": "Os clientes abrem a câmera do telefone e escaneiam o código QR, que os direciona automaticamente para o menu digital.",
+            "desc3": "Atualize seu menu a qualquer momento no aplicativo, e as mudanças serão refletidas instantaneamente no menu digital e no código QR.",
+            "desc4": "Este link é usado para compartilhar o menu do seu café nas redes sociais.",
+            "desc5": "Visualize aqui os relatórios de escaneamento do QR e de visitas ao menu para entender qual menu ou filial é mais utilizado."
+          }
+        },
+        "FormSections": {
+          "title": "Informações da página inicial",
+          "cafe_name_label": "Nome do café",
+          "cafe_name": "Javad Cafe",
+          "cafe_slogan_label": "Slogan do café",
+          "cafe_slogan": "O melhor café da cidade",
+          "short_description_label": "Descrição curta",
+          "short_description": "Javad Cafe, com mais de 10 anos de experiência, oferece os cafés mais frescos e um ambiente acolhedor e tranquilo.",
+          "working_hours_label": "Horário de funcionamento",
+          "phone_number_label": "Número de telefone",
+          "cafe_logo_label": "Logo do café",
+          "main_image_label": "Imagem principal do café",
+          "image_limit_note": "Tamanho máximo 2 MB em formato PNG",
+          "save_changes": "Salvar alterações"
+        }
+      }
+    }
   }
 }

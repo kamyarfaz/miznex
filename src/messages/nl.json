@@ -169,5 +169,62 @@
     "verifyRegisterCodeError": "Fout bij het verifiëren van de registratiecode",
     "registerSuccess": "Registratie succesvol afgerond",
     "registerFailed": "Registratie mislukt"
+  },
+  "adminPanel": {
+    "layout": {
+      "appSidebar": {
+        "miznex": "Miznex",
+        "dashboard": "Dashboard",
+        "userManagement": "Gebruikersbeheer",
+        "categoryManagement": "Categoriebeheer",
+        "itemManagement": "Itembeheer",
+        "orderManagement": "Bestelbeheer",
+        "discountManagement": "Kortingsbeheer",
+        "ticketManagement": "Ticketbeheer",
+        "commentManagement": "Reactiebeheer",
+        "userMessageManagement": "Gebruikersberichtbeheer",
+        "blacklist": "Zwarte lijst",
+        "restrictionManagement": "Beperkingenbeheer"
+      }
+    },
+    "dashboard": {
+      "Qrcodes": {
+        "Statistics": {
+          "qr_scan": "QR-code scannen",
+          "compared_to_last_month": "Vergeleken met vorige maand",
+          "recent_visits": "Recente bezoeken",
+          "item_clicks": "Item klikken",
+          "menu_views": "Menuweergaven"
+        },
+        "QrcodeSections": {
+          "title": "Uw toegewezen QR-code",
+          "copy": "Kopiëren",
+          "print_code": "Code afdrukken",
+          "share": "Delen",
+          "description": {
+            "desc1": "Plaats de QR-code op tafels, borden of speciale kaarten zodat klanten deze eenvoudig met hun mobiele telefoon kunnen scannen.",
+            "desc2": "Klanten openen hun telefooncamera en scannen de QR-code, die hen automatisch naar het digitale menu leidt.",
+            "desc3": "Werk uw menu op elk moment bij in de app en de wijzigingen worden direct weergegeven in het digitale menu en de QR-code.",
+            "desc4": "Deze link wordt gebruikt om uw cafémenu op sociale media te delen.",
+            "desc5": "Bekijk hier QR-scan- en menubezoekrapporten om te begrijpen welk menu of welke vestiging vaker wordt gebruikt."
+          }
+        },
+        "FormSections": {
+          "title": "Informatie van de landingspagina",
+          "cafe_name_label": "Naam van het café",
+          "cafe_name": "Javad Cafe",
+          "cafe_slogan_label": "Café slogan",
+          "cafe_slogan": "De beste koffie in de stad",
+          "short_description_label": "Korte beschrijving",
+          "short_description": "Javad Cafe, met meer dan 10 jaar ervaring, biedt de meest verse koffie en een gezellige, rustige omgeving.",
+          "working_hours_label": "Werkuren",
+          "phone_number_label": "Telefoonnummer",
+          "cafe_logo_label": "Cafélogo",
+          "main_image_label": "Hoofdafbeelding van het café",
+          "image_limit_note": "Maximale grootte 2 MB in PNG-formaat",
+          "save_changes": "Wijzigingen opslaan"
+        }
+      }
+    }
   }
 }

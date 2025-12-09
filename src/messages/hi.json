@@ -169,5 +169,62 @@
     "verifyRegisterCodeError": "पंजीकरण कोड सत्यापित करने में त्रुटि",
     "registerSuccess": "पंजीकरण सफलतापूर्वक पूरा हुआ",
     "registerFailed": "पंजीकरण विफल रहा"
+  },
+  "adminPanel": {
+    "layout": {
+      "appSidebar": {
+        "miznex": "Miznex",
+        "dashboard": "डैशबोर्ड",
+        "userManagement": "उपयोगकर्ता प्रबंधन",
+        "categoryManagement": "श्रेणी प्रबंधन",
+        "itemManagement": "आइटम प्रबंधन",
+        "orderManagement": "ऑर्डर प्रबंधन",
+        "discountManagement": "छूट प्रबंधन",
+        "ticketManagement": "टिकट प्रबंधन",
+        "commentManagement": "टिप्पणी प्रबंधन",
+        "userMessageManagement": "उपयोगकर्ता संदेश प्रबंधन",
+        "blacklist": "ब्लैकलिस्ट",
+        "restrictionManagement": "प्रतिबंध प्रबंधन"
+      }
+    },
+    "dashboard": {
+      "Qrcodes": {
+        "Statistics": {
+          "qr_scan": "क्यूआर कोड स्कैन",
+          "compared_to_last_month": "पिछले महीने की तुलना में",
+          "recent_visits": "हाल की यात्राएं",
+          "item_clicks": "आइटम क्लिक",
+          "menu_views": "मेनू दृश्य"
+        },
+        "QrcodeSections": {
+          "title": "आपका समर्पित क्यूआर कोड",
+          "copy": "कॉपी करें",
+          "print_code": "कोड प्रिंट करें",
+          "share": "साझा करें",
+          "description": {
+            "desc1": "क्यूआर कोड को टेबल, बोर्ड या विशेष कार्ड पर रखें ताकि ग्राहक इसे आसानी से अपने मोबाइल फोन से स्कैन कर सकें।",
+            "desc2": "ग्राहक अपने फोन का कैमरा खोलते हैं और क्यूआर कोड स्कैन करते हैं, जो उन्हें स्वचालित रूप से डिजिटल मेनू पर ले जाता है।",
+            "desc3": "ऐप में कभी भी अपना मेनू अपडेट करें, और परिवर्तन तुरंत डिजिटल मेनू और क्यूआर कोड में दिखाई देंगे।",
+            "desc4": "इस लिंक का उपयोग आपके कैफे मेनू को सोशल मीडिया पर साझा करने के लिए किया जाता है।",
+            "desc5": "यहाँ क्यूआर स्कैन और मेनू विज़िट रिपोर्ट देखें ताकि समझा जा सके कि कौन सा मेनू या शाखा अधिक उपयोग में है।"
+          }
+        },
+        "FormSections": {
+          "title": "लैंडिंग पेज जानकारी",
+          "cafe_name_label": "कैफे का नाम",
+          "cafe_name": "Javad Cafe",
+          "cafe_slogan_label": "कैफे का नारा",
+          "cafe_slogan": "शहर में सबसे अच्छा कॉफी",
+          "short_description_label": "संक्षिप्त विवरण",
+          "short_description": "Javad Cafe, 10 से अधिक वर्षों के अनुभव के साथ, सबसे ताज़ा कॉफी और आरामदायक, शांत वातावरण प्रदान करता है।",
+          "working_hours_label": "काम करने के घंटे",
+          "phone_number_label": "फोन नंबर",
+          "cafe_logo_label": "कैफे लोगो",
+          "main_image_label": "मुख्य कैफे चित्र",
+          "image_limit_note": "अधिकतम आकार 2 MB, PNG फॉर्मेट में",
+          "save_changes": "परिवर्तन सहेजें"
+        }
+      }
+    }
   }
 }
