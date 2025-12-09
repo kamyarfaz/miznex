@@ -163,7 +163,7 @@ export function FormSections() {
             disabled={false}
             className="py-2 px-6 text-base bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 shadow-lg hover:shadow-xl transition-all duration-300"
           >
-            افزودن محصول
+           ذخیره تغییرات
           </Button>
         </div>
       </CardContent>

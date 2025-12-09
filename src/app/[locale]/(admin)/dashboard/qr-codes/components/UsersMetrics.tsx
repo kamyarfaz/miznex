@@ -96,10 +96,10 @@ export function UsersMetrics() {
           <div className="border-none w-9/12 h-full">
             <div className="border-none flex w-full h-3/12 items-center gap-2">
               <Input
-  id="title"
-  placeholder="https://miznex.com/menu"
-  className="w-full h-9 rounded-lg bg-white text-left px-2 mr-6 w-6/12 border border-orange-500 focus:outline-none focus:ring-0 text-sm"
-/>
+                id="title"
+                placeholder="https://miznex.com/menu"
+                className="w-full h-9 rounded-lg bg-white text-left px-2 rtl:mr-6 ltr:ml-6 w-6/12 border border-orange-500 focus:outline-none focus:ring-0 text-sm"
+              />
 
               <Button
                 variant="outline"
@@ -111,14 +111,14 @@ export function UsersMetrics() {
             </div>
 
             <div className="border-none w-full h-auto">
-              <div className="flex flex-col p-4 mr-2 space-y-5 text-justify">
+              <div className="flex flex-col p-4 rtl:mr-2 ltr:ml-2 space-y-5 text-justify">
                 {QrActions.map((act) => (
                   <div key={act.id} className="flex">
                     <CircleCheck
                       size={16}
                       className="text-slate-400 dark:text-slate-400 flex-shrink-0"
                     />
-                    <span className="text-xs mr-1 text-slate-500">
+                    <span className="text-xs rtl:mr-1 ltr:ml-1 text-slate-500">
                       {act.title}
                     </span>
                   </div>
