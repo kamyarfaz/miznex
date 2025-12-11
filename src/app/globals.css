@@ -674,3 +674,13 @@ html[dir="rtl"] body {
 .swiper-slide-thumb-active > div {
   @apply ring-4 ring-amber-500 scale-105 shadow-lg;
 }
+
+.coffee-header {
+  background: url("../assets/Menu/cafeBackground.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.product-card {
+  @apply bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100;
+}
