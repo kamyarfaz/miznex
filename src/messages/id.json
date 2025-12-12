@@ -141,5 +141,42 @@
     "privacyPolicy": "Kebijakan Privasi",
     "termsOfUse": "Syarat Penggunaan",
     "termsAndConditions": "Syarat dan Ketentuan"
+  },
+  "resturantMenu": {
+    "category": "Kategori menu",
+    "todayMenu": "Rekomendasi menu hari ini",
+    "searchInResturant": "Cari di menu kafe",
+    "type": "Jenis",
+    "size": "Pilih ukuran gelas",
+    "suger": "Tingkat gula",
+    "syrup": "Tambahkan sirup",
+    "addToCart": "Tambahkan ke keranjang",
+    "welcomeToResturant": "Selamat datang di kafe {input}."
+  },
+  "cart": {
+    "addYourTableCode": "Masukkan nomor meja Anda",
+    "accept": "Konfirmasi"
+  },
+  "checkout": {
+    "checkoutPayment": "Pembayaran",
+    "checkoutAlert": "Setelah mengirim, catat kode pesanan Anda",
+    "checkoutTotalPrice": "Total pembayaran",
+    "checkoutPriceAfterOff": "Total setelah diskon",
+    "checkoutOff": "Penghematan Anda dari pesanan ini",
+    "checkoutProducts": "Total pesanan ({input})",
+    "checkoutDetail": "Detail pembayaran",
+    "checkoutDetailCheck": "Lihat pesanan",
+    "checkoutAfterGetItems": "Bayar saat menerima",
+    "checkoutAfterGetItemsDescription": "Kartu atau tunai",
+    "checkoutOnline": "Pembayaran online",
+    "checkoutOnlineDescription": "Gerbang pembayaran {input}",
+    "checkoutGuid": "Metode pembayaran",
+    "checkoutSuccess": "Pesanan Anda berhasil terdaftar",
+    "checkoutProductCode": "Kode pesanan Anda: {input}",
+    "checkoutGiveCode": "Berikan kode pesanan saat membayar",
+    "checkoutSentToResturant": "Pesanan Anda telah dikirim ke kafe dan sedang disiapkan. Kami menantikan kedatangan Anda kembali.",
+    "checkoutBackTOMenu": "Kembali ke menu",
+    "insertOffCode": "Masukkan kode diskon",
+    "insertOffCodeDescription": "Masukkan kode diskon Anda"
   }
 }

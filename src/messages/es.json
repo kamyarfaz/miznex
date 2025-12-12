@@ -141,5 +141,42 @@
     "privacyPolicy": "Política de privacidad",
     "termsOfUse": "Términos de uso",
     "termsAndConditions": "Términos y condiciones"
+  },
+  "resturantMenu": {
+    "category": "Categoría del menú",
+    "todayMenu": "Recomendación del día",
+    "searchInResturant": "Buscar en el menú del café",
+    "type": "Tipo",
+    "size": "Seleccione el tamaño de la taza",
+    "suger": "Nivel de azúcar",
+    "syrup": "Agregar jarabe",
+    "addToCart": "Agregar al carrito",
+    "welcomeToResturant": "Bienvenido al café {input}."
+  },
+  "cart": {
+    "addYourTableCode": "Ingrese su número de mesa",
+    "accept": "Confirmar"
+  },
+  "checkout": {
+    "checkoutPayment": "Pago",
+    "checkoutAlert": "Después de enviar, anote su código de pedido",
+    "checkoutTotalPrice": "Monto a pagar",
+    "checkoutPriceAfterOff": "Total después del descuento",
+    "checkoutOff": "Ahorros de este pedido",
+    "checkoutProducts": "Total del pedido ({input})",
+    "checkoutDetail": "Detalles del pago",
+    "checkoutDetailCheck": "Ver pedido",
+    "checkoutAfterGetItems": "Pago al recibir",
+    "checkoutAfterGetItemsDescription": "Tarjeta o efectivo",
+    "checkoutOnline": "Pago en línea",
+    "checkoutOnlineDescription": "Pasarela de pago {input}",
+    "checkoutGuid": "Métodos de pago",
+    "checkoutSuccess": "Su pedido fue registrado correctamente",
+    "checkoutProductCode": "Código de pedido: {input}",
+    "checkoutGiveCode": "Presente su código al pagar",
+    "checkoutSentToResturant": "Su pedido fue enviado al café y está en preparación. Esperamos verlo nuevamente.",
+    "checkoutBackTOMenu": "Volver al menú",
+    "insertOffCode": "Ingresar código de descuento",
+    "insertOffCodeDescription": "Ingrese su código de descuento"
   }
 }

@@ -36,7 +36,7 @@ export default async function RootLayout({
   const dir = countryEntry?.dir || "ltr";
 
   return (
-    <html lang={locale} dir={dir} suppressHydrationWarning>
+    <html lang={locale} dir={dir} suppressHydrationWarning={true}>
       <head>
         <StructuredDataScripts />
       </head>

@@ -141,5 +141,42 @@
     "privacyPolicy": "प्राइवेसी पॉलिसी",
     "termsOfUse": "उपयोग की शर्तें",
     "termsAndConditions": "शर्तें और नियम"
+  },
+  "resturantMenu": {
+    "category": "मेनू श्रेणी",
+    "todayMenu": "आज का मेनू सुझाव",
+    "searchInResturant": "कैफ़े मेनू में खोजें",
+    "type": "प्रकार",
+    "size": "कप का आकार चुनें",
+    "suger": "चीनी का स्तर",
+    "syrup": "सिरप जोड़ें",
+    "addToCart": "कार्ट में जोड़ें",
+    "welcomeToResturant": "{input} कैफ़े में आपका स्वागत है।"
+  },
+  "cart": {
+    "addYourTableCode": "अपना टेबल नंबर दर्ज करें",
+    "accept": "पुष्टि करें"
+  },
+  "checkout": {
+    "checkoutPayment": "भुगतान",
+    "checkoutAlert": "सबमिट करने के बाद अपना ऑर्डर कोड लिख लें",
+    "checkoutTotalPrice": "देय राशि",
+    "checkoutPriceAfterOff": "छूट के बाद कुल राशि",
+    "checkoutOff": "इस खरीद से आपकी बचत",
+    "checkoutProducts": "कुल ऑर्डर ({input})",
+    "checkoutDetail": "भुगतान विवरण",
+    "checkoutDetailCheck": "ऑर्डर देखें",
+    "checkoutAfterGetItems": "डिलीवरी पर भुगतान",
+    "checkoutAfterGetItemsDescription": "कार्ड या नकद से",
+    "checkoutOnline": "ऑनलाइन भुगतान",
+    "checkoutOnlineDescription": "पेमेंट गेटवे {input}",
+    "checkoutGuid": "भुगतान के तरीके",
+    "checkoutSuccess": "आपका ऑर्डर सफलतापूर्वक दर्ज किया गया",
+    "checkoutProductCode": "आपका ऑर्डर कोड: {input}",
+    "checkoutGiveCode": "भुगतान करते समय ऑर्डर कोड दें",
+    "checkoutSentToResturant": "आपका ऑर्डर कैफ़े को भेज दिया गया है और तैयारी में है। फिर से मिलने की आशा है।",
+    "checkoutBackTOMenu": "मेनू पर वापस जाएँ",
+    "insertOffCode": "डिस्काउंट कोड दर्ज करें",
+    "insertOffCodeDescription": "अपना डिस्काउंट कोड दर्ज करें"
   }
 }

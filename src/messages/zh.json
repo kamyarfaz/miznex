@@ -141,5 +141,42 @@
     "privacyPolicy": "隐私政策",
     "termsOfUse": "使用条款",
     "termsAndConditions": "条款和条件"
+  },
+  "resturantMenu": {
+    "category": "菜单分类",
+    "todayMenu": "今日推荐菜单",
+    "searchInResturant": "搜索咖啡馆菜单",
+    "type": "类型",
+    "size": "选择杯子大小",
+    "suger": "糖量",
+    "syrup": "添加糖浆",
+    "addToCart": "加入购物车",
+    "welcomeToResturant": "欢迎来到 {input} 咖啡馆。"
+  },
+  "cart": {
+    "addYourTableCode": "请输入您的桌号",
+    "accept": "确认"
+  },
+  "checkout": {
+    "checkoutPayment": "支付",
+    "checkoutAlert": "点击提交后，请记录您的订单代码",
+    "checkoutTotalPrice": "应付金额",
+    "checkoutPriceAfterOff": "折扣后的总金额",
+    "checkoutOff": "本次订单您的节省金额",
+    "checkoutProducts": "订单总计 ({input})",
+    "checkoutDetail": "支付详情",
+    "checkoutDetailCheck": "查看订单",
+    "checkoutAfterGetItems": "货到付款",
+    "checkoutAfterGetItemsDescription": "银行卡或现金支付",
+    "checkoutOnline": "在线支付",
+    "checkoutOnlineDescription": "支付网关 {input}",
+    "checkoutGuid": "支付方式",
+    "checkoutSuccess": "您的订单已成功提交",
+    "checkoutProductCode": "您的订单代码：{input}",
+    "checkoutGiveCode": "付款时请提供订单代码",
+    "checkoutSentToResturant": "您的订单已发送至咖啡馆并正在准备中。期待再次见到您。",
+    "checkoutBackTOMenu": "返回菜单",
+    "insertOffCode": "输入优惠码",
+    "insertOffCodeDescription": "请输入您的优惠码"
   }
 }

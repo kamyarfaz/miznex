@@ -141,5 +141,42 @@
     "privacyPolicy": "นโยบายความเป็นส่วนตัว",
     "termsOfUse": "ข้อกำหนดการใช้งาน",
     "termsAndConditions": "ข้อกำหนดและเงื่อนไข"
+  },
+  "resturantMenu": {
+    "category": "หมวดหมู่เมนู",
+    "todayMenu": "เมนูแนะนำวันนี้",
+    "searchInResturant": "ค้นหาในเมนูคาเฟ่",
+    "type": "ประเภท",
+    "size": "เลือกขนาดแก้ว",
+    "suger": "ระดับน้ำตาล",
+    "syrup": "เพิ่มไซรัป",
+    "addToCart": "เพิ่มลงในรถเข็น",
+    "welcomeToResturant": "ยินดีต้อนรับสู่คาเฟ่ {input}."
+  },
+  "cart": {
+    "addYourTableCode": "กรอกหมายเลขโต๊ะของคุณ",
+    "accept": "ยืนยัน"
+  },
+  "checkout": {
+    "checkoutPayment": "ชำระเงิน",
+    "checkoutAlert": "หลังจากกดส่ง กรุณาจดรหัสคำสั่งซื้อไว้",
+    "checkoutTotalPrice": "ยอดชำระ",
+    "checkoutPriceAfterOff": "ยอดรวมหลังหักส่วนลด",
+    "checkoutOff": "จำนวนเงินที่คุณประหยัด",
+    "checkoutProducts": "ยอดสั่งซื้อทั้งหมด ({input})",
+    "checkoutDetail": "รายละเอียดการชำระเงิน",
+    "checkoutDetailCheck": "ดูคำสั่งซื้อ",
+    "checkoutAfterGetItems": "ชำระเงินปลายทาง",
+    "checkoutAfterGetItemsDescription": "บัตรหรือเงินสด",
+    "checkoutOnline": "ชำระเงินออนไลน์",
+    "checkoutOnlineDescription": "ช่องทางชำระเงิน {input}",
+    "checkoutGuid": "วิธีการชำระเงิน",
+    "checkoutSuccess": "สั่งซื้อสำเร็จ",
+    "checkoutProductCode": "รหัสคำสั่งซื้อ: {input}",
+    "checkoutGiveCode": "แสดงรหัสคำสั่งซื้อเมื่อชำระเงิน",
+    "checkoutSentToResturant": "คำสั่งซื้อถูกส่งไปยังคาเฟ่และกำลังจัดเตรียม ยินดีให้บริการอีกครั้ง",
+    "checkoutBackTOMenu": "กลับไปที่เมนู",
+    "insertOffCode": "กรอกรหัสส่วนลด",
+    "insertOffCodeDescription": "กรุณากรอกรหัสส่วนลดของคุณ"
   }
 }

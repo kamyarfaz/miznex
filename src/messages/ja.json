@@ -141,5 +141,42 @@
     "privacyPolicy": "プライバシーポリシー",
     "termsOfUse": "利用規約",
     "termsAndConditions": "利用規約"
+  },
+  "resturantMenu": {
+    "category": "メニューカテゴリー",
+    "todayMenu": "本日のおすすめ",
+    "searchInResturant": "カフェメニューを検索",
+    "type": "種類",
+    "size": "カップサイズを選択",
+    "suger": "砂糖の量",
+    "syrup": "シロップを追加",
+    "addToCart": "カートに追加",
+    "welcomeToResturant": "{input} カフェへようこそ。"
+  },
+  "cart": {
+    "addYourTableCode": "テーブル番号を入力してください",
+    "accept": "確認"
+  },
+  "checkout": {
+    "checkoutPayment": "支払い",
+    "checkoutAlert": "送信後、注文コードを書き留めてください",
+    "checkoutTotalPrice": "支払金額",
+    "checkoutPriceAfterOff": "割引後の合計金額",
+    "checkoutOff": "今回のご注文での節約額",
+    "checkoutProducts": "注文合計 ({input})",
+    "checkoutDetail": "支払い詳細",
+    "checkoutDetailCheck": "注文を確認",
+    "checkoutAfterGetItems": "受け取り時に支払い",
+    "checkoutAfterGetItemsDescription": "カードまたは現金",
+    "checkoutOnline": "オンライン支払い",
+    "checkoutOnlineDescription": "決済ゲートウェイ {input}",
+    "checkoutGuid": "支払い方法",
+    "checkoutSuccess": "ご注文は正常に登録されました",
+    "checkoutProductCode": "注文コード：{input}",
+    "checkoutGiveCode": "支払い時に注文コードを提示してください",
+    "checkoutSentToResturant": "ご注文はカフェに送信され、準備中です。またのご来店をお待ちしております。",
+    "checkoutBackTOMenu": "メニューに戻る",
+    "insertOffCode": "割引コードを入力",
+    "insertOffCodeDescription": "割引コードを入力してください"
   }
 }

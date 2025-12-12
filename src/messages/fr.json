@@ -141,5 +141,42 @@
     "privacyPolicy": "Politique de confidentialité",
     "termsOfUse": "Conditions d'utilisation",
     "termsAndConditions": "Conditions générales"
+  },
+  "resturantMenu": {
+    "category": "Catégorie du menu",
+    "todayMenu": "Suggestion du jour",
+    "searchInResturant": "Rechercher dans le menu du café",
+    "type": "Type",
+    "size": "Choisissez la taille du verre",
+    "suger": "Niveau de sucre",
+    "syrup": "Ajouter du sirop",
+    "addToCart": "Ajouter au panier",
+    "welcomeToResturant": "Bienvenue au café {input}."
+  },
+  "cart": {
+    "addYourTableCode": "Entrez votre numéro de table",
+    "accept": "Confirmer"
+  },
+  "checkout": {
+    "checkoutPayment": "Paiement",
+    "checkoutAlert": "Après avoir confirmé, notez votre code de commande",
+    "checkoutTotalPrice": "Montant à payer",
+    "checkoutPriceAfterOff": "Montant après réduction",
+    "checkoutOff": "Votre économie sur cette commande",
+    "checkoutProducts": "Total de la commande ({input})",
+    "checkoutDetail": "Détails du paiement",
+    "checkoutDetailCheck": "Voir la commande",
+    "checkoutAfterGetItems": "Paiement à la livraison",
+    "checkoutAfterGetItemsDescription": "Par carte ou en espèces",
+    "checkoutOnline": "Paiement en ligne",
+    "checkoutOnlineDescription": "Passerelle de paiement {input}",
+    "checkoutGuid": "Méthodes de paiement",
+    "checkoutSuccess": "Votre commande a été enregistrée avec succès",
+    "checkoutProductCode": "Code de commande : {input}",
+    "checkoutGiveCode": "Présentez ce code lors du paiement",
+    "checkoutSentToResturant": "Votre commande a été envoyée au café et est en préparation. Au plaisir de vous revoir.",
+    "checkoutBackTOMenu": "Retour au menu",
+    "insertOffCode": "Entrer le code promo",
+    "insertOffCodeDescription": "Entrez votre code promo"
   }
 }

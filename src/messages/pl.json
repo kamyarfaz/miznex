@@ -141,5 +141,42 @@
     "privacyPolicy": "Polityka prywatności",
     "termsOfUse": "Warunki korzystania",
     "termsAndConditions": "Regulamin"
+  },
+  "resturantMenu": {
+    "category": "Kategoria menu",
+    "todayMenu": "Dzisiejsza propozycja",
+    "searchInResturant": "Szukaj w menu kawiarni",
+    "type": "Typ",
+    "size": "Wybierz rozmiar kubka",
+    "suger": "Poziom cukru",
+    "syrup": "Dodaj syrop",
+    "addToCart": "Dodaj do koszyka",
+    "welcomeToResturant": "Witamy w kawiarni {input}."
+  },
+  "cart": {
+    "addYourTableCode": "Wprowadź numer stolika",
+    "accept": "Potwierdź"
+  },
+  "checkout": {
+    "checkoutPayment": "Płatność",
+    "checkoutAlert": "Po wysłaniu zanotuj kod zamówienia",
+    "checkoutTotalPrice": "Kwota do zapłaty",
+    "checkoutPriceAfterOff": "Kwota po rabacie",
+    "checkoutOff": "Twoja oszczędność",
+    "checkoutProducts": "Suma zamówienia ({input})",
+    "checkoutDetail": "Szczegóły płatności",
+    "checkoutDetailCheck": "Zobacz zamówienie",
+    "checkoutAfterGetItems": "Płatność przy odbiorze",
+    "checkoutAfterGetItemsDescription": "Kartą lub gotówką",
+    "checkoutOnline": "Płatność online",
+    "checkoutOnlineDescription": "Bramka płatności {input}",
+    "checkoutGuid": "Sposoby płatności",
+    "checkoutSuccess": "Zamówienie zostało pomyślnie złożone",
+    "checkoutProductCode": "Kod zamówienia: {input}",
+    "checkoutGiveCode": "Podaj kod zamówienia przy płatności",
+    "checkoutSentToResturant": "Twoje zamówienie zostało wysłane do kawiarni i jest przygotowywane. Zapraszamy ponownie.",
+    "checkoutBackTOMenu": "Wróć do menu",
+    "insertOffCode": "Wprowadź kod rabatowy",
+    "insertOffCodeDescription": "Wprowadź swój kod rabatowy"
   }
 }

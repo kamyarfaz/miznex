@@ -141,5 +141,42 @@
     "privacyPolicy": "Privacybeleid",
     "termsOfUse": "Gebruiksvoorwaarden",
     "termsAndConditions": "Voorwaarden en condities"
+  },
+  "resturantMenu": {
+    "category": "Menucategorie",
+    "todayMenu": "Aanbeveling van vandaag",
+    "searchInResturant": "Zoek in het cafémenu",
+    "type": "Type",
+    "size": "Kies de maat van de beker",
+    "suger": "Suikerniveau",
+    "syrup": "Siroop toevoegen",
+    "addToCart": "Toevoegen aan winkelwagen",
+    "welcomeToResturant": "Welkom bij café {input}."
+  },
+  "cart": {
+    "addYourTableCode": "Voer uw tafelnummer in",
+    "accept": "Bevestigen"
+  },
+  "checkout": {
+    "checkoutPayment": "Betaling",
+    "checkoutAlert": "Noteer uw bestelcode na het bevestigen",
+    "checkoutTotalPrice": "Te betalen bedrag",
+    "checkoutPriceAfterOff": "Totaal na korting",
+    "checkoutOff": "Uw besparing",
+    "checkoutProducts": "Totaal bestelling ({input})",
+    "checkoutDetail": "Betaalgegevens",
+    "checkoutDetailCheck": "Bestelling bekijken",
+    "checkoutAfterGetItems": "Betalen bij ontvangst",
+    "checkoutAfterGetItemsDescription": "Met kaart of contant",
+    "checkoutOnline": "Online betalen",
+    "checkoutOnlineDescription": "Betalingsgateway {input}",
+    "checkoutGuid": "Betaalmethoden",
+    "checkoutSuccess": "Uw bestelling is succesvol geplaatst",
+    "checkoutProductCode": "Bestelcode: {input}",
+    "checkoutGiveCode": "Geef de bestelcode door bij het betalen",
+    "checkoutSentToResturant": "Uw bestelling is naar het café gestuurd en wordt voorbereid. Tot ziens!",
+    "checkoutBackTOMenu": "Terug naar het menu",
+    "insertOffCode": "Kortingscode invoeren",
+    "insertOffCodeDescription": "Voer uw kortingscode in"
   }
 }

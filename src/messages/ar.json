@@ -141,5 +141,42 @@
     "privacyPolicy": "سياسة الخصوصية",
     "termsOfUse": "شروط الاستخدام",
     "termsAndConditions": "الشروط والأحكام"
+  },
+  "resturantMenu": {
+    "category": "فئة القائمة",
+    "todayMenu": "اقتراح قائمة اليوم",
+    "searchInResturant": "البحث في قائمة المقهى",
+    "type": "النوع",
+    "size": "اختر حجم الكوب",
+    "suger": "كمية السكر",
+    "syrup": "إضافة سيروب",
+    "addToCart": "إضافة إلى السلة",
+    "welcomeToResturant": "مرحباً بكم في مقهى {input}."
+  },
+  "cart": {
+    "addYourTableCode": "أدخل رقم طاولتك",
+    "accept": "تأكيد"
+  },
+  "checkout": {
+    "checkoutPayment": "الدفع",
+    "checkoutAlert": "بعد الضغط على تأكيد، قم بكتابة رمز الطلب",
+    "checkoutTotalPrice": "المبلغ المستحق",
+    "checkoutPriceAfterOff": "إجمالي الشراء بعد الخصم",
+    "checkoutOff": "توفيرك من هذا الطلب",
+    "checkoutProducts": "إجمالي الطلب ({input})",
+    "checkoutDetail": "تفاصيل الدفع",
+    "checkoutDetailCheck": "عرض الطلب",
+    "checkoutAfterGetItems": "الدفع عند الاستلام",
+    "checkoutAfterGetItemsDescription": "بالبطاقة أو نقدًا",
+    "checkoutOnline": "الدفع الإلكتروني",
+    "checkoutOnlineDescription": "بوابة الدفع {input}",
+    "checkoutGuid": "طرق الدفع",
+    "checkoutSuccess": "تم تسجيل طلبك بنجاح",
+    "checkoutProductCode": "رمز طلبك: {input}",
+    "checkoutGiveCode": "قدّم رمز الطلب عند الدفع",
+    "checkoutSentToResturant": "تم إرسال طلبك إلى المقهى وهو قيد التحضير. نتطلع لرؤيتك مرة أخرى.",
+    "checkoutBackTOMenu": "العودة للقائمة",
+    "insertOffCode": "إدخال رمز الخصم",
+    "insertOffCodeDescription": "أدخل رمز الخصم الخاص بك"
   }
 }

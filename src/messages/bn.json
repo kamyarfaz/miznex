@@ -141,5 +141,42 @@
     "privacyPolicy": "গোপনীয়তা নীতি",
     "termsOfUse": "ব্যবহারের শর্তাবলী",
     "termsAndConditions": "শর্তাবলী এবং নিয়মাবলী"
+  },
+  "resturantMenu": {
+    "category": "মেনু বিভাগ",
+    "todayMenu": "আজকের মেনুর সুপারিশ",
+    "searchInResturant": "ক্যাফে মেনুতে অনুসন্ধান করুন",
+    "type": "ধরন",
+    "size": "কাপের আকার নির্বাচন করুন",
+    "suger": "চিনির মাত্রা",
+    "syrup": "সিরাপ যোগ করুন",
+    "addToCart": "কার্টে যোগ করুন",
+    "welcomeToResturant": "{input} ক্যাফেতে স্বাগতম।"
+  },
+  "cart": {
+    "addYourTableCode": "আপনার টেবিল নম্বর লিখুন",
+    "accept": "নিশ্চিত করুন"
+  },
+  "checkout": {
+    "checkoutPayment": "পেমেন্ট",
+    "checkoutAlert": "সাবমিট করার পরে আপনার অর্ডার কোডটি নোট করে রাখুন",
+    "checkoutTotalPrice": "প্রদেয় মোট টাকা",
+    "checkoutPriceAfterOff": "ছাড়ের পরে মোট",
+    "checkoutOff": "এই অর্ডারে আপনার সাশ্রয়",
+    "checkoutProducts": "মোট অর্ডার ({input})",
+    "checkoutDetail": "পেমেন্ট বিবরণ",
+    "checkoutDetailCheck": "অর্ডার দেখুন",
+    "checkoutAfterGetItems": "ডেলিভারির সময় পেমেন্ট",
+    "checkoutAfterGetItemsDescription": "কার্ড বা নগদ",
+    "checkoutOnline": "অনলাইন পেমেন্ট",
+    "checkoutOnlineDescription": "পেমেন্ট গেটওয়ে {input}",
+    "checkoutGuid": "পেমেন্ট পদ্ধতি",
+    "checkoutSuccess": "আপনার অর্ডার সফলভাবে সম্পন্ন হয়েছে",
+    "checkoutProductCode": "অর্ডার কোড: {input}",
+    "checkoutGiveCode": "পেমেন্টের সময় অর্ডার কোড দেখান",
+    "checkoutSentToResturant": "আপনার অর্ডার ক্যাফেতে পাঠানো হয়েছে এবং প্রস্তুত করা হচ্ছে। আবার আসবেন!",
+    "checkoutBackTOMenu": "মেনুতে ফিরে যান",
+    "insertOffCode": "ডিসকাউন্ট কোড লিখুন",
+    "insertOffCodeDescription": "আপনার ডিসকাউন্ট কোড লিখুন"
   }
 }

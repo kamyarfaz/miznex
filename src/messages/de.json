@@ -141,5 +141,42 @@
     "privacyPolicy": "Datenschutzrichtlinie",
     "termsOfUse": "Nutzungsbedingungen",
     "termsAndConditions": "Allgemeine Geschäftsbedingungen"
+  },
+  "resturantMenu": {
+    "category": "Menükategorie",
+    "todayMenu": "Heutige Empfehlung",
+    "searchInResturant": "Im Café-Menü suchen",
+    "type": "Typ",
+    "size": "Wählen Sie die Bechergröße",
+    "suger": "Zuckermenge",
+    "syrup": "Sirup hinzufügen",
+    "addToCart": "In den Warenkorb",
+    "welcomeToResturant": "Willkommen im Café {input}."
+  },
+  "cart": {
+    "addYourTableCode": "Geben Sie Ihre Tischnummer ein",
+    "accept": "Bestätigen"
+  },
+  "checkout": {
+    "checkoutPayment": "Bezahlung",
+    "checkoutAlert": "Notieren Sie nach dem Absenden Ihren Bestellcode",
+    "checkoutTotalPrice": "Zu zahlender Betrag",
+    "checkoutPriceAfterOff": "Gesamtbetrag nach Rabatt",
+    "checkoutOff": "Ihre Ersparnis",
+    "checkoutProducts": "Bestellsumme ({input})",
+    "checkoutDetail": "Zahlungsdetails",
+    "checkoutDetailCheck": "Bestellung anzeigen",
+    "checkoutAfterGetItems": "Bezahlung bei Erhalt",
+    "checkoutAfterGetItemsDescription": "Mit Karte oder bar",
+    "checkoutOnline": "Online-Bezahlung",
+    "checkoutOnlineDescription": "Zahlungsportal {input}",
+    "checkoutGuid": "Zahlungsmethoden",
+    "checkoutSuccess": "Ihre Bestellung wurde erfolgreich aufgegeben",
+    "checkoutProductCode": "Ihr Bestellcode: {input}",
+    "checkoutGiveCode": "Geben Sie den Bestellcode bei der Bezahlung an",
+    "checkoutSentToResturant": "Ihre Bestellung wurde an das Café gesendet und wird vorbereitet. Wir freuen uns auf Ihren nächsten Besuch.",
+    "checkoutBackTOMenu": "Zurück zum Menü",
+    "insertOffCode": "Rabattcode eingeben",
+    "insertOffCodeDescription": "Geben Sie Ihren Rabattcode ein"
   }
 }

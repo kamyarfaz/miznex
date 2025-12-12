@@ -38,7 +38,7 @@ export const CheckoutFc = () => {
                 <div className="max-w-md mx-auto">
                     <Link href="/cart" className="flex items-center gap-3">
                         <ArrowRight size={24}/>
-                        <h1 className="text-lg font-bold flex-1 text-right">تأیید نهایی و پرداخت</h1>
+                        <h1 className="text-lg font-bold flex-1 rtl:text-right ltr:text-left">تأیید نهایی و پرداخت</h1>
                     </Link>
                 </div>
             </div>
@@ -47,7 +47,7 @@ export const CheckoutFc = () => {
             <div className="max-w-md mx-auto px-4 py-6 rounded-2xl bg-white">
                 {/* Payment Methods */}
                 <div className="mb-8 shadow-md rounded-xl p-4">
-                    <h2 className="text-lg font-bold mb-4 text-right">{translate("checkoutGuid")}</h2>
+                    <h2 className="text-lg font-bold mb-4 rtl:text-right ltr:text-left">{translate("checkoutGuid")}</h2>
                     <div className="space-y-3">
                         {paymentMethods.map((method) => (
                             <label
@@ -59,8 +59,8 @@ export const CheckoutFc = () => {
                                     {method.icon}
                                 </div>
                                 <div className="flex-1">
-                                    <h3 className="font-bold text-right">{method.name}</h3>
-                                    <p className="text-xs text-gray-500 text-right">{method.description}</p>
+                                    <h3 className="font-bold rtl:text-right ltr:text-left">{method.name}</h3>
+                                    <p className="text-xs text-gray-500 rtl:text-right ltr:text-left">{method.description}</p>
                                 </div>
                                 <div className="relative">
                                     <input
@@ -86,8 +86,8 @@ export const CheckoutFc = () => {
                             className="flex items-center gap-4 p-4 cursor-pointer"
                         >
                             <div className="flex-1">
-                                <h3 className="font-bold text-right">{translate("insertOffCode")}</h3>
-                                <p className="text-xs text-gray-500 text-right">{translate("insertOffCodeDescription")}</p>
+                                <h3 className="font-bold rtl:text-right ltr:text-left">{translate("insertOffCode")}</h3>
+                                <p className="text-xs text-gray-500 rtl:text-right ltr:text-left">{translate("insertOffCodeDescription")}</p>
                             </div>
                             <div className={`text-3xl text-red-400`}>
                                 +
@@ -100,33 +100,33 @@ export const CheckoutFc = () => {
                 <div className="bg-white rounded-lg p-6 shadow-md mb-6">
                     <div className="flex justify-between items-center mb-4">
                         <h2 className="text-lg font-bold">{translate("checkoutDetail")}</h2>
-                        <button className="text-red-400 text-lg font-bold text-right">{translate("checkoutDetailCheck")}</button>
+                        <button className="text-red-400 text-lg font-bold rtl:text-right ltr:text-left">{translate("checkoutDetailCheck")}</button>
                     </div>
                     <div className="space-y-4 border-b border-gray-200 pb-4 mb-4">
-                        <div className="flex justify-between text-right">
+                        <div className="flex justify-between rtl:text-right ltr:text-left">
                             <span className="text-gray-600">{translate("checkoutProducts",{ input: "5" })}</span>
                             <span className="">{subtotal.toLocaleString()} تومان</span>
                         </div>
 
-                        <div className="flex justify-between text-right">
+                        <div className="flex justify-between rtl:text-right ltr:text-left">
                             <span className="text-green-600">{translate("checkoutOff")}</span>
                             <span className="text-green-600">{discount.toLocaleString()} تومان</span>
                         </div>
                     </div>
 
                     <div className="space-y-3">
-                        <div className="flex justify-between text-right">
+                        <div className="flex justify-between rtl:text-right ltr:text-left">
                             <span className="text-gray-600">{translate("checkoutPriceAfterOff")}</span>
                             <span className="">{total.toLocaleString()} تومان</span>
                         </div>
 
-                        <div className="flex justify-between text-right py-3 border-y border-gray-200">
+                        <div className="flex justify-between rtl:text-right ltr:text-left py-3 border-y border-gray-200">
                             <span className="font-bold text-lg">{translate("checkoutTotalPrice")}</span>
                             <span className="">{payable.toLocaleString()} تومان</span>
                         </div>
                     </div>
                     <div className="mt-5 flex justify-between items-center">
-                        <div className="flex flex-col justify-between text-right text-gray-500">
+                        <div className="flex flex-col justify-between rtl:text-right ltr:text-left text-gray-500">
                             <span className="font-bold text-sm">{translate("checkoutTotalPrice")}</span>
                             <span className="text-xs">{payable.toLocaleString()} تومان</span>
                         </div>

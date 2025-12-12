@@ -141,5 +141,42 @@
     "privacyPolicy": "Gizlilik Politikası",
     "termsOfUse": "Kullanım Şartları",
     "termsAndConditions": "Şartlar ve Koşullar"
+  },
+  "resturantMenu": {
+    "category": "Menü kategorisi",
+    "todayMenu": "Bugünün menü önerisi",
+    "searchInResturant": "Kafe menüsünde ara",
+    "type": "Tür",
+    "size": "Bardak boyutunu seçin",
+    "suger": "Şeker seviyesi",
+    "syrup": "Şurup ekle",
+    "addToCart": "Sepete ekle",
+    "welcomeToResturant": "{input} kafesine hoş geldiniz."
+  },
+  "cart": {
+    "addYourTableCode": "Masa numaranızı girin",
+    "accept": "Onayla"
+  },
+  "checkout": {
+    "checkoutPayment": "Ödeme",
+    "checkoutAlert": "Gönderdikten sonra sipariş kodunuzu not edin",
+    "checkoutTotalPrice": "Ödenecek tutar",
+    "checkoutPriceAfterOff": "İndirim sonrası toplam",
+    "checkoutOff": "Bu siparişteki tasarrufunuz",
+    "checkoutProducts": "Sipariş toplamı ({input})",
+    "checkoutDetail": "Ödeme detayları",
+    "checkoutDetailCheck": "Siparişi görüntüle",
+    "checkoutAfterGetItems": "Teslimde ödeme",
+    "checkoutAfterGetItemsDescription": "Kart veya nakit",
+    "checkoutOnline": "Online ödeme",
+    "checkoutOnlineDescription": "Ödeme geçidi {input}",
+    "checkoutGuid": "Ödeme yöntemleri",
+    "checkoutSuccess": "Siparişiniz başarıyla oluşturuldu",
+    "checkoutProductCode": "Sipariş kodunuz: {input}",
+    "checkoutGiveCode": "Ödeme sırasında sipariş kodunu gösterin",
+    "checkoutSentToResturant": "Siparişiniz kafeye gönderildi ve hazırlanıyor. Tekrar görüşmek üzere.",
+    "checkoutBackTOMenu": "Menüye dön",
+    "insertOffCode": "İndirim kodu girin",
+    "insertOffCodeDescription": "İndirim kodunuzu girin"
   }
 }

@@ -141,5 +141,42 @@
     "privacyPolicy": "Политика конфиденциальности",
     "termsOfUse": "Условия использования",
     "termsAndConditions": "Условия и положения"
+  },
+  "resturantMenu": {
+    "category": "Категория меню",
+    "todayMenu": "Сегодняшнее предложение",
+    "searchInResturant": "Поиск в меню кафе",
+    "type": "Тип",
+    "size": "Выберите размер стакана",
+    "suger": "Уровень сахара",
+    "syrup": "Добавить сироп",
+    "addToCart": "Добавить в корзину",
+    "welcomeToResturant": "Добро пожаловать в кафе {input}."
+  },
+  "cart": {
+    "addYourTableCode": "Введите номер вашего стола",
+    "accept": "Подтвердить"
+  },
+  "checkout": {
+    "checkoutPayment": "Оплата",
+    "checkoutAlert": "После подтверждения запишите код заказа",
+    "checkoutTotalPrice": "Сумма к оплате",
+    "checkoutPriceAfterOff": "Сумма после скидки",
+    "checkoutOff": "Ваша экономия",
+    "checkoutProducts": "Общий заказ ({input})",
+    "checkoutDetail": "Детали оплаты",
+    "checkoutDetailCheck": "Просмотреть заказ",
+    "checkoutAfterGetItems": "Оплата при получении",
+    "checkoutAfterGetItemsDescription": "Картой или наличными",
+    "checkoutOnline": "Онлайн-оплата",
+    "checkoutOnlineDescription": "Платёжный шлюз {input}",
+    "checkoutGuid": "Способы оплаты",
+    "checkoutSuccess": "Ваш заказ успешно оформлен",
+    "checkoutProductCode": "Код заказа: {input}",
+    "checkoutGiveCode": "Предъявите код заказа при оплате",
+    "checkoutSentToResturant": "Ваш заказ отправлен в кафе и находится в подготовке. Ждем вас снова.",
+    "checkoutBackTOMenu": "Назад к меню",
+    "insertOffCode": "Введите промокод",
+    "insertOffCodeDescription": "Введите ваш промокод"
   }
 }

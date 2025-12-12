@@ -141,5 +141,42 @@
     "privacyPolicy": "Informativa sulla privacy",
     "termsOfUse": "Termini di utilizzo",
     "termsAndConditions": "Termini e condizioni"
+  },
+  "resturantMenu": {
+    "category": "Categoria del menu",
+    "todayMenu": "Suggerimento del giorno",
+    "searchInResturant": "Cerca nel menu del caffè",
+    "type": "Tipo",
+    "size": "Seleziona la dimensione della tazza",
+    "suger": "Livello di zucchero",
+    "syrup": "Aggiungi sciroppo",
+    "addToCart": "Aggiungi al carrello",
+    "welcomeToResturant": "Benvenuto al caffè {input}."
+  },
+  "cart": {
+    "addYourTableCode": "Inserisci il numero del tuo tavolo",
+    "accept": "Conferma"
+  },
+  "checkout": {
+    "checkoutPayment": "Pagamento",
+    "checkoutAlert": "Dopo l'invio, annota il codice dell'ordine",
+    "checkoutTotalPrice": "Importo da pagare",
+    "checkoutPriceAfterOff": "Totale dopo lo sconto",
+    "checkoutOff": "Il tuo risparmio in questo ordine",
+    "checkoutProducts": "Totale ordine ({input})",
+    "checkoutDetail": "Dettagli di pagamento",
+    "checkoutDetailCheck": "Visualizza ordine",
+    "checkoutAfterGetItems": "Pagamento alla consegna",
+    "checkoutAfterGetItemsDescription": "Carta o contanti",
+    "checkoutOnline": "Pagamento online",
+    "checkoutOnlineDescription": "Gateway di pagamento {input}",
+    "checkoutGuid": "Metodi di pagamento",
+    "checkoutSuccess": "Il tuo ordine è stato registrato con successo",
+    "checkoutProductCode": "Codice ordine: {input}",
+    "checkoutGiveCode": "Fornisci il codice ordine al pagamento",
+    "checkoutSentToResturant": "Il tuo ordine è stato inviato al caffè ed è in preparazione. Ti aspettiamo ancora.",
+    "checkoutBackTOMenu": "Torna al menu",
+    "insertOffCode": "Inserisci codice sconto",
+    "insertOffCodeDescription": "Inserisci il tuo codice sconto"
   }
 }

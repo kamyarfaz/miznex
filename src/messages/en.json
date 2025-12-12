@@ -159,5 +159,42 @@
             "restrictionManagement": "Restriction Management"
         }
     }
-}
+  },
+  "resturantMenu": {
+    "category": "Menu Category",
+    "todayMenu": "Today's Menu Suggestion",
+    "searchInResturant": "Search in Café Menu",
+    "type": "Type",
+    "size": "Select cup size",
+    "suger": "Sugar level",
+    "syrup": "Add syrup",
+    "addToCart": "Add to cart",
+    "welcomeToResturant": "Welcome to {input} Café."
+  },
+  "cart": {
+    "addYourTableCode": "Enter your table number",
+    "accept": "Confirm"
+  },
+  "checkout": {
+    "checkoutPayment": "Payment",
+    "checkoutAlert": "After clicking submit, write down your order code",
+    "checkoutTotalPrice": "Total payable amount",
+    "checkoutPriceAfterOff": "Your total after discount",
+    "checkoutOff": "Your savings on this order",
+    "checkoutProducts": "Order total ({input})",
+    "checkoutDetail": "Payment details",
+    "checkoutDetailCheck": "View order",
+    "checkoutAfterGetItems": "Pay on delivery",
+    "checkoutAfterGetItemsDescription": "By card or cash",
+    "checkoutOnline": "Online payment",
+    "checkoutOnlineDescription": "Payment gateway {input}",
+    "checkoutGuid": "Payment methods",
+    "checkoutSuccess": "Your order was successfully registered",
+    "checkoutProductCode": "Your order code: {input}",
+    "checkoutGiveCode": "Provide the order code at checkout",
+    "checkoutSentToResturant": "Your order has been sent to the café and is being prepared. We look forward to seeing you again.",
+    "checkoutBackTOMenu": "Back to menu",
+    "insertOffCode": "Enter discount code",
+    "insertOffCodeDescription": "Enter your discount code"
+  }
 }

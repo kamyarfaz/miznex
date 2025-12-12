@@ -86,7 +86,7 @@ export const CafeMenuFC = () => {
                     {/* Categories Section */}
                     <div className="bg-white rounded-3xl shadow-lg overflow-hidden p-4">
                         <div className="mb-8">
-                            <h2 className="text-lg font-bold mb-4 text-right">{translate("category")}</h2>
+                            <h2 className="text-lg font-bold mb-4 rtl:text-right ltr:text-left">{translate("category")}</h2>
                             <div className="grid grid-cols-5 gap-3">
                                 {categories.map((cat) => (
                                     <div key={cat.id} className="flex flex-col items-center gap-2">
@@ -100,7 +100,7 @@ export const CafeMenuFC = () => {
                         </div>
 
                         <div>
-                            <h2 className="text-lg font-bold mb-4 text-right">{translate("todayMenu")}</h2>
+                            <h2 className="text-lg font-bold mb-4 rtl:text-right ltr:text-left">{translate("todayMenu")}</h2>
                             <div className="grid grid-cols-2 gap-4">
                                 {recommendedProducts.map((product) => (
                                     <div
@@ -146,7 +146,7 @@ export const CafeMenuFC = () => {
 
                         {/* Type Selection */}
                         <div className="border-b mb-3 pb-6">
-                            <h3 className="font-bold text-right mb-3">{translate("type")}</h3>
+                            <h3 className="font-bold rtl:text-right ltr:text-left mb-3">{translate("type")}</h3>
                             <div className="flex gap-3 flex-row-reverse">
                                 {["سرد", "گرم"].map((type) => (
                                     <button
@@ -164,7 +164,7 @@ export const CafeMenuFC = () => {
 
                         {/* Size Selection */}
                         <div className="border-b mb-3 pb-6">
-                            <h3 className="font-bold text-right mb-3">{translate("size")}</h3>
+                            <h3 className="font-bold rtl:text-right ltr:text-left mb-3">{translate("size")}</h3>
                             <div className="flex gap-3 flex-row-reverse">
                                 {["کوچک", "متوسط", "بزرگ"].map((size) => (
                                     <button
@@ -182,7 +182,7 @@ export const CafeMenuFC = () => {
 
                         {/* Sugar Level */}
                         <div className="border-b mb-3 pb-6">
-                            <h3 className="font-bold text-right mb-3">{translate("suger")}</h3>
+                            <h3 className="font-bold rtl:text-right ltr:text-left mb-3">{translate("suger")}</h3>
                             <div className="flex gap-3 flex-row-reverse">
                                 {["کم", "زیاد", "بدون شکر"].map((sugar) => (
                                     <button
@@ -202,7 +202,7 @@ export const CafeMenuFC = () => {
 
                         {/* Syrup Selection */}
                         <div className="mb-6">
-                            <h3 className="font-bold text-right mb-3">{translate("syrup")}</h3>
+                            <h3 className="font-bold rtl:text-right ltr:text-left mb-3">{translate("syrup")}</h3>
                             <div className="space-y-2">
                                 {["سیروپ کاراملی", "سیروپ وانیلی", "سیروپ فندقی"].map((syrup) => (
                                     <label
@@ -217,7 +217,7 @@ export const CafeMenuFC = () => {
                                             onChange={(e) => setSelectedSyrup(e.target.value)}
                                             className="w-4 h-4"
                                         />
-                                        <span className="text-right flex-1">{syrup}</span>
+                                        <span className="rtl:text-right ltr:text-left flex-1">{syrup}</span>
                                         <span
                                             className="text-sm font-light text-gray-800">{"15000"} تومان</span>
 

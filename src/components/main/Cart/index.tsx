@@ -70,7 +70,7 @@ export const CartFc = () => {
                 <div className="max-w-md mx-auto">
                     <Link href="/" className="flex items-center gap-3">
                         <ArrowRight size={24} />
-                        <h1 className="text-lg font-bold flex-1 text-right">سفارشات شما</h1>
+                        <h1 className="text-lg font-bold flex-1 rtl:text-right ltr:text-left">سفارشات شما</h1>
                     </Link>
                 </div>
             </div>
@@ -84,7 +84,7 @@ export const CartFc = () => {
                                 <div className="relative w-20 h-20 bg-gray-200 rounded-lg overflow-hidden flex-shrink-0">
                                     <Image src={item.image || "/placeholder.svg"} alt={item.name} className="w-full h-full object-cover" />
                                 </div>
-                                <div className="flex-1 self-center text-right">
+                                <div className="flex-1 self-center rtl:text-right ltr:text-left">
                                     <h3 className="font-bold mb-1">{item.name}</h3>
                                     <p className="text-xs text-gray-500 mb-2">{item.description}</p>
                                 </div>

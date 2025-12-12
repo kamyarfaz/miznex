@@ -141,5 +141,42 @@
     "privacyPolicy": "Chính sách bảo mật",
     "termsOfUse": "Điều khoản sử dụng",
     "termsAndConditions": "Điều khoản và điều kiện"
+  },
+  "resturantMenu": {
+    "category": "Danh mục",
+    "todayMenu": "Gợi ý món hôm nay",
+    "searchInResturant": "Tìm kiếm trong menu quán",
+    "type": "Loại",
+    "size": "Chọn kích cỡ ly",
+    "suger": "Mức đường",
+    "syrup": "Thêm siro",
+    "addToCart": "Thêm vào giỏ hàng",
+    "welcomeToResturant": "Chào mừng đến với quán {input}."
+  },
+  "cart": {
+    "addYourTableCode": "Nhập số bàn của bạn",
+    "accept": "Xác nhận"
+  },
+  "checkout": {
+    "checkoutPayment": "Thanh toán",
+    "checkoutAlert": "Sau khi gửi, hãy ghi lại mã đơn của bạn",
+    "checkoutTotalPrice": "Tổng thanh toán",
+    "checkoutPriceAfterOff": "Tổng sau giảm giá",
+    "checkoutOff": "Số tiền bạn tiết kiệm",
+    "checkoutProducts": "Tổng đơn hàng ({input})",
+    "checkoutDetail": "Chi tiết thanh toán",
+    "checkoutDetailCheck": "Xem đơn hàng",
+    "checkoutAfterGetItems": "Thanh toán khi nhận",
+    "checkoutAfterGetItemsDescription": "Bằng thẻ hoặc tiền mặt",
+    "checkoutOnline": "Thanh toán online",
+    "checkoutOnlineDescription": "Cổng thanh toán {input}",
+    "checkoutGuid": "Phương thức thanh toán",
+    "checkoutSuccess": "Đặt hàng thành công",
+    "checkoutProductCode": "Mã đơn hàng: {input}",
+    "checkoutGiveCode": "Cung cấp mã đơn khi thanh toán",
+    "checkoutSentToResturant": "Đơn hàng đang được chuẩn bị. Hân hạnh được phục vụ lại bạn.",
+    "checkoutBackTOMenu": "Quay lại menu",
+    "insertOffCode": "Nhập mã giảm giá",
+    "insertOffCodeDescription": "Nhập mã giảm giá của bạn"
   }
 }
