@@ -28,32 +28,31 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-export function UsersMetrics() {
+import { useTranslations } from "next-intl";
+
+export function QrcodeSections() {
+  const t = useTranslations("adminPanel");
+
   const QrActions = [
     {
       id: "1",
-      title:
-        "کد QR را روی میزها، تابلوها یا کارت‌های مخصوص قرار دهید تا مشتریان بتوانند به آسانی با گوشی همراه خود آن را اسکن کنند.",
+      title: t("dashboard.Qrcodes.QrcodeSections.description.desc1"),
     },
     {
       id: "2",
-      title:
-        "مشتریان دوربین موبایل خود را باز کرده و QR code را اسکن می‌کنند که به صورت خودکار به منوی دیجیتال هدایت خواهند شد.",
+      title: t("dashboard.Qrcodes.QrcodeSections.description.desc2"),
     },
     {
       id: "3",
-      title:
-        "هر زمان نیاز بود، منوی خود را در اپلیکیشن به‌روزرسانی کنید و تغییرات به شکل آنی در منوی دیجیتال و QR code اعمال خواهد شد.",
+      title: t("dashboard.Qrcodes.QrcodeSections.description.desc3"),
     },
     {
       id: "4",
-      title:
-        "این لینک برای اشتراک گذاری منوی کافه شما در شبکه‌های اجتماعی استفاده می‌شود.",
+      title: t("dashboard.Qrcodes.QrcodeSections.description.desc4"),
     },
     {
       id: "5",
-      title:
-        "گزارش اسکن و بازدید منو را در این بخش ببینید تا بفهمید کدام منو یا شعبه بیشتر استفاده می‌شود.",
+      title: t("dashboard.Qrcodes.QrcodeSections.description.desc5"),
     },
   ];
 
@@ -64,7 +63,7 @@ export function UsersMetrics() {
           <div className="flex items-center gap-3">
             <div className="space-y-1">
               <CardTitle className="text-medium font-semibold text-gray-800 dark:text-white">
-                QR Code اختصاصی شما
+                {t("dashboard.Qrcodes.QrcodeSections.title")}
               </CardTitle>
             </div>
           </div>
@@ -82,43 +81,43 @@ export function UsersMetrics() {
                 className="border text-slate-500 bg-white/90 dark:bg-gray-900 w-full py-1 px-4 transition-all duration-300 rounded-lg flex  items-center"
               >
                 <Printer size={18} className="text-slate-500" />
-                چاپ کد
+                {t("dashboard.Qrcodes.QrcodeSections.print_code")}
               </Button>
               <Button
                 variant="outline"
                 className="border text-slate-500 bg-white/90 dark:bg-gray-900 w-full mt-2 py-1 px-4 transition-all duration-300 rounded-lg flex  items-center"
               >
                 <Share2 size={18} className="text-slate-500" />
-                اشتراک گذاری
+                {t("dashboard.Qrcodes.QrcodeSections.share")}
               </Button>
             </div>
           </div>
           <div className="border-none w-9/12 h-full">
             <div className="border-none flex w-full h-3/12 items-center gap-2">
               <Input
-  id="title"
-  placeholder="https://miznex.com/menu"
-  className="w-full h-9 rounded-lg bg-white text-left px-2 mr-6 w-6/12 border border-orange-500 focus:outline-none focus:ring-0 text-sm"
-/>
+                id="title"
+                placeholder="https://miznex.com/menu"
+                className="w-full h-9 rounded-lg bg-white text-left px-2 rtl:mr-6 ltr:ml-6 w-6/12 border border-orange-500 focus:outline-none focus:ring-0 text-sm"
+              />
 
               <Button
                 variant="outline"
-                className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 ml-2 hover:to-orange-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 py-1 rounded-lg flex w-20 items-center gap-2"
+                className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 ml-2 hover:to-orange-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 py-1 rounded-lg flex w-auto items-center gap-2"
               >
                 <Copy size={16} />
-                کپی
+                {t("dashboard.Qrcodes.QrcodeSections.copy")}
               </Button>
             </div>
 
             <div className="border-none w-full h-auto">
-              <div className="flex flex-col p-4 mr-2 space-y-5 text-justify">
+              <div className="flex flex-col p-4 rtl:mr-2 ltr:ml-2 space-y-5 text-justify">
                 {QrActions.map((act) => (
                   <div key={act.id} className="flex">
                     <CircleCheck
                       size={16}
                       className="text-slate-400 dark:text-slate-400 flex-shrink-0"
                     />
-                    <span className="text-xs mr-1 text-slate-500">
+                    <span className="text-xs rtl:mr-1 ltr:ml-1 text-slate-500">
                       {act.title}
                     </span>
                   </div>

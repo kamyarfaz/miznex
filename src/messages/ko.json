@@ -141,5 +141,90 @@
     "privacyPolicy": "개인정보 보호정책",
     "termsOfUse": "이용 약관",
     "termsAndConditions": "약관 및 조건"
+  },
+  "adminLogin": {
+    "loginRegister": "로그인 / 회원가입",
+    "enterEmail": "이메일을 입력해 주세요",
+    "sending": "전송 중...",
+    "sendVerificationCode": "인증 코드 보내기",
+    "verifyEmail": "이메일 인증",
+    "codeSent": "인증 코드가 이메일로 전송되었습니다",
+    "verifying": "확인 중...",
+    "verify": "이메일 인증",
+    "resend": "재전송",
+    "completeProfile": "프로필 완성하기",
+    "enterProfileInfo": "개인 정보를 입력해 주세요",
+    "firstName": "이름",
+    "lastName": "성",
+    "username": "사용자 이름",
+    "usernameNote": "사용자 이름은 페이지 링크에 표시됩니다",
+    "submitting": "제출 중...",
+    "submitInfo": "정보 제출",
+    "usernameTaken": "이 사용자 이름은 이미 사용 중입니다",
+    "signupCodeSent": "회원가입 코드가 전송되었습니다",
+    "loginCodeSent": "로그인 코드가 전송되었습니다",
+    "loginCodeError": "로그인 코드 전송 중 오류가 발생했습니다",
+    "codeSendError": "코드 전송 중 오류가 발생했습니다",
+    "verifyLoginCodeError": "로그인 코드 확인 중 오류 발생",
+    "verifyRegisterCodeError": "회원가입 코드 확인 중 오류 발생",
+    "registerSuccess": "회원가입이 성공적으로 완료되었습니다",
+    "registerFailed": "회원가입에 실패했습니다"
+  },
+  "adminPanel": {
+    "layout": {
+      "appSidebar": {
+        "miznex": "Miznex",
+        "dashboard": "대시보드",
+        "userManagement": "사용자 관리",
+        "categoryManagement": "카테고리 관리",
+        "itemManagement": "아이템 관리",
+        "orderManagement": "주문 관리",
+        "discountManagement": "할인 관리",
+        "ticketManagement": "티켓 관리",
+        "commentManagement": "댓글 관리",
+        "userMessageManagement": "사용자 메시지 관리",
+        "blacklist": "블랙리스트",
+        "restrictionManagement": "제한 관리"
+      }
+    },
+    "dashboard": {
+      "Qrcodes": {
+        "Statistics": {
+          "qr_scan": "QR 코드 스캔",
+          "compared_to_last_month": "지난달 대비",
+          "recent_visits": "최근 방문",
+          "item_clicks": "아이템 클릭",
+          "menu_views": "메뉴 조회수"
+        },
+        "QrcodeSections": {
+          "title": "당신의 전용 QR 코드",
+          "copy": "복사",
+          "print_code": "코드 인쇄",
+          "share": "공유",
+          "description": {
+            "desc1": "QR 코드를 테이블, 게시판 또는 특별 카드에 배치하여 고객이 휴대폰으로 쉽게 스캔할 수 있도록 하세요.",
+            "desc2": "고객은 휴대폰 카메라를 열고 QR 코드를 스캔하면 자동으로 디지털 메뉴로 이동합니다.",
+            "desc3": "앱에서 언제든 메뉴를 업데이트하면 변경 사항이 즉시 디지털 메뉴와 QR 코드에 반영됩니다.",
+            "desc4": "이 링크는 카페 메뉴를 소셜 미디어에서 공유하는 데 사용됩니다.",
+            "desc5": "여기에서 QR 스캔 및 메뉴 방문 보고서를 확인하여 어떤 메뉴나 지점이 더 많이 사용되는지 확인하세요."
+          }
+        },
+        "FormSections": {
+          "title": "랜딩 페이지 정보",
+          "cafe_name_label": "카페 이름",
+          "cafe_name": "Javad Cafe",
+          "cafe_slogan_label": "카페 슬로건",
+          "cafe_slogan": "도시 최고의 커피",
+          "short_description_label": "간단한 설명",
+          "short_description": "Javad Cafe는 10년 이상의 경험을 바탕으로 가장 신선한 커피와 아늑하고 조용한 환경을 제공합니다.",
+          "working_hours_label": "영업 시간",
+          "phone_number_label": "전화번호",
+          "cafe_logo_label": "카페 로고",
+          "main_image_label": "메인 카페 이미지",
+          "image_limit_note": "최대 크기 2MB, PNG 형식",
+          "save_changes": "변경 사항 저장"
+        }
+      }
+    }
   }
 }

@@ -141,5 +141,90 @@
     "privacyPolicy": "隐私政策",
     "termsOfUse": "使用条款",
     "termsAndConditions": "条款和条件"
+  },
+  "adminLogin": {
+    "loginRegister": "登录 / 注册",
+    "enterEmail": "请输入您的电子邮箱",
+    "sending": "正在发送...",
+    "sendVerificationCode": "发送验证码",
+    "verifyEmail": "验证邮箱",
+    "codeSent": "验证码已发送至您的邮箱",
+    "verifying": "正在验证...",
+    "verify": "验证邮箱",
+    "resend": "重新发送",
+    "completeProfile": "完善资料",
+    "enterProfileInfo": "请填写您的个人信息",
+    "firstName": "名字",
+    "lastName": "姓氏",
+    "username": "用户名",
+    "usernameNote": "用户名将显示在您的页面链接中",
+    "submitting": "正在提交...",
+    "submitInfo": "提交信息",
+    "usernameTaken": "此用户名已被使用",
+    "signupCodeSent": "注册验证码已发送",
+    "loginCodeSent": "登录验证码已发送",
+    "loginCodeError": "发送登录验证码时出错",
+    "codeSendError": "发送验证码时出错",
+    "verifyLoginCodeError": "验证登录验证码时出错",
+    "verifyRegisterCodeError": "验证注册验证码时出错",
+    "registerSuccess": "注册成功",
+    "registerFailed": "注册失败"
+  },
+  "adminPanel": {
+    "layout": {
+      "appSidebar": {
+        "miznex": "Miznex",
+        "dashboard": "仪表板",
+        "userManagement": "用户管理",
+        "categoryManagement": "分类管理",
+        "itemManagement": "商品管理",
+        "orderManagement": "订单管理",
+        "discountManagement": "折扣管理",
+        "ticketManagement": "工单管理",
+        "commentManagement": "评论管理",
+        "userMessageManagement": "用户消息管理",
+        "blacklist": "黑名单",
+        "restrictionManagement": "限制管理"
+      }
+    },
+    "dashboard": {
+      "Qrcodes": {
+        "Statistics": {
+          "qr_scan": "二维码扫描",
+          "compared_to_last_month": "与上个月相比",
+          "recent_visits": "最近访问",
+          "item_clicks": "商品点击",
+          "menu_views": "菜单浏览"
+        },
+        "QrcodeSections": {
+          "title": "您的专属二维码",
+          "copy": "复制",
+          "print_code": "打印二维码",
+          "share": "分享",
+          "description": {
+            "desc1": "将二维码放在桌子、看板或特殊卡片上，客户可以轻松用手机扫描。",
+            "desc2": "客户打开手机摄像头扫描二维码，自动跳转到数字菜单。",
+            "desc3": "随时在应用中更新菜单，变化将立即反映在数字菜单和二维码上。",
+            "desc4": "此链接用于在社交媒体上分享您的咖啡馆菜单。",
+            "desc5": "在这里查看二维码扫描和菜单访问报告，了解哪个菜单或分店使用更多。"
+          }
+        },
+        "FormSections": {
+          "title": "登录页信息",
+          "cafe_name_label": "咖啡馆名称",
+          "cafe_name": "Javad Cafe",
+          "cafe_slogan_label": "咖啡馆口号",
+          "cafe_slogan": "城里最好的咖啡",
+          "short_description_label": "简短描述",
+          "short_description": "Javad Cafe，拥有超过10年的经验，提供最新鲜的咖啡和舒适宁静的环境。",
+          "working_hours_label": "营业时间",
+          "phone_number_label": "电话号码",
+          "cafe_logo_label": "咖啡馆标志",
+          "main_image_label": "咖啡馆主图",
+          "image_limit_note": "最大尺寸 2 MB，PNG 格式",
+          "save_changes": "保存更改"
+        }
+      }
+    }
   }
 }

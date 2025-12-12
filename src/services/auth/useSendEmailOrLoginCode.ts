@@ -1,7 +1,11 @@
 import { usePost } from "@/hooks/api/useReactQueryHooks";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 
 export const useSendEmailOrLoginCode = () => {
+  
+  const t = useTranslations("adminLogin");
+
   const { mutate: sendEmailCode, isPending: isSendEmailPending } = usePost<any, { email: string }>(
     () => `${process.env.NEXT_PUBLIC_APP_API}/auth/send-email`,
     undefined
@@ -12,26 +16,26 @@ export const useSendEmailOrLoginCode = () => {
     undefined
   );
 
-  const sendCode = (email: string , setIsExistingUser : any) => {
-    setIsExistingUser(false)
+  const sendCode = (email: string, setIsExistingUser: any) => {
+    setIsExistingUser(false);
     sendEmailCode(
       { email },
       {
         onSuccess: () => {
-          toast.success("کد ثبت نام ارسال شد");
+          toast.success(t("signupCodeSent"));
         },
         onError: (error: any) => {
           if (error?.statusCode === 409) {
-            setIsExistingUser(true)
+            setIsExistingUser(true);
             sendLoginCode(
               { email },
               {
-                onSuccess: () => toast.success("کد ورود ارسال شد"),
-                onError: () => toast.error("خطا در ارسال کد ورود"),
+                onSuccess: () => toast.success(t("loginCodeSent")),
+                onError: () => toast.error(t("loginCodeError")),
               }
             );
           } else {
-            toast.error("خطا در ارسال کد");
+            toast.error(t("genericError"));
           }
         },
       }

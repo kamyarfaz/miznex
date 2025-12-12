@@ -10,6 +10,7 @@ import {
   getClientCookie,
 } from "@/components/helper/client-cookie";
 import { setServerCookie } from "@/components/helper/server-cookie";
+import { useTranslations } from "next-intl";
 
 export const useLoginLogic = ({
   onSuccess,
@@ -23,6 +24,7 @@ export const useLoginLogic = ({
   const [isExistingUser, setIsExistingUser] = useState(false);
   const [Test, setTest] = useState(false);
   const [usernameError, setUsernameError] = useState<string | null>(null);
+  const t = useTranslations("adminLogin");
 
   const { sendCode, isPending: isSendLoading } = useSendEmailOrLoginCode();
   const { verifyCode, isPending: isVerifyLoading } =
@@ -80,7 +82,7 @@ export const useLoginLogic = ({
       onSuccess?.();
     } catch (err: any) {
       if (err?.statusCode === 409) {
-        setUsernameError("این نام کاربری قبلاً استفاده شده است");
+        setUsernameError(t("usernameTaken"));
       } else {
         throw err;
       }

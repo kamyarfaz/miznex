@@ -13,6 +13,7 @@ import { CheckCircle2 } from "lucide-react";
 import { verifyCodeSchema } from "@/schemas";
 import { cn } from "@/utils/utils";
 import { VerifyEmailFormProps } from "@/types/main";
+import { useTranslations } from "next-intl";
 
 export const VerifyEmailForm: React.FC<VerifyEmailFormProps> = ({
   email,
@@ -29,29 +30,25 @@ export const VerifyEmailForm: React.FC<VerifyEmailFormProps> = ({
     mode: "onChange",
   });
 
+  const t = useTranslations("adminLogin");
   const codeValue = watch("code", "");
 
   const handleFormSubmit = (data: { code: string }) => {
     onSubmit(data.code ,isExistingUser);
-    console.log(data.code , "code");
   };
 
   return (
     <div className="space-y-3">
       <div className="text-center space-y-2">
-        <h2 className="text-2xl font-bold bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 bg-clip-text text-transparent">
-          تایید ایمیل
+        <h2 className="text-2xl font-bold text-action mb-3">
+          {t("verifyEmail")}
         </h2>
-        <p className="text-gray-600 dark:text-gray-300 text-base">
-          کد تایید به ایمیل{" "}
-          {/* <span className="text-amber-600 dark:text-amber-400 font-semibold">
-            {email}
-          </span>{" "} */}
-          ارسال شد
+        <p className="text-headings text-base">
+          {t("codeSent")}
         </p>
       </div>
 
-      <form className="space-y-3 px-6">
+      <form className="space-y-3 px-8 mt-5">
         <Controller
           name="code"
           control={control}
@@ -87,12 +84,12 @@ export const VerifyEmailForm: React.FC<VerifyEmailFormProps> = ({
           disabled={isLoading || !codeValue || codeValue.length !== 6}
           onClick={handleSubmit(handleFormSubmit)}
           className={cn(
-            "w-full h-12 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold text-lg rounded-xl",
-            "hover:scale-105 transition-all shadow-md mt-3"
+            "w-full h-12 bg-action text-white font-bold text-lg rounded-xl",
+            "hover:bg-action-hover transition-all shadow-md mt-3"
           )}
         >
           <CheckCircle2 className="w-5 h-5 ml-2" />
-          {isLoading ? "در حال تایید..." : "تایید ایمیل"}
+          {isLoading ? t("verifying") : t("verify")}
         </Button>
 
         <Button
@@ -103,8 +100,8 @@ export const VerifyEmailForm: React.FC<VerifyEmailFormProps> = ({
           className="w-full h-10"
         >
           {resendTimer > 0
-            ? `ارسال مجدد (${formatTime(resendTimer)})`
-            : "ارسال مجدد"}
+            ? `${t("resend")} (${formatTime(resendTimer)})`
+            : t("resend")}
         </Button>
       </form>
     </div>

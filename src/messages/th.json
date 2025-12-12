@@ -141,5 +141,90 @@
     "privacyPolicy": "นโยบายความเป็นส่วนตัว",
     "termsOfUse": "ข้อกำหนดการใช้งาน",
     "termsAndConditions": "ข้อกำหนดและเงื่อนไข"
+  },
+  "adminLogin": {
+    "loginRegister": "เข้าสู่ระบบ / สมัครสมาชิก",
+    "enterEmail": "กรุณากรอกอีเมลของคุณ",
+    "sending": "กำลังส่ง...",
+    "sendVerificationCode": "ส่งรหัสยืนยัน",
+    "verifyEmail": "ยืนยันอีเมล",
+    "codeSent": "รหัสยืนยันถูกส่งไปยังอีเมลของคุณแล้ว",
+    "verifying": "กำลังยืนยัน...",
+    "verify": "ยืนยันอีเมล",
+    "resend": "ส่งใหม่",
+    "completeProfile": "กรอกข้อมูลส่วนตัวให้ครบ",
+    "enterProfileInfo": "กรุณากรอกข้อมูลส่วนตัวของคุณ",
+    "firstName": "ชื่อ",
+    "lastName": "นามสกุล",
+    "username": "ชื่อผู้ใช้",
+    "usernameNote": "ชื่อผู้ใช้จะปรากฏในลิงก์หน้าของคุณ",
+    "submitting": "กำลังส่งข้อมูล...",
+    "submitInfo": "ส่งข้อมูล",
+    "usernameTaken": "ชื่อผู้ใช้นี้ถูกใช้ไปแล้ว",
+    "signupCodeSent": "รหัสสมัครสมาชิกถูกส่งแล้ว",
+    "loginCodeSent": "รหัสเข้าสู่ระบบถูกส่งแล้ว",
+    "loginCodeError": "เกิดข้อผิดพลาดในการส่งรหัสเข้าสู่ระบบ",
+    "codeSendError": "เกิดข้อผิดพลาดในการส่งรหัส",
+    "verifyLoginCodeError": "เกิดข้อผิดพลาดในการตรวจสอบรหัสเข้าสู่ระบบ",
+    "verifyRegisterCodeError": "เกิดข้อผิดพลาดในการตรวจสอบรหัสสมัครสมาชิก",
+    "registerSuccess": "สมัครสมาชิกสำเร็จ",
+    "registerFailed": "สมัครสมาชิกไม่สำเร็จ"
+  },
+  "adminPanel": {
+    "layout": {
+      "appSidebar": {
+        "miznex": "Miznex",
+        "dashboard": "แดชบอร์ด",
+        "userManagement": "การจัดการผู้ใช้",
+        "categoryManagement": "การจัดการหมวดหมู่",
+        "itemManagement": "การจัดการสินค้า",
+        "orderManagement": "การจัดการคำสั่งซื้อ",
+        "discountManagement": "การจัดการส่วนลด",
+        "ticketManagement": "การจัดการตั๋ว",
+        "commentManagement": "การจัดการความคิดเห็น",
+        "userMessageManagement": "การจัดการข้อความผู้ใช้",
+        "blacklist": "บัญชีดำ",
+        "restrictionManagement": "การจัดการข้อจำกัด"
+      }
+    },
+    "dashboard": {
+      "Qrcodes": {
+        "Statistics": {
+          "qr_scan": "สแกน QR Code",
+          "compared_to_last_month": "เปรียบเทียบกับเดือนที่แล้ว",
+          "recent_visits": "การเข้าชมล่าสุด",
+          "item_clicks": "การคลิกสินค้า",
+          "menu_views": "การดูเมนู"
+        },
+        "QrcodeSections": {
+          "title": "QR Code ของคุณ",
+          "copy": "คัดลอก",
+          "print_code": "พิมพ์รหัส",
+          "share": "แชร์",
+          "description": {
+            "desc1": "วาง QR Code บนโต๊ะ กระดาน หรือการ์ดพิเศษ เพื่อให้ลูกค้าสแกนได้ง่ายด้วยมือถือของพวกเขา",
+            "desc2": "ลูกค้าเปิดกล้องมือถือและสแกน QR Code ซึ่งจะนำไปยังเมนูดิจิทัลโดยอัตโนมัติ",
+            "desc3": "อัปเดตเมนูของคุณได้ทุกเมื่อในแอป และการเปลี่ยนแปลงจะสะท้อนทันทีในเมนูดิจิทัลและ QR Code",
+            "desc4": "ลิงก์นี้ใช้สำหรับแชร์เมนูคาเฟ่ของคุณบนโซเชียลมีเดีย",
+            "desc5": "ดูรายงานการสแกน QR และการเข้าชมเมนูที่นี่เพื่อเข้าใจว่าเมนูหรือสาขาใดถูกใช้งานมากที่สุด"
+          }
+        },
+        "FormSections": {
+          "title": "ข้อมูลหน้า Landing Page",
+          "cafe_name_label": "ชื่อคาเฟ่",
+          "cafe_name": "Javad Cafe",
+          "cafe_slogan_label": "สโลแกนคาเฟ่",
+          "cafe_slogan": "กาแฟที่ดีที่สุดในเมือง",
+          "short_description_label": "คำอธิบายสั้น",
+          "short_description": "Javad Cafe ด้วยประสบการณ์กว่า 10 ปี มอบกาแฟที่สดใหม่ที่สุดและบรรยากาศอบอุ่น สงบ",
+          "working_hours_label": "เวลาทำการ",
+          "phone_number_label": "หมายเลขโทรศัพท์",
+          "cafe_logo_label": "โลโก้คาเฟ่",
+          "main_image_label": "ภาพหลักของคาเฟ่",
+          "image_limit_note": "ขนาดสูงสุด 2 MB ในรูปแบบ PNG",
+          "save_changes": "บันทึกการเปลี่ยนแปลง"
+        }
+      }
+    }
   }
 }

@@ -141,5 +141,90 @@
     "privacyPolicy": "গোপনীয়তা নীতি",
     "termsOfUse": "ব্যবহারের শর্তাবলী",
     "termsAndConditions": "শর্তাবলী এবং নিয়মাবলী"
+  },
+  "adminLogin": {
+    "loginRegister": "লগইন / সাইন আপ",
+    "enterEmail": "অনুগ্রহ করে আপনার ইমেইল লিখুন",
+    "sending": "পাঠানো হচ্ছে...",
+    "sendVerificationCode": "ভেরিফিকেশন কোড পাঠান",
+    "verifyEmail": "ইমেইল যাচাই করুন",
+    "codeSent": "ভেরিফিকেশন কোড আপনার ইমেইলে পাঠানো হয়েছে",
+    "verifying": "যাচাই করা হচ্ছে...",
+    "verify": "ইমেইল যাচাই করুন",
+    "resend": "আবার পাঠান",
+    "completeProfile": "প্রোফাইল সম্পূর্ণ করুন",
+    "enterProfileInfo": "অনুগ্রহ করে আপনার ব্যক্তিগত তথ্য প্রদান করুন",
+    "firstName": "নামের প্রথম অংশ",
+    "lastName": "পারিবারিক নাম",
+    "username": "ইউজারনেম",
+    "usernameNote": "আপনার ইউজারনেম আপনার পেজের লিঙ্কে দেখাবে",
+    "submitting": "জমা দেওয়া হচ্ছে...",
+    "submitInfo": "তথ্য জমা দিন",
+    "usernameTaken": "এই ইউজারনেমটি ইতিমধ্যে নেওয়া হয়েছে",
+    "signupCodeSent": "সাইন-আপ কোড পাঠানো হয়েছে",
+    "loginCodeSent": "লগইন কোড পাঠানো হয়েছে",
+    "loginCodeError": "লগইন কোড পাঠাতে ত্রুটি হয়েছে",
+    "codeSendError": "কোড পাঠাতে ত্রুটি হয়েছে",
+    "verifyLoginCodeError": "লগইন কোড যাচাই করতে ত্রুটি",
+    "verifyRegisterCodeError": "রেজিস্ট্রেশন কোড যাচাই করতে ত্রুটি",
+    "registerSuccess": "রেজিস্ট্রেশন সফলভাবে সম্পন্ন হয়েছে",
+    "registerFailed": "রেজিস্ট্রেশন ব্যর্থ হয়েছে"
+  },
+  "adminPanel": {
+    "layout": {
+      "appSidebar": {
+        "miznex": "Miznex",
+        "dashboard": "ড্যাশবোর্ড",
+        "userManagement": "ইউজার ম্যানেজমেন্ট",
+        "categoryManagement": "ক্যাটেগরি ম্যানেজমেন্ট",
+        "itemManagement": "আইটেম ম্যানেজমেন্ট",
+        "orderManagement": "অর্ডার ম্যানেজমেন্ট",
+        "discountManagement": "ডিসকাউন্ট ম্যানেজমেন্ট",
+        "ticketManagement": "টিকিট ম্যানেজমেন্ট",
+        "commentManagement": "কমেন্ট ম্যানেজমেন্ট",
+        "userMessageManagement": "ব্যবহারকারীর বার্তা ব্যবস্থাপনা",
+        "blacklist": "ব্ল্যাকলিস্ট",
+        "restrictionManagement": "রেস্ট্রিকশন ম্যানেজমেন্ট"
+      }
+    },
+    "dashboard": {
+      "Qrcodes": {
+        "Statistics": {
+          "qr_scan": "QR কোড স্ক্যান",
+          "compared_to_last_month": "গত মাসের তুলনায়",
+          "recent_visits": "সাম্প্রতিক ভিজিট",
+          "item_clicks": "আইটেম ক্লিক",
+          "menu_views": "মেনু ভিউ"
+        },
+        "QrcodeSections": {
+          "title": "আপনার নির্ধারিত QR কোড",
+          "copy": "কপি",
+          "print_code": "কোড প্রিন্ট",
+          "share": "শেয়ার",
+          "description": {
+            "desc1": "QR কোডটি টেবিল, বোর্ড বা বিশেষ কার্ডে রাখুন যাতে গ্রাহকরা সহজেই তাদের মোবাইল ফোন দিয়ে স্ক্যান করতে পারে।",
+            "desc2": "গ্রাহকরা মোবাইলের ক্যামেরা খুলে QR কোড স্ক্যান করলে স্বয়ংক্রিয়ভাবে ডিজিটাল মেনুতে নিয়ে যাবে।",
+            "desc3": "যে কোনো সময় অ্যাপে মেনু আপডেট করুন, পরিবর্তনগুলো সাথে সাথে ডিজিটাল মেনু এবং QR কোডে প্রদর্শিত হবে।",
+            "desc4": "এই লিঙ্কটি আপনার ক্যাফের মেনু সোশ্যাল মিডিয়া প্ল্যাটফর্মে শেয়ার করার জন্য ব্যবহার করা হয়।",
+            "desc5": "এখানে QR স্ক্যান এবং মেনু ভিজিট রিপোর্ট দেখুন, কোন মেনু বা শাখা বেশি ব্যবহৃত হচ্ছে তা বুঝতে।"
+          }
+        },
+        "FormSections": {
+          "title": "ল্যান্ডিং পেজের তথ্য",
+          "cafe_name_label": "ক্যাফের নাম",
+          "cafe_name": "Javad Cafe",
+          "cafe_slogan_label": "ক্যাফের স্লোগান",
+          "cafe_slogan": "শহরের সেরা কফি",
+          "short_description_label": "সংক্ষিপ্ত বিবরণ",
+          "short_description": "জাওয়াদ ক্যাফে, ১০ বছরেরও বেশি অভিজ্ঞতায়, সবচেয়ে তাজা কফি এবং আরামদায়ক পরিবেশ প্রদান করে।",
+          "working_hours_label": "কাজের সময়",
+          "phone_number_label": "ফোন নম্বর",
+          "cafe_logo_label": "ক্যাফে লোগো",
+          "main_image_label": "প্রধান ক্যাফের ছবি",
+          "image_limit_note": "সর্বোচ্চ আকার ২ এমবি (PNG ফরম্যাট)",
+          "save_changes": "পরিবর্তন সংরক্ষণ করুন"
+        }
+      }
+    }
   }
 }

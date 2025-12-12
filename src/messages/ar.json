@@ -141,5 +141,90 @@
     "privacyPolicy": "سياسة الخصوصية",
     "termsOfUse": "شروط الاستخدام",
     "termsAndConditions": "الشروط والأحكام"
+  },
+  "adminLogin": {
+    "loginRegister": "تسجيل الدخول / إنشاء حساب",
+    "enterEmail": "يرجى إدخال بريدك الإلكتروني",
+    "sending": "جاري الإرسال...",
+    "sendVerificationCode": "إرسال رمز التحقق",
+    "verifyEmail": "تأكيد البريد الإلكتروني",
+    "codeSent": "تم إرسال رمز التحقق إلى بريدك الإلكتروني",
+    "verifying": "جاري التحقق...",
+    "verify": "تأكيد البريد الإلكتروني",
+    "resend": "إعادة الإرسال",
+    "completeProfile": "استكمال الملف الشخصي",
+    "enterProfileInfo": "يرجى إدخال معلوماتك الشخصية",
+    "firstName": "الاسم الأول",
+    "lastName": "اسم العائلة",
+    "username": "اسم المستخدم",
+    "usernameNote": "سيظهر اسم المستخدم في رابط صفحتك",
+    "submitting": "جاري التسجيل...",
+    "submitInfo": "تسجيل المعلومات",
+    "usernameTaken": "اسم المستخدم هذا مستخدم بالفعل",
+    "signupCodeSent": "تم إرسال رمز التسجيل",
+    "loginCodeSent": "تم إرسال رمز تسجيل الدخول",
+    "loginCodeError": "حدث خطأ أثناء إرسال رمز تسجيل الدخول",
+    "codeSendError": "حدث خطأ أثناء إرسال الرمز",
+    "verifyLoginCodeError": "خطأ في التحقق من رمز تسجيل الدخول",
+    "verifyRegisterCodeError": "خطأ في التحقق من رمز التسجيل",
+    "registerSuccess": "تم التسجيل بنجاح",
+    "registerFailed": "فشل التسجيل"
+  },
+  "adminPanel": {
+    "layout": {
+      "appSidebar": {
+        "miznex": "Miznex",
+        "dashboard": "لوحة التحكم",
+        "userManagement": "إدارة المستخدمين",
+        "categoryManagement": "إدارة الفئات",
+        "itemManagement": "إدارة العناصر",
+        "orderManagement": "إدارة الطلبات",
+        "discountManagement": "إدارة الخصومات",
+        "ticketManagement": "إدارة التذاكر",
+        "commentManagement": "إدارة التعليقات",
+        "userMessageManagement": "إدارة رسائل المستخدمين",
+        "blacklist": "القائمة السوداء",
+        "restrictionManagement": "إدارة القيود"
+      }
+    },
+    "dashboard": {
+      "Qrcodes": {
+        "Statistics": {
+          "qr_scan": "مسح رمز QR",
+          "compared_to_last_month": "مقارنة بالشهر الماضي",
+          "recent_visits": "الزيارات الأخيرة",
+          "item_clicks": "نقرات العناصر",
+          "menu_views": "مشاهدات القائمة"
+        },
+        "QrcodeSections": {
+          "title": "رمز الـ QR الخاص بك",
+          "copy": "نسخ",
+          "print_code": "طباعة الرمز",
+          "share": "مشاركة",
+          "description": {
+            "desc1": "ضع رمز الـ QR على الطاولات أو اللوحات أو البطاقات ليتمكن العملاء من مسحه بسهولة عبر هواتفهم.",
+            "desc2": "يفتح العملاء كاميرا الهاتف لمسح رمز الـ QR، مما يوجههم تلقائيًا إلى القائمة الرقمية.",
+            "desc3": "قم بتحديث قائمتك في أي وقت داخل التطبيق، وستظهر التغييرات فورًا في القائمة الرقمية والرمز.",
+            "desc4": "يُستخدم هذا الرابط لمشاركة قائمة مقهاك على وسائل التواصل الاجتماعي.",
+            "desc5": "اعرض هنا تقارير مسح رمز الـ QR وزيارات القائمة لمعرفة أي قائمة أو فرع يتم استخدامه أكثر."
+          }
+        },
+        "FormSections": {
+          "title": "معلومات صفحة الهبوط",
+          "cafe_name_label": "اسم المقهى",
+          "cafe_name": "Javad Cafe",
+          "cafe_slogan_label": "شعار المقهى",
+          "cafe_slogan": "أفضل قهوة في المدينة",
+          "short_description_label": "وصف قصير",
+          "short_description": "يقدم Javad Cafe، بخبرة تزيد عن 10 سنوات، أحدث أنواع القهوة في بيئة مريحة وهادئة.",
+          "working_hours_label": "ساعات العمل",
+          "phone_number_label": "رقم الهاتف",
+          "cafe_logo_label": "شعار المقهى",
+          "main_image_label": "الصورة الرئيسية للمقهى",
+          "image_limit_note": "الحد الأقصى للحجم 2 ميجابايت بصيغة PNG",
+          "save_changes": "حفظ التغييرات"
+        }
+      }
+    }
   }
 }

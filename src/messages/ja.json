@@ -141,5 +141,90 @@
     "privacyPolicy": "プライバシーポリシー",
     "termsOfUse": "利用規約",
     "termsAndConditions": "利用規約"
+  },
+  "adminLogin": {
+    "loginRegister": "ログイン / 登録",
+    "enterEmail": "メールアドレスを入力してください",
+    "sending": "送信中...",
+    "sendVerificationCode": "認証コードを送信",
+    "verifyEmail": "メールアドレスを確認",
+    "codeSent": "認証コードをメールアドレスに送信しました",
+    "verifying": "確認中...",
+    "verify": "メールアドレスを確認",
+    "resend": "再送信",
+    "completeProfile": "プロフィールを完成させる",
+    "enterProfileInfo": "個人情報を入力してください",
+    "firstName": "名",
+    "lastName": "姓",
+    "username": "ユーザー名",
+    "usernameNote": "ユーザー名はページのURLに表示されます",
+    "submitting": "送信中...",
+    "submitInfo": "情報を送信",
+    "usernameTaken": "このユーザー名はすでに使用されています",
+    "signupCodeSent": "登録コードを送信しました",
+    "loginCodeSent": "ログインコードを送信しました",
+    "loginCodeError": "ログインコードの送信中にエラーが発生しました",
+    "codeSendError": "コードの送信中にエラーが発生しました",
+    "verifyLoginCodeError": "ログインコードの検証中にエラーが発生しました",
+    "verifyRegisterCodeError": "登録コードの検証中にエラーが発生しました",
+    "registerSuccess": "登録が正常に完了しました",
+    "registerFailed": "登録に失敗しました"
+  },
+  "adminPanel": {
+    "layout": {
+      "appSidebar": {
+        "miznex": "Miznex",
+        "dashboard": "ダッシュボード",
+        "userManagement": "ユーザー管理",
+        "categoryManagement": "カテゴリー管理",
+        "itemManagement": "アイテム管理",
+        "orderManagement": "注文管理",
+        "discountManagement": "割引管理",
+        "ticketManagement": "チケット管理",
+        "commentManagement": "コメント管理",
+        "userMessageManagement": "ユーザーメッセージ管理",
+        "blacklist": "ブラックリスト",
+        "restrictionManagement": "制限管理"
+      }
+    },
+    "dashboard": {
+      "Qrcodes": {
+        "Statistics": {
+          "qr_scan": "QRコードスキャン",
+          "compared_to_last_month": "先月と比較",
+          "recent_visits": "最近の訪問",
+          "item_clicks": "アイテムクリック",
+          "menu_views": "メニュー閲覧数"
+        },
+        "QrcodeSections": {
+          "title": "あなた専用のQRコード",
+          "copy": "コピー",
+          "print_code": "コードを印刷",
+          "share": "共有",
+          "description": {
+            "desc1": "QRコードをテーブル、ボード、または特別なカードに配置し、顧客が携帯電話で簡単にスキャンできるようにします。",
+            "desc2": "顧客は携帯電話のカメラを開き、QRコードをスキャンすると、自動的にデジタルメニューに移動します。",
+            "desc3": "アプリ内でいつでもメニューを更新すると、変更はデジタルメニューとQRコードに即座に反映されます。",
+            "desc4": "このリンクは、カフェのメニューをソーシャルメディアで共有するために使用されます。",
+            "desc5": "ここでQRスキャンとメニュー訪問のレポートを確認し、どのメニューや支店がより多く利用されているかを把握できます。"
+          }
+        },
+        "FormSections": {
+          "title": "ランディングページ情報",
+          "cafe_name_label": "カフェ名",
+          "cafe_name": "Javad Cafe",
+          "cafe_slogan_label": "カフェのスローガン",
+          "cafe_slogan": "町で最高のコーヒー",
+          "short_description_label": "簡単な説明",
+          "short_description": "Javad Cafeは10年以上の経験があり、新鮮なコーヒーと居心地の良い落ち着いた環境を提供します。",
+          "working_hours_label": "営業時間",
+          "phone_number_label": "電話番号",
+          "cafe_logo_label": "カフェのロゴ",
+          "main_image_label": "カフェのメイン画像",
+          "image_limit_note": "最大サイズ2MB、PNG形式",
+          "save_changes": "変更を保存"
+        }
+      }
+    }
   }
 }

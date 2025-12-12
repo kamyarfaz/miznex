@@ -141,5 +141,90 @@
     "privacyPolicy": "Chính sách bảo mật",
     "termsOfUse": "Điều khoản sử dụng",
     "termsAndConditions": "Điều khoản và điều kiện"
+  },
+  "adminLogin": {
+    "loginRegister": "Đăng nhập / Đăng ký",
+    "enterEmail": "Vui lòng nhập email của bạn",
+    "sending": "Đang gửi...",
+    "sendVerificationCode": "Gửi mã xác minh",
+    "verifyEmail": "Xác minh email",
+    "codeSent": "Mã xác minh đã được gửi đến email của bạn",
+    "verifying": "Đang xác minh...",
+    "verify": "Xác minh email",
+    "resend": "Gửi lại",
+    "completeProfile": "Hoàn tất hồ sơ",
+    "enterProfileInfo": "Vui lòng nhập thông tin cá nhân của bạn",
+    "firstName": "Tên",
+    "lastName": "Họ",
+    "username": "Tên người dùng",
+    "usernameNote": "Tên người dùng sẽ hiển thị trong liên kết trang của bạn",
+    "submitting": "Đang gửi...",
+    "submitInfo": "Gửi thông tin",
+    "usernameTaken": "Tên người dùng này đã được sử dụng",
+    "signupCodeSent": "Mã đăng ký đã được gửi",
+    "loginCodeSent": "Mã đăng nhập đã được gửi",
+    "loginCodeError": "Lỗi khi gửi mã đăng nhập",
+    "codeSendError": "Lỗi khi gửi mã",
+    "verifyLoginCodeError": "Lỗi xác minh mã đăng nhập",
+    "verifyRegisterCodeError": "Lỗi xác minh mã đăng ký",
+    "registerSuccess": "Đăng ký thành công",
+    "registerFailed": "Đăng ký thất bại"
+  },
+  "adminPanel": {
+    "layout": {
+      "appSidebar": {
+        "miznex": "Miznex",
+        "dashboard": "Bảng điều khiển",
+        "userManagement": "Quản lý người dùng",
+        "categoryManagement": "Quản lý danh mục",
+        "itemManagement": "Quản lý sản phẩm",
+        "orderManagement": "Quản lý đơn hàng",
+        "discountManagement": "Quản lý khuyến mãi",
+        "ticketManagement": "Quản lý vé",
+        "commentManagement": "Quản lý bình luận",
+        "userMessageManagement": "Quản lý tin nhắn người dùng",
+        "blacklist": "Danh sách đen",
+        "restrictionManagement": "Quản lý hạn chế"
+      }
+    },
+    "dashboard": {
+      "Qrcodes": {
+        "Statistics": {
+          "qr_scan": "Quét QR Code",
+          "compared_to_last_month": "So với tháng trước",
+          "recent_visits": "Lượt truy cập gần đây",
+          "item_clicks": "Lượt nhấp sản phẩm",
+          "menu_views": "Lượt xem thực đơn"
+        },
+        "QrcodeSections": {
+          "title": "Mã QR riêng của bạn",
+          "copy": "Sao chép",
+          "print_code": "In mã",
+          "share": "Chia sẻ",
+          "description": {
+            "desc1": "Đặt mã QR trên bàn, bảng hoặc thẻ đặc biệt để khách hàng có thể quét dễ dàng bằng điện thoại di động.",
+            "desc2": "Khách hàng mở camera điện thoại và quét mã QR, tự động dẫn họ đến thực đơn số.",
+            "desc3": "Cập nhật thực đơn bất cứ lúc nào trong ứng dụng, thay đổi sẽ ngay lập tức hiển thị trên thực đơn số và mã QR.",
+            "desc4": "Liên kết này được dùng để chia sẻ thực đơn quán cà phê của bạn trên mạng xã hội.",
+            "desc5": "Xem báo cáo quét QR và lượt truy cập thực đơn tại đây để hiểu thực đơn hoặc chi nhánh nào được sử dụng nhiều hơn."
+          }
+        },
+        "FormSections": {
+          "title": "Thông tin trang đích",
+          "cafe_name_label": "Tên quán",
+          "cafe_name": "Javad Cafe",
+          "cafe_slogan_label": "Khẩu hiệu quán",
+          "cafe_slogan": "Cà phê ngon nhất thành phố",
+          "short_description_label": "Mô tả ngắn",
+          "short_description": "Javad Cafe, với hơn 10 năm kinh nghiệm, cung cấp cà phê tươi nhất và một không gian ấm cúng, yên tĩnh.",
+          "working_hours_label": "Giờ làm việc",
+          "phone_number_label": "Số điện thoại",
+          "cafe_logo_label": "Logo quán",
+          "main_image_label": "Hình ảnh chính của quán",
+          "image_limit_note": "Dung lượng tối đa 2 MB, định dạng PNG",
+          "save_changes": "Lưu thay đổi"
+        }
+      }
+    }
   }
 }

@@ -7,9 +7,12 @@ import {
   MotionP,
   MotionSpan,
 } from "@/utils/MotionWrapper";
+import { useRouter } from "next/navigation";
 
 const HeroContent = () => {
   const t = useTranslations("heroSection");
+  const a = useTranslations("adminLogin");
+  const router = useRouter();
 
   return (
     <div className="text-center rtl:text-right ltr:text-left space-y-8 max-lg:order-2">
@@ -27,7 +30,9 @@ const HeroContent = () => {
             </span>
             <span className="text-[16px] flex items-center gap-1">
               <span>🔥</span>
-              <span className="bg-gradient-to-r from-[#5B6171] to-[#444955] bg-clip-text text-transparent">{t("heroContent.theFirstFreeMenuMaker")}</span>
+              <span className="bg-gradient-to-r from-[#5B6171] to-[#444955] bg-clip-text text-transparent">
+                {t("heroContent.theFirstFreeMenuMaker")}
+              </span>
             </span>
           </div>
         </div>
@@ -76,8 +81,11 @@ const HeroContent = () => {
         transition={{ duration: 0.8, delay: 1.3 }}
       >
         <MotionDiv className="flex items-center gap-4 text-[15px] [&>div]:rounded-full [&>div]:cursor-pointer [&>div]:py-2 [&>div]:px-[29px]">
-          <div className="text-white bg-action lg:bg-[#404040] font-medium">
-            {t("heroContent.downloadApp")}
+          <div
+            className="text-white bg-action lg:bg-[#404040] font-medium"
+            onClick={() => router.push("/admin-login")}
+          >
+            {a("loginRegister")}
           </div>
           <div className="text-bodyDark font-normal border border-bodyNormal">
             {t("heroContent.support")}

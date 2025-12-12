@@ -23,7 +23,7 @@ export const LoginContent: React.FC<LoginContentProps> = ({
   handleResend,
 }) => {
   const LogoComponent = () => (
-    <div className="flex flex-col items-center gap-4 mb-6 scale-150">
+    <div className="flex flex-col items-center gap-4 mb-6 relative bottom-2 scale-150">
       <MiznexSVG />
     </div>
   );
