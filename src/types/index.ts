@@ -9,3 +9,6 @@ export * from "./Profile";
 
 // Restaurant types
 export * from "./restaurant";
+
+// Vendor
+export * from "./vendor";

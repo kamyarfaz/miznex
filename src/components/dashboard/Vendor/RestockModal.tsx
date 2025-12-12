@@ -1,0 +1,167 @@
+import { useState, useEffect } from "react";
+import { Ingredient } from "@/types";
+import { X } from "lucide-react";
+
+interface RestockModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  ingredient: Ingredient | null;
+  onConfirm: (
+    quantity: number,
+    supplier?: string,
+    receiptNumber?: string
+  ) => void;
+}
+
+export function RestockModal({
+  isOpen,
+  onClose,
+  ingredient,
+  onConfirm,
+}: RestockModalProps) {
+  const [quantity, setQuantity] = useState<string>("");
+  const [supplier, setSupplier] = useState<string>("");
+  const [receiptNumber, setReceiptNumber] = useState<string>("");
+
+  useEffect(() => {
+    if (isOpen) {
+      setQuantity("");
+      setSupplier(ingredient?.suppliers?.[0]?.name || "");
+      setReceiptNumber("");
+    }
+  }, [isOpen, ingredient]);
+
+  const handleConfirm = () => {
+    const qty = parseFloat(quantity);
+    if (!isNaN(qty) && qty > 0) {
+      onConfirm(qty, supplier || undefined, receiptNumber || undefined);
+      onClose();
+    }
+  };
+
+  if (!isOpen || !ingredient) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 overflow-y-auto">
+      <div
+        className="fixed inset-0 bg-black bg-opacity-20 transition-opacity"
+        onClick={onClose}
+      />
+
+      <div className="flex min-h-full items-center justify-center p-4">
+        <div className="relative bg-white rounded-lg shadow-xl max-w-md w-full">
+          {/* Header */}
+          <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+            <div>
+              <h2 className="text-gray-900">Restock Ingredient</h2>
+              <p className="text-sm text-gray-500 mt-1">{ingredient.name}</p>
+            </div>
+            <button
+              onClick={onClose}
+              className="text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Content */}
+          <div className="px-6 py-4 space-y-4">
+            {/* Current Stock Info */}
+            <div className="p-3 bg-gray-50 rounded-lg">
+              <div className="flex items-center justify-between text-sm">
+                <span className="text-gray-600">Current Stock:</span>
+                <span className="text-gray-900">
+                  {ingredient.stockQuantity} {ingredient.unit}
+                </span>
+              </div>
+            </div>
+
+            {/* Quantity Input */}
+            <div>
+              <label className="block text-sm text-gray-700 mb-1">
+                Add Quantity ({ingredient.unit}){" "}
+                <span className="text-red-500">*</span>
+              </label>
+              <input
+                type="number"
+                step="0.01"
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                placeholder="0.00"
+                autoFocus
+              />
+            </div>
+
+            {/* Supplier Select */}
+            {ingredient.suppliers && ingredient.suppliers.length > 0 && (
+              <div>
+                <label className="block text-sm text-gray-700 mb-1">
+                  Supplier
+                </label>
+                <select
+                  value={supplier}
+                  onChange={(e) => setSupplier(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                >
+                  <option value="">Select supplier...</option>
+                  {ingredient.suppliers.map((s) => (
+                    <option key={s.id} value={s.name}>
+                      {s.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
+
+            {/* Receipt Number */}
+            <div>
+              <label className="block text-sm text-gray-700 mb-1">
+                Receipt Number
+              </label>
+              <input
+                type="text"
+                value={receiptNumber}
+                onChange={(e) => setReceiptNumber(e.target.value)}
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                placeholder="RCP-..."
+              />
+            </div>
+
+            {/* Preview */}
+            {quantity && parseFloat(quantity) > 0 && (
+              <div className="p-3 bg-green-50 border border-green-200 rounded-lg">
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-green-700">New stock will be:</span>
+                  <span className="text-green-900">
+                    {(ingredient.stockQuantity + parseFloat(quantity)).toFixed(
+                      2
+                    )}{" "}
+                    {ingredient.unit}
+                  </span>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Footer */}
+          <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-gray-200">
+            <button
+              onClick={onClose}
+              className="px-4 py-2 text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={handleConfirm}
+              disabled={!quantity || parseFloat(quantity) <= 0}
+              className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            >
+              Confirm Restock
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
