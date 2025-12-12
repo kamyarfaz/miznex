@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Search, ShoppingBag, User } from "lucide-react";
+import { useParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import AddCircle from "@/assets/Menu/add-circle.svg";
@@ -37,12 +38,14 @@ const recommendedProducts = [
     },
 ]
 export const CafeMenuFC = () => {
+    
     const [showModal, setShowModal] = useState(false)
     const [selectedType, setSelectedType] = useState("گرم")
     const [selectedSize, setSelectedSize] = useState("متوسط")
     const [selectedSugar, setSelectedSugar] = useState("کم")
     const [selectedSyrup, setSelectedSyrup] = useState("کاراملی")
     const translate = useTranslations("resturantMenu");
+    const params = useParams();
 
     const product = {
         id: 1,
@@ -63,7 +66,7 @@ export const CafeMenuFC = () => {
                                 <User size={20} className="size-12 p-3 backdrop-blur rounded-full"/>
                             </div>
                         </div>
-                        <h1 className="text-2xl font-bold text-center mb-4">{translate("welcomeToResturant", { input: "جواد" })}</h1>
+                        <h1 className="text-2xl font-bold text-center mb-4">{translate("welcomeToResturant", { input: `${params.cafe}` })}</h1>
 
                         {/* Search Bar */}
                         <div
