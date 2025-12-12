@@ -5,12 +5,16 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
   DropdownMenuSeparator,
+  DropdownMenuGroup,
+  DropdownMenuLabel,
+  DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
 
 type OrderBy = "createdAt" | "title" | "price";
 type SortDirection = "asc" | "desc";
 
 interface SortOption {
+  group: string;
   orderBy: OrderBy;
   sort: SortDirection;
   label: string;
@@ -25,16 +29,16 @@ interface SortDropdownProps {
 
 const sortOptions: SortOption[] = [
   // Date options
-  { orderBy: "createdAt", sort: "desc", label: "Newest First" },
-  { orderBy: "createdAt", sort: "asc", label: "Oldest First" },
+  { orderBy: "createdAt", sort: "desc", label: "Newest First", group: "By Date" },
+  { orderBy: "createdAt", sort: "asc", label: "Oldest First", group: "By Date" },
 
   // Title options
-  { orderBy: "title", sort: "asc", label: "Name (A-Z)" },
-  { orderBy: "title", sort: "desc", label: "Name (Z-A)" },
+  { orderBy: "title", sort: "asc", label: "Name (A-Z)", group: "By Name" },
+  { orderBy: "title", sort: "desc", label: "Name (Z-A)", group: "By Name" },
 
   // Price options
-  { orderBy: "price", sort: "asc", label: "Price: Low to High" },
-  { orderBy: "price", sort: "desc", label: "Price: High to Low" },
+  { orderBy: "price", sort: "asc", label: "Price: Low to High", group: "By Price" },
+  { orderBy: "price", sort: "desc", label: "Price: High to Low", group: "By Price" },
 ];
 
 const SortDropdown = ({
@@ -65,175 +69,58 @@ const SortDropdown = ({
   const isDefaultSort =
     selectedSort.orderBy === "createdAt" && selectedSort.sort === "desc";
 
+  const sortGroups = ["By Date", "By Name", "By Price"];
+
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>
         <button
-          className={`flex items-center gap-2 px-3 py-2.5 border rounded-lg transition-all ${
+          className={`flex items-center gap-2 px-3 py-2.5 border rounded-full transition-all text-sm font-medium ${
             !isDefaultSort
-              ? "border-[#FF5B35] bg-[#FFF5F2] hover:bg-[#FFEBE5] shadow-sm"
-              : "border-gray-300 hover:bg-gray-50 hover:border-gray-400"
+              ? "border-[#FF5B35]/30 bg-[#FFF5F2] text-[#FF5B35] hover:bg-[#FFEBE5]"
+              : "border-slate-200 bg-white text-slate-700 hover:bg-slate-50 hover:border-slate-300"
           }`}
         >
-          <ArrowUpDown
-            className={`h-4 w-4 ${
-              !isDefaultSort ? "text-[#FF5B35]" : "text-gray-600"
-            }`}
-          />
-          <span
-            className={`text-sm font-medium ${
-              !isDefaultSort ? "text-[#FF5B35]" : "text-gray-700"
-            }`}
-          >
-            {currentOption?.label || "Sort"}
-          </span>
+          <ArrowUpDown className="h-4 w-4" />
+          <span>{currentOption?.label || "Sort"}</span>
           {!isDefaultSort && (
-            <span className="h-2 w-2 bg-[#FF5B35] rounded-full ring-2 ring-white" />
+            <div className="h-1.5 w-1.5 bg-[#FF5B35] rounded-full" />
           )}
         </button>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent
-        align="end"
-        className="w-56 border border-gray-200 shadow-lg"
-      >
-        <div className="p-1 space-y-2">
-          {/* Date Section */}
-          <div className="px-3 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider bg-gray-50/50 rounded-t-md">
-            By Date
-          </div>
-          {sortOptions.slice(0, 2).map((option) => (
-            <button
-              key={`${option.orderBy}-${option.sort}`}
-              onClick={() => handleSortChange(option.orderBy, option.sort)}
-              className={`w-full flex items-center justify-between px-3 py-2.5 rounded-md transition-all ${
-                selectedSort.orderBy === option.orderBy &&
-                selectedSort.sort === option.sort
-                  ? "bg-[#FFF5F2] text-[#FF5B35] border border-[#FF5B35]/20"
-                  : "hover:bg-gray-100 text-gray-700 hover:border hover:border-gray-200"
-              }`}
-            >
-              <div className="flex items-center gap-3">
-                <div
-                  className={`p-1.5 rounded ${
-                    selectedSort.orderBy === option.orderBy &&
-                    selectedSort.sort === option.sort
-                      ? "bg-[#FF5B35]/10"
-                      : "bg-gray-100"
-                  }`}
-                >
-                  <span
-                    className={`text-sm ${
-                      selectedSort.orderBy === option.orderBy &&
-                      selectedSort.sort === option.sort
-                        ? "text-[#FF5B35]"
-                        : "text-gray-600"
+      <DropdownMenuContent align="end" className="w-60">
+        {sortGroups.map((group, index) => (
+          <DropdownMenuGroup key={group}>
+            <DropdownMenuLabel>{group}</DropdownMenuLabel>
+            {sortOptions
+              .filter((option) => option.group === group)
+              .map((option) => {
+                const isSelected =
+                  selectedSort.orderBy === option.orderBy &&
+                  selectedSort.sort === option.sort;
+
+                return (
+                  <DropdownMenuItem
+                    key={`${option.orderBy}-${option.sort}`}
+                    onSelect={() =>
+                      handleSortChange(option.orderBy, option.sort)
+                    }
+                    className={`flex items-center justify-between cursor-pointer ${
+                      isSelected ? "text-[#FF5B35]" : ""
                     }`}
                   >
-                    {option.icon}
-                  </span>
-                </div>
-                <span className="text-sm font-medium">{option.label}</span>
-              </div>
-              {selectedSort.orderBy === option.orderBy &&
-                selectedSort.sort === option.sort && (
-                  <Check className="h-4 w-4 text-[#FF5B35] font-bold" />
-                )}
-            </button>
-          ))}
-
-          <DropdownMenuSeparator className="my-1" />
-
-          {/* Title Section */}
-          <div className="px-3 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider bg-gray-50/50">
-            By Name
-          </div>
-          {sortOptions.slice(2, 4).map((option) => (
-            <button
-              key={`${option.orderBy}-${option.sort}`}
-              onClick={() => handleSortChange(option.orderBy, option.sort)}
-              className={`w-full flex items-center justify-between px-3 py-2.5 rounded-md transition-all ${
-                selectedSort.orderBy === option.orderBy &&
-                selectedSort.sort === option.sort
-                  ? "bg-[#FFF5F2] text-[#FF5B35] border border-[#FF5B35]/20"
-                  : "hover:bg-gray-100 text-gray-700 hover:border hover:border-gray-200"
-              }`}
-            >
-              <div className="flex items-center gap-3">
-                <div
-                  className={`p-1.5 rounded ${
-                    selectedSort.orderBy === option.orderBy &&
-                    selectedSort.sort === option.sort
-                      ? "bg-[#FF5B35]/10"
-                      : "bg-gray-100"
-                  }`}
-                >
-                  <span
-                    className={`text-sm ${
-                      selectedSort.orderBy === option.orderBy &&
-                      selectedSort.sort === option.sort
-                        ? "text-[#FF5B35]"
-                        : "text-gray-600"
-                    }`}
-                  >
-                    {option.icon}
-                  </span>
-                </div>
-                <span className="text-sm font-medium">{option.label}</span>
-              </div>
-              {selectedSort.orderBy === option.orderBy &&
-                selectedSort.sort === option.sort && (
-                  <Check className="h-4 w-4 text-[#FF5B35] font-bold" />
-                )}
-            </button>
-          ))}
-
-          <DropdownMenuSeparator className="my-1" />
-
-          {/* Price Section */}
-          <div className="px-3 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider bg-gray-50/50 rounded-b-md">
-            By Price
-          </div>
-          {sortOptions.slice(4, 6).map((option) => (
-            <button
-              key={`${option.orderBy}-${option.sort}`}
-              onClick={() => handleSortChange(option.orderBy, option.sort)}
-              className={`w-full flex items-center justify-between px-3 py-2.5 rounded-md transition-all ${
-                selectedSort.orderBy === option.orderBy &&
-                selectedSort.sort === option.sort
-                  ? "bg-[#FFF5F2] text-[#FF5B35] border border-[#FF5B35]/20"
-                  : "hover:bg-gray-100 text-gray-700 hover:border hover:border-gray-200"
-              }`}
-            >
-              <div className="flex items-center gap-3">
-                <div
-                  className={`p-1.5 rounded ${
-                    selectedSort.orderBy === option.orderBy &&
-                    selectedSort.sort === option.sort
-                      ? "bg-[#FF5B35]/10"
-                      : "bg-gray-100"
-                  }`}
-                >
-                  <span
-                    className={`text-sm ${
-                      selectedSort.orderBy === option.orderBy &&
-                      selectedSort.sort === option.sort
-                        ? "text-[#FF5B35]"
-                        : "text-gray-600"
-                    }`}
-                  >
-                    {option.icon}
-                  </span>
-                </div>
-                <span className="text-sm font-medium">{option.label}</span>
-              </div>
-              {selectedSort.orderBy === option.orderBy &&
-                selectedSort.sort === option.sort && (
-                  <Check className="h-4 w-4 text-[#FF5B35] font-bold" />
-                )}
-            </button>
-          ))}
-        </div>
+                    <div className="flex items-center gap-2">
+                      {option.icon}
+                      <span>{option.label}</span>
+                    </div>
+                    {isSelected && <Check className="h-4 w-4" />}
+                  </DropdownMenuItem>
+                );
+              })}
+            {index < sortGroups.length - 1 && <DropdownMenuSeparator />}
+          </DropdownMenuGroup>
+        ))}
       </DropdownMenuContent>
     </DropdownMenu>
   );

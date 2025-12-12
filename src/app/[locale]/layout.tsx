@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
-import "../globals.css";
-import { ThemeProvider } from "@/context/Theme-Provider";
-import { Toaster } from "@/components/ui/sonner";
 import { QueryProvider } from "@/components/providers/QueryProviders";
+import { Toaster } from "@/components/ui/sonner";
+import { countryLocaleDirection } from "@/i18n/localeMap";
+import { routing } from "@/i18n/routing";
+import { IRANYekanX, Peyda, Poppins } from "@/lib/fonts";
 import { rootMetadata } from "@/lib/metadata/rootMetadata";
 import { StructuredDataScripts } from "@/lib/metadata/structuredData";
-import { IRANYekanX, Peyda , Poppins } from "@/lib/fonts";
+import type { Metadata } from "next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
-import { countryLocaleDirection } from "@/i18n/localeMap";
+import "../globals.css";
 
 export const metadata: Metadata = rootMetadata;
 
@@ -49,7 +48,7 @@ export default async function RootLayout({
               enableSystem
               disableTransitionOnChange
             > */}
-              <Toaster position="top-right" richColors />
+              <Toaster position="top-right" />
               {children}
             {/* </ThemeProvider> */}
           </QueryProvider>

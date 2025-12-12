@@ -1,8 +1,6 @@
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import type { ItemCategoryKDS, OrderStatusKDS } from "@/types";
-import { Category } from "@/types/restaurant";
 import { cn } from "@/utils/utils";
+import type { ItemCategoryKDS } from "@/types";
+import { useEffect, useRef } from "react";
 
 interface FilterOption {
   value: ItemCategoryKDS | "all";
@@ -13,106 +11,63 @@ interface KDSFilterTabsProps {
   options: FilterOption[];
   activeFilter: ItemCategoryKDS | "all";
   onFilterChange: (filter: ItemCategoryKDS | "all") => void;
-  variant?: "default" | "pills" | "underline";
   className?: string;
 }
 
-/**
- * KDS Filter Tabs Component
- *
- * Displays filter options with counts and active state
- * Variants:
- * - default: Button style
- * - pills: Rounded pill style
- * - underline: Tab with underline
- *
- * @example
- * <KDSFilterTabs
- *   options={[
- *     { value: 'all', label: 'All', count: 10 },
- *     { value: 'new', label: 'New', count: 3 }
- *   ]}
- *   activeFilter="all"
- *   onFilterChange={setFilter}
- * />
- */
 export function KDSFilterTabs({
   options,
   activeFilter,
   onFilterChange,
-  variant = "default",
   className,
 }: KDSFilterTabsProps) {
-  if (variant === "pills") {
-    return (
-      <div className={cn("flex flex-wrap gap-2", className)}>
-        {options.map((option) => (
-          <button
-            key={option.value == "all" ? option.value : option.value.id}
-            onClick={() => onFilterChange(option.value)}
-            className={cn(
-              "px-4 py-2 rounded-full transition-all",
-              activeFilter === option.value
-                ? "bg-[var(--brand-primary)] text-white"
-                : "bg-white border border-gray-200 hover:border-gray-300"
-            )}
-          />
-        ))}
-      </div>
-    );
-  }
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  if (variant === "underline") {
-    return (
-      <div className={cn("flex border-b border-gray-200", className)}>
-        {options.map((option) => (
-          <button
-            key={option.value == "all" ? option.value : option.value.id}
-            onClick={() => onFilterChange(option.value)}
-            className={cn(
-              "px-4 py-3 transition-all relative",
-              activeFilter === option.value
-                ? "text-[var(--brand-primary)]"
-                : "text-gray-600 hover:text-gray-900"
-            )}
-          >
-            <span className="flex items-center gap-2">
-              {option.label}
-            </span>
-            {activeFilter === option.value && (
-              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[var(--brand-primary)]" />
-            )}
-          </button>
-        ))}
-      </div>
-    );
-  }
+  // Automatically scroll to active tab
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const activeEl = container.querySelector("[data-active='true']");
+    if (activeEl) {
+      const element = activeEl as HTMLElement;
+      container.scrollTo({
+        left: element.offsetLeft - 16,
+        behavior: "smooth",
+      });
+    }
+  }, [activeFilter]);
 
   return (
-    <div className={cn("flex flex-wrap gap-2", className)}>
-      {options.map((option) => (
-        <Button
-          key={option.value == "all" ? option.value : option.value.id}
-          variant={activeFilter === option.value ? "default" : "outline"}
-          onClick={() => onFilterChange(option.value)}
-          size="sm"
-          className="capitalize"
-        >
-          {option.label}
-        </Button>
-      ))}
+    <div
+      ref={containerRef}
+      className={cn(
+        "flex flex-nowrap gap-2 overflow-x-auto pb-3 scroll-smooth touch-pan-x",
+        "scrollbar-thin scrollbar-track-slate-100 scrollbar-thumb-slate-300",
+        "whitespace-nowrap",
+        className
+      )}
+    >
+      {options.map((option) => {
+        const isActive = activeFilter === option.value;
+
+        return (
+          <button
+            key={option.value === "all" ? "all" : option.value.id}
+            data-active={isActive ? "true" : "false"}
+            onClick={() => onFilterChange(option.value)}
+            className={cn(
+              "px-4 py-2 rounded-full flex-shrink-0 transition-all",
+              "border text-sm tracking-wide capitalize",
+
+              isActive
+                ? "bg-[var(--brand-primary)] text-white border-transparent shadow"
+                : "bg-white border-slate-200 text-slate-700 hover:bg-slate-50"
+            )}
+          >
+            {option.label}
+          </button>
+        );
+      })}
     </div>
   );
-}
-
-/**
- * KDS Status Filter Component
- *
- * Pre-configured filter for order statuses
- */
-interface KDSStatusFilterProps {
-  activeStatus: Category | "all";
-  onStatusChange: (status: OrderStatusKDS | "all") => void;
-  counts?: Record<OrderStatusKDS | "all", number>;
-  variant?: "default" | "pills" | "underline";
 }

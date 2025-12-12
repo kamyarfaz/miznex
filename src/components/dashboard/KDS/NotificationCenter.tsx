@@ -1,118 +1,88 @@
+"use client";
+
 import { AnimatePresence, motion } from "framer-motion";
+import { Card } from "@/components/ui/card";
 import { Bell, CheckCircle2 } from "lucide-react";
-import { useEffect, useRef } from "react";
-import { Card } from "../../ui/card";
+import { useNotificationStore } from "@/store/notificationStore";
 
-interface Notification {
-  id: string;
-  type: "new-order" | "order-ready";
-  message: string;
-}
+const notificationStyles = {
+  "new-order": {
+    bg: "bg-red-50 border-red-500",
+    iconBg: "bg-red-500",
+    titleColor: "text-red-900",
+    messageColor: "text-red-700",
+    Icon: Bell,
+  },
+  "order-updated": {
+    bg: "bg-blue-50 border-blue-500",
+    iconBg: "bg-blue-500",
+    titleColor: "text-blue-900",
+    messageColor: "text-blue-700",
+    Icon: Bell,
+  },
+  "order-completed": {
+    bg: "bg-green-50 border-green-500",
+    iconBg: "bg-green-500",
+    titleColor: "text-green-900",
+    messageColor: "text-green-700",
+    Icon: CheckCircle2,
+  },
+  "status-updated": {
+    bg: "bg-yellow-50 border-yellow-500",
+    iconBg: "bg-yellow-500",
+    titleColor: "text-yellow-900",
+    messageColor: "text-yellow-700",
+    Icon: Bell,
+  },
+  "order-removed": {
+    bg: "bg-gray-50 border-gray-500",
+    iconBg: "bg-gray-600",
+    titleColor: "text-gray-900",
+    messageColor: "text-gray-700",
+    Icon: Bell,
+  },
+};
 
-interface Props {
-  notifications: Notification[];
-  onDismiss: (id: string) => void;
-}
-
-export function NotificationCenter({ notifications, onDismiss }: Props) {
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-
-  useEffect(() => {
-    // Play sound when new notification arrives
-    if (notifications.length > 0) {
-      // Create a simple beep sound using Web Audio API
-      const audioContext = new (window.AudioContext ||
-        (window as any).webkitAudioContext)();
-      const oscillator = audioContext.createOscillator();
-      const gainNode = audioContext.createGain();
-
-      oscillator.connect(gainNode);
-      gainNode.connect(audioContext.destination);
-
-      oscillator.frequency.value =
-        notifications[0].type === "new-order" ? 800 : 600;
-      oscillator.type = "sine";
-
-      gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-      gainNode.gain.exponentialRampToValueAtTime(
-        0.01,
-        audioContext.currentTime + 0.5
-      );
-
-      oscillator.start(audioContext.currentTime);
-      oscillator.stop(audioContext.currentTime + 0.5);
-    }
-  }, [notifications]);
-
-  useEffect(() => {
-    // Auto-dismiss notifications after 5 seconds
-    if (notifications.length > 0) {
-      const timer = setTimeout(() => {
-        onDismiss(notifications[0].id);
-      }, 5000);
-      return () => clearTimeout(timer);
-    }
-  }, [notifications, onDismiss]);
+export function NotificationCenter() {
+  const notifications = useNotificationStore((s) => s.notifications);
+  const remove = useNotificationStore((s) => s.removeNotification);
 
   return (
-    <div className="fixed top-4 right-4 z-50 space-y-2 max-w-sm">
+    <div className="fixed top-4 right-4 z-100 space-y-2 max-w-sm">
       <AnimatePresence>
-        {notifications.map((notification) => (
-          <motion.div
-            key={notification.id}
-            initial={{ opacity: 0, x: 100, scale: 0.8 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            exit={{ opacity: 0, x: 100, scale: 0.8 }}
-            transition={{ duration: 0.3 }}
-          >
-            <Card
-              className={`p-4 cursor-pointer shadow-lg ${
-                notification.type === "new-order"
-                  ? "bg-red-50 border-red-500 border-2"
-                  : "bg-green-50 border-green-500 border-2"
-              }`}
-              onClick={() => onDismiss(notification.id)}
+        {notifications.map((n) => {
+          const style =
+            notificationStyles[n.type] ?? notificationStyles["new-order"];
+          const IconComponent = style.Icon;
+
+          return (
+            <motion.div
+              key={n.id}
+              initial={{ opacity: 0, x: 100, scale: 0.8 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              exit={{ opacity: 0, x: 100, scale: 0.8 }}
+              transition={{ duration: 0.3 }}
             >
-              <div className="flex items-start gap-3">
-                <div
-                  className={`p-2 rounded-full ${
-                    notification.type === "new-order"
-                      ? "bg-red-500"
-                      : "bg-green-500"
-                  }`}
-                >
-                  {notification.type === "new-order" ? (
-                    <Bell className="h-5 w-5 text-white" />
-                  ) : (
-                    <CheckCircle2 className="h-5 w-5 text-white" />
-                  )}
-                </div>
-                <div className="flex-1">
-                  <div
-                    className={`${
-                      notification.type === "new-order"
-                        ? "text-red-900"
-                        : "text-green-900"
-                    }`}
-                  >
-                    {notification.type === "new-order"
-                      ? "New Order"
-                      : "Order Ready"}
+              <Card
+                onClick={() => remove(n.id)}
+                className={`p-4 cursor-pointer shadow-lg border-2 ${style.bg}`}
+              >
+                <div className="flex items-start gap-3">
+                  <div className={`p-2 rounded-full ${style.iconBg}`}>
+                    <IconComponent className="h-5 w-5 text-white" />
                   </div>
-                  <div
-                    className={`text-sm ${
-                      notification.type === "new-order"
-                        ? "text-red-700"
-                        : "text-green-700"
-                    }`}
-                  >
-                    {notification.message}
+
+                  <div className="flex-1">
+                    <div className={style.titleColor}>{n.title}</div>
+                    <div className={`text-sm ${style.messageColor}`}>
+                      {n.message}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Card>
-          </motion.div>
-        ))}
+              </Card>
+            </motion.div>
+          );
+        })}
       </AnimatePresence>
     </div>
   );

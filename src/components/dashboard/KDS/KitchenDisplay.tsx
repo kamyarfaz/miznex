@@ -1,34 +1,32 @@
 import type { OrderKDS, OrderStatusKDS } from "@/types";
 import { AnimatePresence, motion } from "framer-motion";
-import { CheckCircle2, ChefHat, Clock } from "lucide-react";
-import { useState, useEffect } from "react";
+import { CheckCircle2, ChefHat, Clock, Users, Loader2, Eye } from "lucide-react";
+import { useState } from "react";
 import { Badge } from "../../ui/badge";
 import { Button } from "../../ui/button";
-import { Card, CardContent, CardHeader } from "../../ui/card";
+import { Card, CardContent } from "../../ui/card";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
 } from "../../ui/dialog";
+import { Separator } from "@/components/ui/separator";
+import { statusColors } from "@/utils/getStatusColor";
+import { cn } from "@/utils/utils";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface Props {
   orders: OrderKDS[];
   onUpdateOrderStatus: (orderId: string, status: OrderStatusKDS) => void;
-  onUpdateItemStatus: (
-    orderId: string,
-    itemId: string,
-    status: OrderStatusKDS
-  ) => void;
+  activeOrders: number | null;
 }
-
-const statusColors: Record<OrderStatusKDS, string> = {
-  new: "bg-red-500 text-white",
-  "in-progress": "bg-yellow-500 text-black",
-  ready: "bg-green-500 text-white",
-  completed: "bg-gray-400 text-white",
-};
 
 const categoryColors: Record<string, string> = {
   grill: "bg-orange-100 text-orange-800 border-orange-300",
@@ -39,17 +37,19 @@ const categoryColors: Record<string, string> = {
   default: "bg-gray-100 text-gray-800 border-gray-300",
 };
 
-function getElapsedTime(createdAt: Date | string): string {
-  const now = new Date();
+function getElapsedMinutes(createdAt: string | Date) {
   const created = new Date(createdAt);
-  const elapsed = Math.floor((now.getTime() - created.getTime()) / 1000 / 60);
-  return `${elapsed}m`;
+  return Math.floor((Date.now() - created.getTime()) / 1000 / 60);
 }
 
-function getTimerColor(minutes: number): string {
-  if (minutes < 10) return "text-green-600";
-  if (minutes < 20) return "text-yellow-600";
-  return "text-red-600";
+function formatElapsed(minutes: number) {
+  return `${minutes}m`;
+}
+
+function getTimeStatus(minutes: number) {
+  if (minutes < 10) return { label: "Fresh", color: "text-emerald-600", bg: "bg-emerald-100", border: "border-emerald-200" };
+  if (minutes < 20) return { label: "Waiting", color: "text-amber-600", bg: "bg-amber-100", border: "border-amber-200" };
+  return { label: "Overdue", color: "text-rose-600", bg: "bg-rose-100", border: "border-rose-200" };
 }
 
 function getCategoryColor(category: string): string {
@@ -60,196 +60,354 @@ function getCategoryColor(category: string): string {
 export function KitchenDisplay({
   orders,
   onUpdateOrderStatus,
-  onUpdateItemStatus,
+  activeOrders,
 }: Props) {
   const [selectedOrder, setSelectedOrder] = useState<OrderKDS | null>(null);
+  const [sortBy, setSortBy] = useState<"time" | "table" | "items" | "status">("time");
+  const [statusFilter, setStatusFilter] = useState<"all" | OrderStatusKDS>("all");
 
-  // Debug logging
-  useEffect(() => {
-    console.log("🔍 KitchenDisplay - Orders:", orders);
-    console.log("🔍 KitchenDisplay - Orders count:", orders.length);
-    if (orders.length > 0) {
-      console.log("🔍 KitchenDisplay - First order:", orders[0]);
-      console.log("🔍 KitchenDisplay - First order items:", orders[0].items);
+  // Filter orders by status
+  const filteredOrders = statusFilter === "all" 
+    ? orders 
+    : orders.filter(order => order.status === statusFilter);
+
+  // Sort orders
+  const sortedOrders = [...filteredOrders].sort((a, b) => {
+    switch (sortBy) {
+      case "time":
+        return getElapsedMinutes(a.createdAt) - getElapsedMinutes(b.createdAt);
+      case "table":
+        return a.tableNumber.localeCompare(b.tableNumber);
+      case "items":
+        return b.items.length - a.items.length;
+      case "status":
+        return a.status.localeCompare(b.status);
+      default:
+        return 0;
     }
-  }, [orders]);
+  });
 
-  const activeOrders = orders.filter((o) => o.status !== "completed");
+  const handleStartCooking = (orderId: string) => {
+    onUpdateOrderStatus(orderId, "processing");
+  };
 
-  console.log("🔍 KitchenDisplay - Active orders count:", activeOrders.length);
+  const handleCompleteOrder = (orderId: string) => {
+    onUpdateOrderStatus(orderId, "done");
+  };
+
+  const handleViewDetails = (order: OrderKDS) => {
+    setSelectedOrder(order);
+  };
 
   return (
-    <div className="h-full flex flex-col">
-      {/* Debug info */}
-      <div className="p-4 bg-blue-50 border-b">
-        <p className="text-sm">
-          Total Orders: {orders.length} | Active: {activeOrders.length}
-        </p>
-      </div>
+    <div className="h-full p-4 md:p-6 overflow-auto">
+      <div className="max-w-7xl mx-auto space-y-6">
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="space-y-2">
+            <div className="flex items-center gap-3">
+              <div className="p-2 rounded-lg bg-orange-100">
+                <ChefHat className="h-5 w-5 text-orange-600" />
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold text-slate-900">Kitchen Display</h1>
+                <p className="text-sm text-slate-500">
+                  Active orders for preparation
+                </p>
+              </div>
+              <Badge variant="secondary" className="px-3 py-1 text-base font-semibold">
+                {activeOrders}
+              </Badge>
+            </div>
+          </div>
 
-      {activeOrders.length === 0 ? (
-        <div className="flex items-center justify-center h-full">
-          <div className="text-center">
-            <ChefHat className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-            <p className="text-xl text-gray-500">No active orders</p>
-            <p className="text-sm text-gray-400 mt-2">
-              Total orders in system: {orders.length}
-            </p>
-            <p className="text-sm text-gray-400 mt-2">
-              New orders will appear here
-            </p>
+          {/* Controls */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full sm:w-auto">
+            <div className="flex items-center gap-2">
+              <Select value={statusFilter} onValueChange={(value: "all" | OrderStatusKDS) => setStatusFilter(value)}>
+                <SelectTrigger className="w-[140px]">
+                  <SelectValue placeholder="Filter status" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All Status</SelectItem>
+                  <SelectItem value="pending">Pending</SelectItem>
+                  <SelectItem value="processing">Processing</SelectItem>
+                  <SelectItem value="done">Done</SelectItem>
+                </SelectContent>
+              </Select>
+
+              <Select value={sortBy} onValueChange={(value: "time" | "table" | "items" | "status") => setSortBy(value)}>
+                <SelectTrigger className="w-[140px]">
+                  <SelectValue placeholder="Sort by" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="time">
+                    <div className="flex items-center gap-2">
+                      <Clock className="h-3 w-3" />
+                      <span>Time</span>
+                    </div>
+                  </SelectItem>
+                  <SelectItem value="table">
+                    <div className="flex items-center gap-2">
+                      <Users className="h-3 w-3" />
+                      <span>Table</span>
+                    </div>
+                  </SelectItem>
+                  <SelectItem value="items">
+                    <div className="flex items-center gap-2">
+                      <ChefHat className="h-3 w-3" />
+                      <span>Items</span>
+                    </div>
+                  </SelectItem>
+                  <SelectItem value="status">
+                    <div className="flex items-center gap-2">
+                      <Eye className="h-3 w-3" />
+                      <span>Status</span>
+                    </div>
+                  </SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
           </div>
         </div>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4 overflow-auto">
-          <AnimatePresence mode="popLayout">
-            {activeOrders.map((order) => {
-              const elapsedMinutes = Math.floor(
-                (new Date().getTime() - new Date(order.createdAt).getTime()) /
-                  1000 /
-                  60
-              );
 
-              console.log("🔍 Rendering order:", order.id, order);
+        {/* Empty state */}
+        {(!activeOrders || activeOrders === 0) ? (
+          <Card className="border-dashed border-2">
+            <CardContent className="p-16 text-center">
+              <div className="mx-auto max-w-sm space-y-4">
+                <div className="mx-auto h-20 w-20 rounded-full bg-slate-100 flex items-center justify-center">
+                  <ChefHat className="h-10 w-10 text-slate-400" />
+                </div>
+                <div>
+                  <h4 className="text-xl font-semibold text-slate-700">No active orders</h4>
+                  <p className="text-sm text-slate-500 mt-2">
+                    New orders will appear here for preparation
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        ) : (
+          // Orders grid - 3 columns on desktop
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <AnimatePresence initial={false} mode="popLayout">
+              {sortedOrders.map((order) => {
+                const minutes = getElapsedMinutes(order.createdAt);
+                const timeStatus = getTimeStatus(minutes);
+                const statusColor = statusColors[order.status] || "bg-gray-100 text-gray-800";
 
-              return (
-                <motion.div
-                  key={order.id}
-                  layout
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  exit={{ scale: 0.8, opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <Card
-                    className={`cursor-pointer hover:shadow-xl transition-all border-2 ${
-                      order.status === "new"
-                        ? "border-red-500 shadow-red-200 shadow-lg"
-                        : order.status === "ready"
-                        ? "border-green-500 shadow-green-200 shadow-lg"
-                        : "border-gray-200"
-                    }`}
-                    onClick={() => setSelectedOrder(order)}
+                return (
+                  <motion.div
+                    key={order.id}
+                    layout
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 25 }}
                   >
-                    <CardHeader className="pb-3">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <span className="text-2xl font-bold">
-                            #{order.orderNumber || "N/A"}
-                          </span>
-                          <Badge className={statusColors[order.status]}>
-                            {order.status.toUpperCase().replace("-", " ")}
-                          </Badge>
-                        </div>
-                        <div
-                          className={`flex items-center gap-1 font-semibold ${getTimerColor(
-                            elapsedMinutes
-                          )}`}
-                        >
-                          <Clock className="h-4 w-4" />
-                          <span>{getElapsedTime(order.createdAt)}</span>
-                        </div>
-                      </div>
-                      <div className="text-sm text-muted-foreground">
-                        Table {order.tableNumber} •{" "}
-                        {order.waiterName || "Guest"}
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-2">
-                        {order.items && order.items.length > 0 ? (
-                          order.items.map((item) => {
-                            console.log("🔍 Rendering item:", item);
-                            return (
-                              <div
-                                key={item.id}
-                                className="flex items-center justify-between text-sm"
-                              >
-                                <div className="flex items-center gap-2 flex-1">
-                                  <span className="w-6 h-6 flex items-center justify-center bg-gray-100 rounded font-semibold">
-                                    {item.quantity}
-                                  </span>
-                                  <span className="truncate">{item.name}</span>
-                                </div>
-                                <Badge
-                                  variant="outline"
-                                  className={`text-xs ${getCategoryColor(
-                                    item.category
-                                  )}`}
-                                >
-                                  {item.category || "Unknown"}
-                                </Badge>
-                              </div>
-                            );
-                          })
-                        ) : (
-                          <p className="text-sm text-gray-500">No items</p>
-                        )}
-                      </div>
-                      {order.notes && (
-                        <div className="mt-3 p-2 bg-yellow-50 border border-yellow-200 rounded text-sm">
-                          <strong>Note:</strong> {order.notes}
-                        </div>
+                    <Card
+                      className={cn(
+                        "h-full transition-all duration-200 hover:shadow-md cursor-pointer relative overflow-hidden",
+                        order.status === "pending" && "ring-1 ring-red-200",
+                        order.status === "processing" && "ring-1 ring-amber-200",
+                        order.status === "done" && "ring-1 ring-emerald-200"
                       )}
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              );
-            })}
-          </AnimatePresence>
-        </div>
-      )}
+                      onClick={() => handleViewDetails(order)}
+                    >
+                      <CardContent className="p-4">
+                        {/* Order header */}
+                        <div className="flex items-start justify-between mb-4">
+                          <div>
+                            <h3 className="text-lg font-bold text-slate-900">
+                              Order #{order.orderNumber}
+                            </h3>
+                            <div className="flex items-center gap-2 mt-1">
+                              <Badge 
+                                variant="secondary" 
+                                className="font-normal bg-slate-100 text-slate-700"
+                              >
+                                Table {order.tableNumber}
+                              </Badge>
+                              <Badge 
+                                className={cn(
+                                  "font-normal",
+                                  statusColor
+                                )}
+                              >
+                                {order.status.toUpperCase()}
+                              </Badge>
+                            </div>
+                          </div>
+                          <div className="text-sm text-slate-500">
+                            {order.waiterName || "Guest"}
+                          </div>
+                        </div>
+
+                        {/* Time indicator */}
+                        <div className="flex items-center gap-2 mb-4">
+                          <div className={cn(
+                            "inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium",
+                            timeStatus.bg,
+                            timeStatus.color
+                          )}>
+                            <Clock className="h-3 w-3" />
+                            {formatElapsed(minutes)}
+                          </div>
+                        </div>
+
+                        {/* Items */}
+                        <div className="space-y-2 mb-4">
+                          {order.items.slice(0, 2).map((item) => (
+                            <div
+                              key={item.id}
+                              className="flex items-center justify-between p-2 rounded bg-slate-50"
+                            >
+                              <div className="flex items-center gap-2 flex-1">
+                                <span className="w-6 h-6 flex items-center justify-center bg-gray-100 rounded font-semibold text-xs">
+                                  {item.quantity}
+                                </span>
+                                <span className="text-sm font-medium text-slate-700 truncate">
+                                  {item.name}
+                                </span>
+                              </div>
+                              <Badge
+                                variant="outline"
+                                className={cn("text-xs", getCategoryColor(item.category))}
+                              >
+                                {item.category || "Unknown"}
+                              </Badge>
+                            </div>
+                          ))}
+                          {order.items.length > 2 && (
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleViewDetails(order);
+                              }}
+                              className="w-full text-center text-xs text-blue-600 hover:text-blue-700 hover:underline py-1"
+                            >
+                              +{order.items.length - 2} more items
+                            </button>
+                          )}
+                        </div>
+
+                        {/* Notes (if any) */}
+                        {order.notes && (
+                          <div className="mb-4">
+                            <div className="flex items-start gap-2 p-2 bg-amber-50 rounded border border-amber-200">
+                              <span className="text-xs font-medium text-amber-800">Note:</span>
+                              <p className="text-xs text-amber-800 line-clamp-2 flex-1">{order.notes}</p>
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Action buttons */}
+                        <div className="flex gap-2">
+                          {order.status === "pending" && (
+                            <Button
+                              size="sm"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleStartCooking(order.id);
+                              }}
+                              className="flex-1 gap-2 bg-amber-600 hover:bg-amber-700"
+                            >
+                              <ChefHat className="h-4 w-4" />
+                              Start Cooking
+                            </Button>
+                          )}
+                          
+                          {order.status === "processing" && (
+                            <Button
+                              size="sm"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleCompleteOrder(order.id);
+                              }}
+                              className="flex-1 gap-2 bg-emerald-600 hover:bg-emerald-700"
+                            >
+                              <CheckCircle2 className="h-4 w-4" />
+                              Mark Ready
+                            </Button>
+                          )}
+
+                          {(order.status === "done") && (
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              className="flex-1 gap-2"
+                              disabled
+                            >
+                              <CheckCircle2 className="h-4 w-4" />
+                              Ready for Pickup
+                            </Button>
+                          )}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                );
+              })}
+            </AnimatePresence>
+          </div>
+        )}
+      </div>
 
       {/* Order Detail Dialog */}
       <Dialog
         open={!!selectedOrder}
         onOpenChange={() => setSelectedOrder(null)}
       >
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-w-md max-h-[80vh] overflow-hidden flex flex-col">
           {selectedOrder && (
             <>
-              <DialogHeader>
-                <DialogTitle className="flex items-center justify-between">
-                  <span>Order #{selectedOrder.orderNumber}</span>
-                  <Badge className={statusColors[selectedOrder.status]}>
-                    {selectedOrder.status.toUpperCase().replace("-", " ")}
-                  </Badge>
-                </DialogTitle>
-                <DialogDescription>
-                  <div className="text-sm text-muted-foreground">
-                    Table {selectedOrder.tableNumber} • Waiter:{" "}
-                    {selectedOrder.waiterName || "Guest"}
+              <DialogHeader className="pb-2">
+                <div className="flex items-center justify-between">
+                  <DialogTitle className="text-xl">
+                    Order #{selectedOrder.orderNumber}
+                  </DialogTitle>
+                  <div className="flex items-center gap-2">
+                    <Badge variant="secondary">
+                      Table {selectedOrder.tableNumber}
+                    </Badge>
+                    <Badge className={statusColors[selectedOrder.status]}>
+                      {selectedOrder.status.toUpperCase()}
+                    </Badge>
                   </div>
-                  <div
-                    className={`text-sm font-semibold ${getTimerColor(
-                      Math.floor(
-                        (new Date().getTime() -
-                          new Date(selectedOrder.createdAt).getTime()) /
-                          1000 /
-                          60
-                      )
-                    )}`}
-                  >
-                    Time Elapsed: {getElapsedTime(selectedOrder.createdAt)}
+                </div>
+                <div className="flex items-center justify-between text-sm text-slate-500">
+                  <span>Waiter: {selectedOrder.waiterName || "Guest"}</span>
+                  <div className="flex items-center gap-2">
+                    <Clock className="h-3 w-3" />
+                    {formatElapsed(getElapsedMinutes(selectedOrder.createdAt))} ago
                   </div>
-                </DialogDescription>
+                </div>
               </DialogHeader>
 
-              <div className="space-y-4 mt-4">
-                {selectedOrder.items && selectedOrder.items.length > 0 ? (
-                  selectedOrder.items.map((item) => (
-                    <Card key={item.id}>
-                      <CardContent className="p-4">
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-3">
+              <Separator />
+
+              <div className="flex-1 overflow-y-auto pr-2 py-2">
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-medium text-slate-700 mb-3">Items</h4>
+                    <div className="space-y-2">
+                      {selectedOrder.items.map((item) => (
+                        <div
+                          key={item.id}
+                          className="flex items-center justify-between p-3 rounded-lg bg-slate-50 hover:bg-slate-100 transition-colors"
+                        >
+                          <div className="flex items-center gap-3 flex-1 min-w-0">
                             <span className="w-8 h-8 flex items-center justify-center bg-gray-100 rounded font-semibold">
                               {item.quantity}
                             </span>
-                            <div>
-                              <div className="font-medium">{item.name}</div>
+                            <div className="min-w-0">
+                              <span className="font-medium text-slate-900 block">
+                                {item.name}
+                              </span>
                               {item.note && (
-                                <div className="text-sm text-muted-foreground italic mt-1">
-                                  Note: {item.note}
+                                <div className="text-xs text-slate-500 mt-1 italic">
+                                  {item.note}
                                 </div>
                               )}
                             </div>
@@ -258,47 +416,59 @@ export function KitchenDisplay({
                             {item.category || "Unknown"}
                           </Badge>
                         </div>
-                      </CardContent>
-                    </Card>
-                  ))
-                ) : (
-                  <p className="text-gray-500">No items in this order</p>
-                )}
-
-                {selectedOrder.notes && (
-                  <div className="p-3 bg-yellow-50 border border-yellow-200 rounded">
-                    <strong>Order Notes:</strong> {selectedOrder.notes}
+                      ))}
+                    </div>
                   </div>
-                )}
 
-                <div className="flex gap-3 pt-4 border-t">
-                  <Button
-                    variant="outline"
-                    onClick={() => {
-                      onUpdateOrderStatus(selectedOrder.id, "in-progress");
-                      setSelectedOrder(null);
-                    }}
-                    className="flex-1 border-yellow-600 text-yellow-700 hover:bg-yellow-50"
-                    disabled={selectedOrder.status !== "new"}
-                  >
-                    <ChefHat className="mr-2 h-4 w-4" />
-                    Start Order
-                  </Button>
-                  <Button
-                    variant="default"
-                    onClick={() => {
-                      onUpdateOrderStatus(selectedOrder.id, "ready");
-                      setSelectedOrder(null);
-                    }}
-                    className="flex-1 bg-green-600 hover:bg-green-700"
-                    disabled={
-                      selectedOrder.status === "ready" ||
-                      selectedOrder.status === "new"
-                    }
-                  >
-                    <CheckCircle2 className="mr-2 h-4 w-4" />
-                    Complete
-                  </Button>
+                  {selectedOrder.notes && (
+                    <div>
+                      <h4 className="font-medium text-slate-700 mb-3">Order Notes</h4>
+                      <div className="p-3 rounded-lg bg-amber-50 border border-amber-200">
+                        <p className="text-sm text-amber-800">{selectedOrder.notes}</p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="pt-4 border-t">
+                <div className="flex gap-3">
+                  {selectedOrder.status === "pending" && (
+                    <Button
+                      onClick={() => {
+                        handleStartCooking(selectedOrder.id);
+                        setSelectedOrder(null);
+                      }}
+                      className="flex-1 gap-2 bg-amber-600 hover:bg-amber-700"
+                    >
+                      <ChefHat className="h-4 w-4" />
+                      Start Cooking
+                    </Button>
+                  )}
+                  
+                  {selectedOrder.status === "processing" && (
+                    <Button
+                      onClick={() => {
+                        handleCompleteOrder(selectedOrder.id);
+                        setSelectedOrder(null);
+                      }}
+                      className="flex-1 gap-2 bg-emerald-600 hover:bg-emerald-700"
+                    >
+                      <CheckCircle2 className="h-4 w-4" />
+                      Mark Ready
+                    </Button>
+                  )}
+
+                  {selectedOrder.status === "done" && (
+                    <Button
+                      variant="outline"
+                      className="flex-1 gap-2"
+                      disabled
+                    >
+                      <CheckCircle2 className="h-4 w-4" />
+                      Ready for Pickup
+                    </Button>
+                  )}
                 </div>
               </div>
             </>

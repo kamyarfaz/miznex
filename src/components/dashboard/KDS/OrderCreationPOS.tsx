@@ -14,7 +14,7 @@ interface Props {
   onSendOrder: (
     items: OrderItemKDS[],
     tableNumber: string,
-    note: string,
+    note: string
   ) => void;
 }
 
@@ -47,22 +47,16 @@ export function OrderCreationPOS({ onSendOrder }: Props) {
   );
 
   // API call for fetching restaurant menu items with infinite scroll
-  const {
-    items,
-    totalCount,
-    fetchNextPage,
-    hasNextPage,
-    isFetchingNextPage,
-    isLoading,
-  } = useGetKdsItemsInfinite(restaurantId as string, {
-    limit: 12,
-    categoryId: selectedCategory !== "all" ? selectedCategory.id : undefined,
-    search: search,
-    minPrice: minAndMaxPrice.min,
-    maxPrice: minAndMaxPrice.max,
-    orderBy: sortParams.orderBy,
-    sort: sortParams.sort,
-  });
+  const { items, totalCount, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    useGetKdsItemsInfinite(restaurantId as string, {
+      limit: 12,
+      categoryId: selectedCategory !== "all" ? selectedCategory.id : undefined,
+      search: search,
+      minPrice: minAndMaxPrice.min,
+      maxPrice: minAndMaxPrice.max,
+      orderBy: sortParams.orderBy,
+      sort: sortParams.sort,
+    });
 
   // Add item
   const addItem = (menuItem: MenuItem) => {

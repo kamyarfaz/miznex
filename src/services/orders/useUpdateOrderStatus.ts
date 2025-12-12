@@ -1,7 +1,7 @@
-import { getServerCookie } from "@/components/helper/server-cookie";
 import type { OrderStatusKDS } from "@/types";
 import { useCallback, useState } from "react";
 import { toast } from "sonner";
+
 interface UpdateOrderStatusResponse<T = any> {
   success: boolean;
   statusCode: number;
@@ -23,28 +23,18 @@ interface UseUpdateOrderStatusOptions {
 export function useUpdateOrderStatus(
   options: UseUpdateOrderStatusOptions = {}
 ) {
-  const { showToast = true, onSuccess, onError } = options;
+  const { onSuccess, onError, showToast = true } = options;
 
   const [loading, setLoading] = useState(false);
 
   const updateOrderStatus = useCallback(
-    async (
-      orderId: string,
-      status: OrderStatusKDS
-    ): Promise<UpdateOrderStatusResponse | null> => {
+    async (orderId: string, status: OrderStatusKDS): Promise<UpdateOrderStatusResponse | null> => {
       try {
         setLoading(true);
 
-        const getToken = async () => {
-          const token = await getServerCookie("access_token");
-          console.log("token", token);
-          return token;
-        };
-
-        const token = await getToken();
-        console.log("tokenOrder", token);
+        const token = process.env.NEXT_PUBLIC_STATIC_ADMIN_TOKEN;
         if (!token) {
-          showToast && toast.error("Authentication required");
+          if (showToast) toast.error("Authentication required");
           return null;
         }
 
@@ -62,30 +52,24 @@ export function useUpdateOrderStatus(
 
         const json: UpdateOrderStatusResponse = await response.json();
 
-        // Handle any statusCode
         if (!response.ok || json.success === false) {
-          showToast && toast.error(json.message || "Failed to update order");
+          if (showToast) toast.error(json.message || "Failed to update order");
           onError?.(json);
           return json;
         }
 
-        showToast && toast.success(`Order updated to ${status}`);
-        onSuccess?.(json.data);
 
         return json;
       } catch (err) {
-        showToast && toast.error("Failed to update order status");
+        if (showToast) toast.error("Failed to update order status");
         onError?.(err);
         return null;
       } finally {
         setLoading(false);
       }
     },
-    [showToast, onSuccess, onError]
+    [onSuccess, onError, showToast]
   );
 
-  return {
-    updateOrderStatus,
-    loading,
-  };
+  return { updateOrderStatus, loading };
 }

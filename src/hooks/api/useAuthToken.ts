@@ -20,7 +20,7 @@ const makeRequest = async (url: string, options: RequestInit) => {
     Accept: "application/json",
     ...(options.headers || {}),
     ...(isFormData ? {} : { "Content-Type": "application/json" }),
-    Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5NTBiNmU1NC0zYzY5LTRiYmItYThjNS0zYzU5YTFlNGNiNTIiLCJmaXJzdE5hbWUiOiJuYXZpZHJlemEiLCJsYXN0TmFtZSI6ImFiYmFzemFkZWgiLCJlbWFpbCI6Im5hdmlkcmV6YWFiYmFzemFkZWg4OUBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NjQ3MDIwNTYsImV4cCI6MTc2NTMwNjg1Nn0.2qFZPADZnH6vn_XH9xRCoiD72mwOXOJqDucFFIQVytY"
+    Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5NTBiNmU1NC0zYzY5LTRiYmItYThjNS0zYzU5YTFlNGNiNTIiLCJmaXJzdE5hbWUiOiJuYXZpZHJlemEiLCJsYXN0TmFtZSI6ImFiYmFzemFkZWgiLCJlbWFpbCI6Im5hdmlkcmV6YWFiYmFzemFkZWg4OUBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NjUzMDcxOTMsImV4cCI6MTc2NTkxMTk5M30.IJuqfhKjhRnNtWYZYARqZhK7mktfYRVeWHqSXzJIHV4"
   };
 
   const req = await fetch(fullUrl, {

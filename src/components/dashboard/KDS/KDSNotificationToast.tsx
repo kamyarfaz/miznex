@@ -1,9 +1,9 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { Bell, CheckCircle2, AlertTriangle, X } from 'lucide-react';
+import { Bell, CheckCircle2, AlertTriangle, X, Truck } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { cn } from '@/utils/utils';
 
-export type NotificationType = 'new-order' | 'order-ready' | 'warning' | 'offline';
+export type NotificationType = 'new-order' | 'order-ready' | 'warning' | 'offline' | 'order-delivered';
 
 interface KDSNotificationToastProps {
   id: string;
@@ -14,11 +14,14 @@ interface KDSNotificationToastProps {
   duration?: number;
 }
 
-const notificationStyles: Record<NotificationType, {
-  bgClass: string;
-  iconClass: string;
-  Icon: React.ElementType;
-}> = {
+const notificationStyles: Record<
+  NotificationType,
+  {
+    bgClass: string;
+    iconClass: string;
+    Icon: React.ElementType;
+  }
+> = {
   'new-order': {
     bgClass: 'bg-red-50 border-red-500',
     iconClass: 'bg-red-500',
@@ -39,7 +42,13 @@ const notificationStyles: Record<NotificationType, {
     iconClass: 'bg-gray-500',
     Icon: AlertTriangle,
   },
+  'order-delivered': {
+    bgClass: 'bg-blue-50 border-blue-500',
+    iconClass: 'bg-blue-500',
+    Icon: Truck,
+  },
 };
+
 
 /**
  * KDS Notification Toast Component
