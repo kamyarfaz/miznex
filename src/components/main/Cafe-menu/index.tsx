@@ -7,6 +7,7 @@ import Image from "next/image";
 import AddCircle from "@/assets/Menu/add-circle.svg";
 import Modal from "@/components/ui/modal";
 import img from "@/assets/Menu/food.png";
+import { useTranslations } from "next-intl";
 
 const categories = [
     {id: 1, name: "صبحانه", icon: "☕"},
@@ -41,6 +42,7 @@ export const CafeMenuFC = () => {
     const [selectedSize, setSelectedSize] = useState("متوسط")
     const [selectedSugar, setSelectedSugar] = useState("کم")
     const [selectedSyrup, setSelectedSyrup] = useState("کاراملی")
+    const translate = useTranslations("resturantMenu");
 
     const product = {
         id: 1,
@@ -61,14 +63,14 @@ export const CafeMenuFC = () => {
                                 <User size={20} className="size-12 p-3 backdrop-blur rounded-full"/>
                             </div>
                         </div>
-                        <h1 className="text-2xl font-bold text-center mb-4">به کافه جواد خوش آمدید.</h1>
+                        <h1 className="text-2xl font-bold text-center mb-4">{translate("welcomeToResturant", { input: "جواد" })}</h1>
 
                         {/* Search Bar */}
                         <div
                             className="flex items-center bg-white/10 border border-white/30 backdrop-blur rounded-lg px-4 py-3">
                             <input
                                 type="text"
-                                placeholder="جستجو در منوی کافه"
+                                placeholder={translate("searchInResturant")}
                                 className="bg-transparent flex-1 text-white placeholder-gray-300 outline-none text-sm"
                             />
                             <Search size={28} className="text-gray-300 mr-2"/>
@@ -81,7 +83,7 @@ export const CafeMenuFC = () => {
                     {/* Categories Section */}
                     <div className="bg-white rounded-3xl shadow-lg overflow-hidden p-4">
                         <div className="mb-8">
-                            <h2 className="text-lg font-bold mb-4 text-right">دسته بندی منو</h2>
+                            <h2 className="text-lg font-bold mb-4 text-right">{translate("category")}</h2>
                             <div className="grid grid-cols-5 gap-3">
                                 {categories.map((cat) => (
                                     <div key={cat.id} className="flex flex-col items-center gap-2">
@@ -95,7 +97,7 @@ export const CafeMenuFC = () => {
                         </div>
 
                         <div>
-                            <h2 className="text-lg font-bold mb-4 text-right">پیشنهاد منوی امروز</h2>
+                            <h2 className="text-lg font-bold mb-4 text-right">{translate("todayMenu")}</h2>
                             <div className="grid grid-cols-2 gap-4">
                                 {recommendedProducts.map((product) => (
                                     <div
@@ -141,14 +143,14 @@ export const CafeMenuFC = () => {
 
                         {/* Type Selection */}
                         <div className="border-b mb-3 pb-6">
-                            <h3 className="font-bold text-right mb-3">نوع</h3>
+                            <h3 className="font-bold text-right mb-3">{translate("type")}</h3>
                             <div className="flex gap-3 flex-row-reverse">
                                 {["سرد", "گرم"].map((type) => (
                                     <button
                                         key={type}
                                         onClick={() => setSelectedType(type)}
-                                        className={`flex-1 py-1 px-4 rounded-full border-2 transition ${
-                                            selectedType === type ? "border-gray-800 bg-gray-800 text-white" : "border-gray-300 text-gray-800"
+                                        className={`flex-1 py-1 px-4 rounded-full border-2 transition text-gray-800 ${
+                                            selectedType === type ? "border-gray-800" : "border-gray-300"
                                         }`}
                                     >
                                         {type}
@@ -159,14 +161,14 @@ export const CafeMenuFC = () => {
 
                         {/* Size Selection */}
                         <div className="border-b mb-3 pb-6">
-                            <h3 className="font-bold text-right mb-3">سایز لیوان را انتخاب کنید</h3>
+                            <h3 className="font-bold text-right mb-3">{translate("size")}</h3>
                             <div className="flex gap-3 flex-row-reverse">
                                 {["کوچک", "متوسط", "بزرگ"].map((size) => (
                                     <button
                                         key={size}
                                         onClick={() => setSelectedSize(size)}
-                                        className={`flex-1 py-1 px-4 rounded-full border-2 transition ${
-                                            selectedSize === size ? "border-gray-800 bg-gray-800 text-white" : "border-gray-300 text-gray-800"
+                                        className={`flex-1 py-1 px-4 rounded-full border-2 transition text-gray-800 ${
+                                            selectedSize === size ? "border-gray-800" : "border-gray-300"
                                         }`}
                                     >
                                         {size}
@@ -177,16 +179,16 @@ export const CafeMenuFC = () => {
 
                         {/* Sugar Level */}
                         <div className="border-b mb-3 pb-6">
-                            <h3 className="font-bold text-right mb-3">میزان شکر</h3>
+                            <h3 className="font-bold text-right mb-3">{translate("suger")}</h3>
                             <div className="flex gap-3 flex-row-reverse">
                                 {["کم", "زیاد", "بدون شکر"].map((sugar) => (
                                     <button
                                         key={sugar}
                                         onClick={() => setSelectedSugar(sugar)}
-                                        className={`flex-1 py-1 px-4 rounded-full border-2 transition ${
+                                        className={`flex-1 py-1 px-4 rounded-full border-2 transition text-gray-800 ${
                                             selectedSugar === sugar
-                                                ? "border-gray-800 bg-gray-800 text-white"
-                                                : "border-gray-300 text-gray-800"
+                                                ? "border-gray-800"
+                                                : "border-gray-300"
                                         }`}
                                     >
                                         {sugar}
@@ -197,12 +199,12 @@ export const CafeMenuFC = () => {
 
                         {/* Syrup Selection */}
                         <div className="mb-6">
-                            <h3 className="font-bold text-right mb-3">افزودن سیروپ</h3>
+                            <h3 className="font-bold text-right mb-3">{translate("syrup")}</h3>
                             <div className="space-y-2">
                                 {["سیروپ کاراملی", "سیروپ وانیلی", "سیروپ فندقی"].map((syrup) => (
                                     <label
                                         key={syrup}
-                                        className="flex items-center gap-3 p-3 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50"
+                                        className="flex items-center gap-3 p-3 rounded-lg cursor-pointer hover:bg-gray-50"
                                     >
                                         <input
                                             type="radio"
@@ -225,7 +227,7 @@ export const CafeMenuFC = () => {
                         <Link href="/cart">
                             <button
                                 className="w-full cursor-pointer bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-4 rounded-xl transition">
-                                افزودن به سبد خرید
+                                {translate("addToCart")}
                             </button>
                         </Link>
                     </div>

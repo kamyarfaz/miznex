@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="624ab1a3-b01f-4f93-b153-d571c69d7bb7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/main/Cafe-menu/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/main/Cart/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/main/Checkout/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
-    </list>
+    <list default="true" id="624ab1a3-b01f-4f93-b153-d571c69d7bb7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,7 +48,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1765461520518</updated>
-      <workItem from="1765461525411" duration="2678000" />
+      <workItem from="1765461525411" duration="3277000" />
     </task>
     <servers />
   </component>

@@ -620,5 +620,42 @@
                 }
             }
         }
+    },
+    "resturantMenu": {
+        "category" : "دسته بندی منو",
+        "todayMenu": "پیشنهاد منوی امروز",
+        "searchInResturant": "جستجو در منوی کافه",
+        "type": "نوع",
+        "size": "سایز لیوان را انتخاب کنید",
+        "suger": "میزان شکر",
+        "syrup": "افزودن سیروپ",
+        "addToCart": "افزودن به سبد خرید",
+        "welcomeToResturant": "به کافه {input} خوش آمدید."
+    },                
+    "cart": {
+        "addYourTableCode": "شماره میز خود را وارد کنید",
+        "accept" : "تایید"
+    },      
+    "checkout": {
+        "checkoutPayment": "پرداخت",
+        "checkoutAlert": "پس از زدن دکمه ثبت کد سفارش خود را یادداشت کنید",
+        "checkoutTotalPrice": "مبلغ قابل پرداخت",
+        "checkoutPriceAfterOff": "مجموع خرید شما بعد از تخفیف",
+        "checkoutOff": "سود شما از این خرید",
+        "checkoutProducts": "جمع سفارش ({input})",
+        "checkoutDetail": "جزئیات پرداخت",
+        "checkoutDetailCheck": "مشاهده سفارش",
+        "checkoutAfterGetItems": "پرداخت در محل",
+        "checkoutAfterGetItemsDescription": "از طریق کارت بانکی یا وجه نقد",
+        "checkoutOnline": "پرداخت آنلاین",
+        "checkoutOnlineDescription": "درگاه پرداخت {input}",    
+        "checkoutGuid": "روش های پرداخت",
+        "checkoutSuccess": "سفارش شما با موفقیت ثبت شد",                    
+        "checkoutProductCode": "کد سفارش شما : {input}",                    
+        "checkoutGiveCode": "در هنگام پرداخت صورت حساب کد سفارش را به صندوق ارائه دهید",                    
+        "checkoutSentToResturant": "سفارش شما برای کافه ارسال شد و در حال آماده سازی است مشتاق دیدار دوباره شما هستیم",  
+        "checkoutBackTOMenu": "بازگشت به منو",
+        "insertOffCode": "وارد کردن کد تخفیف",
+        "insertOffCodeDescription": "کد تخفیف خود را وارد کنید"     
     }
 }

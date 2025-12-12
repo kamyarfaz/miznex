@@ -1,35 +1,36 @@
 "use client"
 
 import { useState } from "react"
+import { useTranslations } from "next-intl";
 import Link from "next/link"
 import {ArrowRight, Check, ShieldAlert} from "lucide-react"
 import Modal from "@/components/ui/modal";
 
-const paymentMethods = [
-    {
-        id: "online",
-        name: "پرداخت آنلاین",
-        description: "درگاه پرداخت زیرین پال",
-        icon: "📱",
-        color: "bg-yellow-300",
-    },
-    {
-        id: "pos",
-        name: "پرداخت در محل",
-        description: "از طریق کارت بانکی با وجه نقد",
-        icon: "💳",
-        color: "bg-orange-300",
-    }
-]
 export const CheckoutFc = () => {
     const [selectedPayment, setSelectedPayment] = useState("online")
     const [showModal, setShowModal] = useState(false)
+    const translate = useTranslations("checkout");
 
     const subtotal = 1100000
     const discount = 160000
     const total = 1440000
     const payable = 1440000
-
+    const paymentMethods = [
+        {
+            id: "online",
+            name: translate("checkoutOnline"),
+            description: translate("checkoutOnlineDescription", { input: "زیرین پال" }),
+            icon: "📱",
+            color: "bg-yellow-300",
+        },
+        {
+            id: "pos",
+            name: translate("checkoutAfterGetItems"),
+            description: translate("checkoutAfterGetItemsDescription"),
+            icon: "💳",
+            color: "bg-orange-300",
+        }
+    ]
     return (
         <div className="min-h-screen bg-gray-50 pb-6">
             {/* Header */}
@@ -46,7 +47,7 @@ export const CheckoutFc = () => {
             <div className="max-w-md mx-auto px-4 py-6 rounded-2xl bg-white">
                 {/* Payment Methods */}
                 <div className="mb-8 shadow-md rounded-xl p-4">
-                    <h2 className="text-lg font-bold mb-4 text-right">روش های پرداخت</h2>
+                    <h2 className="text-lg font-bold mb-4 text-right">{translate("checkoutGuid")}</h2>
                     <div className="space-y-3">
                         {paymentMethods.map((method) => (
                             <label
@@ -85,8 +86,8 @@ export const CheckoutFc = () => {
                             className="flex items-center gap-4 p-4 cursor-pointer"
                         >
                             <div className="flex-1">
-                                <h3 className="font-bold text-right">وارد کردن کد تخفیف</h3>
-                                <p className="text-xs text-gray-500 text-right">کد تخفیف خود را وارد کنید</p>
+                                <h3 className="font-bold text-right">{translate("insertOffCode")}</h3>
+                                <p className="text-xs text-gray-500 text-right">{translate("insertOffCodeDescription")}</p>
                             </div>
                             <div className={`text-3xl text-red-400`}>
                                 +
@@ -98,46 +99,45 @@ export const CheckoutFc = () => {
                 {/* Order Summary */}
                 <div className="bg-white rounded-lg p-6 shadow-md mb-6">
                     <div className="flex justify-between items-center mb-4">
-                        <h2 className="text-lg font-bold">جزئیات پرداخت</h2>
-                        <button className="text-red-400 text-lg font-bold text-right">مشاهده سفارش
-                        </button>
+                        <h2 className="text-lg font-bold">{translate("checkoutDetail")}</h2>
+                        <button className="text-red-400 text-lg font-bold text-right">{translate("checkoutDetailCheck")}</button>
                     </div>
                     <div className="space-y-4 border-b border-gray-200 pb-4 mb-4">
                         <div className="flex justify-between text-right">
-                            <span className="text-gray-600">جمع سفارش (5)</span>
+                            <span className="text-gray-600">{translate("checkoutProducts",{ input: "5" })}</span>
                             <span className="">{subtotal.toLocaleString()} تومان</span>
                         </div>
 
                         <div className="flex justify-between text-right">
-                            <span className="text-green-600">سود شما از این خرید</span>
+                            <span className="text-green-600">{translate("checkoutOff")}</span>
                             <span className="text-green-600">{discount.toLocaleString()} تومان</span>
                         </div>
                     </div>
 
                     <div className="space-y-3">
                         <div className="flex justify-between text-right">
-                            <span className="text-gray-600">مجموع خرید شما بعد از تخفیف</span>
+                            <span className="text-gray-600">{translate("checkoutPriceAfterOff")}</span>
                             <span className="">{total.toLocaleString()} تومان</span>
                         </div>
 
                         <div className="flex justify-between text-right py-3 border-y border-gray-200">
-                            <span className="font-bold text-lg">مبلغ قابل پرداخت</span>
+                            <span className="font-bold text-lg">{translate("checkoutTotalPrice")}</span>
                             <span className="">{payable.toLocaleString()} تومان</span>
                         </div>
                     </div>
                     <div className="mt-5 flex justify-between items-center">
                         <div className="flex flex-col justify-between text-right text-gray-500">
-                            <span className="font-bold text-sm">مبلغ قابل پرداخت</span>
+                            <span className="font-bold text-sm">{translate("checkoutTotalPrice")}</span>
                             <span className="text-xs">{payable.toLocaleString()} تومان</span>
                         </div>
 
                         <button
                             onClick={() => setShowModal(true)}
                             className="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-lg transition cursor-pointer">
-                            پرداخت
+                            {translate("checkoutPayment")}
                         </button>
                     </div>
-                    <p className="mt-5 flex gap-3 items-center text-red-500"><ShieldAlert />پس از زدن دکمه ثبت کد سفارش خود را یادداشت کنید </p>
+                    <p className="mt-5 flex gap-3 items-center text-red-500"><ShieldAlert /> {translate("checkoutAlert")}</p>
                 </div>
             </div>
             {showModal && <Modal
@@ -147,7 +147,7 @@ export const CheckoutFc = () => {
                     <div className="px-6 pb-8 flex flex-col justify-between h-100" style={{ direction: "rtl" }}>
                         <div>
                             <div className="flex items-center justify-center gap-2 mb-14">
-                                <span className="text-teal-600 font-medium text-base">سفارش شما با موفقیت ثبت شد</span>
+                                <span className="text-teal-600 font-medium text-base">{translate("checkoutSuccess")}</span>
                                 <div
                                     className={`transition-all duration-500`}
                                 >
@@ -158,9 +158,9 @@ export const CheckoutFc = () => {
                             </div>
 
                             <div className="space-y-2">
-                                <div className="text-red-500 text-center font-bold">کد سفارش شما : ۰۸۶۳۸۸۰</div>
+                                <div className="text-red-500 text-center font-bold">{translate("checkoutProductCode", { input: "۰۸۶۳۸۸۰" })}</div>
                                 <p className="text-sm text-gray-500 leading-relaxed text-center">
-                                    در هنگام پرداخت صورت حساب کد سفارش را به صندوق ارائه دهید
+                                   {translate("checkoutGiveCode")}
                                 </p>
                             </div>
                         </div>
@@ -169,16 +169,15 @@ export const CheckoutFc = () => {
 
                             <div className="space-y-2 text-center">
                                 <p className="text-gray-500 leading-relaxed">
-                                    سفارش شما برای کافه ارسال شد و در حال آماده سازی است
+                                   {translate("checkoutSentToResturant")} 
                                 </p>
-                                <p className="text-gray-500 leading-relaxed">مشتاق دیدار دوباره شما هستیم</p>
                             </div>
 
                             <button
                                 onClick={() => setShowModal(false)}
                                 className={`w-full py-3 mt-3 border-2 border-red-500 text-red-500 font-semibold cursor-pointer rounded-xl hover:bg-red-50 active:scale-95 transition-all duration-300 text-sm`}
                             >
-                                بازگشت به منو
+                                 {translate("checkoutBackTOMenu")} 
                             </button>
                         </div>
                     </div>

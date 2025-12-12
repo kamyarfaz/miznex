@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useTranslations } from "next-intl";
 import Link from "next/link"
 import Image from "next/image";
 import { ArrowRight, Trash2 } from "lucide-react"
@@ -48,9 +49,11 @@ const cartItems = [
         image: img,
     },
 ]
-export const CartFc = () => {
+
+export const CartFc = () => { 
     const [items, setItems] = useState(cartItems)
     const [promoCode, setPromoCode] = useState("")
+    const translate = useTranslations("cart");
 
     const removeItem = (id: number) => {
         setItems(items.filter((item) => item.id !== id))
@@ -112,14 +115,14 @@ export const CartFc = () => {
                 <div className="flex items-center gap-2">
                     <input
                         type="text"
-                        placeholder="شماره میز خود را وارد کنید"
+                        placeholder={translate("addYourTableCode")}
                         value={promoCode}
                         onChange={(e) => setPromoCode(e.target.value)}
                         className="w-full px-4 py-3 border border-gray-200 rounded-xl text-right bg-gray-200"
                     />
                     <Link href="/checkout">
                         <button className="w-full cursor-pointer bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-10 rounded-xl transition">
-                            تایید
+                           {translate("accept")}
                         </button>
                     </Link>
                 </div>
