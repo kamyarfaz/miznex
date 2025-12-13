@@ -42,9 +42,9 @@ const Grow = () => {
           visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
         }}
       >
-        <div className="absolute left-0 top-0">
+        {/* <div className="absolute left-0 top-0">
           <Union3SVG />
-        </div>
+        </div> */}
         <h2 className="mb-3 relative z-10">
           <span className="text-bodyDark text-2xl font-bold flex items-center justify-center">
             {t("withMiznex")}

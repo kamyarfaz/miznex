@@ -25,7 +25,7 @@ export default async function MainLayout({
     <div className="overflow-hidden max-w-[1920px] mx-auto">
       <NextIntlClientProvider>
         <Toaster position="top-right" richColors />
-        <Navbar />
+        {/* <Navbar /> */}
         {children}
         <Footer />
         {/* <FloatingContactButton /> */}

@@ -50,6 +50,7 @@
   --color-i-primary: var(--i-primary);
   --color-secondary: var(--secondary);
   --color-surface-dark: var(--surface-dark);
+  --color-surface-secondary: var(--surface-secondary);
   --color-t-dark: var(--t-dark);
   --color-action: var(--action);
   --color-action-hover: var(--action-hover);
@@ -401,6 +402,7 @@ html[dir="rtl"] body {
   --i-primary : #444955 ;
   --secondary : #FFE6E0 ;
   --surface-dark : #333740 ;
+  --surface-secondary : #FFE6E0 ;
   --t-dark : #222 ;
   --action : #FF5B35 ;
   --action-hover : #E85330 ;
@@ -676,11 +678,17 @@ html[dir="rtl"] body {
 }
 
 .coffee-header {
-  background: url("../assets/Menu/cafeBackground.svg");
+  background: linear-gradient(185.03deg, rgba(49, 44, 40, 0) -0.57%, #000000 95.13%) , url("../assets/Menu/cafeBackground.svg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.product-card {
-  @apply bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }
