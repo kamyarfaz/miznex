@@ -131,13 +131,15 @@ export function MenuItemRow({
             <ShoppingCart className="w-4 h-4" />
           </button>
         )}
-        <button
-          onClick={() => onRestock(item.id)}
-          className="p-2 text-gray-400 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors"
-          title="Manage Ingredients"
-        >
-          <Package className="w-4 h-4" />
-        </button>
+        {isSoldOut && (
+          <button
+            onClick={() => onRestock(item.id)}
+            className="p-2 text-gray-400 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors"
+            title="Restock"
+          >
+            <Package className="w-4 h-4" />
+          </button>
+        )}
       </div>
     </div>
   );

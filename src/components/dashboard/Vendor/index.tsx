@@ -1,11 +1,13 @@
 "use client";
 
 import { useMenu } from "@/hooks/business/useMenu";
+import { useIngredients } from "@/services/ingredients/useIngredients";
 import { ChefHat } from "lucide-react";
 import { useParams } from "next/navigation";
 import { useState } from "react";
 import { Toaster } from "sonner";
 import { BatchEditModal } from "./BatchEditModal";
+import { BOMModal } from "./BOMModal";
 import { IngredientManagement } from "./IngredientManagement";
 import { MenuItemsList } from "./MenuItemsList";
 
@@ -17,7 +19,18 @@ export default function VendorPanel() {
     autoLoad: true,
   });
 
+  const {
+    ingredients,
+    assignToMenuItem,
+    refresh: refreshIngredients,
+  } = useIngredients({
+    restaurantId: restaurantId || "",
+    autoLoad: true,
+  });
+
   const [isBatchEditOpen, setIsBatchEditOpen] = useState(false);
+  const [isBOMModalOpen, setIsBOMModalOpen] = useState(false);
+  const [selectedMenuItem, setSelectedMenuItem] = useState<any>(null);
   const [selectedItems, setSelectedItems] = useState<Set<string>>(new Set());
   const [activeTab, setActiveTab] = useState<"menu" | "ingredients">("menu");
 
@@ -42,6 +55,37 @@ export default function VendorPanel() {
   const handleRestock = async (id: string, quantity: number = 20) => {
     const res = await handleUpdateQuantity(id, quantity);
     console.log(res);
+  };
+
+  const handleManageIngredients = (item: any) => {
+    // Convert the simplified item to match MenuItem type
+    const fullMenuItem = menuItems.find((mi) => mi.id === item.id);
+    if (fullMenuItem) {
+      setSelectedMenuItem({
+        id: fullMenuItem.id,
+        name: fullMenuItem.title,
+        price: fullMenuItem.price,
+      });
+      setIsBOMModalOpen(true);
+    }
+  };
+
+  const handleSaveBOM = async (
+    assignments: Array<{ ingredientId: string; qtyPerItem: number }>
+  ) => {
+    if (!selectedMenuItem) return;
+
+    try {
+      // The assignToMenuItem endpoint replaces all assignments for this menu item
+      // If an ingredient is not in the assignments array, it will be removed
+      await assignToMenuItem(selectedMenuItem.id, { assignments });
+      await refreshIngredients();
+      setIsBOMModalOpen(false);
+      setSelectedMenuItem(null);
+    } catch (error) {
+      console.error("Save BOM error:", error);
+      throw error; // Re-throw so BOMModal can handle it
+    }
   };
 
   const handleBatchUpdate = async (updates: Record<string, number>) => {
@@ -164,6 +208,7 @@ export default function VendorPanel() {
             onRestock={handleRestock}
             selectedItems={selectedItems}
             onToggleSelection={toggleItemSelection}
+            onManageIngredients={handleManageIngredients}
           />
         ) : (
           <IngredientManagement
@@ -189,6 +234,18 @@ export default function VendorPanel() {
           }))}
         onSave={handleBatchUpdate}
         onClearSelection={clearSelection}
+      />
+
+      {/* BOM Modal */}
+      <BOMModal
+        isOpen={isBOMModalOpen}
+        onClose={() => {
+          setIsBOMModalOpen(false);
+          setSelectedMenuItem(null);
+        }}
+        menuItem={selectedMenuItem}
+        ingredients={ingredients}
+        onSave={handleSaveBOM}
       />
     </div>
   );

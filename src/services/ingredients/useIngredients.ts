@@ -214,10 +214,10 @@ export function useIngredients({
           limit: queryToUse.limit || limit.toString(),
         });
 
-        setIngredients(response.ingredients);
-        setTotalCount(response.totalCount);
-        setPage(response.page);
-        setLimit(response.limit);
+        setIngredients(response.data.ingredients);
+        setTotalCount(response.data.totalCount);
+        setPage(response.data.page);
+        setLimit(response.data.limit);
       } catch (err: any) {
         const errorMessage =
           err.response?.data?.message || "Failed to load ingredients";

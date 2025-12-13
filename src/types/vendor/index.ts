@@ -108,10 +108,7 @@ export interface QueryIngredientDto {
 }
 
 export interface PaginatedResponse<T> {
-  ingredients: T[];
-  totalCount: number;
-  page: number;
-  limit: number;
+  data: { ingredients: T[]; totalCount: number; page: number; limit: number };
 }
 
 // Helper function
