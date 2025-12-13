@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Ingredient } from "@/types";
-import { MenuItem } from ".";
+import { MenuItem } from "@/types/main/items";
 import { IngredientsList } from "./IngredientsList";
 import { IngredientFormModal } from "./IngredientFormModal";
 import { RestockModal } from "./RestockModal";
@@ -8,153 +8,35 @@ import { ConsumeModal } from "./ConsumeModal";
 import { BOMModal } from "./BOMModal";
 import { AuditHistoryModal } from "./AuditHistoryModal";
 import { Plus } from "lucide-react";
-import { toast } from "sonner";
+import { useIngredients } from "@/services/ingredients/useIngredients";
 
 interface IngredientManagementProps {
-  ingredients: Ingredient[];
-  setIngredients: (ingredients: Ingredient[]) => void;
-  menuItems: MenuItem[];
+  restaurantId: string;
+  menuItems: {
+    id: string;
+    name: string;
+    price: number;
+    quantity: number;
+    category: string;
+    status: string;
+  }[];
 }
 
-// Sample initial ingredients data
-const initialIngredients: Ingredient[] = [
-  {
-    id: "1",
-    name: "Red Beef",
-    sku: "BEEF-001",
-    unit: "kg",
-    stockQuantity: 25.5,
-    minThreshold: 10,
-    costPerUnit: 12.5,
-    suppliers: [
-      {
-        id: "s1",
-        name: "Premium Meats Co.",
-        leadTimeDays: 2,
-        contact: "+1-555-0101",
-      },
-    ],
-    assignedItems: [
-      { itemId: "1", itemName: "Classic Burger", qtyPerItem: 0.15, unit: "kg" },
-    ],
-    lastUpdated: Date.now(),
-    auditHistory: [
-      {
-        id: "a1",
-        timestamp: Date.now(),
-        action: "created",
-        user: "Admin",
-        changes: "Initial creation",
-      },
-    ],
-    isActive: true,
-    isSharedAcrossItems: true,
-  },
-  {
-    id: "2",
-    name: "Lettuce",
-    sku: "VEG-002",
-    unit: "kg",
-    stockQuantity: 3.2,
-    minThreshold: 5,
-    costPerUnit: 2.8,
-    suppliers: [
-      { id: "s2", name: "Fresh Farm", leadTimeDays: 1, contact: "+1-555-0102" },
-    ],
-    assignedItems: [
-      { itemId: "1", itemName: "Classic Burger", qtyPerItem: 0.03, unit: "kg" },
-      { itemId: "3", itemName: "Caesar Salad", qtyPerItem: 0.15, unit: "kg" },
-    ],
-    lastUpdated: Date.now(),
-    auditHistory: [
-      {
-        id: "a2",
-        timestamp: Date.now(),
-        action: "created",
-        user: "Admin",
-        changes: "Initial creation",
-      },
-    ],
-    isActive: true,
-    isSharedAcrossItems: true,
-  },
-  {
-    id: "3",
-    name: "Tomato",
-    sku: "VEG-003",
-    unit: "kg",
-    stockQuantity: 0,
-    minThreshold: 3,
-    costPerUnit: 3.2,
-    suppliers: [
-      { id: "s2", name: "Fresh Farm", leadTimeDays: 1, contact: "+1-555-0102" },
-    ],
-    assignedItems: [
-      { itemId: "1", itemName: "Classic Burger", qtyPerItem: 0.02, unit: "kg" },
-      {
-        itemId: "2",
-        itemName: "Margherita Pizza",
-        qtyPerItem: 0.08,
-        unit: "kg",
-      },
-    ],
-    lastUpdated: Date.now(),
-    auditHistory: [
-      {
-        id: "a3",
-        timestamp: Date.now(),
-        action: "created",
-        user: "Admin",
-        changes: "Initial creation",
-      },
-    ],
-    isActive: true,
-    isSharedAcrossItems: true,
-  },
-  {
-    id: "4",
-    name: "Mozzarella",
-    sku: "CHEESE-004",
-    unit: "kg",
-    stockQuantity: 12.0,
-    minThreshold: 5,
-    costPerUnit: 8.5,
-    suppliers: [
-      {
-        id: "s3",
-        name: "Dairy Delights",
-        leadTimeDays: 3,
-        contact: "+1-555-0103",
-      },
-    ],
-    assignedItems: [
-      {
-        itemId: "2",
-        itemName: "Margherita Pizza",
-        qtyPerItem: 0.12,
-        unit: "kg",
-      },
-    ],
-    lastUpdated: Date.now(),
-    auditHistory: [
-      {
-        id: "a4",
-        timestamp: Date.now(),
-        action: "created",
-        user: "Admin",
-        changes: "Initial creation",
-      },
-    ],
-    isActive: true,
-    isSharedAcrossItems: false,
-  },
-];
-
 export function IngredientManagement({
-  ingredients,
-  setIngredients,
+  restaurantId,
   menuItems,
 }: IngredientManagementProps) {
+  const {
+    ingredients,
+    loading,
+    loadIngredients,
+    createIngredient,
+    updateIngredient,
+    restockIngredient,
+    consumeIngredient,
+    assignToMenuItem,
+  } = useIngredients({ restaurantId, autoLoad: true });
+
   const [isFormModalOpen, setIsFormModalOpen] = useState(false);
   const [isRestockModalOpen, setIsRestockModalOpen] = useState(false);
   const [isConsumeModalOpen, setIsConsumeModalOpen] = useState(false);
@@ -166,13 +48,6 @@ export function IngredientManagement({
     null
   );
 
-  // Initialize with sample data if empty
-  useEffect(() => {
-    if (ingredients.length === 0) {
-      setIngredients(initialIngredients);
-    }
-  }, []);
-
   const handleAddIngredient = () => {
     setSelectedIngredient(null);
     setIsFormModalOpen(true);
@@ -183,39 +58,20 @@ export function IngredientManagement({
     setIsFormModalOpen(true);
   };
 
-  const handleSaveIngredient = (ingredient: Ingredient) => {
-    const now = Date.now();
-    const isNew = !ingredient.id;
-
-    const updatedIngredient: Ingredient = {
-      ...ingredient,
-      id: ingredient.id || `ing-${Date.now()}`,
-      lastUpdated: now,
-      auditHistory: [
-        ...ingredient.auditHistory,
-        {
-          id: `audit-${now}`,
-          timestamp: now,
-          action: isNew ? "created" : "updated",
-          user: "Current User",
-          changes: isNew ? "Created ingredient" : "Updated ingredient details",
-        },
-      ],
-    };
-
-    if (isNew) {
-      setIngredients([...ingredients, updatedIngredient]);
-      toast.success("Ingredient added successfully");
-    } else {
-      setIngredients(
-        ingredients.map((ing) =>
-          ing.id === updatedIngredient.id ? updatedIngredient : ing
-        )
-      );
-      toast.success("Ingredient updated successfully");
+  const handleSaveIngredient = async (ingredient: Partial<Ingredient>) => {
+    try {
+      if (ingredient.id) {
+        // Update existing
+        await updateIngredient(ingredient.id, ingredient);
+      } else {
+        // Create new
+        await createIngredient(ingredient as any);
+      }
+      setIsFormModalOpen(false);
+    } catch (error) {
+      // Error already handled in hook with toast
+      console.error("Save ingredient error:", error);
     }
-
-    setIsFormModalOpen(false);
   };
 
   const handleRestock = (ingredient: Ingredient) => {
@@ -223,45 +79,23 @@ export function IngredientManagement({
     setIsRestockModalOpen(true);
   };
 
-  const handleConfirmRestock = (
+  const handleConfirmRestock = async (
     quantity: number,
     supplier?: string,
     receiptNumber?: string
   ) => {
     if (!selectedIngredient) return;
 
-    const now = Date.now();
-    const updatedIngredient: Ingredient = {
-      ...selectedIngredient,
-      stockQuantity: selectedIngredient.stockQuantity + quantity,
-      lastUpdated: now,
-      auditHistory: [
-        ...selectedIngredient.auditHistory,
-        {
-          id: `audit-${now}`,
-          timestamp: now,
-          action: "restocked",
-          user: "Current User",
-          changes: `Restocked +${quantity} ${selectedIngredient.unit}${
-            supplier ? ` from ${supplier}` : ""
-          }${receiptNumber ? `, Receipt: ${receiptNumber}` : ""}`,
-          previousValue: selectedIngredient.stockQuantity,
-          newValue: selectedIngredient.stockQuantity + quantity,
-        },
-      ],
-    };
-
-    setIngredients(
-      ingredients.map((ing) =>
-        ing.id === updatedIngredient.id ? updatedIngredient : ing
-      )
-    );
-
-    toast.success("Ingredient restocked", {
-      description: `+${quantity} ${selectedIngredient.unit}`,
-    });
-
-    setIsRestockModalOpen(false);
+    try {
+      await restockIngredient(selectedIngredient.id, {
+        quantity,
+        supplier,
+        receiptNumber,
+      });
+      setIsRestockModalOpen(false);
+    } catch (error) {
+      console.error("Restock error:", error);
+    }
   };
 
   const handleConsume = (ingredient: Ingredient) => {
@@ -269,44 +103,15 @@ export function IngredientManagement({
     setIsConsumeModalOpen(true);
   };
 
-  const handleConfirmConsume = (quantity: number, reason: string) => {
+  const handleConfirmConsume = async (quantity: number, reason: string) => {
     if (!selectedIngredient) return;
 
-    const now = Date.now();
-    const newQuantity = Math.max(
-      0,
-      selectedIngredient.stockQuantity - quantity
-    );
-
-    const updatedIngredient: Ingredient = {
-      ...selectedIngredient,
-      stockQuantity: newQuantity,
-      lastUpdated: now,
-      auditHistory: [
-        ...selectedIngredient.auditHistory,
-        {
-          id: `audit-${now}`,
-          timestamp: now,
-          action: "consumed",
-          user: "Current User",
-          changes: `Consumed -${quantity} ${selectedIngredient.unit}. Reason: ${reason}`,
-          previousValue: selectedIngredient.stockQuantity,
-          newValue: newQuantity,
-        },
-      ],
-    };
-
-    setIngredients(
-      ingredients.map((ing) =>
-        ing.id === updatedIngredient.id ? updatedIngredient : ing
-      )
-    );
-
-    toast.success("Ingredient consumed", {
-      description: `-${quantity} ${selectedIngredient.unit}`,
-    });
-
-    setIsConsumeModalOpen(false);
+    try {
+      await consumeIngredient(selectedIngredient.id, { quantity, reason });
+      setIsConsumeModalOpen(false);
+    } catch (error) {
+      console.error("Consume error:", error);
+    }
   };
 
   const handleManageBOM = (menuItem: MenuItem) => {
@@ -314,17 +119,39 @@ export function IngredientManagement({
     setIsBOMModalOpen(true);
   };
 
+  const handleSaveBOM = async (
+    assignments: Array<{ ingredientId: string; qtyPerItem: number }>
+  ) => {
+    if (!selectedMenuItem) return;
+
+    try {
+      await assignToMenuItem(selectedMenuItem.id, { assignments });
+      setIsBOMModalOpen(false);
+    } catch (error) {
+      console.error("Save BOM error:", error);
+    }
+  };
+
   const handleViewAudit = (ingredient: Ingredient) => {
     setSelectedIngredient(ingredient);
     setIsAuditModalOpen(true);
   };
+
+  if (loading && ingredients.length === 0) {
+    return (
+      <div className="flex items-center justify-center py-12">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-500"></div>
+        <span className="ml-3 text-gray-500">Loading ingredients...</span>
+      </div>
+    );
+  }
 
   return (
     <div>
       {/* Header with Add Button */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h2 className="text-gray-900">Ingredients</h2>
+          <h2 className="text-gray-900 text-xl font-semibold">Ingredients</h2>
           <p className="text-sm text-gray-500 mt-1">
             {ingredients.length}{" "}
             {ingredients.length === 1 ? "ingredient" : "ingredients"}
@@ -348,6 +175,7 @@ export function IngredientManagement({
         onViewAudit={handleViewAudit}
         onManageBOM={handleManageBOM}
         menuItems={menuItems}
+        onRefresh={loadIngredients}
       />
 
       {/* Modals */}
@@ -377,7 +205,7 @@ export function IngredientManagement({
         onClose={() => setIsBOMModalOpen(false)}
         menuItem={selectedMenuItem}
         ingredients={ingredients}
-        setIngredients={setIngredients}
+        onSave={handleSaveBOM}
       />
 
       <AuditHistoryModal

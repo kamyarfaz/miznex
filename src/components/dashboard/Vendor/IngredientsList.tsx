@@ -1,7 +1,7 @@
 import { Ingredient, getStockStatus } from "@/types";
 import { Filter, Search } from "lucide-react";
 import { useState } from "react";
-import { MenuItem } from ".";
+import { MenuItem } from "@/types";
 import { IngredientRow } from "./IngredientRow";
 
 interface IngredientsListProps {

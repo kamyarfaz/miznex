@@ -23,7 +23,6 @@ export function QuantityControl({
   }, [quantity, isEditing]);
 
   const handleInputChange = (value: string) => {
-    // Allow empty string or valid numbers
     if (value === "" || /^\d+$/.test(value)) {
       setInputValue(value);
     }

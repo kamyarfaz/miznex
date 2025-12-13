@@ -1,16 +1,30 @@
+import { MenuItem } from "@/types";
+import { Boxes, Package, ShoppingCart } from "lucide-react";
 import { useState } from "react";
-import { MenuItem } from ".";
 import { QuantityControl } from "./QuantityControl";
-import { ShoppingCart, Package, Boxes } from "lucide-react";
 
 interface MenuItemRowProps {
-  item: MenuItem;
+  item: {
+    id: string;
+    name: string;
+    price: number;
+    quantity: number;
+    category: string;
+    status: string;
+  };
   onUpdateQuantity: (id: string, quantity: number) => void;
   onSimulateOrder: (id: string) => void;
   onRestock: (id: string, quantity?: number) => void;
   isSelected: boolean;
   onToggleSelection: (id: string) => void;
-  onManageIngredients?: (item: MenuItem) => void;
+  onManageIngredients?: (item: {
+    id: string;
+    name: string;
+    price: number;
+    quantity: number;
+    category: string;
+    status: string;
+  }) => void;
 }
 
 export function MenuItemRow({
@@ -117,15 +131,13 @@ export function MenuItemRow({
             <ShoppingCart className="w-4 h-4" />
           </button>
         )}
-        {isSoldOut && (
-          <button
-            onClick={() => onRestock(item.id)}
-            className="p-2 text-gray-400 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors"
-            title="Restock"
-          >
-            <Package className="w-4 h-4" />
-          </button>
-        )}
+        <button
+          onClick={() => onRestock(item.id)}
+          className="p-2 text-gray-400 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors"
+          title="Manage Ingredients"
+        >
+          <Package className="w-4 h-4" />
+        </button>
       </div>
     </div>
   );

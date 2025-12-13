@@ -1,14 +1,28 @@
-import { MenuItem } from ".";
+import { MenuItem } from "@/types";
 import { MenuItemRow } from "./MenuItemRow";
 
 interface MenuItemsListProps {
-  items: MenuItem[];
+  items: {
+    id: string;
+    name: string;
+    price: number;
+    quantity: number;
+    category: string;
+    status: string;
+  }[];
   onUpdateQuantity: (id: string, quantity: number) => void;
   onSimulateOrder: (id: string) => void;
   onRestock: (id: string, quantity?: number) => void;
   selectedItems: Set<string>;
   onToggleSelection: (id: string) => void;
-  onManageIngredients?: (item: MenuItem) => void;
+  onManageIngredients?: (item: {
+    id: string;
+    name: string;
+    price: number;
+    quantity: number;
+    category: string;
+    status: string;
+  }) => void;
 }
 
 export function MenuItemsList({

@@ -1,10 +1,20 @@
+// src/types/ingredient.types.ts
+
 export type Unit = "g" | "kg" | "ml" | "L" | "piece" | "pack";
+
+export type IngredientAuditAction =
+  | "created"
+  | "updated"
+  | "restocked"
+  | "consumed"
+  | "assigned"
+  | "unassigned";
 
 export interface Supplier {
   id: string;
   name: string;
   leadTimeDays: number;
-  contact: string;
+  contact?: string;
 }
 
 export interface AssignedItem {
@@ -17,13 +27,7 @@ export interface AssignedItem {
 export interface AuditEntry {
   id: string;
   timestamp: number;
-  action:
-    | "created"
-    | "updated"
-    | "restocked"
-    | "consumed"
-    | "assigned"
-    | "unassigned";
+  action: IngredientAuditAction;
   user: string;
   changes: string;
   previousValue?: number;
@@ -38,55 +42,81 @@ export interface Ingredient {
   stockQuantity: number;
   minThreshold: number;
   costPerUnit: number;
-  suppliers: Supplier[];
-  assignedItems: AssignedItem[];
-  lastUpdated: number;
-  auditHistory: AuditEntry[];
   isActive: boolean;
   isSharedAcrossItems: boolean;
   notes?: string;
+  suppliers: Supplier[];
+  assignedItems: AssignedItem[];
+  auditHistory: AuditEntry[];
+  lastUpdated: number;
+  createdAt: string;
 }
 
-export interface BOMAssignment {
-  itemId: string;
-  itemName: string;
-  ingredientId: string;
-  ingredientName: string;
-  qtyPerItem: number;
+// DTOs
+export interface CreateIngredientDto {
+  restaurantId: string;
+  name: string;
+  sku?: string;
   unit: Unit;
-  conversionFactor?: number;
+  stockQuantity: number;
+  minThreshold: number;
+  costPerUnit: number;
+  isActive?: boolean;
+  isSharedAcrossItems?: boolean;
+  notes?: string;
+  suppliers?: Omit<Supplier, "id">[];
 }
 
-export type StockStatusVendor = "ok" | "low" | "out";
-
-// Unit conversion helpers
-export const UNIT_CONVERSIONS: Record<string, number> = {
-  "g-kg": 1000,
-  "kg-g": 0.001,
-  "ml-L": 1000,
-  "L-ml": 0.001,
-};
-
-export function convertUnit(
-  value: number,
-  fromUnit: Unit,
-  toUnit: Unit
-): number {
-  const key = `${fromUnit}-${toUnit}`;
-  const factor = UNIT_CONVERSIONS[key];
-  return factor ? value * factor : value;
+export interface UpdateIngredientDto {
+  name?: string;
+  sku?: string;
+  unit?: Unit;
+  stockQuantity?: number;
+  minThreshold?: number;
+  costPerUnit?: number;
+  isActive?: boolean;
+  isSharedAcrossItems?: boolean;
+  notes?: string;
+  suppliers?: Omit<Supplier, "id">[];
 }
 
-export function getStockStatus(ingredient: Ingredient): StockStatusVendor {
-  if (ingredient.stockQuantity === 0) return "out";
+export interface RestockIngredientDto {
+  quantity: number;
+  supplier?: string;
+  receiptNumber?: string;
+}
+
+export interface ConsumeIngredientDto {
+  quantity: number;
+  reason: string;
+}
+
+export interface AssignmentEntry {
+  ingredientId: string;
+  qtyPerItem: number;
+}
+
+export interface AssignIngredientsDto {
+  assignments: AssignmentEntry[];
+}
+
+export interface QueryIngredientDto {
+  search?: string;
+  status?: "all" | "ok" | "low" | "out";
+  page?: string;
+  limit?: string;
+}
+
+export interface PaginatedResponse<T> {
+  ingredients: T[];
+  totalCount: number;
+  page: number;
+  limit: number;
+}
+
+// Helper function
+export function getStockStatus(ingredient: Ingredient): "ok" | "low" | "out" {
+  if (ingredient.stockQuantity <= 0) return "out";
   if (ingredient.stockQuantity <= ingredient.minThreshold) return "low";
   return "ok";
-}
-
-export function calculateDaysUntilOut(
-  stockQuantity: number,
-  averageDailyUsage: number
-): number {
-  if (averageDailyUsage === 0) return Infinity;
-  return Math.floor(stockQuantity / averageDailyUsage);
 }

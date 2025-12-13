@@ -1,5 +1,3 @@
-import { useAuthStore } from "@/store/authStore";
-import { toast } from "sonner";
 
 export const getApiUrl = (endpoint: string, isServer: boolean = false) => {
   if (isServer) {
@@ -13,7 +11,6 @@ export const getApiUrl = (endpoint: string, isServer: boolean = false) => {
 
 const makeRequest = async (url: string, options: RequestInit) => {
   const fullUrl = getApiUrl(url);
-  console.log(fullUrl);
   const isFormData = options.body instanceof FormData;
 
   const headers = {

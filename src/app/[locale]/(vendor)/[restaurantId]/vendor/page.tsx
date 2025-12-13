@@ -1,6 +1,6 @@
 import VendorPanel from "@/components/dashboard/Vendor";
 
-const Page = () => {
+const Page = async () => {
   return <VendorPanel />;
 };
 export default Page;

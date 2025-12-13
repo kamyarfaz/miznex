@@ -1,15 +1,16 @@
 import { Ingredient } from "@/types";
+import { MenuItem } from "@/types/main/items";
 import { AlertTriangle, Plus, Trash2, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { toast } from "sonner";
-import { MenuItem } from ".";
 
 interface BOMModalProps {
   isOpen: boolean;
   onClose: () => void;
   menuItem: MenuItem | null;
   ingredients: Ingredient[];
-  setIngredients: (ingredients: Ingredient[]) => void;
+  onSave: (
+    assignments: Array<{ ingredientId: string; qtyPerItem: number }>
+  ) => Promise<void>;
 }
 
 interface BOMEntry {
@@ -22,10 +23,11 @@ export function BOMModal({
   onClose,
   menuItem,
   ingredients,
-  setIngredients,
+  onSave,
 }: BOMModalProps) {
   const [bomEntries, setBomEntries] = useState<BOMEntry[]>([]);
   const [selectedIngredientId, setSelectedIngredientId] = useState<string>("");
+  const [saving, setSaving] = useState(false);
 
   useEffect(() => {
     if (isOpen && menuItem) {
@@ -50,9 +52,7 @@ export function BOMModal({
   const handleAddIngredient = () => {
     if (!selectedIngredientId) return;
 
-    // Check if already added
     if (bomEntries.some((e) => e.ingredientId === selectedIngredientId)) {
-      toast.error("Ingredient already added");
       return;
     }
 
@@ -77,87 +77,20 @@ export function BOMModal({
     );
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (!menuItem) return;
 
-    const translatedItemName = menuItem.name;
-
-    // Update all ingredients
-    const updatedIngredients = ingredients.map((ing) => {
-      const entry = bomEntries.find((e) => e.ingredientId === ing.id);
-
-      if (entry) {
-        // Add or update assignment
-        const existingAssignment = ing.assignedItems.find(
-          (item) => item.itemId === menuItem.id
-        );
-        const updatedAssignedItems = existingAssignment
-          ? ing.assignedItems.map((item) =>
-              item.itemId === menuItem.id
-                ? { ...item, qtyPerItem: entry.qtyPerItem }
-                : item
-            )
-          : [
-              ...ing.assignedItems,
-              {
-                itemId: menuItem.id,
-                itemName: menuItem.name,
-                qtyPerItem: entry.qtyPerItem,
-                unit: ing.unit,
-              },
-            ];
-
-        return {
-          ...ing,
-          assignedItems: updatedAssignedItems,
-          lastUpdated: Date.now(),
-          auditHistory: [
-            ...ing.auditHistory,
-            {
-              id: `audit-${Date.now()}`,
-              timestamp: Date.now(),
-              action: "assigned" as const,
-              user: "Current User",
-              changes: `Assigned to ${translatedItemName}: ${entry.qtyPerItem} ${ing.unit}`,
-            },
-          ],
-        };
-      } else {
-        // Remove assignment if exists
-        const hasAssignment = ing.assignedItems.some(
-          (item) => item.itemId === menuItem.id
-        );
-        if (hasAssignment) {
-          return {
-            ...ing,
-            assignedItems: ing.assignedItems.filter(
-              (item) => item.itemId !== menuItem.id
-            ),
-            lastUpdated: Date.now(),
-            auditHistory: [
-              ...ing.auditHistory,
-              {
-                id: `audit-${Date.now()}`,
-                timestamp: Date.now(),
-                action: "unassigned" as const,
-                user: "Current User",
-                changes: `Unassigned from ${translatedItemName}`,
-              },
-            ],
-          };
-        }
-        return ing;
-      }
-    });
-
-    setIngredients(updatedIngredients);
-    toast.success("Bill of materials updated");
-    onClose();
+    try {
+      setSaving(true);
+      await onSave(bomEntries);
+    } catch (error) {
+      console.error("Save BOM error:", error);
+    } finally {
+      setSaving(false);
+    }
   };
 
   if (!isOpen || !menuItem) return null;
-
-  const translatedItemName = menuItem.name;
 
   const availableIngredients = ingredients.filter(
     (ing) => !bomEntries.some((e) => e.ingredientId === ing.id)
@@ -176,8 +109,8 @@ export function BOMModal({
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto">
       <div
-        className="fixed inset-0 bg-[rgba(0,0,0,0.3)] bg-opacity-20 transition-opacity"
-        onClick={onClose}
+        className="fixed inset-0 bg-black bg-opacity-30 transition-opacity"
+        onClick={!saving ? onClose : undefined}
       />
 
       <div className="flex min-h-full items-center justify-center p-4">
@@ -185,14 +118,17 @@ export function BOMModal({
           {/* Header */}
           <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
             <div>
-              <h2 className="text-gray-900">Bill of Materials</h2>
+              <h2 className="text-lg font-semibold text-gray-900">
+                Bill of Materials
+              </h2>
               <p className="text-sm text-gray-500 mt-1">
-                Ingredients for {translatedItemName}
+                Ingredients for {menuItem.name}
               </p>
             </div>
             <button
               onClick={onClose}
-              className="text-gray-400 hover:text-gray-600 transition-colors"
+              disabled={saving}
+              className="text-gray-400 hover:text-gray-600 transition-colors disabled:opacity-50"
             >
               <X className="w-5 h-5" />
             </button>
@@ -205,24 +141,23 @@ export function BOMModal({
               <select
                 value={selectedIngredientId}
                 onChange={(e) => setSelectedIngredientId(e.target.value)}
-                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                disabled={saving}
+                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 disabled:opacity-50"
               >
                 <option value="">Select Ingredient</option>
-                {availableIngredients.map((ing) => {
-                  return (
-                    <option key={ing.id} value={ing.id}>
-                      {ing.name}
-                    </option>
-                  );
-                })}
+                {availableIngredients.map((ing) => (
+                  <option key={ing.id} value={ing.id}>
+                    {ing.name}
+                  </option>
+                ))}
               </select>
               <button
                 onClick={handleAddIngredient}
-                disabled={!selectedIngredientId}
+                disabled={!selectedIngredientId || saving}
                 className="flex items-center gap-2 px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 <Plus className="w-4 h-4" />
-                Add Ingredient
+                Add
               </button>
             </div>
 
@@ -236,19 +171,19 @@ export function BOMModal({
                 <table className="w-full">
                   <thead className="bg-gray-50">
                     <tr>
-                      <th className="px-4 py-3 text-left text-sm text-gray-600">
-                        Ingredient Name
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">
+                        Ingredient
                       </th>
-                      <th className="px-4 py-3 text-left text-sm text-gray-600">
-                        Current Stock
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">
+                        Stock
                       </th>
-                      <th className="px-4 py-3 text-left text-sm text-gray-600">
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">
                         Qty/Item
                       </th>
-                      <th className="px-4 py-3 text-left text-sm text-gray-600">
-                        Ingredient Cost
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">
+                        Cost
                       </th>
-                      <th className="px-4 py-3 text-left text-sm text-gray-600">
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">
                         Actions
                       </th>
                     </tr>
@@ -260,8 +195,6 @@ export function BOMModal({
                       );
                       if (!ing) return null;
 
-                      const translatedName = ing.name;
-                      const translatedUnit = ing.unit;
                       const cost = entry.qtyPerItem * ing.costPerUnit;
                       const isInsufficient =
                         ing.stockQuantity < entry.qtyPerItem;
@@ -272,8 +205,8 @@ export function BOMModal({
                           className="hover:bg-gray-50"
                         >
                           <td className="px-4 py-3">
-                            <div className="text-gray-900">
-                              {translatedName}
+                            <div className="text-sm text-gray-900">
+                              {ing.name}
                             </div>
                             {isInsufficient && (
                               <div className="flex items-center gap-1 text-xs text-red-600 mt-1">
@@ -282,14 +215,15 @@ export function BOMModal({
                               </div>
                             )}
                           </td>
-                          <td className="px-4 py-3 text-gray-600">
-                            {ing.stockQuantity} {translatedUnit}
+                          <td className="px-4 py-3 text-sm text-gray-600">
+                            {ing.stockQuantity} {ing.unit}
                           </td>
                           <td className="px-4 py-3">
                             <div className="flex items-center gap-2">
                               <input
                                 type="number"
                                 step="0.01"
+                                min="0"
                                 value={entry.qtyPerItem}
                                 onChange={(e) =>
                                   handleUpdateQuantity(
@@ -297,14 +231,15 @@ export function BOMModal({
                                     parseFloat(e.target.value) || 0
                                   )
                                 }
-                                className="w-24 px-2 py-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                disabled={saving}
+                                className="w-24 px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-orange-500 disabled:opacity-50"
                               />
-                              <span className="text-gray-600 text-sm">
-                                {translatedUnit}
+                              <span className="text-sm text-gray-600">
+                                {ing.unit}
                               </span>
                             </div>
                           </td>
-                          <td className="px-4 py-3 text-gray-900">
+                          <td className="px-4 py-3 text-sm text-gray-900">
                             ${cost.toFixed(2)}
                           </td>
                           <td className="px-4 py-3">
@@ -312,7 +247,9 @@ export function BOMModal({
                               onClick={() =>
                                 handleRemoveIngredient(entry.ingredientId)
                               }
-                              className="p-1 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded transition-colors"
+                              disabled={saving}
+                              className="p-1 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded transition-colors disabled:opacity-50"
+                              title="Remove"
                             >
                               <Trash2 className="w-4 h-4" />
                             </button>
@@ -328,22 +265,24 @@ export function BOMModal({
             {/* Cost Summary */}
             {bomEntries.length > 0 && (
               <div className="p-4 bg-gray-50 rounded-lg space-y-2">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between text-sm">
                   <span className="text-gray-700">Total Ingredient Cost:</span>
-                  <span className="text-gray-900">
+                  <span className="font-medium text-gray-900">
                     ${totalIngredientCost.toFixed(2)}
                   </span>
                 </div>
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between text-sm">
                   <span className="text-gray-700">Item Price:</span>
-                  <span className="text-gray-900">
+                  <span className="font-medium text-gray-900">
                     ${menuItem.price.toFixed(2)}
                   </span>
                 </div>
                 <div className="flex items-center justify-between pt-2 border-t border-gray-200">
-                  <span className="text-gray-900">Gross Margin:</span>
+                  <span className="font-medium text-gray-900">
+                    Gross Margin:
+                  </span>
                   <span
-                    className={`${
+                    className={`font-semibold ${
                       grossMargin >= 0 ? "text-green-600" : "text-red-600"
                     }`}
                   >
@@ -358,15 +297,20 @@ export function BOMModal({
           <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-gray-200">
             <button
               onClick={onClose}
-              className="px-4 py-2 text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+              disabled={saving}
+              className="px-4 py-2 text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors disabled:opacity-50"
             >
               Cancel
             </button>
             <button
               onClick={handleSave}
-              className="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
+              disabled={saving}
+              className="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors disabled:opacity-50 flex items-center gap-2"
             >
-              Save Changes
+              {saving && (
+                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+              )}
+              {saving ? "Saving..." : "Save Changes"}
             </button>
           </div>
         </div>
